@@ -692,3 +692,63 @@ LineNumberTable, *Annotation*, EnclosingMethod
 -keep class com.xiaomi.analytics.*{public protected *;}
 ```
 
+
+<br>
+### 可玩式广告
+
+|                   |                                   |
+| ----------------- | --------------------------------- |
+| Jar名称           | libs/yumi_adapter_playableads.jar |
+| 三方版本          | 2.0.6                             |
+| GooglePlayService | --                                |
+| 支持广告形式      | 插屏, 视频                        |
+| .so/lib工程       | --                                |
+
+**额外权限：**
+```xml
+--
+```
+
+**AndroidManifest.xml注册组件：**
+```xml
+<activity
+	android:name="com.playableads.activity.PlayableADActivity"
+	android:configChanges="orientation|screenSize|keyboardHidden"
+	android:hardwareAccelerated="true"
+	android:screenOrientation="portrait"
+	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+<receiver android:name="com.playableads.PlayableReceiver" >
+	<intent-filter>
+		<action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+	</intent-filter>
+</receiver>
+```
+
+**混淆：**
+```c
+-keep class com.playableads.PlayPreloadingListener {*;}
+-keep class com.playableads.PlayLoadingListener {*;}
+-keep class * implements com.playableads.PlayPreloadingListener {*;}
+-keep class * implements com.playableads.PlayLoadingListener {*;}
+-keep class com.playableads.PlayableReceiver {*;}
+-keep class com.playableads.constants.StatusCode {*;}
+-keep class com.playableads.MultiPlayLoadingListener {*;}
+-keep class com.playableads.MultiPlayPreloadingListener {*;}
+-keep class * implements com.playableads.MultiPlayLoadingListener {*;}
+-keep class * implements com.playableads.MultiPlayPreloadingListener {*;}
+-keep class com.playableads.PlayableAds {
+    public void onDestroy();
+    public static com.playableads.PlayableAds getInstance();
+    public void requestPlayableAds(com.playableads.PlayPreloadingListener, java.lang.String);
+    public void requestPlayableAds(java.lang.String, com.playableads.PlayPreloadingListener);
+    public synchronized static com.playableads.PlayableAds init(android.content.Context, java.lang.String);
+    public void presentPlayableAD(java.lang.String, com.playableads.PlayLoadingListener);
+    public void presentPlayableAd(com.playableads.PlayLoadingListener);
+    public boolean canPresentAd(java.lang.String);
+    public void setMultiLoadingListener(com.playableads.MultiPlayLoadingListener);
+    public void setMultiPreloadingListener(com.playableads.MultiPlayPreloadingListener);
+    public void setCacheCountPerUnitId(int);
+    public void setAutoLoadAd(boolean);
+}
+```
