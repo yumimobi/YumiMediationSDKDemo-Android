@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/ll_contains"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="2dip" >
+
+        <Button
+            android:id="@+id/btn_request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip"
+            android:background="@drawable/btn_bg"
+            android:text="Request AD" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_show_banner"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:text="Next Banner" />
+
+            <Button
+                android:id="@+id/btn_show_interstitial"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:text="Next Interstitial" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AD Count:"
+                />
+
+            <TextView
+                android:id="@+id/tv_adcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/ll_ad_continer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"></FrameLayout>
+</RelativeLayout>
+    <!--
+        <LinearLayout
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_banner_a"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dip"
+                android:text="Banner\nA"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_banner_m"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dip"
+                android:text="Banner\nM"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_interstitial_a"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dip"
+                android:text="Interstitial\nA"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_interstitial_m"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dip"
+                android:text="Interstitial\nM"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_media_a"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dip"
+                android:text="Media\nA"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_media_m"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dip"
+                android:text="Media\nM"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/channel"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_weight="1"
+                android:hint="channel" />
+
+            <EditText
+                android:id="@+id/version"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_weight="1"
+                android:hint="version" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/yumiID"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_margin="10dip"
+            android:hint="yumiID"
+            />
+
+        <CheckBox
+            android:id="@+id/debug"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:layout_margin="10dip"
+            android:text="DebugMode"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/btn_banner_1"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:text="Banner_xml"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_gamesim"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:padding="10dip"
+                android:text="GameSim"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/anaylsis"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:layout_weight="1"
+                    android:text="anaylsis" />
+            </LinearLayout>
+        </LinearLayout>
+    -->

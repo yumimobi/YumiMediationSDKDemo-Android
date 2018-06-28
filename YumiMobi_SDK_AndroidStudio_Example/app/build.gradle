@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.yumimobi.ads"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+   
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        //lint 遇到 error 时继续 构建
+        abortOnError false
+        //build release 版本 时 开启lint 检测
+        checkReleaseBuilds false
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
+    }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+        jumboMode true
+        preDexLibraries = false
+        incremental true
+    }
+}
+repositories {
+    jcenter {
+        url "http://jcenter.bintray.com/"
+    }
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-ads:10.0.1'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.yumimobi.ads:mediation:3.3.6.+' //玉米核心SDK
+    compile 'com.yumimobi.ads.mediation:mraid:3.3.6.+' //富媒体广告适配器
+    compile 'com.yumimobi.ads.mediation:adcolony:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:applovin:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:admob:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:baidu:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:chartboost:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:coconut:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:centrixlink:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:facebook:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:gdt:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:inmobi:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:oneway:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:startapp:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:toutiao:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:unity:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:vungle:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:xiaomi:3.3.6.+'
+    compile 'com.yumimobi.ads.mediation:mobvista:3.3.6.+'
+}
