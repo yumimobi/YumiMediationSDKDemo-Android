@@ -52,7 +52,7 @@ All lib files are placed in lib in the SDK:
 
 Create libs folder under the root directory of your project,add YumiMobi_Android_vX.X.X.jar into libs.
 
-![img01](document\image01.jpg)
+<img src="document\image01.jpg" alt="img1">
 
 you can choose to or not to add android-support-v4.jar and/or android-support-v7-appcompat.jar and/or Yumi_Adapter_Mraid_vX.X.X.jar into libs according to your needs. You must use the jar file provided by YUMIMOBI when you need to use v4.jar or v7.jar.
 
@@ -441,7 +441,7 @@ banner.resumeBanner();
 
 **Banner ads automatically adapt to screen size**
 
-![img02](document\image02.png) 
+<img src="document\image02.png" alt="img2">
 
 When you set banner ad container, you can use isMatchWindowWidth, a parameter of boolean type provided by YUMI SDK. This parameter indicates if banner width has populated full screen. When it’s true, banner width equals the screen width.
 
@@ -619,7 +619,7 @@ content.reportClick(container,content); // report when impression happens (conta
 
 **YUMI SDK provideds a test mode to test your 3rd-party Integrations.** 
 
-![img3](document\image03.png)
+<img src="document\image03.png" alt="img3">
 
 **使用步骤：** 
 

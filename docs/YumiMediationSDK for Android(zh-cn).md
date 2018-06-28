@@ -52,7 +52,7 @@ dependencies {
 
 使用时在工程的根目录下创建libs文件夹，将YumiMobi_Android_vX.X.X.jar添加到创建好的libs文件中。
 
-![img01](document\image01.jpg)
+<img src="document\image01.jpg" alt="img1">
 
 如希望支持富媒体广告，请将Yumi_Adapter_Mraid_vX.X.X.jar添加到创建好的libs文件中。
 可以视需求添加android-support-v4.jar、android-support-v7-appcompat.jar到libs文件中，需要用到V4或V7包时必须使用我们提供的jar。
@@ -445,7 +445,7 @@ banner.resumeBanner();
 
 **横幅自适应屏幕宽度**
 
-![img02](document\image02.png) 
+<img src="document\image02.png" alt="img2">
 
 横幅设置广告容器的同时，玉米SDK提供了 boolean 类型的参数：isMatchWindowWidth。该参数为横幅宽度是否充满全屏，当该参数为true时横幅的宽度为屏幕宽度。
 
@@ -622,7 +622,7 @@ content.reportClick(container,content); //广告展示时上报(container为广�
 
 **玉米广告SDK为开发者提供了一个检测三方平台集成状态的调试模式，如图：** 
 
-![img3](document\image03.png)
+<img src="document\image03.png" alt="img3">
 
 **使用步骤：** 
 

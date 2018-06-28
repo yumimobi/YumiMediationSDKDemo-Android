@@ -18,13 +18,13 @@
 
 通过官网下载SDK主包或者联系我们： support@yumimobi.com
 
-![img01](document_unity\image01.png)
+<img src="document_unity\image01.png" alt="img1">
 
 ### 三方SDK下载
 
 在玉米SDK jar包中选择需要接入的三方平台（三方平台的jar包可以通过名称进行区分），接入工程中
 
-![img01](document_unity\image02.png)
+<img src="document_unity\image02.png" alt="img2">
 
 ## 接入步骤
 
@@ -34,19 +34,19 @@
 
 （1） 将resource\YumiMobi_UnityPlugin_Android.unitypackage导入到工程中。如果资源文件跟项目中现有资源文件有冲突，请尽量使用我们提供的资源文件，若存在其他问题可联系我们 support@yumimobi.com ，我们会尽快反馈。资源文件不添加可能导致广告无法正常展示。
 
-![img01](document_unity\image03.png)
+<img src="document_unity\image03.png" alt="img3">
 
 （2）当应用需发布到googlePlay平台时，若Assest/plugins/Android中没有关于googlePlayServices相关Jar或者aar文件时，请导入YumiMobi_UnityPLugin_GooglePlayServices.unitypackage
 
-![img01](document_unity\image04.png)
+<img src="document_unity\image04.png" alt="img4">
 
 （3）当Assest/plugins/Android 没有support-v7或者support-v4相关jar或者aar文件时，请把以下文件拷贝到../Assest/plugins/Android文件夹中
 
-![img01](document_unity\image05.png)
+<img src="document_unity\image05.png" alt="img5">
 
 （4）如希望支持富媒体广告，请将Yumi_Adapter_Mraid_vX.X.X.jar添加到../Assest/plugins/Android文件夹中
 
-![img01](document_unity\image06.png)
+<img src="document_unity\image06.png" alt="img6">
 
 **2、增加三方平台SDK :三方平台 adapter(yumi_adapter_******_v*.*.*.jar)在adapter文件夹下，如需接入三方平台，可添加到\Assets\plugins\Android下。**
 
@@ -82,15 +82,15 @@ YumiUnityAdUtils.CheckPermission();
 
 **1、点击MakeZplayPrefab/MakeZplayYUMIPrefab 生成ZplayYUMIHelper prefab到Hietarchy，此prefab会全程跟随所有场景**
 
-![img01](document_unity\image07.png)
+<img src="document_unity\image07.png" alt="img7">
 
 **2、上述步骤完成之后，在ZplayYUMIHelper类内设置您的广告位ID、渠道号、版本号(渠道号和版本号为非必选项)。**
 
-![img01](document_unity\image08.png)
+<img src="document_unity\image08.png" alt="img8">
 
 **3、ZplayYUMIHelper类Start () 方法体内有以下代码**
 
-![img01](document_unity\image09.png)
+<img src="document_unity\image09.png" alt="img9">
 
 initMedia() //为初始化视频，如不需要视频则要注释掉<br>
 InitIterstitialAD() //为初始化插屏 。如不需要插屏则要注释掉<br>
@@ -161,7 +161,7 @@ public void onBannerClicked(string data)
 
 2) 横幅自适应屏幕宽度： 可根据需要修改isMatchWindowWidth参数状态，建议使用默认false状态，提高广告展示效果。
 
-![img01](document_unity\image10.png)
+<img src="document_unity\image10.png" alt="img10">
 
 横幅设置广告容器的同时，玉米SDK提供了 boolean 类型的参数：isMatchWindowWidth。可修改boolean 类该参数为横幅宽度是否充满全屏，
 当该参数为false时横幅的宽度为容器宽度；当该参数为true时横幅的宽度为屏幕宽度。默认状态为false
@@ -242,15 +242,15 @@ yuMiUnityAD.IsMediaPrepared(gameObject.name);
 
 此加载完成函数调用逻辑已经提供在ZplayYUMIHelperupdade 类update函数中，详情如下：
 
-![img01](document_unity\image11.png)
+<img src="document_unity\image11.png" alt="img11">
 
 调用视频是否加载完成函数IsMediaPrepared()，建议每五秒请求一次。加载成功后GetRotaIsMediaPrepared设置为true，暂停循环调用IsMediaPrepared()函数。
 
-![img01](document_unity\image12.png)
+<img src="document_unity\image12.png" alt="img12">
 
 在视频广告关闭回调中再次开启轮询加载视频
 
-![img01](document_unity\image13.png)
+<img src="document_unity\image13.png" alt="img13">
 
 （2） 调用以下方法展示激励视频：
 
@@ -327,7 +327,7 @@ ZplayLogger.Log("********");
 
 **玉米广告SDK为开发者提供了一个检测三方平台集成状态的调试模式，如图：**
 
-![img01](document_unity\image14.png)
+<img src="document_unity\image14.png" alt="img14">
 
 可以通过调用以下方法启动调试模式页面。
 

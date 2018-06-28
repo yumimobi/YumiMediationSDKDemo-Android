@@ -21,13 +21,13 @@ As the above approach implies, Yumi is a full service ad monetization solution. 
 
 Our main SDK and all 3rd party SDKs are available through registering and logging in to our website https://www.yumimobi.com.  Download the SDK package here or contact us at support@yumimobi.com and we can assist you in setting up your account to get started.   
 
-![img01](document_unity\image01.png)
+<img src="document_unity\image01.png" alt="img1">
 
 ### Third-Party SDK Download
 
 Your Yumi operation rep may suggest the most appropriate ad networks to integrate for your app or game, but the final decision is yours.  Choose the third-party platforms which you would like to integrate into the Yumi SDK jar package (the various package names clearly identify each ad network available).
 
-![img01](document_unity\image02.png)
+<img src="document_unity\image02.png" alt="img2">
 
 ## Integration
 
@@ -36,19 +36,19 @@ Your Yumi operation rep may suggest the most appropriate ad networks to integrat
 Everyone needs this first party Yumi resource file.  Import 
 resource\YumiMobi_UnityPlugin_Android.unitypackage to the project.  For a manual import option, please see Exhibit A.
 
-![img01](document_unity\image03.png)
+<img src="document_unity\image03.png" alt="img3">
 
 When the application needs to be published to the googlePlay platform，Assest / plugins / Android does not have information about googlePlayServices related to Jar or aar files， import YumiMobi_UnityPLugin_GooglePlayServices.unitypackage
 
-![img01](document_unity\image04.png)
+<img src="document_unity\image04.png" alt="img4">
 
 When Assest / plugins / Android does not have support-v7 or support-v4 related jar or aar files，copy the following files to the ../Assest/plugins/Android folder
 
-![img01](document_unity\image05.png)
+<img src="document_unity\image05.png" alt="img5">
 
 When the application needs to be add to the mraid ad. copy the following files to the../Assest/plugins/Android 
 
-![img01](document_unity\image06.png)
+<img src="document_unity\image06.png" alt="img6">
 
 Add any third-party SDK adapter resources for the Ad Networks previously chosen: The third-party adapters (yumi_adapter_******_v*.*.*.jar) within adapter folder should be added under \Assets\plugins\Android.
 
@@ -58,15 +58,15 @@ Add any third-party SDK adapter resources for the Ad Networks previously chosen:
 
 1) Click MakeZplayPrefab / MakeZplayYUMIPrefab to generate ZplayYUMIHelper prefab to Hietarchy，This prefab will follow all the scenes
 
-![img01](document_unity\image07.png)
+<img src="document_unity\image07.png" alt="img7">
 
 2) Once the above steps are complete, set your slot ID, channel number, version number (channel number and version number as non-mandatory) within the ZplayYUMIHelper class.
 
-![img01](document_unity\image08.png)
+<img src="document_unity\image08.png" alt="img8">
 
 3) ZplayYUMIHelper class Start () method The body has the following code
 
-![img01](document_unity\image09.png)
+<img src="document_unity\image09.png" alt="img9">
 
 initMedia(); // Initialize video，note if you don't need video <br>
 InitIterstitialAD() ;// Initialize InitIterstitial ，note if you don't need InitIterstitial<br>
@@ -94,15 +94,15 @@ yuMiUnityAD.IsMediaPrepared(gameObject.name)
 ```
 Load completed function call logic In the ZplayYUMIHelperupdade update，as follows：
 
-![img01](document_unity\image11.png)
+<img src="document_unity\image11.png" alt="img11">
 
 Call IsMediaPrepared() to determine whether video has been loaded. It is recommended to request every five seconds.  After loading completed, please set GetRotaIsMediaPrepared to true and suspend calling IsMediaPrepared(). 
 
-![img01](document_unity\image12.png)
+<img src="document_unity\image12.png" alt="img12">
 
 **Turn on polling in the video ad closure callback to load the video again**
 
-![img01](document_unity\image13.png)
+<img src="document_unity\image13.png" alt="img13">
 
 ### Google Play Release
 
@@ -122,7 +122,7 @@ ZplayLogger.Log("********");
 
 Here, developers can test a) initialization of the various adapters, b) the configuration of the Yumi and other ad network account setups, and c) the availability and response to ad calls.  Testing is accomplished in the Yumimobi SDK debug mode.  The following image shows the process of drilling down from the network level to the ad level of testing.  The debugging process is outlined in more detail afterwards.
 
-![img01](document_unity\image14.png)
+<img src="document_unity\image14.png" alt="img14">
 
 **Debugging Steps:**
 
@@ -266,7 +266,7 @@ b) Banner width controls: The parameter status of isMatchWindowWidth can be used
 YumiUnityAdUtils.AddBannerAd(gameObject.name, isMatchWindowWidth); 
 ```
 
-![img01](document_unity\image10.png)
+<img src="document_unity\image10.png" alt="img10">
 
 ### Interstitial Options
 
