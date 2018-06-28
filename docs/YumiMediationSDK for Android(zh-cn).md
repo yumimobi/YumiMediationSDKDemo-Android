@@ -127,9 +127,9 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 ```
 
 
-##代码集成
+## 代码集成
 
-###横幅
+### 横幅
 **创建一个ViewGroup作为横幅广告容器，并添加到工程中Activity的适当位置。之后调用如下代码：**
 
 ```java
@@ -234,7 +234,7 @@ protected void onDestroy() {
 
 
 
-###激励视频
+### 激励视频
 
 **在Activity的onCreate()方法内添加以下代码：**
 

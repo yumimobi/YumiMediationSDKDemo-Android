@@ -127,9 +127,9 @@ Optional :
 ```
 
 
-##Integration
+## Integration
 
-###Banner
+### Banner
 **Creat a ViewGroup as banner container, and add it in Activity. Then call the code below:**
 
 ```java
@@ -232,7 +232,7 @@ As different platforms have different pop-up displays, you need to add the follo
 
 
 
-###Rewarded Video
+### Rewarded Video
 
 **Add following code in onCreate method of Activity:**
 
