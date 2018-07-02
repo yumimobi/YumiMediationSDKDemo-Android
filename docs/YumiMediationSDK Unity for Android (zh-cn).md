@@ -26,11 +26,10 @@
 
 <img src="document_unity\image02.png" alt="img2">
 
-## 接入步骤
 
-### 添加资源文件
+## 添加资源文件
 
-**1、添加SDK需要的资源文件：**
+### 添加SDK需要的资源文件
 
 （1） 将resource\YumiMobi_UnityPlugin_Android.unitypackage导入到工程中。如果资源文件跟项目中现有资源文件有冲突，请尽量使用我们提供的资源文件，若存在其他问题可联系我们 support@yumimobi.com ，我们会尽快反馈。资源文件不添加可能导致广告无法正常展示。
 
@@ -48,9 +47,11 @@
 
 <img src="document_unity\image06.png" alt="img6">
 
-**2、增加三方平台SDK :三方平台 adapter(yumi_adapter_******_v*.*.*.jar)在adapter文件夹下，如需接入三方平台，可添加到\Assets\plugins\Android下。**
+### 添加三方平台SDK
 
-**3、AndroidManifest.xml中权限增加：**
+三方平台 adapter (yumi_adapter_******_v*.*.*.jar) 在adapter文件夹下，如需接入三方平台，可添加到\Assets\plugins\Android下。
+
+### AndroidManifest.xml中权限添加
 
 （1） 可选权限： 可视需求添加到您的Assets\plugins\Android\AndroidManifest.xml文件中。若添加以下权限，有助提高广告填充
 
@@ -69,12 +70,15 @@
 <!-- yumi sdk end -->
 ```
 
-（2） 动态获取权限:当您的应用targetSdkVersion为23及以上时，调用以下方法进行权限检查并且弹窗提示用户授权。该方法在实例化广告之前调用，并且需要添加android-support-v4.jar。
+（2） 注：三方平台注册组件，请查看文档 <a href="https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20Unity%20-%20Mediation%20List(zh-cn)%20.md">《YumiMediationSDK Unity - Mediation List》</a>
+
+### Android6.0以上系统权限处理
+
+当您的应用targetSdkVersion为23及以上时，调用以下方法进行权限检查并且弹窗提示用户授权。该方法在实例化广告之前调用，并且需要添加android-support-v4.jar。
 
 ```c#
 YumiUnityAdUtils.CheckPermission();
 ```
-注:三方平台注册组件，请查看文档《YumiMobi聚合广告SDK-三方支持列表》
 
 ## 快速接入
 
@@ -307,13 +311,6 @@ public void onIsMediaPrepared (string data)
 #endregion
 ```
 
-## 是否GooglePlay发布版本
-
-<p><spen style="color:red;">注：如果您的APP是在GooglePlay发布，请设置以下方法。</spen></p>
-
-```c#
-ZplayYUMIHelper.Instance.SetAppIsGooglePlayVersions();
-```
 
 ## Log
 

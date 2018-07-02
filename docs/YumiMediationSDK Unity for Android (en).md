@@ -104,12 +104,6 @@ Call IsMediaPrepared() to determine whether video has been loaded. It is recomme
 
 <img src="document_unity\image13.png" alt="img13">
 
-### Google Play Release
-
-The following code will set the App as being released on Google Play.  Setting this state helps determine what global servers we will use, and also how the App may get handled in China where Google has a very small market share.
-```c#
-ZplayYUMIHelper.Instance.SetAppIsGooglePlayVersions();
-```
 
 ### Log and Toast
 
@@ -206,12 +200,14 @@ To use your own file, please do the following:<br>
 <!-- yumi sdk end -->
 ```
 
-(2) Caution: If app targetSdkVersion is 23 or above, you will need to call the following permission check code.   If the user has not previously provided permission, we will need to prompt user authorization via a popup.  This process needs to be called before instantiating an ad.  The android-support-v4.jar also will need to be added prior.
+(2) Note: The third-party platform adapter component registration details will be generated on our website automatically when you choose which Ad Networks you intend to work with.<a href="https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20Unity%20-%20Mediation%20List(en)%20.md">《YumiMediationSDK Unity - Mediation List》</a>
+
+### Permissions for Android 6.0 and newer versions
+
+Caution: If app targetSdkVersion is 23 or above, you will need to call the following permission check code.   If the user has not previously provided permission, we will need to prompt user authorization via a popup.  This process needs to be called before instantiating an ad.  The android-support-v4.jar also will need to be added prior.
 ```c#
 YumiUnityAdUtils.CheckPermission();
 ```
-
-(3) Note: The third-party platform adapter component registration details will be generated on our website automatically when you choose which Ad Networks you intend to work with.
 
 ## Exhibit B
 

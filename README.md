@@ -1,5 +1,9 @@
 # YumiMediationSDKDemo-Android
 
+## Latest Version
+
+**v3.3.6**
+
 ## Document
 
 [**YumiMediationSDK for Android(zh-cn)**](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android(zh-cn).md)

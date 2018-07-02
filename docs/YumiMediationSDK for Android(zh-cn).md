@@ -32,10 +32,16 @@ allprojets {
 }
 //在 module 的 build.gradle 中添加依赖
 dependencies {
-    compile 'com.yumimobi.ads:mediation:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:mraid:3.3.6.+' //如果希望支持富媒体广告，可选择添加
+    //(*.*.*.+) 请替换为最新的SDK版本号，如：3.3.6.+
+    compile 'com.yumimobi.ads:mediation:*.*.*.+'
+    compile 'com.yumimobi.ads.mediation:mraid:*.*.*.+' //如果希望支持富媒体广告，可选择添加
 ｝
 ```
+
+<a href="https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version">最新版本号请查看</a>
+
+<a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
+
 **Eclipse ：**
 
 玉米移动广告需要的lib文件均放在SDK的lib文件夹下：
@@ -135,8 +141,8 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 ```java
 //创建YumiBanner对象. activity是您要展示横幅的activity。 SlotID，您需要通过玉米移动平台创建一个广告位ID以在应用中使用，auto代表使用模式是否是自动。
 //auto==true 横幅广告自动轮换
-//auto==flase 横幅广告手动轮换，再次轮换需要重复调用banner.requestYumiBanner();
-//若您在单独使用玉米广告，请开启玉米广告自动轮换，将字段置为true。若您在通过其他聚合工具使用玉米广告，为保证广告效果，请停止玉米广告自动轮换，将字段置为flase
+//auto==false 横幅广告手动轮换，再次轮换需要重复调用banner.requestYumiBanner();
+//若您在单独使用玉米广告，请开启玉米广告自动轮换，将字段置为true。若您在通过其他聚合工具使用玉米广告，为保证广告效果，请停止玉米广告自动轮换，将字段置为false
 banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
 //将您创建好的ViewGroup作为banner容器， 同尺寸一并设置
 // bannerContainer  您的广告容器
@@ -150,9 +156,12 @@ banner.setVersionName(versionStr);
 //开始请求广告， auto==true时此方法只需要调用一次
 banner.requestYumiBanner();
 ```
+
+isMatchWindowWidth 详细说明：[横幅自适应屏幕宽度](#isMatchWindowWidth)  </br>
+
 <spen style="color:red;">
-注：ChannelID是指应用发布的渠道标示，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
-渠道标示为YUMI平台生成信息，不可随意修改；
+注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
+渠道标识为YUMI平台生成信息，不可随意修改；
 </spen>
 
 | **渠道名称** | **ChannelID** |
@@ -180,19 +189,19 @@ protected void onDestroy() {
 ```java
 //创建YumiInterstitial对象. activity是插屏展示的activity。SlotID，您需要通过玉米移动平台创建一个广告位ID以在应用中使用。auto代表使用模式是否是自动。
 //auto==true 插屏广告自动请求下一条，为保证广告效果建议设为自动请求
-//auto==flase 插屏广告不自动请求下一条，需要重复调用interstitial.requestYumiInterstitial()
+//auto==false 插屏广告不自动请求下一条，需要重复调用interstitial.requestYumiInterstitial()
 //若您在使用玉米广告，为保证广告效果，请开启玉米广告自动轮换，将字段置为true。
 interstitial = new YumiInterstitial(activity， "YOUR_SLOT_ID"， auto);
 //请根据平台的配置, 设置渠道, 您只需要设置一次渠道. 重复调用取最后一次.
 interstitial.setChannelID(channelStr);
 //情根据平台的配置, 设置版本, 您只需要设置一次版本. 重复调用取最后一次.
 interstitial.setVersionName(versionStr);
-//开始请求广告
+//开始请求广告， auto==true时此方法只需要调用一次
 interstitial.requestYumiInterstitial();
 ```
 <spen style="color:red;">
-注：ChannelID是指应用发布的渠道标示，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
-渠道标示为YUMI平台生成信息，不可随意修改；
+注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
+渠道标识为YUMI平台生成信息，不可随意修改；
 </spen>
 
 | **渠道名称** | **ChannelID** |
@@ -230,6 +239,17 @@ protected void onDestroy() {
 ```
 
 因为不同平台的插屏显示弹出不同. 需要在Activity的onBackPressed()方法中添加如下代码：
+
+```java
+@Override
+public void onBackPressed() {
+	if (interstitial.onBackPressed()) {
+		return;
+	}
+	super.onBackPressed();
+}
+```
+
 <p><spen style="color:red;">注意：在使用插屏时，必须增加该方法，避免back键逻辑混乱。</spen><p>
 
 
@@ -249,8 +269,8 @@ media.setVersionName(versionStr);
 media.requestYumiMedia();
 ```
 <spen style="color:red;">
-注：ChannelID是指应用发布的渠道标示，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
-渠道标示为YUMI平台生成信息，不可随意修改；
+注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
+渠道标识为YUMI平台生成信息，不可随意修改；
 </spen>
 
 | **渠道名称** | **ChannelID** |
@@ -309,7 +329,7 @@ protected void onDestroy() {
 splashAD = new SplashAD(activity， SlotID， container， adwidth， adheight， SplashADListener); 
 ```
 
-**请在Activity相应生命周期中调用相应方法：**
+**在Activity生命周期方法中实现：**
 
  ```
 @Override
@@ -356,8 +376,8 @@ public void onLayerClick() {
 nativeAd.requestYumiNative(); 
 ```
 <spen style="color:red;">
-注：ChannelID是指应用发布的渠道标示，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
-渠道标示为YUMI平台生成信息，不可随意修改；
+注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
+渠道标识为YUMI平台生成信息，不可随意修改；
 </spen>
 
 | **渠道名称** | **ChannelID** |
@@ -365,7 +385,30 @@ nativeAd.requestYumiNative();
 | 三星         | SamSung       |
 | 2345手机助手 | 2345shouzhu   |
 
- **在Activity生命周期onDestroy()方法中, 增加对应的SDK生命周期方法:**
+
+**原生广告展示. 请参考如下方法：**
+
+```java
+if (nativeAd.getADCount() > 0))//通过剩余广告条数判断是否存在下一条广告
+{
+   final NativeContent content = nativeAd.nextContent();//提取下一条广告
+   content.getDesc();//获取广告详情文字
+   content.getIcon_url();//获取icon的url
+   content.getImg_url();//获取广告图片的url
+   content.getImg_height();//获取广告图片的宽,获取不到时为0
+   content.getImg_width();//获取广告图片的高,获取不到时为0
+   content.getJumpUrl();//获取广告点击跳转的url
+   content.getTitle();//获取广告的标题文字
+   content.getButtonText();// 行动语(查看详情/下载)
+   content.getPrice();//价格(免费/$6.3)
+   content.getOther();//其他(2017-09-18 更新)
+}
+为了保证您的收益，请您在相应的位置调用以下相应的广告上报方法（重要）
+content.reportShow(container,content); //广告展示时上报(container为广告父布局)
+content.reportClick(container,content); //广告展示时上报(container为广告父布局)
+```
+
+**在Activity生命周期方法中实现：**
 
 ```java
 @Override
@@ -379,6 +422,49 @@ protected void onDestroy()
 }
 ```
 
+## 调试模式 
+
+**玉米广告SDK为开发者提供了一个检测三方平台集成状态的调试模式，如图：** 
+
+<img src="document\image03.png" alt="img3">
+
+**使用步骤：** 
+
+1、调用方法打开调试页面：
+
+YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID); 
+
+如果设置了版本、渠道，根据您在平台的配置需要设置渠道、版本调用方法打开调试页面：
+
+YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, channelID, versionName);
+
+2、玉米SDK将获取配置并展示三方平台列表，进入debug页面：
+
+  1）&nbsp;页面展示为Searching for third party ADnetwork adapters：表示未进行配置，请检查应用的不同广告形式配置情况，如果问题仍未解决，请通过邮件联系我们： support@yumimobi.com
+
+<img src="document\image04.jpg" alt="img4" width="200" height="355">
+
+  2）&nbsp;广告配置后，正常展示配置平台，首次进入左侧所有平台均为红色，当某个平台正确接入并展示成功后，左侧状态为绿色。
+
+<img src="document\image05.jpg" alt="img4" width="200" height="355">
+
+3、无论左侧状态栏颜色为何状态，均可选择一家平台点击进入：
+
+  1）SDK Available 为绿色时表示三方平台适配器已添加；当为红色时表示三方平台适配器未添加，回到文档添加lib文件部分检查该平台adapter是否添加
+
+  2）Configuration present为绿色时表示三方平台适配器组件Manifest已注册；当为红色时表示三方方平台适配器组件Manifest未注册，可回到文档注册组件部分检查该平台适配器组件是否添加
+
+  3）SDK Failed to start or No_fill 为绿色表示广告曾经展示成功过；当为红色时表示还未展示成功过广告， 可继续进行下一个步骤，如果所有步骤完成后仍为红色，请邮件联系我们： support@yumimobi.com
+
+<img src="document\image06.jpg" alt="img4" width="200" height="355">
+
+4、点击Fetch开始请求广告，点击Show展示广告
+
+5、广告展示成功后检查项全部变为绿色，表示该家平台接入成功
+
+<img src="document\image07.jpg" alt="img4" width="200" height="355">
+
+6、应用发布前需要将调试模式注释掉。
 
 
 ## 高级功能 
@@ -443,7 +529,7 @@ banner.dismissBanner();
 banner.resumeBanner();
 ```
 
-**横幅自适应屏幕宽度**
+**<span id="isMatchWindowWidth">横幅自适应屏幕宽度</span>**
 
 <img src="document\image02.png" alt="img2">
 
@@ -591,100 +677,6 @@ splashListener = new SplashADListener () {
 ```
 
 
-
-### 原生广告展示说明
-
-**如果您需要使用原生广告. 请参考如下方法:**
-
-```java
-if (nativeAd.getADCount() > 0))//通过剩余广告条数判断是否存在下一条广告
-{
-   final NativeContent content = nativeAd.nextContent();//提取下一条广告
-   content.getDesc();//获取广告详情文字
-   content.getIcon_url();//获取icon的url
-   content.getImg_url();//获取广告图片的url
-   content.getImg_height();//获取广告图片的宽,获取不到时为0
-   content.getImg_width();//获取广告图片的高,获取不到时为0
-   content.getJumpUrl();//获取广告点击跳转的url
-   content.getTitle();//获取广告的标题文字
-   content.getButtonText();// 行动语(查看详情/下载)
-   content.getPrice();//价格(免费/$6.3)
-   content.getOther();//其他(2017-09-18 更新)
-}
-为了保证您的收益，请您在相应的位置调用以下相应的广告上报方法（重要）
-content.reportShow(container,content); //广告展示时上报(container为广告父布局)
-content.reportClick(container,content); //广告展示时上报(container为广告父布局)
-```
-
-
-
-### 调试模式 
-
-**玉米广告SDK为开发者提供了一个检测三方平台集成状态的调试模式，如图：** 
-
-<img src="document\image03.png" alt="img3">
-
-**使用步骤：** 
-
-1、调用方法打开调试页面：
-
-YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID); 
-
-如果设置了版本、渠道，根据您在平台的配置需要设置渠道、版本调用方法打开调试页面：
-
-YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, channelID, versionName);
-
-2、玉米SDK将获取配置并展示三方平台列表，进入debug页面：
-
-  1）&nbsp;页面展示为Searching for third party ADnetwork adapters：表示未进行配置，请检查应用的不同广告形式配置情况，如果问题仍未解决，请通过邮件联系我们： support@yumimobi.com
-
-<img src="document\image04.jpg" alt="img4" width="200" height="355">
-
-  2）&nbsp;广告配置后，正常展示配置平台，首次进入左侧所有平台均为红色，当某个平台正确接入并展示成功后，左侧状态为绿色。
-
-<img src="document\image05.jpg" alt="img4" width="200" height="355">
-
-3、无论左侧状态栏颜色为何状态，均可选择一家平台点击进入：
-
-  1）SDK Available 为绿色时表示三方平台适配器已添加；当为红色时表示三方平台适配器未添加，回到文档添加lib文件部分检查该平台adapter是否添加
-
-  2）Configuration present为绿色时表示三方平台适配器组件Manifest已注册；当为红色时表示三方方平台适配器组件Manifest未注册，可回到文档注册组件部分检查该平台适配器组件是否添加
-
-  3）SDK Failed to start or No_fill 为绿色表示广告曾经展示成功过；当为红色时表示还未展示成功过广告， 可继续进行下一个步骤，如果所有步骤完成后仍未红色，请邮件联系我们： support@yumimobi.com
-
-<img src="document\image06.jpg" alt="img4" width="200" height="355">
-
-4、点击Fetch开始请求广告，点击Show展示广告
-
-5、广告展示成功后检查项全部变为绿色，表示该家平台接入成功
-
-<img src="document\image07.jpg" alt="img4" width="200" height="355">
-
-6、应用发布前需要将调试模式注释掉。
-
-
-
-### Android6.0以上系统权限处理
-
-当您的应用targetSdkVersion为23及以上时，可选择以下方法进行权限检查并且弹窗提示用户授权。
-<p><spen style="color:red;">注：该方法默认为false， 不会对用户进行权限提示并且不会导致崩溃。设为true，会进行权限检查并且弹窗提示用户授权。该方法在实例化广告之前调用，并且需要添加android-support-v4.jar。</spen></p>
-
-```java
-YumiSettings.runInCheckPermission(true);
-```
-
-
-
-### 是否GooglePlay发布版本
-
-<p><spen style="color:red;">注：如果您的APP是在GooglePlay发布，请设置以下方法。</spen></p>
-
-```java
-YumiSettings. setAppIsGooglePlayVersions (true);
-```
-
-
-
 ### 混淆
 
 如果您的工程需要混淆编译， 请在混淆文件内增加以下内容。
@@ -696,3 +688,14 @@ YumiSettings. setAppIsGooglePlayVersions (true);
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
 ```
 
+## 提示
+
+
+### Android6.0以上系统权限处理
+
+当您的应用targetSdkVersion为23及以上时，可选择以下方法进行权限检查并且弹窗提示用户授权。
+<p><spen style="color:red;">注：该方法默认为false， 不会对用户进行权限提示并且不会导致崩溃。设为true，会进行权限检查并且弹窗提示用户授权。该方法在实例化广告之前调用，并且需要添加android-support-v4.jar。</spen></p>
+
+```java
+YumiSettings.runInCheckPermission(true);
+```

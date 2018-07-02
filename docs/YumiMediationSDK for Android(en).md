@@ -32,10 +32,16 @@ allprojets {
 }
 //Add dependency in module build. Gradle
 dependencies {
-    compile 'com.yumimobi.ads:mediation:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:mraid:3.3.6.+' // Optional : We hope to support mraid advertising
+    //(*.*.*.+) Please replace it with the latest SDK version number, example ：3.3.6.+
+    compile 'com.yumimobi.ads:mediation:*.*.*.+'
+    compile 'com.yumimobi.ads.mediation:mraid:*.*.*.+' // Optional : We hope to support mraid advertising
 ｝
 ```
+
+<a href="https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version">Please check the latest version number</a>
+
+<a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
+
 **Eclipse ：**
 
 All lib files are placed in lib in the SDK:
@@ -135,7 +141,7 @@ Optional :
 ```java
 //create YumiBanner object. Activity is the activity which you need to display banner ad. You need to create a SlotID on YUMIMOBI. Auto indicates if the mode is automatic. 
 //auto==true  Banner ads automatic rotation
-//auto==flase  Banner ads manual rotation，call banner.requestYumiBanner() repeatedly to rotate
+//auto==false  Banner ads manual rotation，call banner.requestYumiBanner() repeatedly to rotate
 // If you are using YUMI mediation alone, please enable YUMI ad rotation, set the field as “true”; if you are using YUMI ads in other mediations, to ensure ad performance, please disable YUMI ad rotation, set the field as “false”.
 banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
 //Set ViewGroup as banner container, set it along with size
@@ -150,6 +156,9 @@ banner.setVersionName(versionStr);
 //Start requesting ads, auto==true  The method needs to be called only once
 banner.requestYumiBanner();
 ```
+
+isMatchWindowWidth description：[Banner ads automatically adapt to screen size](#isMatchWindowWidth)  </br>
+
 <spen style="color:red;">
 Note: ChannelID refers to the channel labeling of the application, and the YUMI platform can carry out data statistics and effect analysis according to the ChannelID. A Popstar! For example, when the game is released to the SamSung channel, setChannelID(channelStr) needs to be set to setChannelID(' SamSung ').
 The channelID is labeled as the YUMI platform to generate the information and cannot be modified at will：
@@ -179,14 +188,14 @@ protected void onDestroy() {
 ```java
 //Create YumiInterstitial object. Activity is the one you use to show interstitials, You need to create a SlotID on YUMIMOBI. Auto indicates if the mode is automatic.
 //auto==true  Automatically request the next ad, auto mode recommended to ensure ad performance
-//auto==flase  Auto request disabled, to request please repeatedly call interstitial.requestYumiInterstitial()
+//auto==false  Auto request disabled, to request please repeatedly call interstitial.requestYumiInterstitial()
 // If you are using YUMI Ads, please enable YUMI ad rotation, set the field as “true”.
 interstitial = new YumiInterstitial(activity， "YOUR_SLOT_ID"， auto);
 // Set channel according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
 interstitial.setChannelID(channelStr);
 // Set version name according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
 interstitial.setVersionName(versionStr);
-//Start requesting ads
+//Start requesting ads, auto==true  The method needs to be called only once
 interstitial.requestYumiInterstitial();
 ```
 <spen style="color:red;">
@@ -228,6 +237,17 @@ protected void onDestroy() {
 ```
 
 As different platforms have different pop-up displays, you need to add the following code in onBackPressed()of Activity: 
+
+```java
+@Override
+public void onBackPressed() {
+	if (interstitial.onBackPressed()) {
+		return;
+	}
+	super.onBackPressed();
+}
+```
+
 <p><spen style="color:red;">Note: In order not to confuse the logic of back key, please make sure to add this method when using interstitial</spen><p>
 
 
@@ -306,7 +326,7 @@ protected void onDestroy() {
 splashAD = new SplashAD(activity， SlotID， container， adwidth， adheight， SplashADListener); 
 ```
 
-**Call the following method in corresponding Activity lifecycle:**
+**Implement in Activity lifecycle:**
 
  ```
 @Override
@@ -361,7 +381,33 @@ The channelID is labeled as the YUMI platform to generate the information and ca
 | ------------ | ------------- |
 | SamSung      | SamSung       |
 
- **Add corresponding SDK life-cycle method in onDestroy() of Activity lifecycle:**
+
+
+**display native ads, please refer to the following method:**
+
+```java
+if (nativeAd.getADCount() > 0))// determine whether the next ad is available through the quantity of remaining ads
+{
+	final NativeContent content = nativeAd.nextContent();//call next ad
+	int type = content.getContentType();//obtain ad types 1. material form 2. layout form
+	content.getDesc();//obtain detail description
+	content.getIcon_url();//obtain icon url
+	content.getImg_url();//obtain image url
+	content.getImg_height();//obtain the width of image, default 0 when unavailable
+	content.getImg_width();//obtain the height of image, default 0 when unavailable
+	content.getJumpUrl();//obtain click jump url
+	content.getTitle();//obtain title
+	content.getButtonText();//The action language (View details/downloads)
+	content.getPrice();//Price (free/$6.3)
+	content.getOther();//Other (2017-09-18 update)
+}
+To ensure your revenue, please call the relevant reporting method at corresponding place.(Important) 
+content.reportShow(container,content); // report when impression happens (container refers to parent layout)
+content.reportClick(container,content); // report when impression happens (container refers to parent layout)
+```
+
+
+ **Implement in Activity lifecycle:**
 
 ```java
 @Override
@@ -374,6 +420,53 @@ protected void onDestroy()
 	}
 }
 ```
+
+
+## Test Mode 
+
+**YUMI SDK provideds a test mode to test your 3rd-party Integrations.** 
+
+<img src="document\image03.png" alt="img3">
+
+**Use Steps:** 
+
+1、Call method to open test page :
+
+YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID); 
+
+If you set the version, channel, according to your need to set the channel in the platform configuration, version call method to open the debug page:
+
+YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, channelID, versionName);
+
+2、The maize SDK will get the configuration and display the list of the three platforms, and go to the debug page:
+
+  1）&nbsp;The page is displayed as Searching for third party ADnetwork adapters: indicates that no configuration has been made，Please check the configuration of different advertising forms in the application. If the problem is still unsolved, please contact us by email : support@yumimobi.com
+
+<img src="document\image04.jpg" alt="img4" width="200" height="355">
+
+  2）&nbsp;After the advertisement is configured, the normal display configuration platform will be red when it enters the left side for the first time. When a certain platform is properly connected and successfully displayed, the left side will be green.
+
+<img src="document\image05.jpg" alt="img4" width="200" height="355">
+
+3、No matter the status of the left status bar, you can choose a platform to click:
+
+  1）When SDK Available is green, it means that the three-party platform adapter has been added. When it is red, it indicates that the three-party platform adapter has not been added. Go back to Add lib file to check whether the platform adapter has been added
+
+  2）When the Configuration present is green, the three-party platform adapter Manifest is registered. When it is red, it means that the Manifest of the three-party platform adapter component is not registered, which can be returned to Add permission to check whether the platform adapter component has been added
+
+  3）Failed SDK to start or No_fill is green to indicate that the advertisement has been shown successfully. When it is red, it means that the advertisement has not been shown successfully. You can proceed to the next step. If all the steps are not red after completion, please email us at : support@yumimobi.com
+
+<img src="document\image06.jpg" alt="img4" width="200" height="355">
+
+4、Demand Available? Click Fetch to request ad. A fetch will generate an ad download.  You will get a text response confirming the ad download, or instead an error.
+
+5、Ad Displayed? Click Show to display an ad.  When ad shows properly, all test elements will turn green, which indicates this platform has been integrated successfully, at least for that ad type.
+
+Below is a sample screen of some banner ads that were fetched from Baidu ad network and displayed.  The HIDE button simple allows the developer to test the SDK’s hide feature.
+
+<img src="document\image07.jpg" alt="img4" width="200" height="355">
+
+6、The debugging mode must be completed before releasing the App.
 
 
 
@@ -439,7 +532,7 @@ banner.dismissBanner();
 banner.resumeBanner();
 ```
 
-**Banner ads automatically adapt to screen size**
+**<span id="isMatchWindowWidth">Banner ads automatically adapt to screen size</span>**
 
 <img src="document\image02.png" alt="img2">
 
@@ -587,103 +680,6 @@ splashListener = new SplashADListener () {
 ```
 
 
-
-### Native
-
-**If you use native ads, please refer to the following method:**
-
-```java
-if (nativeAd.getADCount() > 0))// determine whether the next ad is available through the quantity of remaining ads
-{
-final NativeContent content = nativeAd.nextContent();//call next ad
-int type = content.getContentType();//obtain ad types 1. material form 2. layout form
-    content.getDesc();//obtain detail description
-    content.getIcon_url();//obtain icon url
-    content.getImg_url();//obtain image url
-    content.getImg_height();//obtain the width of image, default 0 when unavailable
-    content.getImg_width();//obtain the height of image, default 0 when unavailable
-    content.getJumpUrl();//obtain click jump url
-    content.getTitle();//obtain title
-    content.getButtonText();//The action language (View details/downloads)
-    content.getPrice();//Price (free/$6.3)
-    content.getOther();//Other (2017-09-18 update)
-}
-To ensure your revenue, please call the relevant reporting method at corresponding place.(Important) 
-content.reportShow(container,content); // report when impression happens (container refers to parent layout)
-content.reportClick(container,content); // report when impression happens (container refers to parent layout)
-```
-
-
-
-### Test Mode 
-
-**YUMI SDK provideds a test mode to test your 3rd-party Integrations.** 
-
-<img src="document\image03.png" alt="img3">
-
-**使用步骤：** 
-
-1、Call method to open test page :
-
-YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID); 
-
-If you set the version, channel, according to your need to set the channel in the platform configuration, version call method to open the debug page:
-
-YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, channelID, versionName);
-
-2、The maize SDK will get the configuration and display the list of the three platforms, and go to the debug page:
-
-  1）&nbsp;The page is displayed as Searching for third party ADnetwork adapters: indicates that no configuration has been made，Please check the configuration of different advertising forms in the application. If the problem is still unsolved, please contact us by email : support@yumimobi.com
-
-<img src="document\image04.jpg" alt="img4" width="200" height="355">
-
-  2）&nbsp;After the advertisement is configured, the normal display configuration platform will be red when it enters the left side for the first time. When a certain platform is properly connected and successfully displayed, the left side will be green.
-
-<img src="document\image05.jpg" alt="img4" width="200" height="355">
-
-3、No matter the status of the left status bar, you can choose a platform to click:
-
-  1）When SDK Available is green, it means that the three-party platform adapter has been added. When it is red, it indicates that the three-party platform adapter has not been added. Go back to Add lib file to check whether the platform adapter has been added
-
-  2）When the Configuration present is green, the three-party platform adapter Manifest is registered. When it is red, it means that the Manifest of the three-party platform adapter component is not registered, which can be returned to Add permission to check whether the platform adapter component has been added
-
-  3）Failed SDK to start or No_fill is green to indicate that the advertisement has been shown successfully. When it is red, it means that the advertisement has not been shown successfully. You can proceed to the next step. If all the steps are not red after completion, please email us at : support@yumimobi.com
-
-<img src="document\image06.jpg" alt="img4" width="200" height="355">
-
-4、Demand Available? Click Fetch to request ad. A fetch will generate an ad download.  You will get a text response confirming the ad download, or instead an error.
-
-5、Ad Displayed? Click Show to display an ad.  When ad shows properly, all test elements will turn green, which indicates this platform has been integrated successfully, at least for that ad type.
-
-Below is a sample screen of some banner ads that were fetched from Baidu ad network and displayed.  The HIDE button simple allows the developer to test the SDK’s hide feature.
-
-<img src="document\image07.jpg" alt="img4" width="200" height="355">
-
-6、The debugging mode must be completed before releasing the App.
-
-
-
-### Permissions for Android 6.0 and newer versions
-
-When the targetSdkVersion of your app is 23 or above, you can choose the following method to check permission and prompt for user authorization.
-<p><spen style="color:red;">Note: The default setting for this method is false, it won’t prompt for user authorisation or causing crash. If set as true, it will check permission and prompt for user authorisation with popups. This method should be called before the instantiated ads and android-support-v4.jar needs to be added.</spen></p>
-
-```java
-YumiSettings.runInCheckPermission(true);
-```
-
-
-
-### Googleplay Version
-
-<p><spen style="color:red;">Note: If your APP is Googleplay version, please do the following setting.</spen></p>
-
-```java
-YumiSettings. setAppIsGooglePlayVersions (true);
-```
-
-
-
 ### Proguard
 
 If you are using Proguard add the following to your Proguard config file: 
@@ -695,3 +691,13 @@ If you are using Proguard add the following to your Proguard config file:
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
 ```
 
+## Note
+
+### Permissions for Android 6.0 and newer versions
+
+When the targetSdkVersion of your app is 23 or above, you can choose the following method to check permission and prompt for user authorization.
+<p><spen style="color:red;">Note: The default setting for this method is false, it won’t prompt for user authorisation or causing crash. If set as true, it will check permission and prompt for user authorisation with popups. This method should be called before the instantiated ads and android-support-v4.jar needs to be added.</spen></p>
+
+```java
+YumiSettings.runInCheckPermission(true);
+```
