@@ -15,8 +15,9 @@
 
 ## 开发环境配置
 
-### 添加lib文件
-**Android-studio：**
+### Android-studio 接入
+
+**添加依赖**
 
 ```java
 //确认 android studio 的 Project 根目录主 build.gradle 中配置了 jcenter 支持。
@@ -42,7 +43,9 @@ dependencies {
 
 <a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
 
-**Eclipse ：**
+### Eclipse 接入
+
+**添加lib文件：**
 
 玉米移动广告需要的lib文件均放在SDK的lib文件夹下：
 
@@ -74,11 +77,9 @@ google_play_service工程非必加，部分平台广告需要google_play_service
      android：value="@integer/google_play_services_version" />
 ```
 
-### 添加权限
+**添加权限**
 
-**在工程中的manifest.xml中添加以下权限**
-
-如以jar包或aar包方式接入SDK，请添加必要权限：
+如以jar包方式接入SDK，请在工程中的manifest.xml中添加以下权限
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -86,23 +87,9 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-可选权限：
+**注册组件**
 
-```xml
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-<uses-permission android:name="android.permission.CALL_PHONE"/>
-<uses-permission android:name="android.permission.SEND_SMS"/>
-<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-```
-
-### 注册组件
-**如以jar包或aar包方式接入SDK，请在工程中的manifest.xml文件中添加：**
+如以jar包方式接入SDK，请在工程中的manifest.xml文件中添加：
 
 ```xml
 <receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver" >
@@ -132,6 +119,23 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 <activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" ></activity>
 ```
 
+
+### 可选权限
+
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+<!--以下为富媒体广告需要的权限-->
+<uses-permission android:name="android.permission.CALL_PHONE"/>
+<uses-permission android:name="android.permission.SEND_SMS"/>
+<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+```
 
 ## 代码集成
 

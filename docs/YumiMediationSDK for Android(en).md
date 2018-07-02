@@ -15,8 +15,9 @@
 
 ## Development Environment Configuration
 
-### Add lib file
-**Android-studio：**
+### Using Android-studio
+
+**Add the library**
 
 ```java
 // ensure whether jcenter is supported in build.gradle under Project root directory of android studio 
@@ -42,7 +43,9 @@ dependencies {
 
 <a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
 
-**Eclipse ：**
+### Using Eclipse
+
+**Add lib file**
 
 All lib files are placed in lib in the SDK:
 
@@ -74,11 +77,10 @@ google_play_service is not mandatory, while some ad platforms need it. YUMIMOBI 
      android：value="@integer/google_play_services_version" />
 ```
 
-### Add permission
+**Add permission**
 
-**Add the following permissions in manifest.xml of your project:**
+Add the following permissions in manifest.xml of your project:
 
-Mandatory :
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -86,23 +88,9 @@ Mandatory :
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-Optional :
+**Registered components**
 
-```xml
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-<uses-permission android:name="android.permission.CALL_PHONE"/>
-<uses-permission android:name="android.permission.SEND_SMS"/>
-<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-```
-
-### Registered components
-**Add following in manifest.xml of your project:**
+Add following in manifest.xml of your project:
 
 ```xml
 <receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver" >
@@ -132,6 +120,22 @@ Optional :
 <activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" ></activity>
 ```
 
+
+### Optional permission
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+<!--Below are the permissions required for MRAID advertising-->
+<uses-permission android:name="android.permission.CALL_PHONE"/>
+<uses-permission android:name="android.permission.SEND_SMS"/>
+<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+```
 
 ## Integration
 
