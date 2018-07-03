@@ -138,7 +138,7 @@ AndroidManifest.xml Component：
 |                   |                                |
 | ----------------- | ------------------------------ |
 | Jar Name          | libs/yumi_adapter_applovin.jar |
-| Provider Ver      | 6.4.0                          |
+| Provider Ver      | 8.0.2                         |
 | GooglePlayService | Require                        |
 | Ad Form           | Interstitial, Reward Video     |
 | .so/lib project   | --                             |
@@ -161,7 +161,8 @@ dependencies {
 
 AndroidManifest.xml Component：
 ```xml
-<activity android:name="com.applovin.adview.AppLovinInterstitialActivity" />
+<activity android:name="com.applovin.adview.AppLovinInterstitialActivity" 
+          android:configChanges="orientation|screenSize"/>
 <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
 ```
 

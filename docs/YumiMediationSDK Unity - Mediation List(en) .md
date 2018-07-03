@@ -116,7 +116,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 |                   |                                |
 | ----------------- | ------------------------------ |
 | Jar Name          | libs/yumi_adapter_applovin.jar |
-| Provider Ver      | 6.4.0                          |
+| Provider Ver      | 8.0.2                          |
 | GooglePlayService | Require                        |
 | Ad Form           | Interstitial, Reward Video     |
 | .so/lib project   | --                             |
@@ -128,7 +128,8 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 
 **AndroidManifest.xml Component：**
 ```xml
-<activity android:name="com.applovin.adview.AppLovinInterstitialActivity" />
+<activity android:name="com.applovin.adview.AppLovinInterstitialActivity" 
+          android:configChanges="orientation|screenSize"/>
 <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
 ```
 

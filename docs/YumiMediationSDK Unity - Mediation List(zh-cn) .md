@@ -115,7 +115,7 @@
 |                   |                                |
 | ----------------- | ------------------------------ |
 | Jar名称           | libs/yumi_adapter_applovin.jar |
-| 三方版本          | 6.4.0                          |
+| 三方版本          | 8.0.2                          |
 | GooglePlayService | 需要                           |
 | 支持广告形式      | 插屏, 视频                     |
 | .so/lib工程       | --                             |
@@ -127,7 +127,8 @@
 
 **AndroidManifest.xml注册组件：**
 ```xml
-<activity android:name="com.applovin.adview.AppLovinInterstitialActivity" />
+<activity android:name="com.applovin.adview.AppLovinInterstitialActivity" 
+          android:configChanges="orientation|screenSize"/>
 <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
 ```
 
