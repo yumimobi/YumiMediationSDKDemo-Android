@@ -1,5 +1,26 @@
 # YumiMediationSDK Android
 
+1. [Overview](#overview)
+2. [Development Environment Configuration](#development-environment-configuration)
+	1. [Using Android-studio](#using-android-studio)
+	2. [Using Eclipse](#using-eclipse)
+	3. [Optional permission](#optional-permission)
+3. [Integration](#integration)
+	1. [Banner](#banner)
+	2. [Interstitial](#interstitial)
+	3. [Rewarded Video](#rewarded-video)
+	4. [Splash](#splash)
+	5. [Native](#native)
+4. [Test Mode](#test-mode)
+5. [Advanced Features](#advanced-features)
+	1. [Banner](#banner-1)
+	2. [Interstitial](#interstitial-1)
+	3. [Rewarded Video](#rewarded-video-1)
+	4. [Splash](#splash-1)
+	5. [Proguard](#proguard)
+6. [Reminder](#reminder)
+	1. [Permissions for Android 6.0 and newer versions](#permissions-for-android-60-and-newer-versions)
+	
 ## Overview
 
 1. Target Readers 
@@ -695,7 +716,7 @@ If you are using Proguard add the following to your Proguard config file:
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
 ```
 
-## Note
+## Reminder
 
 ### Permissions for Android 6.0 and newer versions
 

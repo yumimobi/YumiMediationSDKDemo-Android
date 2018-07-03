@@ -1,5 +1,27 @@
 # YumiMediationSDK Unity for Android 
 
+1. [OVERVIEW](#overview)
+    1. [Introduction](#OVERVIEW)
+	2. [Development Environment](#development-environment)
+2. [DOWNLOADS REQUIRED](#downloads-required)
+	1. [SDK Download](#sdk-download)
+	2. [Third-Party SDK Download](#third-party-sdk-download)
+3. [Integration](#integration)
+	1. [Add resource files](#add-resource-files)
+	2. [Configuring Access to Ads](#configuring-access-to-ads)
+	3. [Log and Toast](#log-and-toast)
+	4. [Testing Platform Integrations](#testing-platform-integrations)
+	5. [Obfuscation](#obfuscation)
+4. [Compilation](#compilation)
+5. [Conclusion](#conclusion)
+6. [Exhibit A](#exhibit-a)
+	1. [Using your own AndroidManifest.xml file](#using-your-own-androidmanifestxml-file)
+	2. [Permissions for Android 6.0 and newer versions](#permissions-for-android-60-and-newer-versions)
+7. [Exhibit B](#exhibit-b)
+	1. [Banner Options](#banner-options)
+	2. [Interstitial Options](#interstitial-options)
+	3. [Rewarded Video Options](#rewarded-video-options)
+
 ## OVERVIEW
 
 ### Introduction
