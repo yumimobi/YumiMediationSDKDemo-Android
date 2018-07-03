@@ -902,7 +902,7 @@ AndroidManifest.xml Component：
 <br>
 
 
-### PlayableAD
+### ZPLAYAds
 
 |                   |                                   |
 | ----------------- | --------------------------------- |
