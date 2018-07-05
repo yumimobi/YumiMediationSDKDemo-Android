@@ -60,9 +60,6 @@
             android:hardwareAccelerated="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
-        <!-- applovin -->
-        <activity android:name="com.applovin.adview.AppLovinInterstitialActivity" />
-        <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
         <!-- baidu -->
         <activity
             android:name="com.baidu.mobads.AppActivity"
@@ -130,7 +127,11 @@
         <activity
             android:name="com.adcolony.sdk.AdColonyAdViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-
+			
+        <!-- applovin-->
+        <activity android:name="com.applovin.adview.AppLovinInterstitialActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
         <!-- vungle new -->
        <activity android:name="com.vungle.publisher.VideoFullScreenAdActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
@@ -209,6 +210,20 @@
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
             android:hardwareAccelerated="true"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+			
+      <!-- ZPLAYAds -->
+		<activity
+			android:name="com.playableads.activity.PlayableADActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden"
+			android:hardwareAccelerated="true"
+			android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+		<receiver android:name="com.playableads.PlayableReceiver" >
+			<intent-filter>
+				<action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+			</intent-filter>
+		</receiver>
     </application>
 
 </manifest>
