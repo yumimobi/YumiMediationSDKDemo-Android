@@ -66,6 +66,8 @@
 
 <img src="document_unity\image06.png" alt="img6">
 
+<a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
+
 ### 添加三方平台SDK
 
 三方平台 adapter (yumi_adapter_******_v*.*.*.jar) 在adapter文件夹下，如需接入三方平台，可添加到\Assets\plugins\Android下。

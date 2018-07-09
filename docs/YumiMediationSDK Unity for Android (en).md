@@ -72,6 +72,8 @@ When the application needs to be add to the mraid ad. copy the following files t
 
 <img src="document_unity\image06.png" alt="img6">
 
+<a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
+
 Add any third-party SDK adapter resources for the Ad Networks previously chosen: The third-party adapters (yumi_adapter_******_v*.*.*.jar) within adapter folder should be added under \Assets\plugins\Android.
 
 ### Configuring Access to Ads
