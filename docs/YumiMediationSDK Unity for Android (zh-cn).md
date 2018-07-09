@@ -80,9 +80,10 @@
 <!-- yumi sdk start -->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android：name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android：name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android：name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+<!--以下为富媒体广告需要的权限-->
 <uses-permission android:name="android.permission.CALL_PHONE"/>
 <uses-permission android:name="android.permission.SEND_SMS"/>
 <uses-permission android:name="android.permission.WRITE_CALENDAR"/>

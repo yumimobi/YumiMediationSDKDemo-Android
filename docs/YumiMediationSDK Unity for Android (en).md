@@ -209,13 +209,14 @@ To use your own file, please do the following:<br>
 (1) Adding this permission (optional) will generally improve the ad fill rate.
 ```xml
 <!-- yumi sdk start -->
-<uses-permission android：name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android：name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android：name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android：name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android：name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+<!--Below are the permissions required for MRAID advertising-->
 <uses-permission android:name="android.permission.CALL_PHONE"/>
 <uses-permission android:name="android.permission.SEND_SMS"/>
 <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
