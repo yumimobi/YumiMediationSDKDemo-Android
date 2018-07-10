@@ -1,42 +1,42 @@
 # YumiMediationSDK Android
 
-1. [概述](#概述)
-2. [开发环境配置](#开发环境配置)
+1. [概述](#1.-概述)
+2. [开发环境配置](#2.-开发环境配置)
 	1. [Android-studio 接入](#android-studio-接入)
 	2. [Eclipse 接入](#eclipse-接入)
 	3. [可选权限](#可选权限)
-3. [代码集成](#代码集成)
+3. [代码集成](#3.-代码集成)
 	1. [横幅](#横幅)
 	2. [插屏](#插屏)
 	3. [激励视频](#激励视频)
 	4. [开屏](#开屏)
 	5. [原生广告](#原生广告)
-4. [调试模式](#调试模式)
-5. [高级功能](#高级功能)
+4. [调试模式](#4.-调试模式)
+5. [高级功能](#5.-高级功能)
 	1. [横幅](#横幅)
 	2. [插屏](#插屏)
 	3. [激励视频](#激励视频)
 	4. [开屏](#开屏)
 	5. [混淆](#混淆)
-6. [提示](#提示)
+6. [提示](#6.-提示)
 	1. [Android6.0以上系统权限处理](#android60以上系统权限处理)
 
-## 概述
+## 1. 概述
 
-1. 面向人群
+**1.1 面向人群**
 
    当前文档面向需要在Android产品中接入玉米移动广告SDK的开发人员。
    
-2. 开发环境
+**1.2 开发环境**
 
    OS：  Windows， Mac， Linux <br>
    Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br>
    IDE： Eclipse with ADT (ADT version 23.0.4)&ensp;&ensp;OR&ensp;&ensp;Android-studio<br>
    Java：&ensp;&gt;&ensp;JDK 7
 
-## 开发环境配置
+## 2. 开发环境配置
 
-### Android-studio 接入
+- ### Android-studio 接入
 
 **添加依赖**
 
@@ -60,13 +60,13 @@ dependencies {
 ｝
 ```
 
-<a href="https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version">最新版本号请查看</a>
+>最新版本号，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version)
+> 
+>富媒体广告，指的是MRAID，即Mobile Rich Media Ad Interface Definitions，是由IAB编写的用于移动流量上富媒体广告展示的接口规范。详细信息请[查看](https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/)
 
-<a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
+- ### Eclipse 接入
 
-### Eclipse 接入
-
-**添加lib文件：**
+**第一步：添加lib文件：**
 
 玉米移动广告需要的lib文件均放在SDK的lib文件夹下：
 
@@ -87,9 +87,9 @@ dependencies {
 如希望支持富媒体广告，请将Yumi_Adapter_Mraid_vX.X.X.jar添加到创建好的libs文件中。
 可以视需求添加android-support-v4.jar、android-support-v7-appcompat.jar到libs文件中，需要用到V4或V7包时必须使用我们提供的jar。
 
-<spen style="color:red;">关于google_play_service工程：
+<span style="color:red;">关于google_play_service工程：
 google_play_service工程非必加，部分平台广告需要google_play_service支持，玉米移动广告不需要添加。使用时需要将此工程作为library工程， 添加到您的工程中。并在manifest.xml文件的&lt;application&gt;
-标签内增加以下代码：</spen>
+标签内增加以下代码：</span>
 
 ```xml
 <meta-data 
@@ -98,7 +98,7 @@ google_play_service工程非必加，部分平台广告需要google_play_service
      android：value="@integer/google_play_services_version" />
 ```
 
-**添加权限**
+**第二步：添加权限**
 
 如以jar包方式接入SDK，请在工程中的manifest.xml中添加以下权限
 
@@ -108,7 +108,7 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-**注册组件**
+**第三步：注册组件**
 
 如以jar包方式接入SDK，请在工程中的manifest.xml文件中添加：
 
@@ -141,7 +141,7 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 ```
 
 
-### 可选权限
+- ### 可选权限
 
 
 ```xml
@@ -158,9 +158,9 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 ```
 
-## 代码集成
+## 3. 代码集成
 
-### 横幅
+- ### 横幅
 **创建一个ViewGroup作为横幅广告容器，并添加到工程中Activity的适当位置。之后调用如下代码：**
 
 ```java
@@ -184,10 +184,10 @@ banner.requestYumiBanner();
 
 isMatchWindowWidth 详细说明：[横幅自适应屏幕宽度](#isMatchWindowWidth)  </br>
 
-<spen style="color:red;">
+<span style="color:red;">
 注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
 渠道标识为YUMI平台生成信息，不可随意修改；
-</spen>
+</span>
 
 | **渠道名称** | **ChannelID** |
 | ------------ | ------------- |
@@ -208,7 +208,7 @@ protected void onDestroy() {
 
 
 
-### 插屏
+- ### 插屏
 **在Activity的onCreate()方法内添加以下代码：**
 
 ```java
@@ -224,10 +224,10 @@ interstitial.setVersionName(versionStr);
 //开始请求广告， auto==true时此方法只需要调用一次
 interstitial.requestYumiInterstitial();
 ```
-<spen style="color:red;">
+<span style="color:red;">
 注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
 渠道标识为YUMI平台生成信息，不可随意修改；
-</spen>
+</span>
 
 | **渠道名称** | **ChannelID** |
 | ------------ | ------------- |
@@ -275,11 +275,11 @@ public void onBackPressed() {
 }
 ```
 
-<p><spen style="color:red;">注意：在使用插屏时，必须增加该方法，避免back键逻辑混乱。</spen><p>
+<p><span style="color:red;">注意：在使用插屏时，必须增加该方法，避免back键逻辑混乱。</span></p>
 
 
 
-### 激励视频
+- ### 激励视频
 
 **在Activity的onCreate()方法内添加以下代码：**
 
@@ -293,10 +293,10 @@ media.setVersionName(versionStr);
 //开始请求广告，只需调用一次
 media.requestYumiMedia();
 ```
-<spen style="color:red;">
+<span style="color:red;">
 注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
 渠道标识为YUMI平台生成信息，不可随意修改；
-</spen>
+</span>
 
 | **渠道名称** | **ChannelID** |
 | ------------ | ------------- |
@@ -311,7 +311,7 @@ if (media != null) {
 }
 ```
 
-<p><spen style="color:red;">注意：建议调用间隔5秒一次。</spen><p>
+<p><span style="color:red;">注意：建议调用间隔5秒一次。</span></p>
 
 **请在需要展现视频广告的时候，调用以下代码：**
 
@@ -321,10 +321,10 @@ if (media != null) {
 }
 ```
 
-<p><spen style="color:red;">注意：</spen><p>
-<p><spen style="color:red;">1. 完成上述接入后，可以完成基本的视频接入，但是无法获取奖励回调。 请根据高级功能中状态监听部分，增加监听获取奖励回调。</spen><p>
-<p><spen style="color:red;">2. 广告在关闭或请求失败后会自动请求下一条广告。</spen><p>
-<p><spen style="color:red;">3. media.requestYumiMedia() 方法只在一开始调用一次即可。</spen><p>
+<p><span style="color:red;">注意：</span><p>
+<p><span style="color:red;">1. 完成上述接入后，可以完成基本的视频接入，但是无法获取奖励回调。 请根据高级功能中状态监听部分，增加监听获取奖励回调。</span></p>
+<p><span style="color:red;">2. 广告在关闭或请求失败后会自动请求下一条广告。</span></p>
+<p><span style="color:red;">3. media.requestYumiMedia() 方法只在一开始调用一次即可。</span></p>
 
 **在Activity生命周期方法中实现：**
 
@@ -340,7 +340,7 @@ protected void onDestroy() {
 
  
 
-### 开屏
+- ### 开屏
 
 **在Activity的onCreate()内添加以下代码：**
 
@@ -368,7 +368,7 @@ protected void onDestroy() {
 
 
 
-### 原生广告 
+- ### 原生广告 
 
 **在Activity的onCreate()内添加以下代码：**
 
@@ -400,10 +400,10 @@ public void onLayerClick() {
 // 请求广告，成功或失败的结果会在回调接口中返回
 nativeAd.requestYumiNative(); 
 ```
-<spen style="color:red;">
+<span style="color:red;">
 注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
 渠道标识为YUMI平台生成信息，不可随意修改；
-</spen>
+</span>
 
 | **渠道名称** | **ChannelID** |
 | ------------ | ------------- |
@@ -447,7 +447,7 @@ protected void onDestroy()
 }
 ```
 
-## 调试模式 
+## 4. 调试模式 
 
 **玉米广告SDK为开发者提供了一个检测三方平台集成状态的调试模式，如图：** 
 
@@ -492,9 +492,9 @@ YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlot
 6、应用发布前需要将调试模式注释掉。
 
 
-## 高级功能 
+## 5. 高级功能 
 
-### 横幅
+- ### 横幅
 
 **设置广告状态监听**
 
@@ -562,7 +562,7 @@ banner.resumeBanner();
 
 
 
-### 插屏 
+- ### 插屏 
 
 **设置广告状态监听**
 
@@ -618,7 +618,7 @@ interstitialListener = new IYumiInterstititalListener() {
 
  
 
-### 激励视频
+- ### 激励视频
 
 **设置广告状态监听**
 
@@ -664,7 +664,7 @@ mediaListener = new IYumiMediaListener() {
 
 
 
-### 开屏
+- ### 开屏
 
 **设置广告状态监听**
 
@@ -702,7 +702,7 @@ splashListener = new SplashADListener () {
 ```
 
 
-### 混淆
+- ### 混淆
 
 如果您的工程需要混淆编译， 请在混淆文件内增加以下内容。
 
@@ -713,13 +713,13 @@ splashListener = new SplashADListener () {
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
 ```
 
-## 提示
+## 6. 提示
 
 
 ### Android6.0以上系统权限处理
 
 当您的应用targetSdkVersion为23及以上时，可选择以下方法进行权限检查并且弹窗提示用户授权。
-<p><spen style="color:red;">注：该方法默认为false， 不会对用户进行权限提示并且不会导致崩溃。设为true，会进行权限检查并且弹窗提示用户授权。该方法在实例化广告之前调用，并且需要添加android-support-v4.jar。</spen></p>
+<p><span style="color:red;">注：该方法默认为false， 不会对用户进行权限提示并且不会导致崩溃。设为true，会进行权限检查并且弹窗提示用户授权。该方法在实例化广告之前调用，并且需要添加android-support-v4.jar。</span></p>
 
 ```java
 YumiSettings.runInCheckPermission(true);
