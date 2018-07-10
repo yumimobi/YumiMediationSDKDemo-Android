@@ -557,7 +557,8 @@ banner.dismissBanner();
 banner.resumeBanner();
 ```
 
-**<span id="isMatchWindowWidth">Banner ads automatically adapt to screen size</span>**
+<a name="isMatchWindowWidth"></a>
+**Banner ads automatically adapt to screen size**
 
 <img src="document\image02.png" alt="img2">
 
