@@ -1,54 +1,54 @@
 # YumiMediationSDK Unity for Android 
 
-1. [概述](#概述)
-2. [下载](#下载)
+1. [概述](#1-概述)
+2. [下载](#2-下载)
 	1. [玉米SDK下载](#玉米sdk下载)
 	2. [三方SDK下载](#三方sdk下载)
-3. [添加资源文件](#添加资源文件)
+3. [添加资源文件](#3-添加资源文件)
 	1. [添加SDK需要的资源文件](#添加sdk需要的资源文件)
 	2. [添加三方平台SDK](#添加三方平台sdk)
 	3. [AndroidManifest.xml中权限添加](#androidmanifestxml中权限添加)
 	4. [Android6.0以上系统权限处理](#android60以上系统权限处理)
-4. [快速接入](#快速接入)
+4. [快速接入](#4-快速接入)
 	1. [环境配置](#环境配置)
 	2. [横幅广告形式接入](#横幅广告形式接入)
 	3. [插屏广告形式接入](#插屏广告形式接入)
 	4. [激励视频广告形式接入](#激励视频广告形式接入)
-5. [Log](#log)
-6. [调试模式](#调试模式)
-7. [混淆](#混淆)
-8. [编译](#编译)
+5. [Log](#5-log)
+6. [调试模式](#6-调试模式)
+7. [混淆](#7-混淆)
+8. [编译](#8-编译)
 
-## 概述
+## 1. 概述
 
-1. 面向人群
+**1.1 面向人群**
 
    本产品面向需要在Unity产品中接入玉米移动广告Unity3D SDK的开发人员
    
-2. 开发环境
+**1.2 开发环境**
 
    OS：  Windows， Mac， Linux <br>
    Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br>
    IDE：Unity 5
 
-## 下载
+## 2. 下载
 
-### 玉米SDK下载
+- ### 玉米SDK下载
 
 通过官网下载SDK主包或者联系我们： support@yumimobi.com
 
 <img src="document_unity\image01.png" alt="img1">
 
-### 三方SDK下载
+- ### 三方SDK下载
 
 在玉米SDK jar包中选择需要接入的三方平台（三方平台的jar包可以通过名称进行区分），接入工程中
 
 <img src="document_unity\image02.png" alt="img2">
 
 
-## 添加资源文件
+## 3. 添加资源文件
 
-### 添加SDK需要的资源文件
+- ### 添加SDK需要的资源文件
 
 （1） 将resource\YumiMobi_UnityPlugin_Android.unitypackage导入到工程中。如果资源文件跟项目中现有资源文件有冲突，请尽量使用我们提供的资源文件，若存在其他问题可联系我们 support@yumimobi.com ，我们会尽快反馈。资源文件不添加可能导致广告无法正常展示。
 
@@ -66,13 +66,13 @@
 
 <img src="document_unity\image06.png" alt="img6">
 
-<a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
+>富媒体广告，指的是MRAID，即Mobile Rich Media Ad Interface Definitions，是由IAB编写的用于移动流量上富媒体广告展示的接口规范。详细信息请[查看](https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/)
 
-### 添加三方平台SDK
+- ### 添加三方平台SDK
 
 三方平台 adapter (yumi_adapter_******_v*.*.*.jar) 在adapter文件夹下，如需接入三方平台，可添加到\Assets\plugins\Android下。
 
-### AndroidManifest.xml中权限添加
+- ### AndroidManifest.xml中权限添加
 
 （1） 可选权限： 可视需求添加到您的Assets\plugins\Android\AndroidManifest.xml文件中。若添加以下权限，有助提高广告填充
 
@@ -94,7 +94,7 @@
 
 （2） 注：三方平台注册组件，请查看文档 <a href="https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20Unity%20-%20Mediation%20List(zh-cn)%20.md">《YumiMediationSDK Unity - Mediation List》</a>
 
-### Android6.0以上系统权限处理
+- ### Android6.0以上系统权限处理
 
 当您的应用targetSdkVersion为23及以上时，调用以下方法进行权限检查并且弹窗提示用户授权。该方法在实例化广告之前调用，并且需要添加android-support-v4.jar。
 
@@ -102,9 +102,9 @@
 YumiUnityAdUtils.CheckPermission();
 ```
 
-## 快速接入
+## 4. 快速接入
 
-### 环境配置
+- ### 环境配置
 
 **1、点击MakeZplayPrefab/MakeZplayYUMIPrefab 生成ZplayYUMIHelper prefab到Hietarchy，此prefab会全程跟随所有场景**
 
@@ -122,7 +122,7 @@ initMedia() //为初始化视频，如不需要视频则要注释掉<br>
 InitIterstitialAD() //为初始化插屏 。如不需要插屏则要注释掉<br>
 ZplayLogger.setDebug(false) //为log信息类。传true显示日志，false不显示日志<br>
 
-### 横幅广告形式接入
+- ### 横幅广告形式接入
 
 **1、必须接入方法：此方法直接影响广告是否可正常展示**
 
@@ -196,7 +196,7 @@ public void onBannerClicked(string data)
 ZplayYUMIHelper.Instance.ShowBannel(true);
 ```
 
-### 插屏广告形式接入
+- ### 插屏广告形式接入
 
 **1、必须接入方法：此方法直接影响广告是否可正常展示**
 
@@ -256,7 +256,7 @@ public void onInterstitialClicked(string data)
 } 
 #endregion
 ```
-### 激励视频广告形式接入
+- ### 激励视频广告形式接入
 
 **1、必须接入方法：以下方法直接影响广告是否可正常展示**
 
@@ -334,7 +334,7 @@ public void onIsMediaPrepared (string data)
 ```
 
 
-## Log
+## 5. Log
 
 以下是插件提供的Android Log输出方法，开发者可自行判断是否使用。增加此方法可方便查找问题：
 
@@ -342,7 +342,7 @@ public void onIsMediaPrepared (string data)
 ZplayLogger.Log("********");
 ```
 
-## 调试模式
+## 6. 调试模式
 
 **玉米广告SDK为开发者提供了一个检测三方平台集成状态的调试模式，如图：**
 
@@ -379,7 +379,7 @@ ZplayYUMIHelper.Instance.StartDebugging();
 
 6、应用发布前需要将调试模式注释掉。
 
-## 混淆
+## 7. 混淆
 
 **如果您的工程需要混淆编译， 请在混淆文件内增加以下内容。**
 ```c
@@ -389,7 +389,7 @@ ZplayYUMIHelper.Instance.StartDebugging();
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
 ```
 
-## 编译
+## 8. 编译
 
 **1、点击File，选择Build&Run 进行编译。**
 

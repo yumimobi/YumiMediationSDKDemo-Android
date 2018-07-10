@@ -1,42 +1,42 @@
 # YumiMediationSDK Android
 
-1. [Overview](#overview)
-2. [Development Environment Configuration](#development-environment-configuration)
+1. [Overview](#1-overview)
+2. [Development Environment Configuration](#2-development-environment-configuration)
 	1. [Using Android-studio](#using-android-studio)
 	2. [Using Eclipse](#using-eclipse)
 	3. [Optional permission](#optional-permission)
-3. [Integration](#integration)
+3. [Integration](#3-integration)
 	1. [Banner](#banner)
 	2. [Interstitial](#interstitial)
 	3. [Rewarded Video](#rewarded-video)
 	4. [Splash](#splash)
 	5. [Native](#native)
-4. [Test Mode](#test-mode)
-5. [Advanced Features](#advanced-features)
+4. [Test Mode](#4-test-mode)
+5. [Advanced Features](#5-advanced-features)
 	1. [Banner](#banner-1)
 	2. [Interstitial](#interstitial-1)
 	3. [Rewarded Video](#rewarded-video-1)
 	4. [Splash](#splash-1)
 	5. [Proguard](#proguard)
-6. [Reminder](#reminder)
+6. [Reminder](#6-reminder)
 	1. [Permissions for Android 6.0 and newer versions](#permissions-for-android-60-and-newer-versions)
 	
-## Overview
+## 1. Overview
 
-1. Target Readers 
+**1.1 Target Readers**
 
    This document is for Android developers who want to integrate YUMIMOBI advertising SDK into their product.  
 
-2. Development Environment
+**1.2 Development Environment**
 
    OS：  Windows， Mac， Linux <br>
    Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br>
    IDE： Eclipse with ADT (ADT version 23.0.4)&ensp;&ensp;OR&ensp;&ensp;Android-studio<br>
    Java：&ensp;&gt;&ensp;JDK 7
 
-## Development Environment Configuration
+## 2. Development Environment Configuration
 
-### Using Android-studio
+- ### Using Android-studio
 
 **Add the library**
 
@@ -60,13 +60,13 @@ dependencies {
 ｝
 ```
 
-<a href="https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version">Please check the latest version number</a>
+>[Click here](https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version) get latest version number
+> 
+>MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps. [Get Info](https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/)
 
-<a href="https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/">MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps.</a>
+- ### Using Eclipse
 
-### Using Eclipse
-
-**Add lib file**
+**Step 1. Add lib file**
 
 All lib files are placed in lib in the SDK:
 
@@ -86,10 +86,10 @@ Create libs folder under the root directory of your project,add YumiMobi_Android
 
 you can choose to or not to add android-support-v4.jar and/or android-support-v7-appcompat.jar and/or Yumi_Adapter_Mraid_vX.X.X.jar into libs according to your needs. You must use the jar file provided by YUMIMOBI when you need to use v4.jar or v7.jar.
 
-<spen style="color:red;">
+<span style="color:red;">
 About google_play_service project:  
 google_play_service is not mandatory, while some ad platforms need it. YUMIMOBI does not need google_play_service. You need use it as a library  and import it into your project. Also, add the ollowing code in tab &lt;application&gt; of your manifest.xml.
-</spen>
+</span>
 
 ```xml
 <meta-data 
@@ -98,7 +98,7 @@ google_play_service is not mandatory, while some ad platforms need it. YUMIMOBI 
      android：value="@integer/google_play_services_version" />
 ```
 
-**Add permission**
+**Step 2. Add permission**
 
 Add the following permissions in manifest.xml of your project:
 
@@ -109,7 +109,7 @@ Add the following permissions in manifest.xml of your project:
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-**Registered components**
+**Step 3. Registered components**
 
 Add following in manifest.xml of your project:
 
@@ -142,7 +142,7 @@ Add following in manifest.xml of your project:
 ```
 
 
-### Optional permission
+- ### Optional permission
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -158,9 +158,9 @@ Add following in manifest.xml of your project:
 <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 ```
 
-## Integration
+## 3. Integration
 
-### Banner
+- ### Banner
 **Creat a ViewGroup as banner container, and add it in Activity. Then call the code below:**
 
 ```java
@@ -184,10 +184,10 @@ banner.requestYumiBanner();
 
 isMatchWindowWidth description：[Banner ads automatically adapt to screen size](#isMatchWindowWidth)  </br>
 
-<spen style="color:red;">
+<span style="color:red;">
 Note: ChannelID refers to the channel labeling of the application, and the YUMI platform can carry out data statistics and effect analysis according to the ChannelID. A Popstar! For example, when the game is released to the SamSung channel, setChannelID(channelStr) needs to be set to setChannelID(' SamSung ').
 The channelID is labeled as the YUMI platform to generate the information and cannot be modified at will：
-</spen>
+</span>
 
 | **Channel name** | **ChannelID** |
 | ------------ | ------------- |
@@ -207,7 +207,7 @@ protected void onDestroy() {
 
 
 
-### Interstitial
+- ### Interstitial
 **Add the following code in onCreate method of Activity:**
 
 ```java
@@ -223,10 +223,10 @@ interstitial.setVersionName(versionStr);
 //Start requesting ads, auto==true  The method needs to be called only once
 interstitial.requestYumiInterstitial();
 ```
-<spen style="color:red;">
+<span style="color:red;">
 Note: ChannelID refers to the channel labeling of the application, and the YUMI platform can carry out data statistics and effect analysis according to the ChannelID. A Popstar! For example, when the game is released to the SamSung channel, setChannelID(channelStr) needs to be set to setChannelID(' SamSung ').
 The channelID is labeled as the YUMI platform to generate the information and cannot be modified at will：
-</spen>
+</span>
 
 | **Channel name** | **ChannelID** |
 | ------------ | ------------- |
@@ -273,11 +273,11 @@ public void onBackPressed() {
 }
 ```
 
-<p><spen style="color:red;">Note: In order not to confuse the logic of back key, please make sure to add this method when using interstitial</spen><p>
+<p><span style="color:red;">Note: In order not to confuse the logic of back key, please make sure to add this method when using interstitial</span></p>
 
 
 
-### Rewarded Video
+- ### Rewarded Video
 
 **Add following code in onCreate method of Activity:**
 
@@ -291,10 +291,10 @@ media.setVersionName(versionStr);
 //Start requesting ads.
 media.requestYumiMedia();
 ```
-<spen style="color:red;">
+<span style="color:red;">
 Note: ChannelID refers to the channel labeling of the application, and the YUMI platform can carry out data statistics and effect analysis according to the ChannelID. A Popstar! For example, when the game is released to the SamSung channel, setChannelID(channelStr) needs to be set to setChannelID(' SamSung ').
 The channelID is labeled as the YUMI platform to generate the information and cannot be modified at will：
-</spen>
+</span>
 
 | **Channel name** | **ChannelID** |
 | ------------ | ------------- |
@@ -308,7 +308,7 @@ if (media != null) {
 }
 ```
 
-<p><spen style="color:red;">Note: It is recommended to request every five seconds.</spen><p>
+<p><span style="color:red;">Note: It is recommended to request every five seconds.</span></p>
 
 **When you need to show rewarded video, call the following code:**
 
@@ -318,10 +318,10 @@ if (media != null) {
 }
 ```
 
-<p><spen style="color:red;">Note:</spen><p>
-<p><spen style="color:red;">1.Rewarded video is available after the above integration， but reward callbacks are still unavailable. To get rewards callbacks, please add listener to get rewards callback according to status listener section in Advanced Features.</spen><p>
-<p><spen style="color:red;">2.A new request for the next ad will be sent after the previous one has been closed or previous request has failed.</spen><p>
-<p><spen style="color:red;">3.Method media.requestYumiMedia() needs to be called only once at the beginning.</spen><p>
+<p><span style="color:red;">Note:</span></p>
+<p><span style="color:red;">1.Rewarded video is available after the above integration， but reward callbacks are still unavailable. To get rewards callbacks, please add listener to get rewards callback according to status listener section in Advanced Features.</span></p>
+<p><span style="color:red;">2.A new request for the next ad will be sent after the previous one has been closed or previous request has failed.</span></p>
+<p><span style="color:red;">3.Method media.requestYumiMedia() needs to be called only once at the beginning.</span></p>
 
 **Implement in Activity lifecycle:**
 
@@ -337,7 +337,7 @@ protected void onDestroy() {
 
  
 
-### Splash
+- ### Splash
 
 **Add the following code in method onCreate of Activity:**
 
@@ -365,7 +365,7 @@ protected void onDestroy() {
 
 
 
-### Native 
+- ### Native 
 
 **Add the following code in method onCreate of Activity:**
 
@@ -397,10 +397,10 @@ public void onLayerClick() {
 // request ad, the result of success or error will be returned in callback interface
 nativeAd.requestYumiNative(); 
 ```
-<spen style="color:red;">
+<span style="color:red;">
 Note: ChannelID refers to the channel labeling of the application, and the YUMI platform can carry out data statistics and effect analysis according to the ChannelID. A Popstar! For example, when the game is released to the SamSung channel, setChannelID(channelStr) needs to be set to setChannelID(' SamSung ').
 The channelID is labeled as the YUMI platform to generate the information and cannot be modified at will：
-</spen>
+</span>
 
 | **Channel name** | **ChannelID** |
 | ------------ | ------------- |
@@ -447,7 +447,7 @@ protected void onDestroy()
 ```
 
 
-## Test Mode 
+## 4. Test Mode 
 
 **YUMI SDK provideds a test mode to test your 3rd-party Integrations.** 
 
@@ -495,9 +495,9 @@ Below is a sample screen of some banner ads that were fetched from Baidu ad netw
 
 
 
-## Advanced Features 
+## 5. Advanced Features 
 
-### Banner
+- ### Banner
 
 **Set ad status listener**
 
@@ -565,9 +565,9 @@ When you set banner ad container, you can use isMatchWindowWidth, a parameter of
 
 
 
-### Interstitial 
+- ### Interstitial 
 
-**Interstitial**
+**Set ad status listener**
 
 If you need to listen to the lifecycle of interstitial ads, please call the following method after you create YumiBanner object:
 
@@ -621,7 +621,7 @@ interstitialListener = new IYumiInterstititalListener() {
 
  
 
-### Rewarded Video
+- ### Rewarded Video
 
 **Set ad status listener**
 
@@ -667,7 +667,7 @@ mediaListener = new IYumiMediaListener() {
 
 
 
-### Splash
+- ### Splash
 
 **Set ad status listener**
 
@@ -705,7 +705,7 @@ splashListener = new SplashADListener () {
 ```
 
 
-### Proguard
+- ### Proguard
 
 If you are using Proguard add the following to your Proguard config file: 
 
@@ -716,12 +716,12 @@ If you are using Proguard add the following to your Proguard config file:
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
 ```
 
-## Reminder
+## 6. Reminder
 
 ### Permissions for Android 6.0 and newer versions
 
 When the targetSdkVersion of your app is 23 or above, you can choose the following method to check permission and prompt for user authorization.
-<p><spen style="color:red;">Note: The default setting for this method is false, it won’t prompt for user authorisation or causing crash. If set as true, it will check permission and prompt for user authorisation with popups. This method should be called before the instantiated ads and android-support-v4.jar needs to be added.</spen></p>
+<p><span style="color:red;">Note: The default setting for this method is false, it won’t prompt for user authorisation or causing crash. If set as true, it will check permission and prompt for user authorisation with popups. This method should be called before the instantiated ads and android-support-v4.jar needs to be added.</span></p>
 
 ```java
 YumiSettings.runInCheckPermission(true);
