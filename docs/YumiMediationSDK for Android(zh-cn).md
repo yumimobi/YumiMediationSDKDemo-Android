@@ -554,7 +554,7 @@ banner.dismissBanner();
 banner.resumeBanner();
 ```
 
-<span id="isMatchWindowWidth">**横幅自适应屏幕宽度**</span>
+**横幅自适应屏幕宽度**<a name="isMatchWindowWidth"></a>
 
 <img src="document\image02.png" alt="img2">
 
