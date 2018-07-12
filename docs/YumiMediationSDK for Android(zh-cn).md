@@ -168,7 +168,7 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 //auto==true 横幅广告自动轮换
 //auto==false 横幅广告手动轮换，再次轮换需要重复调用banner.requestYumiBanner();
 //若您在单独使用玉米广告，请开启玉米广告自动轮换，将字段置为true。若您在通过其他聚合工具使用玉米广告，为保证广告效果，请停止玉米广告自动轮换，将字段置为false
-banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
+YumiBanner banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
 //将您创建好的ViewGroup作为banner容器， 同尺寸一并设置
 // bannerContainer  您的广告容器
 // AdSize.BANNER_SIZE_AUTO  SDK自动根据屏幕设置320*50或728*90
@@ -216,7 +216,7 @@ protected void onDestroy() {
 //auto==true 插屏广告自动请求下一条，为保证广告效果建议设为自动请求
 //auto==false 插屏广告不自动请求下一条，需要重复调用interstitial.requestYumiInterstitial()
 //若您在使用玉米广告，为保证广告效果，请开启玉米广告自动轮换，将字段置为true。
-interstitial = new YumiInterstitial(activity， "YOUR_SLOT_ID"， auto);
+YumiInterstitial interstitial = new YumiInterstitial(activity， "YOUR_SLOT_ID"， auto);
 //请根据平台的配置, 设置渠道, 您只需要设置一次渠道. 重复调用取最后一次.
 interstitial.setChannelID(channelStr);
 //情根据平台的配置, 设置版本, 您只需要设置一次版本. 重复调用取最后一次.
@@ -285,7 +285,7 @@ public void onBackPressed() {
 
 ```java
 //创建YumiMedia对象. activity是您要展示插屏的activity。SlotID，您需要通过玉米移动平台创建一个广告位ID以在应用中使用。
-media = new YumiMedia(activity， "YOUR_SLOT_ID");
+YumiMedia media = new YumiMedia(activity， "YOUR_SLOT_ID");
 //请根据平台的配置, 设置渠道, 您只需要设置一次渠道. 重复调用取最后一次.
 media.setChannelID(channelStr);
 //情根据平台的配置, 设置版本, 您只需要设置一次版本. 重复调用取最后一次.
@@ -351,7 +351,7 @@ protected void onDestroy() {
 // container：广告容器
 // width/height：广告容器宽高
 // SplashADListener：广告回调监听
-splashAD = new SplashAD(activity， SlotID， container， adwidth， adheight， SplashADListener); 
+SplashAD splashAD = new SplashAD(activity， SlotID， container， adwidth， adheight， SplashADListener); 
 ```
 
 **在Activity生命周期方法中实现：**

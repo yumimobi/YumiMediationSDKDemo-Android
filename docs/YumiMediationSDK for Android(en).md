@@ -168,7 +168,7 @@ Add following in manifest.xml of your project:
 //auto==true  Banner ads automatic rotation
 //auto==false  Banner ads manual rotation，call banner.requestYumiBanner() repeatedly to rotate
 // If you are using YUMI mediation alone, please enable YUMI ad rotation, set the field as “true”; if you are using YUMI ads in other mediations, to ensure ad performance, please disable YUMI ad rotation, set the field as “false”.
-banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
+YumiBanner banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
 //Set ViewGroup as banner container, set it along with size
 // bannerContainer  Your ad container
 // AdSize.BANNER_SIZE_AUTO  SDK automatically sets screen size as 320*50 or 728*90
@@ -215,7 +215,7 @@ protected void onDestroy() {
 //auto==true  Automatically request the next ad, auto mode recommended to ensure ad performance
 //auto==false  Auto request disabled, to request please repeatedly call interstitial.requestYumiInterstitial()
 // If you are using YUMI Ads, please enable YUMI ad rotation, set the field as “true”.
-interstitial = new YumiInterstitial(activity， "YOUR_SLOT_ID"， auto);
+YumiInterstitial interstitial = new YumiInterstitial(activity， "YOUR_SLOT_ID"， auto);
 // Set channel according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
 interstitial.setChannelID(channelStr);
 // Set version name according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
@@ -283,7 +283,7 @@ public void onBackPressed() {
 
 ```java
 // Create YumiInterstitial object. Activity is the one you use to show interstitials, SlotID is the app ID which is assigned to you by the platform.
-media = new YumiMedia(activity， "YOUR_SLOT_ID");
+YumiMedia media = new YumiMedia(activity， "YOUR_SLOT_ID");
 // Set channel according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
 media.setChannelID(channelStr);
 // Set version name according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
@@ -348,7 +348,7 @@ protected void onDestroy() {
 // container:ad container
 // width/height:width and height of ad container
 // SplashADListener:ad callback listener
-splashAD = new SplashAD(activity， SlotID， container， adwidth， adheight， SplashADListener); 
+SplashAD splashAD = new SplashAD(activity， SlotID， container， adwidth， adheight， SplashADListener); 
 ```
 
 **Implement in Activity lifecycle:**
