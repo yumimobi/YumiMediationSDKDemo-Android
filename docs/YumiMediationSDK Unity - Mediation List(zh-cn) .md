@@ -28,7 +28,7 @@
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_adcolony.jar                               |
-| 三方版本          | 3.0.7                                                        |
+| 三方版本          | 3.2.1                                                        |
 | 最小安卓版本      | Android 2.3.3  /  API 10                                     |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | 视频                                                         |
@@ -64,9 +64,9 @@
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_admob.jar                                  |
-| 三方版本          | --                                                           |
+| 三方版本          | 10.0.1                                                           |
 | GooglePlayService | 需要                                                         |
-| 支持广告形式      | Banner, 插屏                                                 |
+| 支持广告形式      | Banner, 插屏, 视频                                                  |
 | .so/lib工程       | play-services-ads-10.0.1.aar <br> play-services-ads-lite-10.0.1.aar<br>play-services-base-10.0.1.aar<br>play-services-basement-10.0.1.aar<br>play-services-clearcut-10.0.1.aar<br>play-services-gass-10.0.1.aar<br>play-services-tasks-10.0.1.aar |
 
 **额外权限：**

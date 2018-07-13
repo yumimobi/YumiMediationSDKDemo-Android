@@ -29,7 +29,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 |                   |                                                        |
 | ----------------- | ------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_adcolony.jar                         |
-| Provider Ver      | 3.0.7                                                  |
+| Provider Ver      | 3.2.1                                                  |
 | minSdkVersion     | Android 2.3.3 / API 10                                 |
 | GooglePlayService | Require                                                |
 | Ad Form           | Reward Video                                           |
@@ -76,9 +76,9 @@ AndroidManifest.xml Component：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_admob.jar |
-| Provider Ver      | --                          |
+| Provider Ver      | 10.0.1                          |
 | GooglePlayService | Require                     |
-| Ad Form           | Banner, Interstitial        |
+| Ad Form           | Banner, Interstitial, Reward Video|
 | .so/lib project   | --                          |
 
 **Permission：**
