@@ -35,13 +35,13 @@
 
 - ### 玉米SDK下载
 
-通过官网下载SDK主包或者联系我们： support@yumimobi.com
+>[SDK 下载列表](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Unity%20Download%20Page.md)
 
 <img src="document_unity\image01.png" alt="img1">
 
 - ### 三方SDK下载
 
-在玉米SDK jar包中选择需要接入的三方平台（三方平台的jar包可以通过名称进行区分），接入工程中
+在下载列表中选择需要接入的三方平台，下载并接入工程中
 
 <img src="document_unity\image02.png" alt="img2">
 

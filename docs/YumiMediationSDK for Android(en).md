@@ -68,7 +68,9 @@ dependencies {
 
 **Step 1. Add lib file**
 
-All lib files are placed in lib in the SDK:
+>[SDK Download](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
+
+All lib files are placed in ..\YumiMobi_SDK_AndroidEclipse_Example\lib in the SDK:
 
 - YumiMobi_Android_vX.X.X.jar
 

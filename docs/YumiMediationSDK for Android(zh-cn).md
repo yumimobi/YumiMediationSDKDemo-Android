@@ -68,7 +68,9 @@ dependencies {
 
 **第一步：添加lib文件：**
 
-玉米移动广告需要的lib文件均放在SDK的lib文件夹下：
+>[SDK 下载列表](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
+
+玉米移动广告需要的lib文件均放在 ..\YumiMobi_SDK_AndroidEclipse_Example\lib 文件夹下：
 
 - YumiMobi_Android_vX.X.X.jar
 

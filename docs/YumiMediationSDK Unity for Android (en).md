@@ -41,7 +41,7 @@ As the above approach implies, Yumi is a full service ad monetization solution. 
 
 - ### SDK Download
 
-Our main SDK and all 3rd party SDKs are available through registering and logging in to our website https://www.yumimobi.com.  Download the SDK package here or contact us at support@yumimobi.com and we can assist you in setting up your account to get started.   
+>[SDK Download](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Unity%20Download%20Page.md) 
 
 <img src="document_unity\image01.png" alt="img1">
 
