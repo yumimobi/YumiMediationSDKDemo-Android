@@ -1,4 +1,4 @@
-###  SDK Changelog
+###  Android & Android_UnitySDK Changelog
 
 #### V 3.3.7
 1. Optimization of request logic
@@ -10,6 +10,7 @@
 4. Update APPLovin logic
 
 5. Update ZPLAYAds to 2.0.7
+
 
 
 ###  iOS  & iOS_Unity  SDK Changelog
