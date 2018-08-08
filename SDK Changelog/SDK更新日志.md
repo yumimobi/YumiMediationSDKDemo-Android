@@ -1,4 +1,4 @@
-###  ###  Android & Android_Unity SDK更新日志
+###  Android & Android_Unity SDK更新日志
 #### V 3.3.7
 1. 优化请求逻辑
 
