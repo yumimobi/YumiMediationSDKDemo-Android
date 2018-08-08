@@ -27,8 +27,8 @@
    
 **1.2 开发环境**
 
-   OS：  Windows， Mac， Linux <br>
-   Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br>
+   OS：  Windows， Mac， Linux <br />
+   Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br />
    IDE：Unity 5
 
 ## 2. 下载
@@ -118,9 +118,9 @@ YumiUnityAdUtils.CheckPermission();
 
 <img src="document_unity\image09.png" alt="img9">
 
-initMedia() //为初始化视频，如不需要视频则要注释掉<br>
-InitIterstitialAD() //为初始化插屏 。如不需要插屏则要注释掉<br>
-ZplayLogger.setDebug(false) //为log信息类。传true显示日志，false不显示日志<br>
+initMedia() //为初始化视频，如不需要视频则要注释掉<br />
+InitIterstitialAD() //为初始化插屏 。如不需要插屏则要注释掉<br />
+ZplayLogger.setDebug(false) //为log信息类。传true显示日志，false不显示日志<br />
 
 - ### 横幅广告形式接入
 
@@ -142,7 +142,7 @@ ZplayYUMIHelper.Instance.ResumeBanner();
 ```
 **2、可选接入方法：回调方法可帮助开发者获取SDK状态； 自适应可提升广告展示效果**
 
-1) 横幅广告回调方法：开发者可根据回调方法获悉SDK状态，并根据自身应用逻辑需要做在此基础上做相关处理。若不接入此方法，不影响广告的展示上报等效果。<br>
+1) 横幅广告回调方法：开发者可根据回调方法获悉SDK状态，并根据自身应用逻辑需要做在此基础上做相关处理。若不接入此方法，不影响广告的展示上报等效果。<br />
 横幅广告回调类BannerAdCallbackListener实现了YumiUnityAdUtils.BannerAdCallbackListener 接口，有以下方法：
 
 | 方法 | 说明 |
@@ -208,7 +208,7 @@ ZplayYUMIHelper.Instance.ShowInterstitialAD();
 
 **2、可选接入方法：接入以下方法可帮助开发者获取SDK状态**
 
-插屏广告回调方法：开发者可根据回调方法获悉SDK状态，并根据自身应用逻辑需要做在此基础上做相关处理。若不接入此方法，不影响广告的展示上报等效果。<br>
+插屏广告回调方法：开发者可根据回调方法获悉SDK状态，并根据自身应用逻辑需要做在此基础上做相关处理。若不接入此方法，不影响广告的展示上报等效果。<br />
 插屏广告回调类InterstitialAdCallbackListener实现了YumiUnityAdUtils.InterstitialAdCallbackListener 接口，有以下方法：
 
 | 方法 | 说明 |
@@ -284,7 +284,7 @@ yuMiUnityAD.IsMediaPrepared(gameObject.name);
 ZplayYUMIHelper.Instance.ShowMedia();
 ```
 
-（3） 激励视频广告回调方法：<br>
+（3） 激励视频广告回调方法：<br />
 
 激励视频广告回调类MediaAdCallbackListener实现了Assets.YumiUnityAdUtils.MediaAdCallbackListener接口，有以下方法：
 
@@ -355,8 +355,8 @@ ZplayYUMIHelper.Instance.StartDebugging();
 ```
 **使用步骤：**
 
-1、调用方法打开调试页面：ZplayYUMIHelper.Instance.StartDebugging();<br>
-2、玉米SDK将获取配置并展示三方平台列表，进入debug页面： <br>
+1、调用方法打开调试页面：ZplayYUMIHelper.Instance.StartDebugging();<br />
+2、玉米SDK将获取配置并展示三方平台列表，进入debug页面： <br />
 &ensp;&ensp;（1） 页面展示为Searching for third party ADnetwork adapters：表示未进行配置，请检查应用的不同广告形式配置情况，如果问题仍未解决，请通过邮件联系我们： support@yumimobi.com
 
 <img src="document_unity\image15.jpg" alt="img15" width="200" height="355">
@@ -365,14 +365,14 @@ ZplayYUMIHelper.Instance.StartDebugging();
 
 <img src="document_unity\image16.jpg" alt="img16" width="200" height="355">
 
-3、无论左侧状态栏颜色为何状态，均可选择一家平台点击进入：<br>
-&ensp;&ensp;（1） SDK Available 为绿色时表示三方平台适配器已添加；当为红色时表示三方平台适配器未添加，回到3.1-2检查该平台adapter是否添加<br>
-&ensp;&ensp;（2） Configuration present为绿色时表示三方平台适配器组件Manifest已注册；当为红色时表示三方方平台适配器组件Manifest未注册，可回到3.1-3检查该平台适配器组件是否添加<br>
-&ensp;&ensp;（3） SDK Failed to start or No_fill 为绿色表示广告曾经展示成功过；当为红色时表示还未展示成功过广告， 可继续进行下一个步骤，如果所有步骤完成后仍未红色，请邮件联系我们： support@yumimobi.com <br>
+3、无论左侧状态栏颜色为何状态，均可选择一家平台点击进入：<br />
+&ensp;&ensp;（1） SDK Available 为绿色时表示三方平台适配器已添加；当为红色时表示三方平台适配器未添加，回到3.1-2检查该平台adapter是否添加<br />
+&ensp;&ensp;（2） Configuration present为绿色时表示三方平台适配器组件Manifest已注册；当为红色时表示三方方平台适配器组件Manifest未注册，可回到3.1-3检查该平台适配器组件是否添加<br />
+&ensp;&ensp;（3） SDK Failed to start or No_fill 为绿色表示广告曾经展示成功过；当为红色时表示还未展示成功过广告， 可继续进行下一个步骤，如果所有步骤完成后仍未红色，请邮件联系我们： support@yumimobi.com <br />
 
 <img src="document_unity\image17.jpg" alt="img17" width="200" height="355">
 
-4、点击Fetch开始请求广告，点击Show展示广告<br>
+4、点击Fetch开始请求广告，点击Show展示广告<br />
 5、广告展示成功后检查项全部变为绿色，表示该家平台接入成功
 
 <img src="document_unity\image18.jpg" alt="img18" width="200" height="355">

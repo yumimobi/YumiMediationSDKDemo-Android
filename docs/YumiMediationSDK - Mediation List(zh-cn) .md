@@ -34,7 +34,7 @@
 | 最小安卓版本      | Android 2.3.3  /  API 10                               |
 | GooglePlayService | 需要                                                   |
 | 支持广告形式      | 视频                                                   |
-| .so/lib工程       | /armeabi  <br> / arm64-v8a  <br> /armeabi-v7a  <br> /x86 <br> /x86_64 |
+| .so/lib工程       | /armeabi  <br /> / arm64-v8a  <br /> /armeabi-v7a  <br /> /x86 <br /> /x86_64 |
 
 **额外权限：**
 ```xml
@@ -69,7 +69,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### Admob
@@ -131,7 +131,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### AppLovin
@@ -174,7 +174,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### Baidu(百度)
@@ -218,7 +218,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### Centrixlink
@@ -272,7 +272,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### Chartboost
@@ -314,7 +314,7 @@ AndroidManifest.xml注册组件：
 -keep class com.chartboost.** { *; }
 ```
 
-<br>
+<br />
 
 
 ### Coconut(椰子视频)
@@ -385,7 +385,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### Facebook
@@ -393,7 +393,7 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_facebook.jar                               |
-| 三方版本          | 4.26.1                                                       |
+| 三方版本          | 4.99.1                                                       |
 | 最小安卓版本      | Android 3.0  /  API 11                                       |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏) |
@@ -428,7 +428,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### GdtMob(广点通)
@@ -479,7 +479,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### Inmobi
@@ -557,7 +557,7 @@ AndroidManifest.xml注册组件：
 
 
 
-<br>
+<br />
 
 
 ### Mobvista
@@ -565,10 +565,10 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_mobvista.jar                               |
-| 三方版本          | 8.7.4                                                        |
+| 三方版本          | 8.13.0                                                        |
 | GooglePlayService | --                                                           |
 | 支持广告形式      | 视频                                                         |
-| .so/lib工程       | \res\ anim <br> \res\drawable <br> \res\drawable-hdpi <br> \res\layout <br> \res\values |
+| .so/lib工程       | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values |
 
 **额外权限：**
 ```xml
@@ -619,7 +619,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### Oneway
@@ -663,7 +663,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### StartApp
@@ -721,7 +721,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### Unity
@@ -778,7 +778,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### Vungle
@@ -789,7 +789,7 @@ AndroidManifest.xml注册组件：
 | 三方版本          | 5.3.2                        |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | 插屏, 视频                   |
-| .so/lib工程       | adapter-rxjava-2.2.0.jar <br> converter-gson-2.2.0.jar <br> dagger-2.7.jar <br> eventbus-2.2.1.jar  <br>  gson-2.7.jar  <br>  javax.inject-1.jar  <br>  okhttp-3.6.0.jar  <br>  okio-1.11.0.jar  <br>  retrofit-2.2.0.jar  <br>  rxjava-1.2.0.jar|
+| .so/lib工程       | adapter-rxjava-2.2.0.jar <br /> converter-gson-2.2.0.jar <br /> dagger-2.7.jar <br /> eventbus-2.2.1.jar  <br />  gson-2.7.jar  <br />  javax.inject-1.jar  <br />  okhttp-3.6.0.jar  <br />  okio-1.11.0.jar  <br />  retrofit-2.2.0.jar  <br />  rxjava-1.2.0.jar|
 
 **额外权限：**
 ```xml
@@ -855,7 +855,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### 小米(Xiaomi)
@@ -902,7 +902,7 @@ AndroidManifest.xml注册组件：
 ```
 
 
-<br>
+<br />
 
 
 ### ZPLAYAds
@@ -910,7 +910,7 @@ AndroidManifest.xml注册组件：
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar名称           | libs/yumi_adapter_playableads.jar |
-| 三方版本          | 2.0.6                             |
+| 三方版本          | 2.0.7                             |
 | GooglePlayService | --                                |
 | 支持广告形式      | 插屏, 视频                        |
 | .so/lib工程       | --                                |

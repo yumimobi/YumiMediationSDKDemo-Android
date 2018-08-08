@@ -32,7 +32,7 @@
 | 最小安卓版本      | Android 2.3.3  /  API 10                                     |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | 视频                                                         |
-| .so/lib工程       | /armeabi  <br> / arm64-v8a  <br> /armeabi-v7a  <br> /x86 <br> /x86_64 |
+| .so/lib工程       | /armeabi  <br /> / arm64-v8a  <br /> /armeabi-v7a  <br /> /x86 <br /> /x86_64 |
 
 **额外权限：**
 ```xml
@@ -56,7 +56,7 @@
 ```
 
 
-<br>
+<br />
 
 
 ### Admob
@@ -67,7 +67,7 @@
 | 三方版本          | 10.0.1                                                           |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | Banner, 插屏, 视频                                                  |
-| .so/lib工程       | play-services-ads-10.0.1.aar <br> play-services-ads-lite-10.0.1.aar<br>play-services-base-10.0.1.aar<br>play-services-basement-10.0.1.aar<br>play-services-clearcut-10.0.1.aar<br>play-services-gass-10.0.1.aar<br>play-services-tasks-10.0.1.aar |
+| .so/lib工程       | play-services-ads-10.0.1.aar <br /> play-services-ads-lite-10.0.1.aar<br />play-services-base-10.0.1.aar<br />play-services-basement-10.0.1.aar<br />play-services-clearcut-10.0.1.aar<br />play-services-gass-10.0.1.aar<br />play-services-tasks-10.0.1.aar |
 
 **额外权限：**
 ```xml
@@ -107,7 +107,7 @@
 ```
 
 
-<br>
+<br />
 
 
 ### AppLovin
@@ -139,7 +139,7 @@
 ```
 
 
-<br>
+<br />
 
 
 ### Baidu(百度)
@@ -172,7 +172,7 @@
 ```
 
 
-<br>
+<br />
 
 
 ### Centrixlink
@@ -215,7 +215,7 @@
 ```
 
 
-<br>
+<br />
 
 
 ### Chartboost
@@ -248,7 +248,7 @@
 ```
 
 
-<br>
+<br />
 
 
 ### Coconut(椰子视频)
@@ -259,7 +259,7 @@
 | 三方版本          | 3.2.9                            |
 | GooglePlayService | --                               |
 | 支持广告形式      | 视频                             |
-| .so/lib工程       | \res\xml <br> \assets\ay_storage |
+| .so/lib工程       | \res\xml <br /> \assets\ay_storage |
 
 **额外权限：**
 ```xml
@@ -308,7 +308,7 @@
 ```
 
 
-<br>
+<br />
 
 
 ### Facebook
@@ -316,11 +316,11 @@
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_facebook.jar                               |
-| 三方版本          | 4.26.1                                                       |
+| 三方版本          | 4.99.1                                                       |
 | 最小安卓版本      | Android 3.0  /  API 11                                       |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏) |
-| .so/lib工程       | play-services-ads-10.0.1.aar <br> play-services-ads-lite-10.0.1.aar <br> play-services-base-10.0.1.aar <br> play-services-basement-10.0.1.aar <br> play-services-clearcut-10.0.1.aar <br> play-services-gass-10.0.1.aar <br> play-services-tasks-10.0.1.aar <br> android-support-v7-recyclerview.jar <br> android-support-v7-appcompat.jar <br> AudienceNetwork.aar <br> |
+| .so/lib工程       | play-services-ads-10.0.1.aar <br /> play-services-ads-lite-10.0.1.aar <br /> play-services-base-10.0.1.aar <br /> play-services-basement-10.0.1.aar <br /> play-services-clearcut-10.0.1.aar <br /> play-services-gass-10.0.1.aar <br /> play-services-tasks-10.0.1.aar <br /> android-support-v7-recyclerview-26.1.0.aar <br /> android-support-v7-appcompat-26.1.0.aar <br /> AudienceNetwork_4.99.1.aar <br />support-compat-26.1.0.aar <br />support-core-ui-26.1.0.aar<br />support-core-utils-26.1.0.aar<br />support-v4-26.1.0.aar|
 
 **额外权限：**
 ```xml
@@ -340,7 +340,7 @@
 ```
 
 
-<br>
+<br />
 
 
 ### GdtMob(广点通)
@@ -380,7 +380,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### Inmobi
@@ -446,7 +446,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### Mobvista
@@ -454,10 +454,10 @@ public protected *;
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_mobvista.jar                               |
-| 三方版本          | 8.7.4                                                        |
+| 三方版本          | 8.13.0                                                        |
 | GooglePlayService | --                                                           |
 | 支持广告形式      | 视频                                                         |
-| .so/lib工程       | \res\ anim <br> \res\drawable <br> \res\drawable-hdpi <br> \res\layout <br> \res\values |
+| .so/lib工程       | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values |
 
 **额外权限：**
 ```xml
@@ -497,7 +497,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### Oneway
@@ -530,7 +530,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### StartApp
@@ -577,7 +577,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### Unity
@@ -623,7 +623,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### Vungle
@@ -634,7 +634,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 | 三方版本          | 5.3.2                                                        |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | 插屏, 视频                                                   |
-| .so/lib工程       | adapter-rxjava-2.2.0.jar  <br>  converter-gson-2.2.0.jar  <br>  dagger-2.7.jar  <br>  eventbus-2.2.1.jar  <br>  gson-2.7.jar  <br>  javax.inject-1.jar  <br>  okhttp-3.6.0.jar  <br>  okio-1.11.0.jar  <br>  retrofit-2.2.0.jar  <br>  rxjava-1.2.0.jar |
+| .so/lib工程       | adapter-rxjava-2.2.0.jar  <br />  converter-gson-2.2.0.jar  <br />  dagger-2.7.jar  <br />  eventbus-2.2.1.jar  <br />  gson-2.7.jar  <br />  javax.inject-1.jar  <br />  okhttp-3.6.0.jar  <br />  okio-1.11.0.jar  <br />  retrofit-2.2.0.jar  <br />  rxjava-1.2.0.jar |
 
 **额外权限：**
 ```xml
@@ -689,7 +689,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### 小米(Xiaomi)
@@ -700,7 +700,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 | 三方版本          | 20022                                              |
 | GooglePlayService | --                                                 |
 | 支持广告形式      | 插屏                                               |
-| .so/lib工程       | assets/AdServer.apk <br> assets/analytics_core.apk |
+| .so/lib工程       | assets/AdServer.apk <br /> assets/analytics_core.apk |
 
 **额外权限：**
 ```xml
@@ -725,7 +725,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### ZPLAYAds
@@ -733,7 +733,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar名称           | libs/yumi_adapter_playableads.jar |
-| 三方版本          | 2.0.6                             |
+| 三方版本          | 2.0.7                             |
 | GooglePlayService | --                                |
 | 支持广告形式      | 插屏, 视频                        |
 | .so/lib工程       | --                                |

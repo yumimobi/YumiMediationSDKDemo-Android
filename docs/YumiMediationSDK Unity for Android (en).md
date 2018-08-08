@@ -26,15 +26,15 @@
 
 **1.1 Introduction**
 
-This document is designed to guide and assist developers in the integration of the YUMI Unity 3D SDK into their Unity3D Android products.  Successful integration and activation will make the full range of Yumi ad monetization services available to the product worldwide, or in specific geos such as China (if so required).  You also can control which ad networks get installed for mediation, and have a variety of other features available to help your product earn more ad revenue quickly.<br>
+This document is designed to guide and assist developers in the integration of the YUMI Unity 3D SDK into their Unity3D Android products.  Successful integration and activation will make the full range of Yumi ad monetization services available to the product worldwide, or in specific geos such as China (if so required).  You also can control which ad networks get installed for mediation, and have a variety of other features available to help your product earn more ad revenue quickly.<br />
 
 **Special note:** the Yumi approach to mediation is unique in that the ad networks chosen each use the Yumi account for, and not that of the developer (if any).  This fact benefits develoeprs in that it can shorten and simplify the integration requirements.  As Yumi consolidates and markets its own ZPLAY inventory with that of its select working partners, this can also increase revenue performance for the developer.  The benefit does not stop there though, as we consolidate more than just the reporting using this approach.  All payments from these ad newtorks come together in one place, and get paid at one time, often paying you even faster than we get paid.  Great revenue possibilities, simplified 
 As the above approach implies, Yumi is a full service ad monetization solution.  You will be assigned an operations rep and a technical support rep to help you get started.    When the time comes to get started on integration, simply email onboarding@yumimobi.com and we will let you know who will be working with you to assist in getting your integration complete and functional.  We can even help in making suggestions about what ads to use where, and how often.  We are truly your partner for success!
 
 **1.2 Development Environment**
 
-   OS：  Windows， Mac， Linux <br>
-   Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br>
+   OS：  Windows， Mac， Linux <br />
+   Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br />
    IDE：Unity 5
 
 ## 2. DOWNLOADS REQUIRED
@@ -92,13 +92,13 @@ Add any third-party SDK adapter resources for the Ad Networks previously chosen:
 
 <img src="document_unity\image09.png" alt="img9">
 
-initMedia(); // Initialize video，note if you don't need video <br>
-InitIterstitialAD() ;// Initialize InitIterstitial ，note if you don't need InitIterstitial<br>
-ZplayLogger.setDebug(false); // log，true to display the log, false does not display logs<br>
+initMedia(); // Initialize video，note if you don't need video <br />
+InitIterstitialAD() ;// Initialize InitIterstitial ，note if you don't need InitIterstitial<br />
+ZplayLogger.setDebug(false); // log，true to display the log, false does not display logs<br />
 
 **Banner, Interstitial & Rewarded Video Ad Access**
 
-STANDARD PROCESS <br>
+STANDARD PROCESS <br />
 These code calls generate and control ads.  See notes below for additional details.
 
 | Action | Banner           | Interstitial          | Rewarded Video |
@@ -153,7 +153,7 @@ ZplayYUMIHelper.Instance.StartDebugging();
 
 <img src="document_unity\image16.jpg" alt="img16" width="200" height="355">
 
-Each platform line can be clicked to enter and investigate the various layers of testing available.  The following items can be tested within the second screen for each platform shown on the debugging home screen.<br>
+Each platform line can be clicked to enter and investigate the various layers of testing available.  The following items can be tested within the second screen for each platform shown on the debugging home screen.<br />
 
 a) Adapter SDK Present? When this first line is green, it means that the platform adapter has been added; when in red, it means that the adapter has not yet been added.  If red, please review section 3.1-2 and check for or add any missing adapter. 
 
@@ -207,7 +207,7 @@ This concludes our integration document.  We hope your project has gone smoothly
 
 - ### Using your own AndroidManifest.xml file
 
-To use your own file, please do the following:<br>
+To use your own file, please do the following:<br />
 (1) Adding this permission (optional) will generally improve the ad fill rate.
 ```xml
 <!-- yumi sdk start -->
