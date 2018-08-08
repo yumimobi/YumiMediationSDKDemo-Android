@@ -29,9 +29,9 @@
 
 **1.2 Development Environment**
 
-   OS：  Windows， Mac， Linux <br>
-   Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br>
-   IDE： Eclipse with ADT (ADT version 23.0.4)&ensp;&ensp;OR&ensp;&ensp;Android-studio<br>
+   OS：  Windows， Mac， Linux <br />
+   Android SDK：&ensp;&gt;&ensp;4.4&ensp;(API level 19)<br />
+   IDE： Eclipse with ADT (ADT version 23.0.4)&ensp;&ensp;OR&ensp;&ensp;Android-studio<br />
    Java：&ensp;&gt;&ensp;JDK 7
 
 ## 2. Development Environment Configuration

@@ -33,7 +33,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 | minSdkVersion     | Android 2.3.3 / API 10                                 |
 | GooglePlayService | Require                                                |
 | Ad Form           | Reward Video                                           |
-| .so/lib project   | /armeabi  <br> / arm64-v8a  <br> /armeabi-v7a  <br> /x86 <br> /x86_64 |
+| .so/lib project   | /armeabi  <br /> / arm64-v8a  <br /> /armeabi-v7a  <br /> /x86 <br /> /x86_64 |
 
 **Permission：**
 ```xml
@@ -68,7 +68,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Admob
@@ -130,7 +130,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### AppLovin
@@ -173,7 +173,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Baidu(百度)
@@ -217,7 +217,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Centrixlink
@@ -271,7 +271,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Chartboost
@@ -313,7 +313,7 @@ AndroidManifest.xml Component：
 -keep class com.chartboost.** { *; }
 ```
 
-<br>
+<br />
 
 
 ### Coconut(椰子视频)
@@ -384,7 +384,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Facebook
@@ -392,7 +392,7 @@ AndroidManifest.xml Component：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_facebook.jar                               |
-| Provider Ver      | 4.26.1                                                       |
+| Provider Ver      | 4.99.1                                                       |
 | minSdkVersion     | Android 3.0 / API 11                                         |
 | GooglePlayService | Require                                                      |
 | Ad Form           | Banner, Interstitial , Reward Video (Videos ads in Audience Network requires the hardware accelerated rendering to be enabled, otherwise you might experience a black screen in the video views) |
@@ -427,7 +427,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### GdtMob(广点通)
@@ -478,7 +478,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### Inmobi
@@ -555,7 +555,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Mobvista
@@ -563,10 +563,10 @@ AndroidManifest.xml Component：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_mobvista.jar                               |
-| Provider Ver      | 8.7.4                                                        |
+| Provider Ver      | 8.13.0                                                        |
 | GooglePlayService | --                                                           |
 | Ad Form           | Reward Video                                                 |
-| .so/lib project   | \res\ anim <br> \res\drawable <br> \res\drawable-hdpi <br> \res\layout <br> \res\values  |
+| .so/lib project   | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values  |
 
 **Permission：**
 ```xml
@@ -617,7 +617,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Oneway
@@ -661,7 +661,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### StartApp
@@ -719,7 +719,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### Unity
@@ -776,7 +776,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Vungle
@@ -787,7 +787,7 @@ AndroidManifest.xml Component：
 | Provider Ver      | 5.3.2                        |
 | GooglePlayService | Require                      |
 | Ad Form           | Interstitial, Reward Video   |
-| .so/lib project   | adapter-rxjava-2.2.0.jar <br> converter-gson-2.2.0.jar <br> dagger-2.7.jar <br> eventbus-2.2.1.jar  <br>  gson-2.7.jar  <br>  javax.inject-1.jar  <br>  okhttp-3.6.0.jar  <br>  okio-1.11.0.jar  <br>  retrofit-2.2.0.jar  <br>  rxjava-1.2.0.jar|
+| .so/lib project   | adapter-rxjava-2.2.0.jar <br /> converter-gson-2.2.0.jar <br /> dagger-2.7.jar <br /> eventbus-2.2.1.jar  <br />  gson-2.7.jar  <br />  javax.inject-1.jar  <br />  okhttp-3.6.0.jar  <br />  okio-1.11.0.jar  <br />  retrofit-2.2.0.jar  <br />  rxjava-1.2.0.jar|
 
 **Permission：**
 ```xml
@@ -853,7 +853,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### Xiaomi(小米)
@@ -900,7 +900,7 @@ AndroidManifest.xml Component：
 ```
 
 
-<br>
+<br />
 
 
 ### ZPLAYAds
@@ -908,7 +908,7 @@ AndroidManifest.xml Component：
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar Name          | libs/yumi_adapter_playableads.jar |
-| Provider Ver      | 2.0.6                             |
+| Provider Ver      | 2.0.7                             |
 | GooglePlayService | --                                |
 | Ad Form           | Interstitial, Reward Video        |
 | .so/lib project   | --                                |

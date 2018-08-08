@@ -33,7 +33,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 | minSdkVersion     | Android 2.3.3  /  API 10                                     |
 | GooglePlayService | Require                                                      |
 | Ad Form           | Reward Video                                                 |
-| .so/lib project   | /armeabi  <br> / arm64-v8a  <br> /armeabi-v7a  <br> /x86 <br> /x86_64 |
+| .so/lib project   | /armeabi  <br /> / arm64-v8a  <br /> /armeabi-v7a  <br /> /x86 <br /> /x86_64 |
 
 **Permission：**
 ```xml
@@ -57,7 +57,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 ```
 
 
-<br>
+<br />
 
 
 ### Admob
@@ -68,7 +68,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 | Provider Ver      | 10.0.1                                                           |
 | GooglePlayService | Require                                                      |
 | Ad Form           | Banner, Interstitial, Reward Video                           |
-| .so/lib project   | play-services-ads-10.0.1.aar <br> play-services-ads-lite-10.0.1.aar<br>play-services-base-10.0.1.aar<br>play-services-basement-10.0.1.aar<br>play-services-clearcut-10.0.1.aar<br>play-services-gass-10.0.1.aar<br>play-services-tasks-10.0.1.aar |
+| .so/lib project   | play-services-ads-10.0.1.aar <br /> play-services-ads-lite-10.0.1.aar<br />play-services-base-10.0.1.aar<br />play-services-basement-10.0.1.aar<br />play-services-clearcut-10.0.1.aar<br />play-services-gass-10.0.1.aar<br />play-services-tasks-10.0.1.aar |
 
 **Permission：**
 ```xml
@@ -108,7 +108,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 ```
 
 
-<br>
+<br />
 
 
 ### AppLovin
@@ -140,7 +140,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 ```
 
 
-<br>
+<br />
 
 
 ### Baidu(百度)
@@ -173,7 +173,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 ```
 
 
-<br>
+<br />
 
 
 ### Centrixlink
@@ -216,7 +216,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 ```
 
 
-<br>
+<br />
 
 
 ### Chartboost
@@ -249,7 +249,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 ```
 
 
-<br>
+<br />
 
 
 ### Coconut(椰子视频)
@@ -260,7 +260,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 | Provider Ver      | 3.2.9                            |
 | GooglePlayService | --                               |
 | Ad Form           | Reward Video                     |
-| .so/lib project   | \res\xml <br> \assets\ay_storage |
+| .so/lib project   | \res\xml <br /> \assets\ay_storage |
 
 **Permission：**
 ```xml
@@ -309,7 +309,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 ```
 
 
-<br>
+<br />
 
 
 ### Facebook
@@ -321,7 +321,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 | minSdkVersion     | Android 3.0  /  API 11                                       |
 | GooglePlayService | Require                                                      |
 | Ad Form           | Banner, Interstitial , Reward Video (Videos ads in Audience Network requires the hardware accelerated rendering to be enabled, otherwise you might experience a black screen in the video views) |
-| .so/lib project   | play-services-ads-10.0.1.aar <br> play-services-ads-lite-10.0.1.aar <br> play-services-base-10.0.1.aar <br> play-services-basement-10.0.1.aar <br> play-services-clearcut-10.0.1.aar <br> play-services-gass-10.0.1.aar <br> play-services-tasks-10.0.1.aar <br> android-support-v7-recyclerview.jar <br> android-support-v7-appcompat.jar <br> AudienceNetwork.aar <br> |
+| .so/lib project   | play-services-ads-10.0.1.aar <br /> play-services-ads-lite-10.0.1.aar <br /> play-services-base-10.0.1.aar <br /> play-services-basement-10.0.1.aar <br /> play-services-clearcut-10.0.1.aar <br /> play-services-gass-10.0.1.aar <br /> play-services-tasks-10.0.1.aar <br /> android-support-v7-recyclerview-26.1.0.aar <br /> android-support-v7-appcompat-26.1.0.aar <br /> AudienceNetwork_4.99.1.aar <br />support-compat-26.1.0.aar <br />support-core-ui-26.1.0.aar<br />support-core-utils-26.1.0.aar<br />support-v4-26.1.0.aar |
 
 **Permission：**
 ```xml
@@ -341,7 +341,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 ```
 
 
-<br>
+<br />
 
 
 ### GdtMob(广点通)
@@ -381,7 +381,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### Inmobi
@@ -447,7 +447,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### Mobvista
@@ -455,10 +455,10 @@ public protected *;
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_mobvista.jar                               |
-| Provider Ver      | 8.7.4                                                        |
+| Provider Ver      | 8.13.0                                                        |
 | GooglePlayService | --                                                           |
 | Ad Form           | Reward Video                                                 |
-| .so/lib project   | \res\ anim <br> \res\drawable <br> \res\drawable-hdpi <br> \res\layout <br> \res\values |
+| .so/lib project   | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values |
 
 **Permission：**
 ```xml
@@ -498,7 +498,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### Oneway
@@ -531,7 +531,7 @@ public protected *;
 ```
 
 
-<br>
+<br />
 
 
 ### StartApp
@@ -578,7 +578,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### Unity
@@ -624,7 +624,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### Vungle
@@ -635,7 +635,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 | Provider Ver      | 5.3.2                                                        |
 | GooglePlayService | Require                                                      |
 | Ad Form           | Interstitial, Reward Video                                   |
-| .so/lib project   | adapter-rxjava-2.2.0.jar  <br>  converter-gson-2.2.0.jar  <br>  dagger-2.7.jar  <br>  eventbus-2.2.1.jar  <br>  gson-2.7.jar  <br>  javax.inject-1.jar  <br>  okhttp-3.6.0.jar  <br>  okio-1.11.0.jar  <br>  retrofit-2.2.0.jar  <br>  rxjava-1.2.0.jar |
+| .so/lib project   | adapter-rxjava-2.2.0.jar  <br />  converter-gson-2.2.0.jar  <br />  dagger-2.7.jar  <br />  eventbus-2.2.1.jar  <br />  gson-2.7.jar  <br />  javax.inject-1.jar  <br />  okhttp-3.6.0.jar  <br />  okio-1.11.0.jar  <br />  retrofit-2.2.0.jar  <br />  rxjava-1.2.0.jar |
 
 **Permission：**
 ```xml
@@ -690,7 +690,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### Xiaomi(小米)
@@ -701,7 +701,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 | Provider Ver      | 20022                                              |
 | GooglePlayService | --                                                 |
 | Ad Form           | Interstitial                                       |
-| .so/lib project   | assets/AdServer.apk <br> assets/analytics_core.apk |
+| .so/lib project   | assets/AdServer.apk <br /> assets/analytics_core.apk |
 
 **Permission：**
 ```xml
@@ -726,7 +726,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 ```
 
 
-<br>
+<br />
 
 
 ### ZPLAYAds
@@ -734,7 +734,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar Name          | libs/yumi_adapter_playableads.jar |
-| Provider Ver      | 2.0.6                             |
+| Provider Ver      | 2.0.7                             |
 | GooglePlayService | --                                |
 | Ad Form           | Interstitial, Reward Video        |
 | .so/lib project   | --                                |
