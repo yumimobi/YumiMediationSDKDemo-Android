@@ -15,6 +15,15 @@
 
 ###  iOS  & iOS_Unity  SDK Changelog
 
+#### V 3.3.8
+ 
+1. Update ZPLAYAds to 2.1.0
+
+2. Update IronSource to 6.7.10 
+
+3. Update Domob  to  3.8.0 
+
+
 #### V 3.3.7
 
 1. Optimization of request logic
