@@ -221,60 +221,6 @@ AndroidManifest.xml注册组件：
 <br />
 
 
-### Centrixlink
-
-|                   |                                   |
-| ----------------- | --------------------------------- |
-| Jar名称           | libs/yumi_adapter_centrixlink.jar |
-| 三方版本          | 2.4.2                             |
-| GooglePlayService | --                                |
-| 支持广告形式      | 视频                              |
-| .so/lib工程       | --                                |
-
-**额外权限：**
-```xml
--- 
-```
-
-**AndroidStudio开发**
-
-build.gradle添加：
-```c
-dependencies {
-  compile 'com.yumimobi.ads.mediation:centrixlink:*.*.*.+'
-}
-```
-
-**Eclipse开发**
-
-AndroidManifest.xml注册组件：
-```xml
-<activity android:name="com.centrixlink.SDK.FullScreenADActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-	android:process=":adprocess"
-	tools:ignore="InnerclassSeparator" />
-<activity android:name="com.centrixlink.SDK.ResizedVideoADActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-	android:hardwareAccelerated="true"
-	android:process=":adprocess"
-	tools:ignore="InnerclassSeparator" />
-<service
-	android:name="com.centrixlink.SDK.service.CentrixlinkService"
-	android:exported="false" />
-```
-
-**混淆：**
-```c
--dontwarn com.centrixlink.**
--keep public class com.centrixlink.**  { *; }
-```
-
-
-<br />
-
-
 ### Chartboost
 
 |                   |                                  |
@@ -313,77 +259,6 @@ AndroidManifest.xml注册组件：
 ```c
 -keep class com.chartboost.** { *; }
 ```
-
-<br />
-
-
-### Coconut(椰子视频)
-
-|                   |                               |
-| ----------------- | ----------------------------- |
-| Jar名称           | libs/yumi_adapter_coconut.jar |
-| 三方版本          | 3.2.9                         |
-| GooglePlayService | --                            |
-| 支持广告形式      | 视频                          |
-| .so/lib工程       | \res\xml                      |
-
-**额外权限：**
-```xml
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.WRITE_SETTINGS" />
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-```
-
-**AndroidStudio开发**
-
-build.gradle添加：
-```c
-dependencies {
-  compile 'com.yumimobi.ads.mediation:coconut:*.*.*.+'
-}
-```
-
-**Eclipse开发**
-
-AndroidManifest.xml注册组件：
-```xml
-<provider
-    android:name="com.afk.client.ads.AdFileProvider"
-    android:authorities="${applicationId}.fileprovider"
-    android:exported="false"
-    android:grantUriPermissions="true">
-    <meta-data
-        android:name="android.support.FILE_PROVIDER_PATHS"
-        android:resource="@xml/provider_paths" />
-</provider>
-<activity
-    android:name="com.afk.client.ads.AdActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize"
-    android:screenOrientation="sensor"
-    android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
-<activity
-    android:name="com.afk.permission.RequestPermissionActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize"
-    android:screenOrientation="sensor"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-<service
-    android:name="com.afk.client.ads.DownloadService"
-    android:exported="false" />
-```
-
-**混淆：**
-```c
--keep class com.afk.** {*;} 
--keep class com.google.protobuf.** {*;}
--keepattributes *Annotation* 
--keepattributes *JavascriptInterface*
-```
-
 
 <br />
 
@@ -666,64 +541,6 @@ AndroidManifest.xml注册组件：
 <br />
 
 
-### StartApp
-
-|                   |                                |
-| ----------------- | ------------------------------ |
-| Jar名称           | libs/yumi_adapter_startapp.jar |
-| 三方版本          | 3.5.4                          |
-| GooglePlayService | --                             |
-| 支持广告形式      | Banner, 插屏, 视频             |
-| .so/lib工程       | --                             |
-
-**额外权限：**
-```xml
---
-```
-
-**AndroidStudio开发**
-
-build.gradle添加：
-```c
-dependencies {
-  compile 'com.yumimobi.ads.mediation:startapp:*.*.*.+'
-}
-```
-
-**Eclipse开发**
-
-AndroidManifest.xml注册组件：
-```xml
-<activity android:name="com.startapp.android.publish.ads.list3d.List3DActivity"
-	android:theme="@android:style/Theme" />
-<activity android:name="com.startapp.android.publish.adsCommon.activities.OverlayActivity"
-	android:configChanges="orientation|keyboardHidden|screenSize"
-	android:theme="@android:style/Theme.Translucent" />
-<activity android:name="com.startapp.android.publish.adsCommon.activities.FullScreenActivity"
-	android:configChanges="orientation|keyboardHidden|screenSize"
-	android:theme="@android:style/Theme" />
-<service android:name="com.startapp.android.publish.common.metaData.PeriodicMetaDataService" />
-<service android:name="com.startapp.android.publish.common.metaData.InfoEventService" />
-<receiver android:name="com.startapp.android.publish.common.metaData.BootCompleteListener" >
-<intent-filter>
-    <action android:name="android.intent.action.BOOT_COMPLETED" />
-</intent-filter>
-</receiver>
-```
-
-**混淆：**
-```c
--keep class com.startapp.** { *;}
--keepattributes Exceptions, InnerClasses, Signature, Deprecated, SourceFile,
-LineNumberTable, *Annotation*, EnclosingMethod
--dontwarn android.webkit.JavascriptInterface
--dontwarn com.startapp.**
-```
-
-
-<br />
-
-
 ### Unity
 
 |                   |                             |
@@ -858,52 +675,6 @@ AndroidManifest.xml注册组件：
 <br />
 
 
-### 小米(Xiaomi)
-
-|                   |                              |
-| ----------------- | ---------------------------- |
-| Jar名称           | libs/yumi_adapter_xiaomi.jar |
-| 三方版本          | 20022                        |
-| GooglePlayService | --                           |
-| 支持广告形式      | 插屏                         |
-| .so/lib工程       | --                           |
-
-**额外权限：**
-```xml
-<uses-permission android:name="android.permission.GET_TASKS"/>
-```
-
-**AndroidStudio开发**
-
-build.gradle添加：
-```c
-dependencies {
-  compile 'com.yumimobi.ads.mediation:xiaomi:*.*.*.+'
-}
-```
-
-**Eclipse开发**
-
-AndroidManifest.xml注册组件：
-```xml
-<activity android:name="com.xiaomi.ad.AdActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-	android:exported="false"
-	android:screenOrientation="behind"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-</activity>
-```
-
-**混淆：**
-```c
--keep class com.xiaomi.ad.**{*;}
--keep class com.miui.analytics.**{*;}
--keep class com.xiaomi.analytics.*{public protected *;}
-```
-
-
-<br />
-
 
 ### ZPLAYAds
 
@@ -973,4 +744,129 @@ AndroidManifest.xml注册组件：
     public void setCacheCountPerUnitId(int);
     public void setAutoLoadAd(boolean);
 }
+```
+
+
+<br />
+
+
+### Ksyun(金山云)
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar名称           | libs/yumi_adapter_ksyun.jar |
+| 三方版本          | 4.0.3                        |
+| GooglePlayService | --                         |
+| 支持广告形式      | 视频                   |
+| .so/lib工程       |  \res\xml\file_paths.xml|
+
+**额外权限：**
+```xml
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+```
+
+**AndroidStudio开发**
+
+build.gradle添加：
+```c
+dependencies {
+  compile 'com.yumimobi.ads.mediation:ksyun:*.*.*.+'
+}
+```
+
+**Eclipse开发**
+
+AndroidManifest.xml注册组件：
+```xml
+<activity
+	android:name="com.ksc.ad.sdk.ui.AdProxyActivity"
+	android:configChanges="keyboardHidden|orientation|screenSize"
+	android:hardwareAccelerated="true"
+	android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+<activity
+	android:name="com.ksc.ad.sdk.ui.AdPermissionProxyActivity"
+	android:configChanges="keyboardHidden|orientation|screenSize"
+	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+<service android:name="com.ksc.ad.sdk.service.AdProxyService" />
+<provider
+	android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
+	android:authorities="${applicationId}.fileprovider"
+	android:exported="false"
+	android:grantUriPermissions="true">
+	<meta-data
+		android:name="android.support.FILE_PROVIDER_PATHS"
+		android:resource="@xml/file_paths" />
+</provider>
+```
+
+**混淆：**
+```c
+-keep class com.ksc.ad.sdk.**{ *;}
+-dontwarn com.ksc.ad.sdk.**
+```
+
+
+<br />
+
+
+### IronSource
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar名称           | libs/yumi_adapter_ironsource.jar |
+| 三方版本          | 6.7.10                        |
+| GooglePlayService | 需要                         |
+| 支持广告形式      | 插屏,视频                   |
+| .so/lib工程       | --|
+
+**额外权限：**
+```xml
+--
+```
+
+**AndroidStudio开发**
+
+build.gradle添加：
+```c
+dependencies {
+  compile 'com.yumimobi.ads.mediation:ironsource:*.*.*.+'
+}
+```
+
+**Eclipse开发**
+
+AndroidManifest.xml注册组件：
+```xml
+<activity
+	android:name="com.ironsource.sdk.controller.ControllerActivity"
+	android:configChanges="orientation|screenSize"
+	android:hardwareAccelerated="true" />
+<activity
+	android:name="com.ironsource.sdk.controller.InterstitialActivity"
+	android:configChanges="orientation|screenSize"
+	android:hardwareAccelerated="true"
+	android:theme="@android:style/Theme.Translucent" />
+<activity
+	android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+	android:configChanges="orientation|screenSize"
+	android:hardwareAccelerated="true"
+	android:theme="@android:style/Theme.Translucent" />
+```
+
+**混淆：**
+```c
+-keepclassmembers class com.ironsource.sdk.controller.IronSourceWebView$JSInterface {
+    public *;
+}
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+-keep class com.ironsource.adapters.** { *;
+}
+-dontwarn com.moat.**
+-keep class com.moat.** { public protected private *; }
 ```
