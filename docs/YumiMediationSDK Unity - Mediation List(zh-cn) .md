@@ -550,7 +550,7 @@ public protected *;
 | 三方版本          | 2.0.7                             |
 | GooglePlayService | --                                |
 | 支持广告形式      | 插屏, 视频                        |
-| .so/lib工程       | --                                |
+| .so/lib工程       | assets\zp_force_close_button.png  <br />assets\zp_force_close_button_bg.png |
 
 **额外权限：**
 ```xml

@@ -551,7 +551,7 @@ public protected *;
 | Provider Ver      | 2.0.7                             |
 | GooglePlayService | --                                |
 | Ad Form           | Interstitial, Reward Video        |
-| .so/lib project   | --                                |
+| .so/lib project   |  assets\zp_force_close_button.png  <br />assets\zp_force_close_button_bg.png  |
 
 **Permission：**
 ```xml
