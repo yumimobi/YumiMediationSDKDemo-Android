@@ -1,4 +1,17 @@
 ###  Android & Android_Unity SDK更新日志
+
+#### V 3.3.8
+
+1. Android sdk 间隔逻辑优化
+
+2. 新增金山云（视频）、IronSource（插屏+视频）平台
+
+3. 更新  ZPLAYAds 到2.1.1
+
+4. 优化debug center 模块
+
+
+
 #### V 3.3.7
 1. 优化请求逻辑
 
