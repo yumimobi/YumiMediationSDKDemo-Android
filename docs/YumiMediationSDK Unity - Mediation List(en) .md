@@ -176,49 +176,6 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 <br />
 
 
-### Centrixlink
-
-|                   |                                   |
-| ----------------- | --------------------------------- |
-| Jar Name          | libs/yumi_adapter_centrixlink.jar |
-| Provider Ver      | 2.4.2                             |
-| GooglePlayService | --                                |
-| Ad Form           | Reward Video                      |
-| .so/lib project   | \assets\                          |
-
-**Permission：**
-```xml
--- 
-```
-
-**AndroidManifest.xml Component：**
-```xml
-<activity android:name="com.centrixlink.SDK.FullScreenADActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-	android:process=":adprocess"
-	tools:ignore="InnerclassSeparator" />
-<activity android:name="com.centrixlink.SDK.ResizedVideoADActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-	android:hardwareAccelerated="true"
-	android:process=":adprocess"
-	tools:ignore="InnerclassSeparator" />
-<service
-	android:name="com.centrixlink.SDK.service.CentrixlinkService"
-	android:exported="false" />
-```
-
-**ProGuard：**
-```c
--dontwarn com.centrixlink.**
--keep public class com.centrixlink.**  { *; }
-```
-
-
-<br />
-
-
 ### Chartboost
 
 |                   |                                  |
@@ -246,66 +203,6 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 **ProGuard：**
 ```c
 -keep class com.chartboost.** { *; }
-```
-
-
-<br />
-
-
-### Coconut(椰子视频)
-
-|                   |                                  |
-| ----------------- | -------------------------------- |
-| Jar Name          | libs/yumi_adapter_coconut.jar    |
-| Provider Ver      | 3.2.9                            |
-| GooglePlayService | --                               |
-| Ad Form           | Reward Video                     |
-| .so/lib project   | \res\xml <br /> \assets\ay_storage |
-
-**Permission：**
-```xml
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.WRITE_SETTINGS" />
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-```
-
-**AndroidManifest.xml Component：**
-```xml
-<provider
-    android:name="com.afk.client.ads.AdFileProvider"
-    android:authorities="${applicationId}.fileprovider"
-    android:exported="false"
-    android:grantUriPermissions="true">
-    <meta-data
-        android:name="android.support.FILE_PROVIDER_PATHS"
-        android:resource="@xml/provider_paths" />
-</provider>
-<activity
-    android:name="com.afk.client.ads.AdActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize"
-    android:screenOrientation="sensor"
-    android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
-<activity
-    android:name="com.afk.permission.RequestPermissionActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize"
-    android:screenOrientation="sensor"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-<service
-    android:name="com.afk.client.ads.DownloadService"
-    android:exported="false" />
-```
-
-**ProGuard：**
-```c
--keep class com.afk.** {*;} 
--keep class com.google.protobuf.** {*;}
--keepattributes *Annotation* 
--keepattributes *JavascriptInterface*
 ```
 
 
@@ -534,53 +431,6 @@ public protected *;
 <br />
 
 
-### StartApp
-
-|                   |                                    |
-| ----------------- | ---------------------------------- |
-| Jar Name          | libs/yumi_adapter_startapp.jar     |
-| Provider Ver      | 3.5.4                              |
-| GooglePlayService | --                                 |
-| Ad Form           | Banner, Interstitial, Reward Video |
-| .so/lib project   | --                                 |
-
-**Permission：**
-```xml
---
-```
-
-**AndroidManifest.xml Component：**
-```xml
-<activity android:name="com.startapp.android.publish.ads.list3d.List3DActivity"
-	android:theme="@android:style/Theme" />
-<activity android:name="com.startapp.android.publish.adsCommon.activities.OverlayActivity"
-	android:configChanges="orientation|keyboardHidden|screenSize"
-	android:theme="@android:style/Theme.Translucent" />
-<activity android:name="com.startapp.android.publish.adsCommon.activities.FullScreenActivity"
-	android:configChanges="orientation|keyboardHidden|screenSize"
-	android:theme="@android:style/Theme" />
-<service android:name="com.startapp.android.publish.common.metaData.PeriodicMetaDataService" />
-<service android:name="com.startapp.android.publish.common.metaData.InfoEventService" />
-<receiver android:name="com.startapp.android.publish.common.metaData.BootCompleteListener" >
-<intent-filter>
-    <action android:name="android.intent.action.BOOT_COMPLETED" />
-</intent-filter>
-</receiver>
-```
-
-**ProGuard：**
-```c
--keep class com.startapp.** { *;}
--keepattributes Exceptions, InnerClasses, Signature, Deprecated, SourceFile,
-LineNumberTable, *Annotation*, EnclosingMethod
--dontwarn android.webkit.JavascriptInterface
--dontwarn com.startapp.**
-```
-
-
-<br />
-
-
 ### Unity
 
 |                   |                             |
@@ -693,42 +543,6 @@ LineNumberTable, *Annotation*, EnclosingMethod
 <br />
 
 
-### Xiaomi(小米)
-
-|                   |                                                    |
-| ----------------- | -------------------------------------------------- |
-| Jar Name          | libs/yumi_adapter_xiaomi.jar                       |
-| Provider Ver      | 20022                                              |
-| GooglePlayService | --                                                 |
-| Ad Form           | Interstitial                                       |
-| .so/lib project   | assets/AdServer.apk <br /> assets/analytics_core.apk |
-
-**Permission：**
-```xml
-<uses-permission android:name="android.permission.GET_TASKS"/>
-```
-
-**AndroidManifest.xml Component：**
-```xml
-<activity android:name="com.xiaomi.ad.AdActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-	android:exported="false"
-	android:screenOrientation="behind"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-</activity>
-```
-
-**ProGuard：**
-```c
--keep class com.xiaomi.ad.**{*;}
--keep class com.miui.analytics.**{*;}
--keep class com.xiaomi.analytics.*{public protected *;}
-```
-
-
-<br />
-
-
 ### ZPLAYAds
 
 |                   |                                   |
@@ -737,7 +551,7 @@ LineNumberTable, *Annotation*, EnclosingMethod
 | Provider Ver      | 2.0.7                             |
 | GooglePlayService | --                                |
 | Ad Form           | Interstitial, Reward Video        |
-| .so/lib project   | --                                |
+| .so/lib project   |  assets\zp_force_close_button.png  <br />assets\zp_force_close_button_bg.png  |
 
 **Permission：**
 ```xml
@@ -786,4 +600,108 @@ LineNumberTable, *Annotation*, EnclosingMethod
     public void setCacheCountPerUnitId(int);
     public void setAutoLoadAd(boolean);
 }
+```
+
+
+
+<br />
+
+
+### Ksyun(金山云)
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar Name           | libs/yumi_adapter_ksyun.jar |
+| Provider Ver          | 4.0.3                        |
+| GooglePlayService | --                         |
+| Ad Form       | Reward Video                   |
+| .so/lib project       | \res\xml\file_paths.xml <br />   \assets\kscplugin\ksc_plugin_v403.apk|
+
+**Permission：**
+```xml
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+```
+
+AndroidManifest.xml Component：
+```xml
+<activity
+	android:name="com.ksc.ad.sdk.ui.AdProxyActivity"
+	android:configChanges="keyboardHidden|orientation|screenSize"
+	android:hardwareAccelerated="true"
+	android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+<activity
+	android:name="com.ksc.ad.sdk.ui.AdPermissionProxyActivity"
+	android:configChanges="keyboardHidden|orientation|screenSize"
+	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+<service android:name="com.ksc.ad.sdk.service.AdProxyService" />
+<provider
+	android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
+	android:authorities="${applicationId}.fileprovider"
+	android:exported="false"
+	android:grantUriPermissions="true">
+	<meta-data
+		android:name="android.support.FILE_PROVIDER_PATHS"
+		android:resource="@xml/file_paths" />
+</provider>
+```
+
+**ProGuard：**
+```c
+-keep class com.ksc.ad.sdk.**{ *;}
+-dontwarn com.ksc.ad.sdk.**
+```
+
+
+<br />
+
+
+### IronSource
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar Name           | libs/yumi_adapter_ironsource.jar |
+| Provider Ver          | 6.7.10                        |
+| GooglePlayService | Require                         |
+| Ad Form       | Interstitial, Reward Video                   |
+| .so/lib project       | --|
+
+**Permission：**
+```xml
+--
+```
+
+AndroidManifest.xml Component：
+```xml
+<activity
+	android:name="com.ironsource.sdk.controller.ControllerActivity"
+	android:configChanges="orientation|screenSize"
+	android:hardwareAccelerated="true" />
+<activity
+	android:name="com.ironsource.sdk.controller.InterstitialActivity"
+	android:configChanges="orientation|screenSize"
+	android:hardwareAccelerated="true"
+	android:theme="@android:style/Theme.Translucent" />
+<activity
+	android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+	android:configChanges="orientation|screenSize"
+	android:hardwareAccelerated="true"
+	android:theme="@android:style/Theme.Translucent" />
+```
+
+**ProGuard：**
+```c
+-keepclassmembers class com.ironsource.sdk.controller.IronSourceWebView$JSInterface {
+    public *;
+}
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+-keep class com.ironsource.adapters.** { *;
+}
+-dontwarn com.moat.**
+-keep class com.moat.** { public protected private *; }
 ```
