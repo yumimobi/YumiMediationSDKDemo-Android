@@ -1,5 +1,15 @@
 ###  Android & Android_UnitySDK Changelog
 
+#### V 3.3.8
+
+1. Android SDK interval logic optimization
+
+2. Add  Ksyun (video), IronSource (Interstitial + video) platform
+
+3. update ZPLAYAds to 2.1.1
+
+4. optimize debug center module.
+
 #### V 3.3.7
 1. Optimization of request logic
 
