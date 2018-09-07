@@ -434,7 +434,7 @@ AndroidManifest.xml Component：
 <br />
 
 
-### Mobvista
+### Mintegral
 
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
@@ -463,18 +463,19 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-	android:name="com.mobvista.msdk.reward.player.MVRewardVideoActivity"
+	android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
 	android:configChanges="orientation|keyboardHidden|screenSize"
 	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 <activity
-	android:name="com.mobvista.msdk.activity.MVCommonActivity"
+	android:name="com.mintegral.msdk.activity.MTGCommonActivity"
 	android:configChanges="keyboard|orientation"
 	android:screenOrientation="portrait"
-	android:theme="@android:style/Theme.NoTitleBar" >
+	android:exported="true"
+	android:theme="@android:style/Theme.Translucent.NoTitleBar">
 </activity>
-<service android:name="com.mobvista.msdk.shell.MVService" >
+<service android:name="com.mintegral.msdk.shell.MTGService" >
 	<intent-filter>
-		<action android:name="com.mobvista.msdk.download.action" />
+		<action android:name="com.mintegral.msdk.download.action" />
 	</intent-filter>
 </service>
 ```
@@ -483,11 +484,11 @@ AndroidManifest.xml Component：
 ```c
 -keepattributes Signature   
 -keepattributes *Annotation*   
--keep class com.mobvista.** {*; }  
--keep interface com.mobvista.** {*; }  
+-keep class com.mintegral.** {*; }  
+-keep interface com.mintegral.** {*; }  
 -keep class android.support.v4.** { *; }  
--dontwarn com.mobvista.**   
--keep class **.R$* { public static final int mobvista*; }
+-dontwarn com.mintegral.**   
+-keep class **.R$* { public static final int mintegral*; }
 -keep class com.alphab.** {*; }
 -keep interface com.alphab.** {*; }
 ```
