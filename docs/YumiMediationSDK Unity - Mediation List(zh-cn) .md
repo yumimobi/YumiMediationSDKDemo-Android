@@ -147,13 +147,15 @@
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_baidu.jar |
-| 三方版本          | 5.6                         |
+| 三方版本          | 5.7                         |
 | GooglePlayService | --                          |
 | 支持广告形式      | Banner, 插屏                |
 | .so/lib工程       | --                          |
 
 **额外权限：**
 ```xml
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
 
@@ -213,7 +215,7 @@
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_facebook.jar                               |
-| 三方版本          | 4.99.1                                                       |
+| 三方版本          | 4.99.3                                                       |
 | 最小安卓版本      | Android 3.0  /  API 11                                       |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏) |
@@ -350,7 +352,7 @@ public protected *;
 
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
-| Jar名称           | libs/yumi_adapter_mobvista.jar                               |
+| Jar名称           | libs/yumi_adapter_mintegral.jar (GooglePlay发布或中国以外市场渠道发布) <br /> libs/yumi_adapter_mintegral_v3.3.9_China.jar (中国市场渠道发布)|
 | 三方版本          | 8.13.0                                                        |
 | GooglePlayService | --                                                           |
 | 支持广告形式      | 视频                                                         |
@@ -435,8 +437,8 @@ public protected *;
 
 |                   |                             |
 | ----------------- | --------------------------- |
-| Jar名称           | libs/yumi_adapter_unity.jar |
-| 三方版本          | 2.1.0                       |
+| Jar名称           | libs/yumi_adapter_unity.jar (GooglePlay发布或中国以外市场渠道发布)<br /> libs/yumi_adapter_unity_v3.3.9_China.jar (中国市场渠道发布)|
+| 三方版本          | 2.3.0                       |
 | GooglePlayService | 需要                        |
 | 支持广告形式      | 插屏,视频                   |
 | .so/lib工程       | --                          |
@@ -482,61 +484,61 @@ public protected *;
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_vungle.jar                                 |
-| 三方版本          | 5.3.2                                                        |
+| 三方版本          | 6.3.17                                                       |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | 插屏, 视频                                                   |
-| .so/lib工程       | adapter-rxjava-2.2.0.jar  <br />  converter-gson-2.2.0.jar  <br />  dagger-2.7.jar  <br />  eventbus-2.2.1.jar  <br />  gson-2.7.jar  <br />  javax.inject-1.jar  <br />  okhttp-3.6.0.jar  <br />  okio-1.11.0.jar  <br />  retrofit-2.2.0.jar  <br />  rxjava-1.2.0.jar |
+| .so/lib工程       | converter-gson-2.2.0.jar  <br />  fetch-1.1.5.jar  <br />  gson-2.7.jar  <br />  logging-interceptor-3.7.0.jar  <br />  okhttp-3.7.0.jar  <br />  okio-1.12.0.jar  <br />  retrofit-2.2.0.jar  <br />  VNG-moat-mobile-app-kit-2.2.0.jar |
 
 **额外权限：**
 ```xml
+<!--Required Permissions-->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<!--Optional Permissions-->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
 **AndroidManifest.xml注册组件：**
 ```xml
-<activity android:name="com.vungle.publisher.VideoFullScreenAdActivity"            
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"  
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-<activity android:name="com.vungle.publisher.MraidFullScreenAdActivity"            
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"  
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
-<activity android:name="com.vungle.publisher.FlexViewAdActivity"            
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"  
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+<activity
+	android:name="com.vungle.warren.ui.VungleActivity"
+	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+	android:launchMode="singleTop"
+	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<activity
+	android:name="com.vungle.warren.ui.VungleFlexViewActivity"
+	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+	android:hardwareAccelerated="true"
+	android:launchMode="singleTop"
+	android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 ```
 
 **混淆：**
 ```c
 # Vungle
--dontwarn com.vungle.**
--dontnote com.vungle.**
--keep class com.vungle.** { *; }
--keep class javax.inject.*
-# GreenRobot
--dontwarn de.greenrobot.event.util.**
-# RxJava
--dontwarn rx.internal.util.unsafe.**
--keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
-   long producerIndex;
-   long consumerIndex;
-}
--keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
-   rx.internal.util.atomic.LinkedQueueNode producerNode;
-}
--keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
-   rx.internal.util.atomic.LinkedQueueNode consumerNode;
-}
--keep class rx.schedulers.Schedulers { public static <methods>; }
--keep class rx.schedulers.ImmediateScheduler { public <methods>; }
--keep class rx.schedulers.TestScheduler { public <methods>; }
--keep class rx.schedulers.Schedulers { public static ** test(); }
-# MOAT
+-keep class com.vungle.warren.** { *; }
+-dontwarn com.vungle.warren.error.VungleError$ErrorCode
+# Moat SDK
+-keep class com.moat.** { *; }
 -dontwarn com.moat.**
--keep class com.moat.** { public protected private *; }
+# Okio
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 # Retrofit
 -dontwarn okio.**
 -dontwarn retrofit2.Platform$Java8
+# Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn sun.misc.**
+-keep class com.google.gson.examples.android.model.** { *; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+# Google Android Advertising ID
+-keep class com.google.android.gms.internal.** { *; }
+-dontwarn com.google.android.gms.ads.identifier.**
 ```
 
 
