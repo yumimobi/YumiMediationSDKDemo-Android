@@ -132,6 +132,12 @@
 <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
 ```
 
+>**接入banner 广告，需要AndroidManifest application 节点中添加：**
+```
+<meta-data android:name="applovin.sdk.key"
+       android:value="YOUR_SDK_KEY"  />
+```
+
 **混淆：**
 ```c
 -dontwarn com.applovin.**

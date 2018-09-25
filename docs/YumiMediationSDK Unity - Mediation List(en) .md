@@ -133,6 +133,12 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
 ```
 
+>**banner ads，Add the following line into your AndroidManifest.xml.This needs to go inside the application tag：**
+```
+<meta-data android:name="applovin.sdk.key"
+       android:value="YOUR_SDK_KEY"  />
+```
+
 **ProGuard：**
 ```c
 -dontwarn com.applovin.**
