@@ -1,5 +1,20 @@
 ###  Android & Android_Unity SDK更新日志
 
+#### V 3.3.9
+
+1. ironsource 支持多层配置（插屏、视频）
+
+2.视频平台重试逻辑优化 
+
+3.baidu SDK udpate to 5.7.0
+
+4.Facebook SDKudpate to 4.99.3
+
+5.Vungle SDK udpate to 6.3.17
+
+6.Unity SDK udpate to 2.3.0，区分中国区&海外区Unity adpter单独接入
+
+
 #### V 3.3.8
 
 1. Android sdk 间隔逻辑优化
