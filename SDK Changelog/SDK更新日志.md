@@ -2,8 +2,7 @@
 
 #### V 3.3.9
 
-
-1. ironsource 支持多层配置（插屏、视频）
+1.ironsource 支持多层配置（插屏、视频）
 
 2.视频平台重试逻辑优化 
 
@@ -41,6 +40,21 @@
 
 
 ###  iOS  & iOS_Unity  SDK更新日志
+
+1. ironsource 支持多层配置
+
+2. 视频平台重试逻辑优化
+
+3. facebook udpate to 4.99.3
+
+4. unity update to 2.3.0
+
+5. vungle update 6.2.0，修改插屏播放完成立即返回广告问题
+
+6. chartboost SDK update to 7.2.0
+
+7. applovin 支持banner 在 info.plist 增加 sdk key。
+
 
 #### V 3.3.8
 1. 更新ZPLAYAds到2.1.0，支持插屏和视频广告形式
