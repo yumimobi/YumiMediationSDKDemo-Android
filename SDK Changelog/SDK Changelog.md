@@ -1,7 +1,7 @@
 ###  Android & Android_UnitySDK Changelog
 #### V 3.3.9
 
-1. Ironsource supports multi-layer configuration
+1.Ironsource supports multi-layer configuration
 
 2.Video platform retry logic optimization
 
@@ -45,7 +45,7 @@
 
 1. Ironsource supports multi-layer configuration
 
-2.Video platform retry logic optimization
+2. Video platform retry logic optimization
 
 3. facebook udpate to 4.99.3
 
