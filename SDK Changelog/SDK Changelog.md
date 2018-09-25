@@ -1,4 +1,20 @@
 ###  Android & Android_UnitySDK Changelog
+#### V 3.3.9
+
+1. Ironsource supports multi-layer configuration
+
+2.Video platform retry logic optimization
+
+3.baidu SDK udpate to 5.7.0
+
+4.Facebook SDKudpate to 4.99.3
+
+5.Vungle SDK udpate to 6.3.17
+
+6.Unity SDK udpate to 2.3.0，Distinguish between China and overseas regions to access different adpters
+
+7.Applovin supports banner to add sdk key in info.plist
+
 
 #### V 3.3.8
 
@@ -24,6 +40,21 @@
 
 
 ###  iOS  & iOS_Unity  SDK Changelog
+
+#### V 3.3.9
+
+1. Ironsource supports multi-layer configuration
+
+2.Video platform retry logic optimization
+
+3. facebook udpate to 4.99.3
+
+4. unity update to 2.3.0
+
+5. vungle update 6.2.0，modify the insert screen to complete the return to the ad issue immediately
+
+6. chartboost SDK update to 7.2.0
+
 
 #### V 3.3.8
  
