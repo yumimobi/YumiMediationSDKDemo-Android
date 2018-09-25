@@ -14,6 +14,8 @@
 
 6.Unity SDK udpate to 2.3.0，区分中国区&海外区Unity adpter单独接入
 
+7.Applovin 支持banner 在 info.plist 增加 sdk key
+
 
 #### V 3.3.8
 
@@ -54,15 +56,15 @@
 
 6. chartboost SDK update to 7.2.0
 
-7. applovin 支持banner 在 info.plist 增加 sdk key。
-
 
 #### V 3.3.8
 1. 更新ZPLAYAds到2.1.0，支持插屏和视频广告形式
 
-2. 更新IronSource到6.7.10，支持插屏和视频广告形式
+2. 更新IronSource到6.7.10，支持BANNER,插屏和视频广告形式
 
 3. 更新Domob到3.8.0，支持视频广告形式
+
+
 
 
 #### V 3.3.7
