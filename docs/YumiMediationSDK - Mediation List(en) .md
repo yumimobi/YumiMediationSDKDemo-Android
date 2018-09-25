@@ -91,9 +91,13 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
+  //play-services-ads is used less than version 15.0.0
   compile 'com.yumimobi.ads.mediation:admob:*.*.*.+'
 }
 ```
+
+>Note: if play-services-ads version used in the project is >= 15<br />
+>please use : yumi_adapter_admob_v*.*.*(For GooglePlayService version 15 and above).aar [download link](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
 
 **Using Eclipse**
 
@@ -166,6 +170,12 @@ AndroidManifest.xml Component：
 <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
 ```
 
+>**banner ads，Add the following line into your AndroidManifest.xml.This needs to go inside the application tag：**
+```
+<meta-data android:name="applovin.sdk.key"
+       android:value="YOUR_SDK_KEY"  />
+```
+
 **ProGuard：**
 ```c
 -dontwarn com.applovin.**
@@ -181,13 +191,15 @@ AndroidManifest.xml Component：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_baidu.jar |
-| Provider Ver      | 5.6                         |
+| Provider Ver      | 5.7                         |
 | GooglePlayService | --                          |
 | Ad Form           | Banner, Interstitial        |
 | .so/lib project   | --                          |
 
 **Permission：**
 ```xml
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
 
@@ -268,7 +280,7 @@ AndroidManifest.xml Component：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_facebook.jar                               |
-| Provider Ver      | 4.99.1                                                       |
+| Provider Ver      | 4.99.3                                                       |
 | minSdkVersion     | Android 3.0 / API 11                                         |
 | GooglePlayService | Require                                                      |
 | Ad Form           | Banner, Interstitial , Reward Video (Videos ads in Audience Network requires the hardware accelerated rendering to be enabled, otherwise you might experience a black screen in the video views) |
@@ -438,7 +450,7 @@ AndroidManifest.xml Component：
 
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
-| Jar Name          | libs/yumi_adapter_mobvista.jar                               |
+| Jar Name          | libs/yumi_adapter_mintegral.jar                               |
 | Provider Ver      | 8.13.0                                                        |
 | GooglePlayService | --                                                           |
 | Ad Form           | Reward Video                                                 |
@@ -454,7 +466,10 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:mobvista:*.*.*.+'
+  //GooglePlay release or release outside China market channel
+  compile 'com.yumimobi.ads.mediation:mintegral:*.*.*.+'
+  //China market channel release
+  compile 'com.yumimobi.ads.mediation:mintegral-china:*.*.*.+'
 }
 ```
 
@@ -547,7 +562,7 @@ AndroidManifest.xml Component：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_unity.jar |
-| Provider Ver      | 2.1.0                       |
+| Provider Ver      | 2.3.0                       |
 | GooglePlayService | Require                     |
 | Ad Form           | Interstitial,Reward Video   |
 | .so/lib project   | --                          |
@@ -562,7 +577,10 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
+  //GooglePlay release or release outside China market channel
   compile 'com.yumimobi.ads.mediation:unity:*.*.*.+'
+  //China market channel release
+  compile 'com.yumimobi.ads.mediation:unity-china:*.*.*.+'
 }
 ```
 
@@ -604,13 +622,18 @@ AndroidManifest.xml Component：
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar Name          | libs/yumi_adapter_vungle.jar |
-| Provider Ver      | 5.3.2                        |
+| Provider Ver      | 6.3.17                       |
 | GooglePlayService | Require                      |
 | Ad Form           | Interstitial, Reward Video   |
-| .so/lib project   | adapter-rxjava-2.2.0.jar <br /> converter-gson-2.2.0.jar <br /> dagger-2.7.jar <br /> eventbus-2.2.1.jar  <br />  gson-2.7.jar  <br />  javax.inject-1.jar  <br />  okhttp-3.6.0.jar  <br />  okio-1.11.0.jar  <br />  retrofit-2.2.0.jar  <br />  rxjava-1.2.0.jar|
+| .so/lib project   | converter-gson-2.2.0.jar  <br />  fetch-1.1.5.jar  <br />  gson-2.7.jar  <br />  logging-interceptor-3.7.0.jar  <br />  okhttp-3.7.0.jar  <br />  okio-1.12.0.jar  <br />  retrofit-2.2.0.jar  <br />  VNG-moat-mobile-app-kit-2.2.0.jar |
 
 **Permission：**
 ```xml
+<!--Required Permissions-->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<!--Optional Permissions-->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
@@ -628,48 +651,43 @@ dependencies {
 
 AndroidManifest.xml Component：
 ```xml
-<activity android:name="com.vungle.publisher.VideoFullScreenAdActivity"            
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"  
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-<activity android:name="com.vungle.publisher.MraidFullScreenAdActivity"            
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"  
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
-<activity android:name="com.vungle.publisher.FlexViewAdActivity"            
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"  
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+<activity
+	android:name="com.vungle.warren.ui.VungleActivity"
+	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+	android:launchMode="singleTop"
+	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<activity
+	android:name="com.vungle.warren.ui.VungleFlexViewActivity"
+	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+	android:hardwareAccelerated="true"
+	android:launchMode="singleTop"
+	android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 ```
 
 **ProGuard：**
 ```c
 # Vungle
--dontwarn com.vungle.**
--dontnote com.vungle.**
--keep class com.vungle.** { *; }
--keep class javax.inject.*
-# GreenRobot
--dontwarn de.greenrobot.event.util.**
-# RxJava
--dontwarn rx.internal.util.unsafe.**
--keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
-   long producerIndex;
-   long consumerIndex;
-}
--keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
-   rx.internal.util.atomic.LinkedQueueNode producerNode;
-}
--keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
-   rx.internal.util.atomic.LinkedQueueNode consumerNode;
-}
--keep class rx.schedulers.Schedulers { public static <methods>; }
--keep class rx.schedulers.ImmediateScheduler { public <methods>; }
--keep class rx.schedulers.TestScheduler { public <methods>; }
--keep class rx.schedulers.Schedulers { public static ** test(); }
-# MOAT
+-keep class com.vungle.warren.** { *; }
+-dontwarn com.vungle.warren.error.VungleError$ErrorCode
+# Moat SDK
+-keep class com.moat.** { *; }
 -dontwarn com.moat.**
--keep class com.moat.** { public protected private *; }
+# Okio
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 # Retrofit
 -dontwarn okio.**
 -dontwarn retrofit2.Platform$Java8
+# Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn sun.misc.**
+-keep class com.google.gson.examples.android.model.** { *; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+# Google Android Advertising ID
+-keep class com.google.android.gms.internal.** { *; }
+-dontwarn com.google.android.gms.ads.identifier.**
 ```
 
 

@@ -2,7 +2,7 @@
 
 ## Latest Version
 
-**v3.3.8**
+**v3.3.9**
 
 ## SDK Changelog
 [**SDK Changelog for Android(zh-cn)**](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/SDK%20Changelog/SDK%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md)
