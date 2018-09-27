@@ -225,7 +225,7 @@
 | 最小安卓版本      | Android 3.0  /  API 11                                       |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏) |
-| .so/lib工程       | play-services-ads-10.0.1.aar <br /> play-services-ads-lite-10.0.1.aar <br /> play-services-base-10.0.1.aar <br /> play-services-basement-10.0.1.aar <br /> play-services-clearcut-10.0.1.aar <br /> play-services-gass-10.0.1.aar <br /> play-services-tasks-10.0.1.aar <br /> android-support-v7-recyclerview-26.1.0.aar <br /> android-support-v7-appcompat-26.1.0.aar <br /> AudienceNetwork_4.99.1.aar <br />support-compat-26.1.0.aar <br />support-core-ui-26.1.0.aar<br />support-core-utils-26.1.0.aar<br />support-v4-26.1.0.aar|
+| .so/lib工程       | play-services-ads-10.0.1.aar <br /> play-services-ads-lite-10.0.1.aar <br /> play-services-base-10.0.1.aar <br /> play-services-basement-10.0.1.aar <br /> play-services-clearcut-10.0.1.aar <br /> play-services-gass-10.0.1.aar <br /> play-services-tasks-10.0.1.aar <br /> android-support-v7-recyclerview-26.1.0.aar <br /> android-support-v7-appcompat-26.1.0.aar <br /> AudienceNetwork_4.99.3.aar <br />support-compat-26.1.0.aar <br />support-core-ui-26.1.0.aar<br />support-core-utils-26.1.0.aar<br />support-v4-26.1.0.aar|
 
 **额外权限：**
 ```xml
