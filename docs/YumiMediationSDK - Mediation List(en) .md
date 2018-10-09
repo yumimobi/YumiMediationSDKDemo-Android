@@ -330,6 +330,8 @@ AndroidManifest.xml Component：
 
 **Permission：**
 ```xml
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
 <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
 ```
