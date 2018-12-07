@@ -1,4 +1,24 @@
 ###  Android & Android_UnitySDK Changelog
+
+#### V 3.4.0
+
+1.Update Baidu SDK to support the form of reward video advertising
+
+2.ZPLAYAds update to version 2.3.0
+
+3.Vungle supports multi-layer configuration (Interstitial & reward video)
+
+4.Add Facebook header bidding platform and related logic, support the forms of banner, interstitial, reward video, native advertising
+
+5.GDT supports autonomous rendering in Interstitial & video advertising
+
+6.Applovin platform banner interface is modified to support the configuration of applovin SDK KEY on the server
+
+7.Update configuration request and delivery logic
+
+8.Solve other known problems
+
+
 #### V 3.3.9
 
 1.Ironsource supports multi-layer configuration
@@ -40,6 +60,24 @@
 
 
 ###  iOS  & iOS_Unity  SDK Changelog
+
+#### V 3.4.0
+
+1.Baidu SDK update to 4.5.0.4
+
+2.Vungle supports multi-layer configuration (Interstitial & reward video)
+
+3.Add Facebook header bidding platform and related logic, support the forms of banner, interstitial, reward video and native advertising
+
+4.GDT supports autonomous rendering in Interstitial & video advertising;
+5.applovin no longer supports banner using sdk key in info.plist
+
+6.Update video request and report logic
+
+7.Optimize debug center module
+
+8.Update configuration request and delivery logic
+
 
 #### V 3.3.9
 
