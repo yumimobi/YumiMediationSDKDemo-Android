@@ -1,18 +1,19 @@
 ###  Android & Android_Unity SDK更新日志
 
+
 #### V 3.3.9
 
 1.ironsource 支持多层配置（插屏、视频）
 
 2.视频平台重试逻辑优化 
 
-3.baidu SDK udpate to 5.7.0
+3.更新百度SDK到5.7.0
 
-4.Facebook SDKudpate to 4.99.3
+4.更新Facebook SDK到4.99.3
 
-5.Vungle SDK udpate to 6.3.17
+5.更新Vungle SDK到6.3.17
 
-6.Unity SDK udpate to 2.3.0，区分中国区&海外区Unity adpter单独接入
+6.更新Unity SDK到2.3.0，区分中国区&海外区Unity adpter单独接入
 
 7.Applovin 支持banner 在 info.plist 增加 sdk key
 
@@ -42,6 +43,24 @@
 
 
 ###  iOS  & iOS_Unity  SDK更新日志
+
+#### V 3.4.0
+
+1. 百度SDK更新到4.5.0.4，新增视频广告形式
+
+2. 支持facebook header bidding功能，支持广告形式banner，插屏，视频
+
+3. 广点通实现插屏&视频自渲染功能
+
+4. applovin banner支持后台配置
+
+5. 视频增加新的上报节点
+
+6. 更新banner，插屏，视频配置请求及使用逻辑
+
+7. 优化debug center 模块
+
+
 #### V 3.3.9
 
 1. ironsource 支持多层配置

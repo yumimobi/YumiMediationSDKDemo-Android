@@ -1,4 +1,5 @@
 ###  Android & Android_UnitySDK Changelog
+
 #### V 3.3.9
 
 1.Ironsource supports multi-layer configuration
@@ -40,6 +41,23 @@
 
 
 ###  iOS  & iOS_Unity  SDK Changelog
+
+#### V 3.4.0
+
+1. Baidu SDK updated to 4.5.0.4, add advertising form of reward video 
+
+2. Support facebook header bidding function, support advertising forms of banner, interstitial and reward video
+
+3. GDT achieve self-rendering function in interstital & video 
+
+4. applovin banner supports configuration in the background
+
+5. Video adds a new reporting node
+
+6. Update request and usage logic of banner, interstital and video configuration 
+
+7. Optimize debug center module
+
 
 #### V 3.3.9
 
