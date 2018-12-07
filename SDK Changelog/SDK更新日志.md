@@ -1,22 +1,5 @@
 ###  Android & Android_Unity SDK更新日志
 
-#### V 3.4.0
-1.更新百度SDK到5.8，支持激励视频广告
-
-2.可玩SDK更新v2.3.0
-
-3.vungle平台插屏&激励视频支持多层配置
-
-4.增加Facebook header bidding平台及相关逻辑，支持banner，插屏，视频，原生等广告形式
-
-5.广点通支持插屏&视频广告自主渲染
-
-6.Applovin平台banner接口修改，支持在服务端配置applovin SDK KEY
-
-7.更新配置请求及下发逻辑
-
-8.解决其他已知问题
-
 
 #### V 3.3.9
 
@@ -61,7 +44,15 @@
 
 ###  iOS  & iOS_Unity  SDK更新日志
 
-#### V3.4.0
+#### V 3.4.0
+
+1.	百度SDK更新到4.5.0.4
+2.	增加facebook header bidding平台及相关逻辑，支持banner，插屏，视频，原生等广告形式
+3.	广点通支持插屏&视频广告自主渲染
+4.	applovin 不再支持banner在info.plist 使用sdk key
+5.	更新视频请求及上报逻辑
+6.	更新配置请求及下发逻辑
+7.	优化debug center 模块
 
 
 #### V 3.3.9
