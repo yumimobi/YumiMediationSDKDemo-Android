@@ -46,13 +46,19 @@
 
 #### V 3.4.0
 
-1.	百度SDK更新到4.5.0.4
-2.	增加facebook header bidding平台及相关逻辑，支持banner，插屏，视频，原生等广告形式
-3.	广点通支持插屏&视频广告自主渲染
-4.	applovin 不再支持banner在info.plist 使用sdk key
-5.	更新视频请求及上报逻辑
-6.	更新配置请求及下发逻辑
-7.	优化debug center 模块
+1. 百度SDK更新到4.5.0.4，新增视频广告形式
+
+2. 支持facebook header bidding功能，支持广告形式banner，插屏，视频
+
+3. 广点通实现插屏&视频自渲染功能
+
+4. applovin banner支持后台配置
+
+5. 视频增加新的上报节点
+
+6. 更新banner，插屏，视频配置请求及使用逻辑
+
+7. 优化debug center 模块
 
 
 #### V 3.3.9

@@ -44,18 +44,17 @@
 
 #### V 3.4.0
 
-1. Baidu SDK update to 4.5.0.4
+1. Baidu SDK updated to 4.5.0.4, add advertising form of reward video 
 
+2. Support facebook header bidding function, support advertising forms of banner, interstitial and reward video
 
-2. Add Facebook header bidding platform and related logic, support the forms of banner, interstitial, reward video and native advertising
+3. GDT achieve self-rendering function in interstital & video 
 
-3. GDT supports autonomous rendering in Interstitial & video advertising
+4. applovin banner supports configuration in the background
 
-4. applovin no longer supports banner using sdk key in info.plist
+5. Video adds a new reporting node
 
-5. Update video request and report logic
-
-6. Update configuration request and delivery logic
+6. Update request and usage logic of banner, interstital and video configuration 
 
 7. Optimize debug center module
 
