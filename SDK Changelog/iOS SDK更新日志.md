@@ -1,5 +1,5 @@
 
-###  iOS  & iOS_Unity  SDK更新日志
+###  iOS SDK  & iOS_Unity  SDK更新日志
 
 #### V 3.4.0
 
