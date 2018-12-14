@@ -1,27 +1,26 @@
 ###  Android & Android_UnitySDK Changelog
 
 #### V 3.4.0
-If you use the Unity plugin to access the SDK 3.4.0 version, please delete the previous version first.
 
-1.Baidu SDK updated to5.8, add advertising form of reward video
+If you use the Unity plugin to access the SDK 3.4.0 version, please remove the previous version and re-access according to the latest document.
 
-2.ZPLAYAds SDK updated to5.8
+1.Baidu SDK updated to 5.8, add advertising form of reward video
 
-3.GDT SDK updated 4.20.580, add advertising form of reward video
+2.ZPLAYAds SDK updated to 5.8
 
-4.Support facebook header bidding function, support advertising forms of banner, interstitial and reward video
+3.GDT SDK updated 4.20.580, add advertising form of reward video and achieve self-rendering function in interstital & native
 
-5.GDT achieve self-rendering function in interstital & video
+4.vungle supports multi-configuration (interstitial & video)
+
+5.Support facebook header bidding function, support advertising forms of banner, interstitial and reward video
 
 6.Applovin supports banner parameters configuration in server 
 
-7.Update Inmobi Video Request Failure Logic
+7.Update request and usage logic of banner, interstital and video configuration
 
-8.Update request and usage logic of banner, interstital and video configuration
+8.Video adds a new reporting node
 
-9.Video adds a new reporting node
-
-10.Fix known issues
+9.Fix known issues
 
 
 #### V 3.3.9

@@ -3,7 +3,7 @@
 
 #### V 3.4.0
 
-If you use the Unity plugin to access the SDK 3.4.0 version, please delete the previous version first.
+If you use the Unity plugin to access the SDK 3.4.0 version, please remove the previous version and re-access according to the latest document.
 
 1.Baidu SDK updated to 4.5.0.4, add advertising form of reward video 
 
