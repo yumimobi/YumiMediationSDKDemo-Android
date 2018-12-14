@@ -188,7 +188,7 @@ banner.setVersionName(versionStr);
 banner.requestYumiBanner();
 ```
 
-isMatchWindowWidth description：[Banner ads automatically adapt to screen size](#isMatchWindowWidth)  </br>
+
 
 <span style="color:red;">
 Note: ChannelID refers to the channel labeling of the application, and the YUMI platform can carry out data statistics and effect analysis according to the ChannelID. A Popstar! For example, when the game is released to the SamSung channel, setChannelID(channelStr) needs to be set to setChannelID(' SamSung ').
@@ -563,13 +563,6 @@ banner.dismissBanner();
 banner.resumeBanner();
 ```
 
-<a name="isMatchWindowWidth"></a>
-**Banner ads automatically adapt to screen size**
-
-<img src="document\image02.png" alt="img2">
-
-When you set banner ad container, you can use isMatchWindowWidth, a parameter of boolean type provided by YUMI SDK. This parameter indicates if banner width has populated full screen. When it’s true, banner width equals the screen width.
-
 
 
 - ### Interstitial 
@@ -733,3 +726,8 @@ When the targetSdkVersion of your app is 23 or above, you can choose the followi
 ```java
 YumiSettings.runInCheckPermission(true);
 ```
+## 7. 测试广告位
+
+|  平台   | Banner   | Interstitial | Rewarded Video | Native        | Splash        |
+| -----   | -------- | ------------ | -------------- |-------------- |-------------- |
+|Android  | uz852t89 | 56ubk22h     | ew9hyvl4       | dt62rndy      | vv7snvc5      |
