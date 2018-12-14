@@ -61,7 +61,7 @@ public class NativeActivity extends MActivity implements View.OnClickListener
     public void initView()
     {
         setContentView(R.layout.activity_native);
-        setAcTitle("Meida");
+        setAcTitle("Native");
         btn_request = (Button) findViewById(R.id.btn_request);
         btn_show_banner = (Button) findViewById(R.id.btn_show_banner);
         btn_show_interstitial = (Button) findViewById(R.id.btn_show_interstitial);
