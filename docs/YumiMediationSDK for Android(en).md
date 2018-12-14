@@ -178,7 +178,7 @@ YumiBanner banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
 //Set ViewGroup as banner container, set it along with size
 // bannerContainer  Your ad container
 // AdSize.BANNER_SIZE_AUTO  SDK automatically sets screen size as 320*50 or 728*90
-// isMatchWindowWidth ==true Banner width equals screen width
+// isMatchWindowWidth 请设置为false
 banner.setBannerContainer(bannerContainer， AdSize.BANNER_SIZE_AUTO， isMatchWindowWidth);
 //Set channel according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
 banner.setChannelID(channelStr);

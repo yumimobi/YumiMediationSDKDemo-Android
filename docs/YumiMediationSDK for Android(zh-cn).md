@@ -178,7 +178,7 @@ YumiBanner banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
 //将您创建好的ViewGroup作为banner容器， 同尺寸一并设置
 // bannerContainer  您的广告容器
 // AdSize.BANNER_SIZE_AUTO  SDK自动根据屏幕设置320*50或728*90
-// isMatchWindowWidth ==true 时Banner的宽度为屏幕宽度
+// isMatchWindowWidth 请设置为false
 banner.setBannerContainer(bannerContainer， AdSize.BANNER_SIZE_AUTO， isMatchWindowWidth);
 //根据您在平台的配置, 设置渠道, 您只需要设置一次渠道. 重复调用以最后一次为准.
 banner.setChannelID(channelStr);
