@@ -50,6 +50,10 @@ buildscript {
 allprojets {
     repositories {
     	jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }//可选,如果需要导入Google Server相关的SDK时需要添加
     }
 }
 //在 module 的 build.gradle 中添加依赖
