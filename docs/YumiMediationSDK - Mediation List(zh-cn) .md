@@ -20,7 +20,7 @@
 
 -  请注意三方SDK最小安卓版本, 可能高于玉米聚合广告SDK所要求的最小安卓版本, 此时您的工程应选用两者中较高的版本作为工程的最小版本, 否则使用三方平台时, 可能造成未知的影响。 "-"意味着和玉米聚合所支持的安卓最小版本版本一致。
 
--  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 3.3.6 版本 "com.yumimobi.ads:mediation:3.3.6.+" 时，需要添加Admob Adapter的3.3.6版本 ”com.yumimobi.ads.mediation:admob:3.3.6.+“ 
+-  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 3.4.0 版本 "com.yumimobi.ads:mediation:3.4.+" 时，需要添加Admob Adapter的3.4.0 版本 ”com.yumimobi.ads.mediation:admob:3.4.+“ 
 
 
 ## 支持列表
@@ -46,7 +46,7 @@
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:adcolony:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:adcolony:*.*.+'
 }
 ```
 
@@ -93,12 +93,12 @@ build.gradle添加：
 ```c
 dependencies {
   //play-services-ads 低于 15.0.0 版本使用
-  compile 'com.yumimobi.ads.mediation:admob:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:admob:*.*.+'
 }
 ```
 
 >注：如果项目中使用的play-services-ads版本 >= 15 <br />
->请使用 : yumi_adapter_admob_v*.*.*(For GooglePlayService version 15 and above).aar [下载地址](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
+>请使用 : yumi_adapter_admob_v*.*.*(For_GooglePlayService_version_15_and_above).aar [下载地址](http://adsdk.yumimobi.com/Android/Android_Adapters/3.4.0/yumi_adapter_admob_v3.4.0(For_GooglePlayService_version_15_and_above).aar)
 
 **Eclipse开发**
 
@@ -145,7 +145,7 @@ AndroidManifest.xml注册组件：
 | Jar名称           | libs/yumi_adapter_applovin.jar |
 | 三方版本          | 8.0.2                          |
 | GooglePlayService | 需要                           |
-| 支持广告形式      | 插屏, 视频                     |
+| 支持广告形式      | Banner, 插屏, 视频                     |
 | .so/lib工程       | --                             |
 
 **额外权限：**
@@ -158,7 +158,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:applovin:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:applovin:*.*.+'
 }
 ```
 
@@ -171,11 +171,6 @@ AndroidManifest.xml注册组件：
 <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
 ```
 
->**接入banner 广告，需要AndroidManifest application 节点中添加：**
-```
-<meta-data android:name="applovin.sdk.key"
-       android:value="YOUR_SDK_KEY"  />
-```
 
 **混淆：**
 ```c
@@ -192,9 +187,9 @@ AndroidManifest.xml注册组件：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_baidu.jar |
-| 三方版本          | 5.7                         |
+| 三方版本          | 5.8                         |
 | GooglePlayService | --                          |
-| 支持广告形式      | Banner, 插屏                |
+| 支持广告形式      | Banner, 插屏, 视频                |
 | .so/lib工程       | --                          |
 
 **额外权限：**
@@ -209,7 +204,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:baidu:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:baidu:*.*.+'
 }
 ```
 
@@ -238,7 +233,7 @@ AndroidManifest.xml注册组件：
 |                   |                                  |
 | ----------------- | -------------------------------- |
 | Jar名称           | libs/yumi_adapter_chartboost.jar |
-| 三方版本          | 6.6.1                            |
+| 三方版本          | 6.6.3                            |
 | GooglePlayService | 需要                             |
 | 支持广告形式      | 插屏, 视频                       |
 | .so/lib工程       | --                               |
@@ -253,7 +248,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:chartboost:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:chartboost:*.*.+'
 }
 ```
 
@@ -296,7 +291,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:facebook:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:facebook:*.*.+'
 }
 ```
 
@@ -323,9 +318,9 @@ AndroidManifest.xml注册组件：
 |                   |                           |
 | ----------------- | ------------------------- |
 | Jar名称           | libs/yumi_adapter_gdt.jar |
-| 三方版本          | 4.9.544                   |
+| 三方版本          | 4.20.580                   |
 | GooglePlayService | --                        |
-| 支持广告形式      | Banner, 插屏              |
+| 支持广告形式      | Banner, 插屏, 视频              |
 | .so/lib工程       | --                        |
 
 **额外权限：**
@@ -341,7 +336,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:gdt:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:gdt:*.*.+'
 }
 ```
 
@@ -376,7 +371,7 @@ public protected *;
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar名称           | libs/yumi_adapter_inmobi.jar |
-| 三方版本          | 6.0.4                        |
+| 三方版本          | 6.2.0                        |
 | 最小安卓版本      | Android 2.3 / API 9;  Android 4.0 / API 14 (视频广告) |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | Banner, 插屏, 视频           |
@@ -400,7 +395,7 @@ public protected *;
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:inmobi:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:inmobi:*.*.+'
 }
 ```
 
@@ -470,9 +465,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  compile 'com.yumimobi.ads.mediation:mintegral:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:mintegral:*.*.+'
   //中国市场渠道发布
-  compile 'com.yumimobi.ads.mediation:mintegral-china:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:mintegral-china:*.*.+'
 }
 ```
 
@@ -536,7 +531,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:oneway:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:oneway:*.*.+'
 }
 ```
 
@@ -580,9 +575,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  compile 'com.yumimobi.ads.mediation:unity:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:unity:*.*.+'
   //中国市场渠道发布
-  compile 'com.yumimobi.ads.mediation:unity-china:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:unity-china:*.*.+'
 }
 ```
 
@@ -645,7 +640,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:vungle:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:vungle:*.*.+'
 }
 ```
 
@@ -702,7 +697,7 @@ AndroidManifest.xml注册组件：
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar名称           | libs/yumi_adapter_playableads.jar |
-| 三方版本          | 2.0.7                             |
+| 三方版本          | 2.3.0                             |
 | GooglePlayService | --                                |
 | 支持广告形式      | 插屏, 视频                        |
 | .so/lib工程       | --                                |
@@ -717,7 +712,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:playableads:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:playableads:*.*.+'
 }
 ```
 
@@ -726,16 +721,23 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-	android:name="com.playableads.activity.PlayableADActivity"
-	android:configChanges="orientation|screenSize|keyboardHidden"
-	android:hardwareAccelerated="true"
-	android:screenOrientation="portrait"
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    android:name="com.playableads.presenter.PlayableADActivity"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:hardwareAccelerated="true"
+    android:screenOrientation="portrait"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
-<receiver android:name="com.playableads.PlayableReceiver" >
-	<intent-filter>
-		<action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-	</intent-filter>
+<activity
+    android:name="com.playableads.presenter.NativeAdLandingPageActivity"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:hardwareAccelerated="true"
+    android:screenOrientation="portrait"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+<receiver android:name="com.playableads.PlayableReceiver">
+    <intent-filter>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+    </intent-filter>
 </receiver>
 ```
 
@@ -792,7 +794,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ksyun:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:ksyun:*.*.+'
 }
 ```
 
@@ -851,7 +853,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ironsource:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:ironsource:*.*.+'
 }
 ```
 

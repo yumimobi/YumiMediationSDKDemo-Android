@@ -50,13 +50,17 @@ buildscript {
 allprojets {
     repositories {
     	jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }//可选,如果需要导入Google Server相关的SDK时需要添加
     }
 }
 //Add dependency in module build. Gradle
 dependencies {
-    //(*.*.*.+) Please replace it with the latest SDK version number, example ：3.3.6.+
-    compile 'com.yumimobi.ads:mediation:*.*.*.+'
-    compile 'com.yumimobi.ads.mediation:mraid:*.*.*.+' // Optional : We hope to support mraid advertising
+    //(*.*.+) Please replace it with the latest SDK version number, example ：3.4.+
+    compile 'com.yumimobi.ads:mediation:*.*.+'
+    compile 'com.yumimobi.ads.mediation:mraid:*.*.+' // Optional : We hope to support mraid advertising
 ｝
 ```
 
@@ -174,7 +178,7 @@ YumiBanner banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
 //Set ViewGroup as banner container, set it along with size
 // bannerContainer  Your ad container
 // AdSize.BANNER_SIZE_AUTO  SDK automatically sets screen size as 320*50 or 728*90
-// isMatchWindowWidth ==true Banner width equals screen width
+// isMatchWindowWidth 请设置为false
 banner.setBannerContainer(bannerContainer， AdSize.BANNER_SIZE_AUTO， isMatchWindowWidth);
 //Set channel according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
 banner.setChannelID(channelStr);
