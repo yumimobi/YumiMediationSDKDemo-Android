@@ -53,7 +53,7 @@ allprojets {
         maven {
             url 'https://maven.google.com/'
             name 'Google'
-        }//可选,如果需要导入Google Server相关的SDK时需要添加
+        }//Optional,It is required when you import SDKs related to Google Server.
     }
 }
 //Add dependency in module build. Gradle
@@ -178,7 +178,7 @@ YumiBanner banner = new YumiBanner(activity， "YOUR_SLOT_ID"， auto);
 //Set ViewGroup as banner container, set it along with size
 // bannerContainer  Your ad container
 // AdSize.BANNER_SIZE_AUTO  SDK automatically sets screen size as 320*50 or 728*90
-// isMatchWindowWidth 请设置为false
+// isMatchWindowWidth Set to false
 banner.setBannerContainer(bannerContainer， AdSize.BANNER_SIZE_AUTO， isMatchWindowWidth);
 //Set channel according to your settings on the platform, you only need to set it once. Repeated calls are based on the last time you call.
 banner.setChannelID(channelStr);
@@ -726,8 +726,8 @@ When the targetSdkVersion of your app is 23 or above, you can choose the followi
 ```java
 YumiSettings.runInCheckPermission(true);
 ```
-## 7. 测试广告位
+## 7. Test Slot ID
 
-|  平台   | Banner   | Interstitial | Rewarded Video | Native        | Splash        |
+|  OS  | Banner   | Interstitial | Rewarded Video | Native        | Splash        |
 | -----   | -------- | ------------ | -------------- |-------------- |-------------- |
 |Android  | uz852t89 | 56ubk22h     | ew9hyvl4       | dt62rndy      | vv7snvc5      |
