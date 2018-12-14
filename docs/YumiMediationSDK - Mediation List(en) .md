@@ -170,11 +170,6 @@ AndroidManifest.xml Component：
 <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
 ```
 
->**banner ads，Add the following line into your AndroidManifest.xml.This needs to go inside the application tag：**
-```
-<meta-data android:name="applovin.sdk.key"
-       android:value="YOUR_SDK_KEY"  />
-```
 
 **ProGuard：**
 ```c
@@ -725,16 +720,23 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-	android:name="com.playableads.activity.PlayableADActivity"
-	android:configChanges="orientation|screenSize|keyboardHidden"
-	android:hardwareAccelerated="true"
-	android:screenOrientation="portrait"
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    android:name="com.playableads.presenter.PlayableADActivity"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:hardwareAccelerated="true"
+    android:screenOrientation="portrait"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
-<receiver android:name="com.playableads.PlayableReceiver" >
-	<intent-filter>
-		<action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-	</intent-filter>
+<activity
+    android:name="com.playableads.presenter.NativeAdLandingPageActivity"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:hardwareAccelerated="true"
+    android:screenOrientation="portrait"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+<receiver android:name="com.playableads.PlayableReceiver">
+    <intent-filter>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+    </intent-filter>
 </receiver>
 ```
 
