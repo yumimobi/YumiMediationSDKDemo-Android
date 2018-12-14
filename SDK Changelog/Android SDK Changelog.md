@@ -1,4 +1,4 @@
-###  Android & Android_UnitySDK Changelog
+###  Android SDK & Android_Unity SDK Changelog
 
 #### V 3.4.0
 
