@@ -1,5 +1,28 @@
 ###  Android & Android_Unity SDK更新日志
 
+#### V 3.4.0
+
+若需接入SDK 3.4.0版本，请先将此前版本删除。
+
+1.更新百度SDK到5.8，新增视频广告形式
+
+2.更新ZPLAYAds SDK到2.3.0
+
+3.更新广点通SDK到4.20.580，新增视频广告形式
+
+4.支持facebook header bidding功能，支持广告形式banner，插屏，视频
+
+5.广点通实现插屏&原生自渲染功能
+
+6.Applovin支持服务端配置banner参数
+
+7.更新Inmobi视频请求失败逻辑
+
+8.更新banner，插屏，视频配置请求及使用逻辑
+
+9.视频增加新的上报节点
+
+10.修复已知问题
 
 #### V 3.3.9
 
@@ -20,82 +43,84 @@
 
 #### V 3.3.8
 
-1. Android sdk 间隔逻辑优化
+1.Android sdk 间隔逻辑优化
 
-2. 新增金山云（视频）、IronSource（插屏+视频）平台
+2.新增金山云（视频）、IronSource（插屏+视频）平台
 
-3. 更新  ZPLAYAds 到2.1.1
+3.更新  ZPLAYAds 到2.1.1
 
-4. 优化debug center 模块
+4.优化debug center 模块
 
 
 
 #### V 3.3.7
-1. 优化请求逻辑
+1.优化请求逻辑
 
-2. 更新facebook到4.99.1
+2.更新facebook到4.99.1
 
-3. 更新mobvista 到8.13.0
+3.更新mobvista 到8.13.0
 
-4. 更新 APPLovin逻辑
+4.更新 APPLovin逻辑
 
-5. 更新ZPLAYAds逻辑
+5.更新ZPLAYAds逻辑
 
 
 ###  iOS  & iOS_Unity  SDK更新日志
 
 #### V 3.4.0
 
-1. 百度SDK更新到4.5.0.4，新增视频广告形式
+若需接入SDK 3.4.0版本，请先将此前版本删除。
 
-2. 支持facebook header bidding功能，支持广告形式banner，插屏，视频
+1.百度SDK更新到4.5.0.4，新增视频广告形式
 
-3. 广点通实现插屏&视频自渲染功能
+2.支持facebook header bidding功能，支持广告形式banner，插屏，视频
 
-4. applovin banner支持后台配置
+3.广点通实现插屏&视频自渲染功能
 
-5. 视频增加新的上报节点
+4.applovin banner支持后台配置
 
-6. 更新banner，插屏，视频配置请求及使用逻辑
+5.视频增加新的上报节点
 
-7. 优化debug center 模块
+6.更新banner，插屏，视频配置请求及使用逻辑
+
+7.优化debug center 模块
 
 
 #### V 3.3.9
 
-1. ironsource 支持多层配置
+1.ironsource 支持多层配置
 
-2. 视频平台重试逻辑优化
+2.视频平台重试逻辑优化
 
-3. facebook udpate to 4.99.3
+3.facebook udpate to 4.99.3
 
-4. unity update to 2.3.0
+4.unity update to 2.3.0
 
-5. vungle update 6.2.0，修改插屏播放完成立即返回广告问题
+5.vungle update 6.2.0，修改插屏播放完成立即返回广告问题
 
-6. chartboost SDK update to 7.2.0
+6.chartboost SDK update to 7.2.0
 
 
 #### V 3.3.8
-1. 更新ZPLAYAds到2.1.0，支持插屏和视频广告形式
+1.更新ZPLAYAds到2.1.0，支持插屏和视频广告形式
 
-2. 更新IronSource到6.7.10，支持BANNER,插屏和视频广告形式
+2.更新IronSource到6.7.10，支持BANNER,插屏和视频广告形式
 
-3. 更新Domob到3.8.0，支持视频广告形式
+3.更新Domob到3.8.0，支持视频广告形式
 
 
 
 
 #### V 3.3.7
-1. 优化请求逻辑
+1.优化请求逻辑
 
-2. 更新facebook到4.99.1
+2.更新facebook到4.99.1
 
-3. 更新mobvista 到3.9.1
+3.更新mobvista 到3.9.1
 
-4. 更新 APPLovin逻辑
+4.更新 APPLovin逻辑
 
-5. 更新ZPLAYAds逻辑
+5.更新ZPLAYAds逻辑
 
 
 
