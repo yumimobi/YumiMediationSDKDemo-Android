@@ -188,7 +188,7 @@ banner.setVersionName(versionStr);
 banner.requestYumiBanner();
 ```
 
-isMatchWindowWidth 详细说明：[横幅自适应屏幕宽度](#isMatchWindowWidth)  </br>
+
 
 <span style="color:red;">
 注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
@@ -560,12 +560,7 @@ banner.dismissBanner();
 banner.resumeBanner();
 ```
 
-<a name="isMatchWindowWidth"></a>
-**横幅自适应屏幕宽度**
 
-<img src="document\image02.png" alt="img2">
-
-横幅设置广告容器的同时，玉米SDK提供了 boolean 类型的参数：isMatchWindowWidth。该参数为横幅宽度是否充满全屏，当该参数为true时横幅的宽度为屏幕宽度。
 
 
 
@@ -731,3 +726,8 @@ splashListener = new SplashADListener () {
 ```java
 YumiSettings.runInCheckPermission(true);
 ```
+## 7. 测试广告位
+
+|  平台   | Banner   | Interstitial | Rewarded Video | Native        | Splash        |
+| -----   | -------- | ------------ | -------------- |-------------- |-------------- |
+|Android  | uz852t89 | 56ubk22h     | ew9hyvl4       | dt62rndy      | vv7snvc5      |
