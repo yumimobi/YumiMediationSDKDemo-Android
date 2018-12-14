@@ -20,7 +20,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 
 - The minSdkVersion which the provider sdk required maybe above the YumiMobi SDK , please use the higher as your project minSdkVersion to avoid the unexpected exception. "-" means the minSdkVersion is same to YumiMobi SDK required.
 
-- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 3.3.6 "com. Yumimobi. Ads: mediation: 3.3.6. +", you need to add such Adapter 3.3.6 version "com. Yumimobi. Ads. Mediation: such: 3.3.6. +"
+- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 3.4.0 "com. Yumimobi. Ads: mediation: 3.4.+", you need to add such Adapter 3.4.0 version "com. Yumimobi. Ads. Mediation: such: 3.4.+"
 
 ## Support List
 
@@ -45,7 +45,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:adcolony:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:adcolony:*.*.+'
 }
 ```
 
@@ -92,7 +92,7 @@ build.gradle add：
 ```c
 dependencies {
   //play-services-ads is used less than version 15.0.0
-  compile 'com.yumimobi.ads.mediation:admob:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:admob:*.*.+'
 }
 ```
 
@@ -144,7 +144,7 @@ AndroidManifest.xml Component：
 | Jar Name          | libs/yumi_adapter_applovin.jar |
 | Provider Ver      | 8.0.2                         |
 | GooglePlayService | Require                        |
-| Ad Form           | Interstitial, Reward Video     |
+| Ad Form           | Banner, Interstitial, Reward Video     |
 | .so/lib project   | --                             |
 
 **Permission：**
@@ -157,7 +157,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:applovin:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:applovin:*.*.+'
 }
 ```
 
@@ -186,9 +186,9 @@ AndroidManifest.xml Component：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_baidu.jar |
-| Provider Ver      | 5.7                         |
+| Provider Ver      | 5.8                         |
 | GooglePlayService | --                          |
-| Ad Form           | Banner, Interstitial        |
+| Ad Form           | Banner, Interstitial, Reward Video        |
 | .so/lib project   | --                          |
 
 **Permission：**
@@ -203,7 +203,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:baidu:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:baidu:*.*.+'
 }
 ```
 
@@ -233,7 +233,7 @@ AndroidManifest.xml Component：
 |                   |                                  |
 | ----------------- | -------------------------------- |
 | Jar Name          | libs/yumi_adapter_chartboost.jar |
-| Provider Ver      | 6.6.1                            |
+| Provider Ver      | 6.6.3                            |
 | GooglePlayService | Require                          |
 | Ad Form           | Interstitial, Reward Video       |
 | .so/lib project   | --                               |
@@ -248,7 +248,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:chartboost:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:chartboost:*.*.+'
 }
 ```
 
@@ -291,7 +291,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:facebook:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:facebook:*.*.+'
 }
 ```
 
@@ -318,9 +318,9 @@ AndroidManifest.xml Component：
 |                   |                           |
 | ----------------- | ------------------------- |
 | Jar Name          | libs/yumi_adapter_gdt.jar |
-| Provider Ver      | 4.9.544                   |
+| Provider Ver      | 4.20.580                   |
 | GooglePlayService | --                        |
-| Ad Form           | Banner, Interstitial      |
+| Ad Form           | Banner, Interstitial, Reward Video      |
 | .so/lib project   | --                        |
 
 **Permission：**
@@ -336,7 +336,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:gdt:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:gdt:*.*.+'
 }
 ```
 
@@ -371,7 +371,7 @@ public protected *;
 |                   |                                    |
 | ----------------- | ---------------------------------- |
 | Jar Name          | libs/yumi_adapter_inmobi.jar       |
-| Provider Ver      | 6.0.4                              |
+| Provider Ver      | 6.2.0                              |
 | minSdkVersion     | Android 2.3 / API 9;  Android 4.0 / API 14 (For Reward Video)|
 | GooglePlayService | Require                            |
 | Ad Form           | Banner, Interstitial, Reward Video |
@@ -395,7 +395,7 @@ public protected *;
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:inmobi:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:inmobi:*.*.+'
 }
 ```
 
@@ -464,9 +464,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  compile 'com.yumimobi.ads.mediation:mintegral:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:mintegral:*.*.+'
   //China market channel release
-  compile 'com.yumimobi.ads.mediation:mintegral-china:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:mintegral-china:*.*.+'
 }
 ```
 
@@ -530,7 +530,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:oneway:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:oneway:*.*.+'
 }
 ```
 
@@ -575,9 +575,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  compile 'com.yumimobi.ads.mediation:unity:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:unity:*.*.+'
   //China market channel release
-  compile 'com.yumimobi.ads.mediation:unity-china:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:unity-china:*.*.+'
 }
 ```
 
@@ -640,7 +640,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:vungle:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:vungle:*.*.+'
 }
 ```
 
@@ -696,7 +696,7 @@ AndroidManifest.xml Component：
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar Name          | libs/yumi_adapter_playableads.jar |
-| Provider Ver      | 2.0.7                             |
+| Provider Ver      | 2.3.0                             |
 | GooglePlayService | --                                |
 | Ad Form           | Interstitial, Reward Video        |
 | .so/lib project   | --                                |
@@ -711,7 +711,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:playableads:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:playableads:*.*.+'
 }
 ```
 
@@ -794,7 +794,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ksyun:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:ksyun:*.*.+'
 }
 ```
 
@@ -853,7 +853,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ironsource:*.*.*.+'
+  compile 'com.yumimobi.ads.mediation:ironsource:*.*.+'
 }
 ```
 
