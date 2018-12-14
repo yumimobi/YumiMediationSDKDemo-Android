@@ -1,4 +1,4 @@
-###  Android & Android_Unity SDK更新日志
+###  Android SDK & Android_Unity SDK更新日志
 
 #### V 3.4.0
 
