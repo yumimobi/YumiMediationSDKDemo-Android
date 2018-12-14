@@ -98,7 +98,7 @@ dependencies {
 ```
 
 >注：如果项目中使用的play-services-ads版本 >= 15 <br />
->请使用 : yumi_adapter_admob_v*.*.*(For GooglePlayService version 15 and above).aar [下载地址](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
+>请使用 : yumi_adapter_admob_v*.*.*(For_GooglePlayService_version_15_and_above).aar [下载地址](http://adsdk.yumimobi.com/Android/Android_Adapters/3.4.0/yumi_adapter_admob_v3.4.0(For_GooglePlayService_version_15_and_above).aar)
 
 **Eclipse开发**
 

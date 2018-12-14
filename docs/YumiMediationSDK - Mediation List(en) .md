@@ -97,7 +97,7 @@ dependencies {
 ```
 
 >Note: if play-services-ads version used in the project is >= 15<br />
->please use : yumi_adapter_admob_v*.*.*(For GooglePlayService version 15 and above).aar [download link](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
+>please use : yumi_adapter_admob_v*.*.*(For_GooglePlayService_version_15_and_above).aar [download link](http://adsdk.yumimobi.com/Android/Android_Adapters/3.4.0/yumi_adapter_admob_v3.4.0(For_GooglePlayService_version_15_and_above).aar)
 
 **Using Eclipse**
 
