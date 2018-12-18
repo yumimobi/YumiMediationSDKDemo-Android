@@ -1,6 +1,10 @@
 
 ###  iOS SDK  & iOS_Unity  SDK Changelog
 
+#### V 3.4.1
+
+1.vungle supports multi-configuration (interstitial & video)
+
 #### V 3.4.0
 
 If you use the Unity plugin to access the SDK 3.4.0 version, please remove the previous version and re-access according to the latest document.
