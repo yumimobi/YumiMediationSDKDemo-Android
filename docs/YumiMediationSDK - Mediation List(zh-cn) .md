@@ -344,12 +344,21 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-<service  android:name="com.qq.e.comm.DownloadService" android:exported="false" >
-</service>
+<service
+    android:name="com.qq.e.comm.DownloadService"
+    android:exported="false"></service>
 <activity
-	android:name="com.qq.e.ads.ADActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation|screenSize" >
+    android:name="com.qq.e.ads.ADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
 </activity>
+<activity
+    android:name="com.qq.e.ads.PortraitADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:screenOrientation="portrait" />
+<activity
+    android:name="com.qq.e.ads.LandscapeADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:screenOrientation="landscape" />
 ```
 
 **混淆：**
