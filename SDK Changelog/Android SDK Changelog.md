@@ -1,5 +1,9 @@
 ###  Android SDK & Android_Unity SDK Changelog
 
+####  V 3.4.1
+1 Modify the DebugCenter prompt message
+2 Remove global settings that prohibit HTTPS host authentication
+
 #### V 3.4.0
 
 If you use the Unity plugin to access the SDK 3.4.0 version, please remove the previous version and re-access according to the latest document.
