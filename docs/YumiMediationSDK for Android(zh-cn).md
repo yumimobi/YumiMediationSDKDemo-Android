@@ -54,13 +54,16 @@ allprojets {
             url 'https://maven.google.com/'
             name 'Google'
         }//可选,如果需要导入Google Server相关的SDK时需要添加
+        maven() {
+            url "https://dl.bintray.com/yumimobi/thirdparty/"
+        }//可选,如果需要导入Ksyun(金山云)相关的SDK时需要添加
     }
 }
 //在 module 的 build.gradle 中添加依赖
 dependencies {
-    //(*.*.+) 请替换为最新的SDK版本号，如：3.4.+
-    compile 'com.yumimobi.ads:mediation:*.*.+'
-    compile 'com.yumimobi.ads.mediation:mraid:*.*.+' //如果希望支持富媒体广告，可选择添加
+    //(*.*.*) 请替换为最新的SDK版本号，如：3.4.1
+    compile 'com.yumimobi.ads:mediation:*.*.*'
+    compile 'com.yumimobi.ads.mediation:mraid:*.*.*' //如果希望支持富媒体广告，可选择添加
 ｝
 ```
 

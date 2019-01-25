@@ -54,13 +54,16 @@ allprojets {
             url 'https://maven.google.com/'
             name 'Google'
         }//Optional,It is required when you import SDKs related to Google Server.
+        maven() {
+            url "https://dl.bintray.com/yumimobi/thirdparty/"
+        }//可选,如果需要导入Ksyun(金山云)相关的SDK时需要添加
     }
 }
 //Add dependency in module build. Gradle
 dependencies {
-    //(*.*.+) Please replace it with the latest SDK version number, example ：3.4.+
-    compile 'com.yumimobi.ads:mediation:*.*.+'
-    compile 'com.yumimobi.ads.mediation:mraid:*.*.+' // Optional : We hope to support mraid advertising
+    //(*.*.*) Please replace it with the latest SDK version number, example ：3.4.1
+    compile 'com.yumimobi.ads:mediation:*.*.*'
+    compile 'com.yumimobi.ads.mediation:mraid:*.*.*' // Optional : We hope to support mraid advertising
 ｝
 ```
 
