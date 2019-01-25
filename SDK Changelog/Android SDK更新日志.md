@@ -1,5 +1,11 @@
 ###  Android SDK & Android_Unity SDK更新日志
 
+
+#### V 3.4.1
+
+1. 修改 DebugCenter 提示信息
+2. 去除禁止 HTTPS 主机认证的全局设定
+
 #### V 3.4.0
 
 如您使用Unity插件接入SDK 3.4.0版本，请先将此前版本删除并按照最新文档重新接入。
