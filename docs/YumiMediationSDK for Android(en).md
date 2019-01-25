@@ -56,7 +56,7 @@ allprojets {
         }//Optional,It is required when you import SDKs related to Google Server.
         maven() {
             url "https://dl.bintray.com/yumimobi/thirdparty/"
-        }//可选,如果需要导入Ksyun(金山云)相关的SDK时需要添加
+        }//Optional,If you do not need the ksyun SDK, you can remove the maven url.
     }
 }
 //Add dependency in module build. Gradle
