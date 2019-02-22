@@ -136,16 +136,6 @@ Add following in manifest.xml of your project:
 <activity android:name="com.yumi.android.sdk.ads.self.activity.YumiFullScreenActivity"
           android:configChanges="keyboardHidden|orientation|screenSize"
           android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-<activity android:name="com.playableads.activity.PlayableADActivity"
-          android:configChanges="orientation|screenSize|keyboardHidden"
-          android:hardwareAccelerated="true"
-          android:screenOrientation="portrait"
-          android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-<receiver android:name="com.playableads.PlayableReceiver" >
-	<intent-filter>
-	     <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-	</intent-filter>
-</receiver>
 <!—Debugging Activity -->
 <activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" ></activity>
 ```
