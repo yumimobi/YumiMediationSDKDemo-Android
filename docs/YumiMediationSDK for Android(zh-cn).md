@@ -61,13 +61,13 @@ allprojets {
 }
 //在 module 的 build.gradle 中添加依赖
 dependencies {
-    //(*.*.*) 请替换为最新的SDK版本号，如：3.4.1
+    //(*.*.*) 请替换为最新的SDK版本号，如：3.6.0
     compile 'com.yumimobi.ads:mediation:*.*.*'
     compile 'com.yumimobi.ads.mediation:mraid:*.*.*' //如果希望支持富媒体广告，可选择添加
 ｝
 ```
 
->最新版本号，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version)
+>最新版本号，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android#latest-version)
 > 
 >富媒体广告，指的是MRAID，即Mobile Rich Media Ad Interface Definitions，是由IAB编写的用于移动流量上富媒体广告展示的接口规范。详细信息请[查看](https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/)
 
