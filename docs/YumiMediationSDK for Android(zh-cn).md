@@ -453,7 +453,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder().build();
 
 **原生广告展示：**
 
-- ### YumiNativeAdView 类：
+* YumiNativeAdView 类：
 
 YumiNativeAdView 类是一个 ViewGroup，发布商应将其用作原生广告的根。一个 YumiNativeAdView 对应于一个原生广告。凡是用于展示该广告素材资源的每个视图均应是 YumiNativeAdView 对象的子对象。
 
