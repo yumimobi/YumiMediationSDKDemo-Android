@@ -380,13 +380,13 @@ protected void onDestroy() {
 **在 Activity 的 onCreate() 内添加以下代码：**
 
 ```java
-//创建一个原生广告选项对象进行其他自定义设置
+// 创建一个原生广告选项对象进行其他自定义设置
 YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder().build();
 // 创建一个原生广告对象，YOUR_SLOT_ID 是在玉米后台申请的广告位 ID, nativeAdOptions 是原生广告的可选自定义设置
 YumiNative nativeAd = new YumiNative(this, “YOUR_SLOT_ID”, nativeAdOptions);
-//请根据平台的配置, 设置渠道, 您只需要设置一次渠道. 重复调用取最后一次.
+// 请根据平台的配置, 设置渠道, 您只需要设置一次渠道. 重复调用取最后一次.
 nativeAd.setChannelID(channelStr);
-//情根据平台的配置, 设置版本, 您只需要设置一次版本. 重复调用取最后一次.
+// 情根据平台的配置, 设置版本, 您只需要设置一次版本. 重复调用取最后一次.
 nativeAd.setVersionName(versionStr);
 // 设置原生广告回调接口
 nativeAd.setNativeEventListener(new IYumiNativeListener()
@@ -403,7 +403,7 @@ nativeAd.setNativeEventListener(new IYumiNativeListener()
     }
     @Override
     public void onLayerClick() {
-        //广告点击回调
+        // 广告点击回调
     }
 });
 // 请求广告，adCount 参数为请求广告条数,成功或失败的结果会在回调接口中返回
@@ -427,14 +427,14 @@ nativeAd.requestYumiNative(adCount);
 示例代码:
 ```java
 YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
-                .setIsDownloadImage(true)//设置 SDK 是否下载图片资源
-                .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)//设置 AdChoices 组件位置
-                .setAdAttributionPositio(YumiNativeAdOptions.POSITION_TOP_LEFT)//设置 AdAttribution 组件位置
-                .setAdAttributionText("广告")//设置 AdAttribution 组件文字内容
-                .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))//设置 AdAttribution 组件字体颜色
-                .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))//设置AdAttribution 组件字体背景颜
-                .setAdAttributionTextSize(10)//设置 AdAttribution 组件字体大小
-                .setHideAdAttribution(false)//设置是否显示 AdAttribution 组件
+                .setIsDownloadImage(true)// 设置 SDK 是否下载图片资源
+                .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)// 设置 AdChoices 组件位置
+                .setAdAttributionPositio(YumiNativeAdOptions.POSITION_TOP_LEFT)// 设置 AdAttribution 组件位置
+                .setAdAttributionText("广告")// 设置 AdAttribution 组件文字内容
+                .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))// 设置 AdAttribution 组件字体颜色
+                .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))// 设置AdAttribution 组件字体背景颜
+                .setAdAttributionTextSize(10)// 设置 AdAttribution 组件字体大小
+                .setHideAdAttribution(false)// 设置是否显示 AdAttribution 组件
                 .build();
 ```
 * **setIsDownloadImage** 原生广告返回的 Icon 和大图资源为 Image 对象。如果 setIsDownloadImage 设置为 true，则 SDK 会自动获取图片素材资源，并为您填充 Image 对象中的 Drawable, url, scale 属性；如果 setIsDownloadImage 设置为 false, SDK 将不会自动下载 Icon 和大图的图片资源，返回的 Icon 和大图的 Image 对象只会填充 url 属性，从而允许您自行决定是否下载实际图片。默认为 true。
@@ -511,45 +511,61 @@ private void showNativeAd() {
         {
             NativeContent content = adContentList.get(0);// 提取广告对象
 
-            //获取原生广告父容器，用来显示原生广告
+            if(content.isExpired()){
+                // 判断当前广告是否过期，true : 已过期；false ：未过期。
+                // 如果判断为已过期，请不要展示当前广告，请求新的广告
+                return;
+            }
+
+            // 获取原生广告父容器，用来显示原生广告
             FrameLayout nativeAdContinerView = (FrameLayout) findViewById(R.id.ll_ad_continer);
             
-            //填充一个 XML 布局，它的最外层节点为 YumiNativeAdView
+            // 填充一个 XML 布局，它的最外层节点为 YumiNativeAdView
             YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
                     .inflate(R.layout.activity_native_material, null);
 
-            //将标题视图注册到 YumiNativeAdView 对象中
+            // 将标题视图注册到 YumiNativeAdView 对象中
             adView.setHeadlineView((TextView) adView.findViewById(R.id.headline));
 
             ...
-            //请按照上面的方法，将 Icon,大图, 行动号召等视图注册到 YumiNativeAdView 对象中
+            // 请按照上面的方法，将 Icon,大图, 行动号召等视图注册到 YumiNativeAdView 对象中
             ...
            
-            //使用广告对象提供的字符串素材资源，给标题视图填充文字
+            // 使用广告对象提供的字符串素材资源，给标题视图填充文字
             if (content.getTitle() != null) {
                 ((TextView) adView.getHeadlineView()).setText(content.getTitle());
             }
            
             ...
-            //请按照上面的方法，给 Icon,大图, 行动号召等视图填充内容
+            // 请按照上面的方法，给 Icon,大图, 行动号召等视图填充内容
             ...
 
-            //使用 YumiNativeAdView 对象中 setNativeAd 接口注册当前的广告对象
+            // 使用 YumiNativeAdView 对象中 setNativeAd 接口注册当前的广告对象
             adView.setNativeAd(content);
 
-            //确认父容器不包含 ad View
+            // 确认父容器不包含 ad View
             nativeAdContinerView.removeAllViews();
-            //将 adView 添加到父容器中
+            // 将 adView 添加到父容器中
             nativeAdContinerView.addView(adView);
         }
     }
 ```
-3、让我们来看看各项具体任务：
+
+3、以下是各项具体任务细节：
+
+* 展示原生广告之前请先判断广告是否过期，代码示例如下：
+```java
+content.isExpired()
+```
+| 返回值 | 说明 |备注|
+| ----------------- | ----------- | ---------- |
+| true  |  已过期 | 展示已过期的广告将不会产生收益 |
+| false |  未过期 | 当前广告可以展示|
 
 * 填充布局
 
 ```java
-//填充一个 XML 布局，它的最外层节点为 YumiNativeAdView
+// 填充一个 XML 布局，它的最外层节点为 YumiNativeAdView
 YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
             .inflate(R.layout.activity_native_material, null);
 ```
@@ -561,12 +577,12 @@ YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
 下面的示例代码会找到用于显示标题的视图，使用广告对象提供的字符串素材资源设置其文字，然后向 YumiNativeAdView 对象注册该视图：
 
 ```java
-//获取标题视图
+// 获取标题视图
 TextView headline = (TextView) adView.findViewById(R.id.headline)
-//调用 YumiNativeAdView 的 setHeadlineView 接口注册标题视图
+// 调用 YumiNativeAdView 的 setHeadlineView 接口注册标题视图
 adView.setHeadlineView(headline);
 if (content.getTitle() != null) {
-//使用广告对象提供的字符串素材资源，给标题视图填充文字
+// 使用广告对象提供的字符串素材资源，给标题视图填充文字
    ((TextView) adView.getHeadlineView()).setText(content.getTitle());
 }
 ```
