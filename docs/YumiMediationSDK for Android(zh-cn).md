@@ -664,11 +664,11 @@ protected void onDestroy()
 
 1、调用方法打开调试页面：
 
-YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID); 
+YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID); 
 
 如果设置了版本、渠道，根据您在平台的配置需要设置渠道、版本调用方法打开调试页面：
 
-YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, channelID, versionName);
+YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, NativeSloatID,channelID, versionName);
 
 2、玉米SDK将获取配置并展示三方平台列表，进入debug页面：
 
