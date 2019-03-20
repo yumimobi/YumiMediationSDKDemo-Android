@@ -1,6 +1,22 @@
 ###  Android SDK & Android_Unity SDK更新日志
 
 
+#### V 3.6.0
+1. YUMI支持可玩物料类型（插屏 & 视频）,支持插页式视频物料
+2. 修改原生广告聚合逻辑和返回的数据接口，增加百度,admob,facebook平台原生广告
+3. 修改 adtype 的枚举值
+4. 增加SMART_BANNE
+5. 新增 IQzone banner、interstitial 、video 广告形式
+6. 新增 Mintegral interstitials video广告形式
+7. 上报参数增加 osVersion 和 brand
+8. 优化debugcenter逻辑
+9. 更新adcolony，admob, inmobi依赖的google_play_services到11.0.4版本
+10. update Chartboost sdk to 7.3.1
+11. update Facebook sdk to 5.1.0
+12. update InMobi sdk to 7.2.2
+13. 修复 Applovin 激励视频奖励回调错误
+14. interstitial & video增加新的上报节点，增加更多宏变量参数
+ 
 #### V 3.4.1
 
 1. 修改 DebugCenter 提示信息

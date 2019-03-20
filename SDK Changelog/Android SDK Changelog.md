@@ -1,5 +1,23 @@
 ###  Android SDK & Android_Unity SDK Changelog
 
+
+####  V 3.6.0
+
+1. YUMI supports playable material types (insert & video), supports interstitial video material
+2. Modify the native ad aggregation logic and returned data interface, add Baidu, admob, facebook platform native ads
+3. Modify the enumeration value of adtype
+4. Add SMART_BANNE
+5. Add IQzone banner, interstitial, video ad form
+6. Added Mintegral interstitials video ad form
+7. Reporting parameters increase osVersion and brand
+8. Optimize debugcenter logic
+9. Update adcolony, admob, inmobi dependent google_play_services to version 11.0.4
+10. update Chartboost sdk to 7.3.1
+11. update Facebook sdk to 5.1.0
+12. update InMobi sdk to 7.2.2
+13. Fix Applovin incentive video reward callback error
+14. interstitial & video adds a new escalation node, adding more macro variable parameters
+
 ####  V 3.4.1
 1 Modify the DebugCenter prompt message
 2 Remove global settings that prohibit HTTPS host authentication
