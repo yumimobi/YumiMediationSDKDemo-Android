@@ -15,6 +15,7 @@
 10. update Facebook sdk to 5.1.0
 11. update InMobi sdk to 7.2.2
 12. interstitial & video adds a new escalation node, adding more macro variable parameters
+13. Untiy SDK:The interface fields have been optimized, please re-access according to the doc
 
 #### V 3.4.1
 

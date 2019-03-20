@@ -16,6 +16,7 @@
 12. update InMobi sdk to 7.2.2
 13. 修复 Applovin 激励视频奖励回调错误
 14. interstitial & video增加新的上报节点，增加更多宏变量参数
+15. Untiy插件SDK:接口字段做了优化和修改，请按照文档重新接入
  
 #### V 3.4.1
 

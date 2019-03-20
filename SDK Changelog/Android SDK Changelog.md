@@ -17,6 +17,7 @@
 12. update InMobi sdk to 7.2.2
 13. Fix Applovin incentive video reward callback error
 14. interstitial & video adds a new escalation node, adding more macro variable parameters
+15. Untiy SDK:The interface fields have been optimized, please re-access according to the doc
 
 ####  V 3.4.1
 1 Modify the DebugCenter prompt message

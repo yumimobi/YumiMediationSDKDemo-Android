@@ -15,6 +15,7 @@
 10. update Facebook sdk to 5.1.0
 11. update InMobi sdk to 7.2.2
 12. interstitial & video增加新的上报节点，增加更多宏变量参数
+13. Untiy插件SDK:接口字段做了优化和修改，请按照文档重新接入
 
 
 
