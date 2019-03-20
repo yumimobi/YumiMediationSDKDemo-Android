@@ -36,6 +36,19 @@
 
 ## 2. 开发环境配置
 
+YumiMediationSDK会通过play-services-ads:17.1.3获取advertising_Id，需要添加如下配置，避免程序崩溃，以下内容引用自[google官方文档](https://goo.gl/h17b6x)：
+
+通过在 AndroidManifest.xml 中添加以下 <meta-data> 标记，声明您的应用是 Ad Manager 应用。
+
+```java
+<!-- google player service 17.0.0 版本以上必须得添加 start-->
+<meta-data
+     android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+     android:value="true" />
+<!-- google player service 17.0.0 版本以上必须得添加 end -->
+```
+重要提示：自 Google 移动广告 SDK 17.0.0 版本开始，必须执行此步骤。如果未能添加此 <meta-data> 代码，将会导致崩溃，并显示以下消息："The Google Mobile Ads SDK was initialized incorrectly."
+
 - ### Android-studio 接入
 
 **添加依赖**
@@ -61,9 +74,8 @@ allprojets {
 }
 //在 module 的 build.gradle 中添加依赖
 dependencies {
-    //(*.*.*) 请替换为最新的SDK版本号，如：3.6.0
-    compile 'com.yumimobi.ads:mediation:*.*.*'
-    compile 'com.yumimobi.ads.mediation:mraid:*.*.*' //如果希望支持富媒体广告，可选择添加
+    //(*.*) 请替换为最新的SDK版本号，如：3.+
+    compile 'com.yumimobi.ads:mediation:*.+'
 ｝
 ```
 
@@ -105,12 +117,6 @@ google_play_service工程非必加，部分平台广告需要google_play_service
      android：name="com.google.android.gms.version"
      class="kix-line-break"
      android：value="@integer/google_play_services_version" />
-
-<!-- google player service 17.0.0 版本以上必须得添加 start-->
-<meta-data
-     android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-     android:value="true" />
-<!-- google player service 17.0.0 版本以上必须得添加 end -->
 ```
 
 **第二步：添加权限**
@@ -525,7 +531,7 @@ private void showNativeAd() {
                     .inflate(R.layout.activity_native_material, null);
 
             // 将标题视图注册到 YumiNativeAdView 对象中
-            adView.setHeadlineView((TextView) adView.findViewById(R.id.headline));
+            adView.setTitleView((TextView) adView.findViewById(R.id.headline));
 
             ...
             // 请按照上面的方法，将 Icon,大图, 行动号召等视图注册到 YumiNativeAdView 对象中
