@@ -540,6 +540,9 @@ private void showNativeAd() {
             ...
             // 请按照上面的方法，将 Icon,大图, 行动号召等视图注册到 YumiNativeAdView 对象中
             ...
+
+            // 如果想显示视频广告，请注册显示视频的容器
+            adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
            
             // 使用广告对象提供的字符串素材资源，给标题视图填充文字
             if (content.getTitle() != null) {
@@ -589,8 +592,8 @@ YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
 ```java
 // 获取标题视图
 TextView headline = (TextView) adView.findViewById(R.id.headline)
-// 调用 YumiNativeAdView 的 setHeadlineView 接口注册标题视图
-adView.setHeadlineView(headline);
+// 调用 YumiNativeAdView 的 setTitleView 接口注册标题视图
+adView.setTitleView(title);
 if (content.getTitle() != null) {
 // 使用广告对象提供的字符串素材资源，给标题视图填充文字
    ((TextView) adView.getHeadlineView()).setText(content.getTitle());
@@ -618,7 +621,6 @@ adView.setNativeAd(content);
 视频容器是一个专门用于展示主媒体素材资源的 View。它具有以下行为：
 
 * 如果加载的广告具有视频素材资源，则会对视频进行缓冲并将视频播放器放到该容器内播放。
-* 如果加载的广告不包含视频素材资源，则会改为下载第一个图片素材资源，并将其放置在视频容器内。
 
 2、通过下面的广告对象提供的接口可以判断当前广告对象是否有视频素材：
 
