@@ -122,7 +122,7 @@ public class MainActivity extends MActivity implements OnClickListener, OnChecke
         sp.edit().putString("native_slotID", nslotID).commit();
 
         if (v.getId() == R.id.btn_startDebugging) {
-            YumiSettings.startDebugging(MainActivity.this, bslotID, islotID, mslotID, cha, ver);
+            YumiSettings.startDebugging(MainActivity.this, bslotID, islotID, mslotID, nslotID, cha, ver);
             return;
         }
         Intent intent = new Intent();
