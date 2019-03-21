@@ -20,7 +20,7 @@
 
 -  请注意三方SDK最小安卓版本, 可能高于玉米聚合广告SDK所要求的最小安卓版本, 此时您的工程应选用两者中较高的版本作为工程的最小版本, 否则使用三方平台时, 可能造成未知的影响。 "-"意味着和玉米聚合所支持的安卓最小版本版本一致。
 
--  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 3.4.1 版本 "com.yumimobi.ads:mediation:3.4.1" 时，需要添加Admob Adapter的3.4.1 版本 ”com.yumimobi.ads.mediation:admob:3.4.1“ 
+-  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 3.6.0 版本 "com.yumimobi.ads:mediation:3.6.0" 时，需要添加Admob Adapter的3.6.0 版本 ”com.yumimobi.ads.mediation:admob:3.6.0“ 
 
 
 ## 支持列表
@@ -30,7 +30,7 @@
 |                   |                                                        |
 | ----------------- | ------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_adcolony.jar                         |
-| 三方版本          | 3.2.1                                                  |
+| 三方版本          | 3.3.7                                                  |
 | 最小安卓版本      | Android 2.3.3  /  API 10                               |
 | GooglePlayService | 需要                                                   |
 | 支持广告形式      | 视频                                                   |
@@ -46,7 +46,7 @@
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:adcolony:3.4.1'
+  compile 'com.yumimobi.ads.mediation:adcolony:3.6.0'
 }
 ```
 
@@ -77,9 +77,9 @@ AndroidManifest.xml注册组件：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_admob.jar |
-| 三方版本          | 10.0.1                          |
+| 三方版本          | 17.1.3                          |
 | GooglePlayService | 需要                        |
-| 支持广告形式      | Banner, 插屏, 视频          |
+| 支持广告形式      | Banner, 插屏, 视频, 原生          |
 | .so/lib工程       | --                          |
 
 **额外权限：**
@@ -93,12 +93,12 @@ build.gradle添加：
 ```c
 dependencies {
   //play-services-ads 低于 15.0.0 版本使用
-  compile 'com.yumimobi.ads.mediation:admob:3.4.1'
+  compile 'com.yumimobi.ads.mediation:admob:3.6.0'
 }
 ```
 
 >注：如果项目中使用的play-services-ads版本 >= 15 <br />
->请使用 : yumi_adapter_admob_v3.4.1(For_GooglePlayService_version_15_and_above).aar [下载地址](http://adsdk.yumimobi.com/Android/Android_Adapters/3.4.1/yumi_adapter_admob_v3.4.1(For_GooglePlayService_version_15_and_above).aar)
+>请使用 : yumi_adapter_admob_v3.6.0(For_GooglePlayService_version_15_and_above).aar [下载地址](http://adsdk.yumimobi.com/Android/Android_Adapters/3.6.0/yumi_adapter_admob_v3.6.0(For_GooglePlayService_version_15_and_above).aar)
 
 **Eclipse开发**
 
@@ -158,7 +158,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:applovin:3.4.1'
+  compile 'com.yumimobi.ads.mediation:applovin:3.6.0'
 }
 ```
 
@@ -187,9 +187,9 @@ AndroidManifest.xml注册组件：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_baidu.jar |
-| 三方版本          | 5.8                         |
+| 三方版本          | 5.8.0                         |
 | GooglePlayService | --                          |
-| 支持广告形式      | Banner, 插屏, 视频                |
+| 支持广告形式      | Banner, 插屏, 视频, 原生                |
 | .so/lib工程       | --                          |
 
 **额外权限：**
@@ -204,7 +204,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:baidu:3.4.1'
+  compile 'com.yumimobi.ads.mediation:baidu:3.6.0'
 }
 ```
 
@@ -233,7 +233,7 @@ AndroidManifest.xml注册组件：
 |                   |                                  |
 | ----------------- | -------------------------------- |
 | Jar名称           | libs/yumi_adapter_chartboost.jar |
-| 三方版本          | 6.6.3                            |
+| 三方版本          | 7.3.1                            |
 | GooglePlayService | 需要                             |
 | 支持广告形式      | 插屏, 视频                       |
 | .so/lib工程       | --                               |
@@ -248,7 +248,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:chartboost:3.4.1'
+  compile 'com.yumimobi.ads.mediation:chartboost:3.6.0'
 }
 ```
 
@@ -275,10 +275,10 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_facebook.jar                               |
-| 三方版本          | 4.99.3                                                       |
+| 三方版本          | 5.1.O                                                       |
 | 最小安卓版本      | Android 3.0  /  API 11                                       |
 | GooglePlayService | 需要                                                         |
-| 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏) |
+| 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏), 原生 |
 | .so/lib工程       | \res\xml                                                     |
 
 **额外权限：**
@@ -291,7 +291,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:facebook:3.4.1'
+  compile 'com.yumimobi.ads.mediation:facebook:3.6.0'
 }
 ```
 
@@ -320,7 +320,7 @@ AndroidManifest.xml注册组件：
 | Jar名称           | libs/yumi_adapter_gdt.jar |
 | 三方版本          | 4.20.580                   |
 | GooglePlayService | --                        |
-| 支持广告形式      | Banner, 插屏, 视频              |
+| 支持广告形式      | Banner, 插屏, 视频, 原生              |
 | .so/lib工程       | --                        |
 
 **额外权限：**
@@ -336,7 +336,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:gdt:3.4.1'
+  compile 'com.yumimobi.ads.mediation:gdt:3.6.0'
 }
 ```
 
@@ -380,7 +380,7 @@ public protected *;
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar名称           | libs/yumi_adapter_inmobi.jar |
-| 三方版本          | 6.2.0                        |
+| 三方版本          | 7.2.7                       |
 | 最小安卓版本      | Android 2.3 / API 9;  Android 4.0 / API 14 (视频广告) |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | Banner, 插屏, 视频           |
@@ -404,7 +404,7 @@ public protected *;
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:inmobi:3.4.1'
+  compile 'com.yumimobi.ads.mediation:inmobi:3.6.0'
 }
 ```
 
@@ -474,9 +474,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  compile 'com.yumimobi.ads.mediation:mintegral:3.4.1'
+  compile 'com.yumimobi.ads.mediation:mintegral:3.6.0'
   //中国市场渠道发布
-  compile 'com.yumimobi.ads.mediation:mintegral-china:3.4.1'
+  compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
 }
 ```
 
@@ -540,7 +540,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:oneway:3.4.1'
+  compile 'com.yumimobi.ads.mediation:oneway:3.6.0'
 }
 ```
 
@@ -584,9 +584,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  compile 'com.yumimobi.ads.mediation:unity:3.4.1'
+  compile 'com.yumimobi.ads.mediation:unity:3.6.0'
   //中国市场渠道发布
-  compile 'com.yumimobi.ads.mediation:unity-china:3.4.1'
+  compile 'com.yumimobi.ads.mediation:unity-china:3.6.0'
 }
 ```
 
@@ -649,7 +649,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:vungle:3.4.1'
+  compile 'com.yumimobi.ads.mediation:vungle:3.6.0'
 }
 ```
 
@@ -706,7 +706,7 @@ AndroidManifest.xml注册组件：
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar名称           | libs/yumi_adapter_playableads.jar |
-| 三方版本          | 2.3.0                             |
+| 三方版本          | 2.4.0                             |
 | GooglePlayService | --                                |
 | 支持广告形式      | 插屏, 视频                        |
 | .so/lib工程       | --                                |
@@ -721,7 +721,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:playableads:3.4.1'
+  compile 'com.yumimobi.ads.mediation:playableads:3.6.0'
 }
 ```
 
@@ -803,7 +803,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ksyun:3.4.1'
+  compile 'com.yumimobi.ads.mediation:ksyun:3.6.0'
 }
 ```
 
@@ -862,7 +862,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ironsource:3.4.1'
+  compile 'com.yumimobi.ads.mediation:ironsource:3.6.0'
 }
 ```
 
@@ -901,4 +901,188 @@ AndroidManifest.xml注册组件：
 }
 -dontwarn com.moat.**
 -keep class com.moat.** { public protected private *; }
+```
+### Iqzone
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar名称           | libs/yumi_adapter_iqzone.jar |
+| 三方版本          | 2.3.2111                        |
+| GooglePlayService | 需要                         |
+| 支持广告形式      | Banner,插屏,视频                   |
+| .so/lib工程       | --|
+
+**额外权限：**
+```xml
+--
+```
+
+**AndroidStudio开发**
+
+build.gradle添加：
+```c
+dependencies {
+  compile 'com.yumimobi.ads.mediation:iqzone:3.6.0'
+}
+```
+
+**混淆：**
+```c
+-dontwarn com.applovin.**
+-keep class com.applovin.* { *; }
+-keep public class com.google.android.gms.**
+-keep public class com.google.android.gms.ads.*
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+-keep class com.google.android.gms.ads.identifier.** { *; }
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{ public *; }
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{ public *; }
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+-keep class com.appnext.* { *; }
+-keep class com.hyprmx.** {*;}
+-keep class okhttp3.hyprmx.* { *; }
+-keep class com.immersion.** { *; }
+-keep class com.inmobi.** { *; }
+-keep class com.integralads.avid.library.* {*;}
+-keep class com.jirbo.** { *; }
+-keep class com.moat.** {*;}
+-keep class com.mologiq.** { *; }
+-keep class com.squareup.picasso.** {*;}
+-keep class com.tapjoy.** { *; }
+-keep class com.vungle.** { *; }
+-keep class javax.inject.*
+-keep class com.yume.** { *; }
+-keep class rx.schedulers.Schedulers { public static <methods>; }
+-keep class rx.schedulers.ImmediateScheduler { public <methods>; }
+-keep class rx.schedulers.TestScheduler { public <methods>; }
+-keep class rx.schedulers.Schedulers { public static ** test(); }
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+    long producerIndex;
+    long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+-keep interface okhttp3.hyprmx.* { *; }
+-dontwarn android.app.Activity
+-dontwarn com.appnext.**
+-dontwarn com.google.android.gms.**
+-dontwarn com.google.android.gms.ads.identifier.** -dontwarn com.inmobi.**
+-dontwarn com.moat.**
+-dontwarn okhttp3.hyprmx.**
+-dontwarn okio.hyprmx.**
+-dontwarn com.squareup.picasso.**
+-dontwarn com.squareup.okhttp.**
+-dontwarn com.tapjoy.**
+-dontwarn com.vungle.**
+-dontnote com.vungle.**
+-dontwarn de.greenrobot.event.util.**
+-dontwarn org.w3c.dom.**
+-dontwarn rx.internal.util.unsafe.**
+-keep class com.playableads.PlayPreloadingListener {*;}
+-keep class com.playableads.PlayLoadingListener {*;}
+-keep class implements com.playableads.PlayPreloadingListener { *; } 
+-keep class implements com.playableads.PlayLoadingListener { *; }
+-keep class com.playableads.PlayableReceiver { *; }
+-keep class com.playableads.constants.StatusCode { *; }
+-keep class com.playableads.MultiPlayLoadingListener { *; }
+-keep class com.playableads.MultiPlayPreloadingListener { *; }
+-keep class implements com.playableads.MultiPlayLoadingListener { *; } 
+-keep class implements com.playableads.MultiPlayPreloadingListener { *; }
+-keep class com.playableads.PlayableAds {
+    public static com.playableads.PlayableAds getInstance();
+    public synchronized static com.playableads.PlayableAds init(android.content.Context, java.lang.String);
+    public <methods>;
+}
+-keep public class com.iqzone.activities.InterstitialActivity { public *; }
+-keep public class com.iqzone.imd.MraidInterface { public *; }
+-keep public class com.iqzone.imd.JSWebViewInterface { public *; }
+-keepclassmembers class com.iqzone.imd.JSWebViewInterface { public *; }
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream); java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+-keepattributes *Annotation*
+-keepattributes Annotation
+-keepattributes EnclosingMethod
+-keepattributes InnerClasses
+-keepattributes JavascriptInterface
+-keepattributes Signature
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+-keepnames class * implements android.os.Parcelable {
+    ublic static final ** CREATOR;
+}
+-keepclassmembers class com.ironsource.sdk.controller.IronSourceWebView$JSInterface { public *; }
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+-keep public class com.google.android.gms.ads.** { public *; }
+-keep class com.ironsource.adapters.* { *; }
+-dontwarn com.moat.**
+-keep class com.moat.* { public protected private *; }
+# MoPub Proguard Config
+# NOTE: You should also include the Android Proguard config found with the build tools: # $ANDROID_HOME/tools/proguard/proguard-android.txt
+# Keep public classes and methods.
+-keepclassmembers class com.mopub.* { public *; }
+-keep public class com.mopub.**
+-keep public class android.webkit.JavascriptInterface {}
+-keep public class com.mopub.mobileads.MoPubRewardedVideoManager { public *; }
+-keepclassmembers class com.mopub.mobileads.MoPubRewardedVideoManager { public *;}
+# Explicitly keep any custom event classes in any package.
+-keep class * extends com.mopub.mobileads.CustomEventBanner {}
+-keep class * extends com.mopub.mobileads.CustomEventInterstitial {}
+-keep class * extends com.mopub.nativeads.CustomEventNative {}
+-keep class * extends com.mopub.nativeads.CustomEventRewardedAd {}
+# Keep methods that are accessed via reflection
+-keepclassmembers class * {
+    @com.mopub.common.util.ReflectionTarget *;
+}
+
+# Viewability support
+-keepclassmembers class com.integralads.avid.library.mopub.* { public *; }
+-keep public class com.integralads.avid.library.mopub.**
+-keepclassmembers class com.moat.analytics.mobile.mpub.* { public *; }
+-keep public class com.moat.analytics.mobile.mpub.**
+
+# Support for Android Advertiser ID.
+-keep class com.google.android.gms.common.GooglePlayServicesUtil {*;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {*;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {*;}
+# Support for Google Play Services
+# http://developer.android.com/google/play-services/setup.html
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+-keepnames @com.google.android.gms.common.annotation.KeepName class * -keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** v(...);
+    public static *** i(...);
+}
+-dontwarn com.smaato.soma.SomaUnityPlugin* -dontwarn com.millennialmedia**
+-dontwarn com.facebook.**
+-dontwarn org.codehause.**
 ```
