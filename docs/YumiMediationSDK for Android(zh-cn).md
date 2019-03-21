@@ -70,12 +70,16 @@ allprojets {
         maven() {
             url "https://dl.bintray.com/yumimobi/thirdparty/"
         }//可选,如果需要导入Ksyun(金山云)相关的SDK时需要添加
+
+        maven {
+            url 'http://ad-sdk.oss-cn-beijing.aliyuncs.com/Android'
+        }//可选,如果需要导入Iqzone相关的SDK时需要添加
     }
 }
 //在 module 的 build.gradle 中添加依赖
 dependencies {
-    //(*.*) 请替换为最新的SDK版本号，如：3.+
-    compile 'com.yumimobi.ads:mediation:*.+'
+    //(*.*.*) 请替换为最新的SDK版本号，如：3.6.0
+    compile 'com.yumimobi.ads:mediation:*.*.*'
 ｝
 ```
 
