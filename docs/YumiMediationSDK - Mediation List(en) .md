@@ -91,13 +91,9 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  //play-services-ads is used less than version 15.0.0
   compile 'com.yumimobi.ads.mediation:admob:3.6.0'
 }
 ```
-
->Note: if play-services-ads version used in the project is >= 15<br />
->please use : yumi_adapter_admob_v3.6.0(For_GooglePlayService_version_15_and_above).aar [download link](http://adsdk.yumimobi.com/Android/Android_Adapters/3.6.0/yumi_adapter_admob_v3.6.0(For_GooglePlayService_version_15_and_above).aar)
 
 **Using Eclipse**
 

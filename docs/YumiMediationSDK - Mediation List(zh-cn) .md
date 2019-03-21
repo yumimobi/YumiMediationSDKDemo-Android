@@ -92,13 +92,10 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  //play-services-ads 低于 15.0.0 版本使用
   compile 'com.yumimobi.ads.mediation:admob:3.6.0'
 }
 ```
 
->注：如果项目中使用的play-services-ads版本 >= 15 <br />
->请使用 : yumi_adapter_admob_v3.6.0(For_GooglePlayService_version_15_and_above).aar [下载地址](http://adsdk.yumimobi.com/Android/Android_Adapters/3.6.0/yumi_adapter_admob_v3.6.0(For_GooglePlayService_version_15_and_above).aar)
 
 **Eclipse开发**
 
