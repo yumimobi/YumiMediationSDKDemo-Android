@@ -55,4 +55,5 @@ dependencies {
     compile 'com.yumimobi.ads.mediation:mintegral:3.6.0'
     compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
     compile 'com.yumimobi.ads.mediation:playableads:3.6.0'
+    compile 'com.yumimobi.ads.mediation:iqzone:3.6.0'
 }
