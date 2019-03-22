@@ -444,7 +444,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 * **setAdChoicesPosition** use this property to specify where the AdChoicesView should be placed. Default is YumiNativeAdOptions.POSITION_TOP_RIGHT.
 * **setAdAttributionPosition** use this property to specify where the Ad text view should be placed. Default is YumiNativeAdOptions.POSITION_TOP_LEFT.
 * **setAdAttributionText** use this property to specify the Ad text. Default is “Ad”.
-* **setAdAttributionTextColor** use this property to specify the Ad text color. Default is gray.
+* **setAdAttributionTextColor** use this property to specify the Ad text color. Default is white.
 * **setAdAttributionBackgroundColor** use this property to specify the Ad text background color。Default is gray.
 * **setAdAttributionTextSize** use this property to specify the Ad text font size. Default is 10.
 * **setHideAdAttribution** use this property to hide the Ad text. Default is display.
