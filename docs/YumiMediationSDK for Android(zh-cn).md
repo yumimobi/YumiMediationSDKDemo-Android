@@ -36,7 +36,7 @@
 
 ## 2. 开发环境配置
 
-YumiMediationSDK会通过play-services-ads:17.1.3获取advertising_Id，需要添加如下配置，避免程序崩溃，以下内容引用自[google官方文档](https://goo.gl/h17b6x)：
+YumiMediationSDK会通过play-services-ads:17.1.3获取advertising_Id，需要添加如下配置，避免程序崩溃，以下内容引用自[google官方文档](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start#update_your_androidmanifestxml)：
 
 通过在 AndroidManifest.xml 中添加以下 <meta-data> 标记，声明您的应用是 Ad Manager 应用。
 
@@ -444,7 +444,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
                 .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))// 设置 AdAttribution 组件字体颜色
                 .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))// 设置AdAttribution 组件字体背景颜
                 .setAdAttributionTextSize(10)// 设置 AdAttribution 组件字体大小
-                .setHideAdAttribution(false)// 设置是否显示 AdAttribution 组件
+                .setHideAdAttribution(false)// 设置是否隐藏 AdAttribution 组件
                 .build();
 ```
 * **setIsDownloadImage** 原生广告返回的 Icon 和大图资源为 Image 对象。如果 setIsDownloadImage 设置为 true，则 SDK 会自动获取图片素材资源，并为您填充 Image 对象中的 Drawable, url, scale 属性；如果 setIsDownloadImage 设置为 false, SDK 将不会自动下载 Icon 和大图的图片资源，返回的 Icon 和大图的 Image 对象只会填充 url 属性，从而允许您自行决定是否下载实际图片。默认为 true。
@@ -452,9 +452,9 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 * **setAdAttributionPositio** 使用该属性指定广告标识图标应放置的位置。该图标可以显示在广告的任一角，默认为 YumiNativeAdOptions.POSITION_TOP_LEFT。
 * **setAdAttributionText** 您可以使用该属性指定广告标识的文案。根据手机语言显示为“广告”或者“Ad”。
 * **setAdAttributionTextColor** 使用该属性指定广告标识的文字颜色。默认白色。
-* **setAdAttributionBackgroundColor** 使用该属性指定广告标识的背景颜色。默认灰色，透明度 50%。
+* **setAdAttributionBackgroundColor** 使用该属性指定广告标识的背景颜色。默认灰色。
 * **setAdAttributionTextSize** 使用该属性指定广告标识的字体大小。默认10。
-* **setHideAdAttribution** 使用该属性指定广告标识是否显示。默认显示。
+* **setHideAdAttribution** 使用该属性指定广告标识是否隐藏。默认显示。
 
 如果您不想修改 YumiNativeAdOptions 默认的属性，可以创建一个默认的 YumiNativeAdOptions 对象，示例代码如下：
 ```java

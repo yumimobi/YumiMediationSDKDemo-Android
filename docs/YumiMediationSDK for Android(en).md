@@ -36,18 +36,16 @@
 
 ## 2. Development Environment Configuration
 
-YumiMediationSDK会通过play-services-ads:17.1.3获取advertising_Id，需要添加如下配置，避免程序崩溃，以下内容引用自[google官方文档](https://goo.gl/h17b6x)：
+YumiMediationSDK will use the play-services-ads:17.1.3 to obtain the advertising_Id. You need to add the following configuration to avoid the program crash. The following content is quoted from [Google Developers](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start#update_your_androidmanifestxml)：
 
-通过在 AndroidManifest.xml 中添加以下 <meta-data> 标记，声明您的应用是 Ad Manager 应用。
+Declare that your app is an Ad Manager app by adding the following <meta-data> tag in your AndroidManifest.xml.
 
 ```java
-<!-- google player service 17.0.0 版本以上必须得添加 start-->
 <meta-data
      android:name="com.google.android.gms.ads.AD_MANAGER_APP"
      android:value="true" />
-<!-- google player service 17.0.0 版本以上必须得添加 end -->
 ```
-重要提示：自 Google 移动广告 SDK 17.0.0 版本开始，必须执行此步骤。如果未能添加此 <meta-data> 代码，将会导致崩溃，并显示以下消息："The Google Mobile Ads SDK was initialized incorrectly."
+Important: This step is required as of Google Mobile Ads SDK version 17.0.0. Failure to add this <meta-data> tag results in a crash with the message: "The Google Mobile Ads SDK was initialized incorrectly."
 
 - ### Using Android-studio
 
@@ -424,31 +422,31 @@ The channelID is labeled as the YUMI platform to generate the information and ca
 | ------------ | ------------- |
 | SamSung      | SamSung       |
 
-**原生广告选项 ：**
+**YumiNativeAdOptions ：**
 
 Native ads allow you to make additional customizations using the YumiNativeAdOptions object. This guide shows you how to use YumiNativeAdOptions.
 
 Setting options:
 ```java
 YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
-                .setIsDownloadImage(true)// 设置 SDK 是否下载图片资源
-                .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)// 设置 AdChoices 组件位置
-                .setAdAttributionPositio(YumiNativeAdOptions.POSITION_TOP_LEFT)// 设置 AdAttribution 组件位置
-                .setAdAttributionText("广告")// 设置 AdAttribution 组件文字内容
-                .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))// 设置 AdAttribution 组件字体颜色
-                .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))// 设置AdAttribution 组件字体背景颜
-                .setAdAttributionTextSize(10)// 设置 AdAttribution 组件字体大小
-                .setHideAdAttribution(false)// 设置是否显示 AdAttribution 组件
+                .setIsDownloadImage(true)// set whether the SDK download image resources
+                .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)// set AdChoices view position
+                .setAdAttributionPositio(YumiNativeAdOptions.POSITION_TOP_LEFT)// set AdAttribution view position
+                .setAdAttributionText("Ad")// set AdAttribution view text
+                .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))// set AdAttribution view text color
+                .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))// set AdAttribution view background color
+                .setAdAttributionTextSize(10)// set AdAttribution view text size
+                .setHideAdAttribution(false)// set whether to hide AdAttribution
                 .build();
 ```
-* **setIsDownloadImage** 原生广告返回的 Icon 和大图资源为 Image 对象。如果 setIsDownloadImage 设置为 true，则 SDK 会自动获取图片素材资源，并为您填充 Image 对象中的 Drawable, url, scale 属性；如果 setIsDownloadImage 设置为 false, SDK 将不会自动下载 Icon 和大图的图片资源，返回的 Icon 和大图的 Image 对象只会填充 url 属性，从而允许您自行决定是否下载实际图片。默认为 true。
-* **setAdChoicesPosition** 使用该属性指定“广告选择”图标应放置的位置。该图标可以显示在广告的任一角，默认为 YumiNativeAdOptions.POSITION_TOP_RIGHT。
-* **setAdAttributionPositio** 使用该属性指定广告标识图标应放置的位置。该图标可以显示在广告的任一角，默认为 YumiNativeAdOptions.POSITION_TOP_LEFT。
-* **setAdAttributionText** 您可以使用该属性指定广告标识的文案。根据手机语言显示为“广告”或者“Ad”。
-* **setAdAttributionTextColor** 使用该属性指定广告标识的文字颜色。默认白色。
-* **setAdAttributionBackgroundColor** 使用该属性指定广告标识的背景颜色。默认灰色，透明度 50%。
-* **setAdAttributionTextSize** 使用该属性指定广告标识的字体大小。默认10。
-* **setHideAdAttribution** 使用该属性指定广告标识是否显示。默认显示。
+* **setIsDownloadImage** Image assets for native ads are returned via instances of NativeContent.Image, which holds a Drawable and a Url. If this option is set to true, the SDK fetches image assets automatically and populates both the Drawable and the Uri for you. If it's set to false, however, the SDK instead populates just the Url field, allowing you to download the actual images at your discretion.Default is true.
+* **setAdChoicesPosition** use this property to specify where the AdChoicesView should be placed. Default is YumiNativeAdOptions.POSITION_TOP_RIGHT.
+* **setAdAttributionPositio** use this property to specify where the Ad text view should be placed. Default is YumiNativeAdOptions.POSITION_TOP_LEFT.
+* **setAdAttributionText** use this property to specify the Ad text. Default is “Ad”.
+* **setAdAttributionTextColor** use this property to specify the Ad text color. Default is gray.
+* **setAdAttributionBackgroundColor** use this property to specify the Ad text background color。Default is gray.
+* **setAdAttributionTextSize** use this property to specify the Ad text font size. Default is 10.
+* **setHideAdAttribution** use this property to hide the Ad text. Default is display.
 
 Default options：
 ```java
@@ -561,14 +559,14 @@ private void showNativeAd() {
 ```
 3、Let's take a look at the individual tasks：
 
-* 展示原生广告之前请先判断广告是否过期，代码示例如下：
+* before you show your native ads, please determine if native ads are expired：
 ```java
 content.isExpired()
 ```
-| 返回值 | 说明 |备注|
+| return code | explain |remarks|
 | ----------------- | ----------- | ---------- |
-| true  |  已过期 | 展示已过期的广告将不会产生收益 |
-| false |  未过期 | 当前广告可以展示|
+| true  |  expired | this native ad has expired, showing ads that have expired will not generate revenue |
+| false |  not expired | this native ads are valid|
 
 * Inflate the layout
 
@@ -606,7 +604,7 @@ adView.setNativeAd(content);
 
 **Native video**
  
- 1、如果您想在原生广告中展示视频，仅需要在注册视图时，在视图中预留视频容器（FrameLayout）的位置，将该容器 传入 SDK。 
+ 1、If you want to show a video in a native ad, just add the layout of the video container (FrameLayout) in the view when you register the view and pass the container to the SDK.
  
  MediaContent（FrameLayout） can be defined in an XML layout or constructed dynamically. It should be placed within the view hierarchy of a YumiNativeAdView. Apps using a MediaContent don't need to populate it with an asset, but must register it with the YumiNativeAdView like this：
 ```java
@@ -671,11 +669,11 @@ protected void onDestroy()
 
 1、Call method to open test page :
 
-YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID); 
+YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID); 
 
 If you set the version, channel, according to your need to set the channel in the platform configuration, version call method to open the debug page:
 
-YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, channelID, versionName);
+YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID, channelID, versionName);
 
 2、The maize SDK will get the configuration and display the list of the three platforms, and go to the debug page:
 
@@ -922,6 +920,7 @@ If you are using Proguard add the following to your Proguard config file:
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.yumi.android.sdk.ads.self.**{*;}
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
+-keep class com.playableads.**{*;}
 ```
 
 ## 6. Reminder
