@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/ll_contains"
@@ -9,8 +9,16 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="2dip" >
+        android:padding="2dip">
 
+        <EditText
+            android:id="@+id/native_adCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip"
+            android:digits="1234567890"
+            android:hint="please input adCount"
+            />
         <Button
             android:id="@+id/btn_request"
             android:layout_width="match_parent"
@@ -22,47 +30,45 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_show_banner"
+                android:id="@+id/btn_show"
                 android:layout_width="0dip"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="2dip"
                 android:layout_weight="1"
                 android:background="@drawable/btn_bg"
-                android:text="Next Banner" />
+                android:text="Next Native AD" />
 
             <Button
-                android:id="@+id/btn_show_interstitial"
+                android:id="@+id/btn_isExpired"
                 android:layout_width="0dip"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="2dip"
                 android:layout_weight="1"
                 android:background="@drawable/btn_bg"
-                android:text="Next Interstitial" />
+                android:text="NativeContent isExpired" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:orientation="horizontal"
 
             >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AD Count:"
-                />
+                android:text="AD Count:" />
 
             <TextView
                 android:id="@+id/tv_adcount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
-                />
+                android:text="0" />
 
         </LinearLayout>
 
@@ -71,13 +77,12 @@
 
     <FrameLayout
         android:id="@+id/ll_ad_continer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"></FrameLayout>
-</RelativeLayout>
-    <!--
+</RelativeLayout><!--
         <LinearLayout
             android:layout_width="200dip"
             android:layout_height="wrap_content"

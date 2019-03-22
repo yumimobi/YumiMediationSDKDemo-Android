@@ -36,6 +36,17 @@
 
 ## 2. Development Environment Configuration
 
+YumiMediationSDK will use the play-services-ads:17.1.3 to obtain the advertising_Id. You need to add the following configuration to avoid the program crash. The following content is quoted from [Google Developers](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start#update_your_androidmanifestxml)：
+
+Declare that your app is an Ad Manager app by adding the following <meta-data> tag in your AndroidManifest.xml.
+
+```java
+<meta-data
+     android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+     android:value="true" />
+```
+Important: This step is required as of Google Mobile Ads SDK version 17.0.0. Failure to add this <meta-data> tag results in a crash with the message: "The Google Mobile Ads SDK was initialized incorrectly."
+
 - ### Using Android-studio
 
 **Add the library**
@@ -57,11 +68,14 @@ allprojets {
         maven() {
             url "https://dl.bintray.com/yumimobi/thirdparty/"
         }//Optional,If you do not need the ksyun SDK, you can remove the maven url.
+        maven {
+            url 'http://ad-sdk.oss-cn-beijing.aliyuncs.com/Android'
+        }////Optional,If you do not need the Iqzone SDK, you can remove the maven url.
     }
 }
 //Add dependency in module build. Gradle
 dependencies {
-    //(*.*.*) Please replace it with the latest SDK version number, example ：3.4.1
+    //(*.*.*) Please replace it with the latest SDK version number, example ：3.6.0
     compile 'com.yumimobi.ads:mediation:*.*.*'
     compile 'com.yumimobi.ads.mediation:mraid:*.*.*' // Optional : We hope to support mraid advertising
 ｝
@@ -114,6 +128,7 @@ Add the following permissions in manifest.xml of your project:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <!--The Googleplay app can be unloaded-->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
@@ -369,7 +384,9 @@ protected void onDestroy() {
 **Add the following code in method onCreate of Activity:**
 
 ```java
-// Create a native ad, yid is Yumi ID for Yumi background
+// Create a YumiNativeAdOptions to make additional customizations using the NativeAdOptions object
+YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder().build();
+// Create a native ad, yid is Yumi ID for Yumi background,nativeAdOptions is make additional customizations
 YumiNative nativeAd = new YumiNative(this, yid);
 // set Channel ID 
 nativeAd.setChannelID(channelStr);
@@ -393,8 +410,9 @@ public void onLayerClick() {
     // callback of  AD Click
 }
 });
-// request ad, the result of success or error will be returned in callback interface
-nativeAd.requestYumiNative(); 
+// request ad, adCount is request ad number,the result of success or error will be returned in callback interface
+int adCount = 1;
+nativeAd.requestYumiNative(adCount); 
 ```
 <span style="color:red;">
 Note: ChannelID refers to the channel labeling of the application, and the YUMI platform can carry out data statistics and effect analysis according to the ChannelID. A Popstar! For example, when the game is released to the SamSung channel, setChannelID(channelStr) needs to be set to setChannelID(' SamSung ').
@@ -405,31 +423,227 @@ The channelID is labeled as the YUMI platform to generate the information and ca
 | ------------ | ------------- |
 | SamSung      | SamSung       |
 
+**YumiNativeAdOptions ：**
 
+Native ads allow you to make additional customizations using the YumiNativeAdOptions object. This guide shows you how to use YumiNativeAdOptions.
 
-**display native ads, please refer to the following method:**
+Setting options:
+```java
+YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
+                .setIsDownloadImage(true)// set whether the SDK download image resources
+                .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)// set AdChoices view position
+                .setAdAttributionPosition(YumiNativeAdOptions.POSITION_TOP_LEFT)// set AdAttribution view position
+                .setAdAttributionText("Ad")// set AdAttribution view text
+                .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))// set AdAttribution view text color
+                .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))// set AdAttribution view background color
+                .setAdAttributionTextSize(10)// set AdAttribution view text size
+                .setHideAdAttribution(false)// set whether to hide AdAttribution
+                .build();
+```
+* **setIsDownloadImage** Image assets for native ads are returned via instances of NativeContent.Image, which holds a Drawable and a Url. If this option is set to true, the SDK fetches image assets automatically and populates both the Drawable and the Uri for you. If it's set to false, however, the SDK instead populates just the Url field, allowing you to download the actual images at your discretion.Default is true.
+* **setAdChoicesPosition** use this property to specify where the AdChoicesView should be placed. Default is YumiNativeAdOptions.POSITION_TOP_RIGHT.
+* **setAdAttributionPosition** use this property to specify where the Ad text view should be placed. Default is YumiNativeAdOptions.POSITION_TOP_LEFT.
+* **setAdAttributionText** use this property to specify the Ad text. Default is “Ad”.
+* **setAdAttributionTextColor** use this property to specify the Ad text color. Default is white.
+* **setAdAttributionBackgroundColor** use this property to specify the Ad text background color。Default is gray.
+* **setAdAttributionTextSize** use this property to specify the Ad text font size. Default is 10.
+* **setHideAdAttribution** use this property to hide the Ad text. Default is display.
+
+Default options：
+```java
+YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder().build();
+```
+**Native Ads Show：**
+
+* YumiNativeAdView class：
+
+For the YumiNativeAdView format, there is the corresponding YumiNativeAdView class. This class is a ViewGroup that publishers should use as the root for the YumiNativeAdView. A single YumiNativeAdView corresponds to a single unified native ad. Each view used to display that ad's assets should be a child of the YumiNativeAdView object.
+
+1、The view hierarchy for a unified native ad that uses a LinearLayout to display its asset views might look like this：
 
 ```java
-if (nativeAd.getADCount() > 0))// determine whether the next ad is available through the quantity of remaining ads
-{
-	final NativeContent content = nativeAd.nextContent();//call next ad
-	int type = content.getContentType();//obtain ad types 1. material form 2. layout form
-	content.getDesc();//obtain detail description
-	content.getIcon_url();//obtain icon url
-	content.getImg_url();//obtain image url
-	content.getImg_height();//obtain the width of image, default 0 when unavailable
-	content.getImg_width();//obtain the height of image, default 0 when unavailable
-	content.getJumpUrl();//obtain click jump url
-	content.getTitle();//obtain title
-	content.getButtonText();//The action language (View details/downloads)
-	content.getPrice();//Price (free/$6.3)
-	content.getOther();//Other (2017-09-18 update)
-}
-To ensure your revenue, please call the relevant reporting method at corresponding place.(Important) 
-content.reportShow(container,content); // report when impression happens (container refers to parent layout)
-content.reportClick(container,content); // report when impression happens (container refers to parent layout)
+<?xml version="1.0" encoding="utf-8"?>
+<com.yumi.android.sdk.ads.formats.YumiNativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="#FFFFFF"
+    android:minHeight="50dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="12dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            ...>
+            <ImageView
+                android:id="@+id/app_icon"
+                .../>
+            <LinearLayout
+                android:orientation="vertical"
+                ...>
+                <TextView
+                    android:id="@+id/headline"
+                    .../>
+                <RatingBar
+                    android:id="@+id/stars"
+                     .../>
+            </LinearLayout>
+        </LinearLayout>
+        // Other assets such as image or media view, call to action, etc follow.
+        ...
+    </LinearLayout>
+</LinearLayout>
+</com.yumi.android.sdk.ads.formats.YumiNativeAdView>
+```
+2、Here is an example code snippet that creates a YumiNativeAdView and populates it with a NativeContent：
+
+```java
+private void showNativeAd() {
+        if (adContentList != null && adContentList.size() > 0) // determine if the ad returned by the native callback onLayerPrepared() interface is empty
+        {
+            NativeContent content = adContentList.get(0);// git one native ad
+
+            if(content.isExpired()){
+                // determine this Native Ad is expired，true :  expired；false ：not expired.
+                // if expired，please not show this Native Ad, request new Native Ad
+                return;
+            }
+
+            // creater native ad Continer view，use to show Native ad
+            FrameLayout nativeAdContinerView = (FrameLayout) findViewById(R.id.ll_ad_continer);
+            
+            // // Assumes that your ad layout is in a file call activity_native_material.xml
+            // in the res/layout folder
+            YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
+                    .inflate(R.layout.activity_native_material, null);
+
+            // Locate the view that will hold the title, set its text, and call the YumiNativeAdView's setTitleViewmethod to register it.
+            adView.setTitleView((TextView) adView.findViewById(R.id.headline));
+
+            ...
+            // Repeat the above process for the other assets in the YumiNativeAdView using additional view objects (Buttons, ImageViews, etc).
+            ...
+
+            // If you want to display a video ad, please register the container（FrameLayout）that displays the video  
+           adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
+
+           
+            // fill the title view using the string asset provided by NativeContent
+            if (content.getTitle() != null) {
+                ((TextView) adView.getHeadlineView()).setText(content.getTitle());
+            }
+           
+            ...
+            // Please follow the above method to fill the content of Icon, Large Picture, Call to Action, etc.
+            ...
+
+            // Call the YumiNativeAdView's setNativeAd method to register the NativeContent.
+
+            adView.setNativeAd(content);
+
+            // clean nativeAdContinerView
+            nativeAdContinerView.removeAllViews();
+            // add adView to nativeAdContinerView
+            nativeAdContinerView.addView(adView);
+        }
+    }
+```
+3、Let's take a look at the individual tasks：
+
+* before you show your native ads, please determine if native ads are expired：
+```java
+content.isExpired()
+```
+| return code | explain |remarks|
+| ----------------- | ----------- | ---------- |
+| true  |  expired | this native ad has expired, showing ads that have expired will not generate revenue |
+| false |  not expired | this native ads are valid|
+
+* Inflate the layout
+
+```java
+// Inflate XML layout，Its outermost node is YumiNativeAdView
+YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
+            .inflate(R.layout.activity_native_material, null);
 ```
 
+In this example, we're inflating an XML layout that contains views for displaying a unified native ad and then locating a reference to the YumiNativeAdView. 。
+
+* Populate and register the asset views
+
+This sample code locates the view used to display the headline, sets its text using the string asset provided by the ad object, and registers it with the YumiNativeAdView object：
+
+```java
+// get title view
+TextView title = (TextView) adView.findViewById(R.id.headline)
+// Locate the view that will hold the title, set its text, and call the YumiNativeAdView's setTitleViewmethod to register it.
+adView.setTitleView(title);
+if (content.getTitle() != null) {
+// fill the title view using the string asset provided by NativeContent
+   ((TextView) adView.getHeadlineView()).setText(content.getTitle());
+}
+```
+This process of locating the view, setting its value, and registering it with the ad view class should be repeated for each of the assets provided by the native ad object that the app will display.
+
+ * Register the native ad object：
+
+This final step registers the native ad object with the view that's responsible for displaying it：
+
+```java
+adView.setNativeAd(content);
+```
+
+**Native video**
+ 
+ 1、If you want to show a video in a native ad, just add the layout of the video container (FrameLayout) in the view when you register the view and pass the container to the SDK.
+ 
+ MediaContent（FrameLayout） can be defined in an XML layout or constructed dynamically. It should be placed within the view hierarchy of a YumiNativeAdView. Apps using a MediaContent don't need to populate it with an asset, but must register it with the YumiNativeAdView like this：
+```java
+ FrameLayout mediacontent = (FrameLayout) adView.findViewById(R.id.media_content);
+ adView.setMediaLayout(mediacontent);
+```
+The MediaContent is a special View designed to display the main media asset. It has the following behavior：
+
+* If the loaded ad has a video asset, the video is buffered and starts playing inside the mediacontent.
+
+2、The following NativeContent interface can be used to determine whether the current NativeContent object has video material：
+
+```java
+content.getHasVideoContent()
+```
+
+**YumiNativeAdVideoController**
+
+1、The YumiNativeAdVideoController class is used to retrieve information about video assets. Apps can get a reference to the controller from a NativeContent by calling the getNativeAdVideoController() method：
+
+```java
+YumiNativeAdVideoController nativeAdVideoController = content.getNativeAdVideoController();
+```
+This method always returns a YumiNativeAdVideoController object, even when no video asset is present in the ad。
+
+YumiNativeAdVideoController offers these methods for querying video state：
+ *  getAspectRatio() - Returns the aspect ratio of the video (width/height), or zero if no video asset is present。
+
+2、Apps can also use the YumiNativeAdVideoController.YumiVideoLifecycleCallbacks class to get notifications when events occur in the lifecycle of a video asset：
+
+```java
+nativeAdVideoController.setVideoLifecycleCallbacks(new YumiNativeAdVideoController.YumiVideoLifecycleCallbacks() {
+                @Override
+                public void onVideoEnd() {
+                    super.onVideoEnd();
+                }
+            });
+```
 
  **Implement in Activity lifecycle:**
 
@@ -456,11 +670,11 @@ protected void onDestroy()
 
 1、Call method to open test page :
 
-YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID); 
+YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID); 
 
 If you set the version, channel, according to your need to set the channel in the platform configuration, version call method to open the debug page:
 
-YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, channelID, versionName);
+YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID, channelID, versionName);
 
 2、The maize SDK will get the configuration and display the list of the three platforms, and go to the debug page:
 
@@ -707,6 +921,7 @@ If you are using Proguard add the following to your Proguard config file:
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.yumi.android.sdk.ads.self.**{*;}
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
+-keep class com.playableads.**{*;}
 ```
 
 ## 6. Reminder

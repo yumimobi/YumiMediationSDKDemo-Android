@@ -36,6 +36,19 @@
 
 ## 2. 开发环境配置
 
+YumiMediationSDK会通过play-services-ads:17.1.3获取advertising_Id，需要添加如下配置，避免程序崩溃，以下内容引用自[google官方文档](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start#update_your_androidmanifestxml)：
+
+通过在 AndroidManifest.xml 中添加以下 <meta-data> 标记，声明您的应用是 Ad Manager 应用。
+
+```java
+<!-- google player service 17.0.0 版本以上必须得添加 start-->
+<meta-data
+     android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+     android:value="true" />
+<!-- google player service 17.0.0 版本以上必须得添加 end -->
+```
+重要提示：自 Google 移动广告 SDK 17.0.0 版本开始，必须执行此步骤。如果未能添加此 <meta-data> 代码，将会导致崩溃，并显示以下消息："The Google Mobile Ads SDK was initialized incorrectly."
+
 - ### Android-studio 接入
 
 **添加依赖**
@@ -57,17 +70,20 @@ allprojets {
         maven() {
             url "https://dl.bintray.com/yumimobi/thirdparty/"
         }//可选,如果需要导入Ksyun(金山云)相关的SDK时需要添加
+
+        maven {
+            url 'http://ad-sdk.oss-cn-beijing.aliyuncs.com/Android'
+        }//可选,如果需要导入Iqzone相关的SDK时需要添加
     }
 }
 //在 module 的 build.gradle 中添加依赖
 dependencies {
-    //(*.*.*) 请替换为最新的SDK版本号，如：3.4.1
+    //(*.*.*) 请替换为最新的SDK版本号，如：3.6.0
     compile 'com.yumimobi.ads:mediation:*.*.*'
-    compile 'com.yumimobi.ads.mediation:mraid:*.*.*' //如果希望支持富媒体广告，可选择添加
 ｝
 ```
 
->最新版本号，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version)
+>最新版本号，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android#latest-version)
 > 
 >富媒体广告，指的是MRAID，即Mobile Rich Media Ad Interface Definitions，是由IAB编写的用于移动流量上富媒体广告展示的接口规范。详细信息请[查看](https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/)
 
@@ -113,6 +129,7 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <!--此权限受Android系统限制，若无此权限可能导致部分机型对下载类广告无法直接下载，国内渠道必须添加，Googleplay（一般为直接跳转型广告）可不加-->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
@@ -156,6 +173,7 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 <uses-permission android:name="android.permission.SEND_SMS"/>
 <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 ```
+
 
 ## 3. 代码集成
 
@@ -369,39 +387,42 @@ protected void onDestroy() {
 
 - ### 原生广告 
 
-**在Activity的onCreate()内添加以下代码：**
+**在 Activity 的 onCreate() 内添加以下代码：**
 
 ```java
-// 创建一个原生广告对象，YOUR_SLOT_ID是在玉米后台申请的广告位ID
-YumiNative nativeAd = new YumiNative(this, “YOUR_SLOT_ID”);
-//请根据平台的配置, 设置渠道, 您只需要设置一次渠道. 重复调用取最后一次.
+// 创建一个原生广告选项对象进行其他自定义设置
+YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder().build();
+// 创建一个原生广告对象，YOUR_SLOT_ID 是在玉米后台申请的广告位 ID, nativeAdOptions 是原生广告的可选自定义设置
+YumiNative nativeAd = new YumiNative(this, “YOUR_SLOT_ID”, nativeAdOptions);
+// 请根据平台的配置, 设置渠道, 您只需要设置一次渠道. 重复调用取最后一次.
 nativeAd.setChannelID(channelStr);
-//情根据平台的配置, 设置版本, 您只需要设置一次版本. 重复调用取最后一次.
+// 情根据平台的配置, 设置版本, 您只需要设置一次版本. 重复调用取最后一次.
 nativeAd.setVersionName(versionStr);
 // 设置原生广告回调接口
 nativeAd.setNativeEventListener(new IYumiNativeListener()
 {
-@Override
-public void onLayerPrepared(int adCount) 
-{
-   // 请求成功的回调，其中adCount是返回的广告条数
-}
-@Override
-public void onLayerFailed(LayerErrorCode error)
-{
-   // 请求失败的回调，其中error是请求失败的错误提示
-}
-@Override
-public void onLayerClick() {
-   //广告点击回调
-}
+    @Override
+    public void onLayerPrepared(List<NativeContent> adList) 
+    {
+        // 请求成功的回调，其中 adList 是返回的广告列表
+    }
+    @Override
+    public void onLayerFailed(LayerErrorCode error)
+    {
+        // 请求失败的回调，其中 error 是请求失败的错误提示
+    }
+    @Override
+    public void onLayerClick() {
+        // 广告点击回调
+    }
 });
-// 请求广告，成功或失败的结果会在回调接口中返回
-nativeAd.requestYumiNative(); 
+// 请求广告，adCount 参数为请求广告条数,成功或失败的结果会在回调接口中返回
+int adCount = 1;
+nativeAd.requestYumiNative(adCount); 
 ```
 <span style="color:red;">
-注：ChannelID是指应用发布的渠道标识，填写后YUMI平台可根据渠道ID进行数据统计和效果分析；以Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将setChannelID(channelStr)设置为setChannelID(‘SamSung’)。
-渠道标识为YUMI平台生成信息，不可随意修改；
+注：ChannelID 是指应用发布的渠道标识，填写后YUMI平台可根据渠道 ID 进行数据统计和效果分析；以 Popstar!消灭星星官网正版为例，当游戏发布到三星渠道时，需要将 setChannelID(channelStr) 设置为 setChannelID(‘SamSung’)。
+渠道标识为 YUMI 平台生成信息，不可随意修改；
 </span>
 
 | **渠道名称** | **ChannelID** |
@@ -410,29 +431,229 @@ nativeAd.requestYumiNative();
 | 2345手机助手 | 2345shouzhu   |
 
 
-**原生广告展示. 请参考如下方法：**
+**原生广告选项 ：**
 
+原生广告让您可以使用 YumiNativeAdOptions 对象进行其他自定义。本节将介绍如何使用 YumiNativeAdOptions
+
+示例代码:
 ```java
-if (nativeAd.getADCount() > 0))//通过剩余广告条数判断是否存在下一条广告
-{
-   final NativeContent content = nativeAd.nextContent();//提取下一条广告
-   content.getDesc();//获取广告详情文字
-   content.getIcon_url();//获取icon的url
-   content.getImg_url();//获取广告图片的url
-   content.getImg_height();//获取广告图片的宽,获取不到时为0
-   content.getImg_width();//获取广告图片的高,获取不到时为0
-   content.getJumpUrl();//获取广告点击跳转的url
-   content.getTitle();//获取广告的标题文字
-   content.getButtonText();// 行动语(查看详情/下载)
-   content.getPrice();//价格(免费/$6.3)
-   content.getOther();//其他(2017-09-18 更新)
-}
-为了保证您的收益，请您在相应的位置调用以下相应的广告上报方法（重要）
-content.reportShow(container,content); //广告展示时上报(container为广告父布局)
-content.reportClick(container,content); //广告展示时上报(container为广告父布局)
+YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
+                .setIsDownloadImage(true)// 设置 SDK 是否下载图片资源
+                .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)// 设置 AdChoices 组件位置
+                .setAdAttributionPosition(YumiNativeAdOptions.POSITION_TOP_LEFT)// 设置 AdAttribution 组件位置
+                .setAdAttributionText("广告")// 设置 AdAttribution 组件文字内容
+                .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))// 设置 AdAttribution 组件字体颜色
+                .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))// 设置AdAttribution 组件字体背景颜
+                .setAdAttributionTextSize(10)// 设置 AdAttribution 组件字体大小
+                .setHideAdAttribution(false)// 设置是否隐藏 AdAttribution 组件
+                .build();
+```
+* **setIsDownloadImage** 原生广告返回的 Icon 和大图资源为 Image 对象。如果 setIsDownloadImage 设置为 true，则 SDK 会自动获取图片素材资源，并为您填充 Image 对象中的 Drawable, url, scale 属性；如果 setIsDownloadImage 设置为 false, SDK 将不会自动下载 Icon 和大图的图片资源，返回的 Icon 和大图的 Image 对象只会填充 url 属性，从而允许您自行决定是否下载实际图片。默认为 true。
+* **setAdChoicesPosition** 使用该属性指定“广告选择”图标应放置的位置。该图标可以显示在广告的任一角，默认为 YumiNativeAdOptions.POSITION_TOP_RIGHT。
+* **setAdAttributionPosition** 使用该属性指定广告标识图标应放置的位置。该图标可以显示在广告的任一角，默认为 YumiNativeAdOptions.POSITION_TOP_LEFT。
+* **setAdAttributionText** 您可以使用该属性指定广告标识的文案。根据手机语言显示为“广告”或者“Ad”。
+* **setAdAttributionTextColor** 使用该属性指定广告标识的文字颜色。默认白色。
+* **setAdAttributionBackgroundColor** 使用该属性指定广告标识的背景颜色。默认灰色。
+* **setAdAttributionTextSize** 使用该属性指定广告标识的字体大小。默认10。
+* **setHideAdAttribution** 使用该属性指定广告标识是否隐藏。默认显示。
+
+如果您不想修改 YumiNativeAdOptions 默认的属性，可以创建一个默认的 YumiNativeAdOptions 对象，示例代码如下：
+```java
+YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder().build();
 ```
 
+**原生广告展示：**
+
+* YumiNativeAdView 类：
+
+YumiNativeAdView 类是一个 ViewGroup，开发者应将其用作原生广告的根视图。一个 YumiNativeAdView 对应于一个原生广告。凡是用于展示该广告素材资源的每个视图均应是 YumiNativeAdView 对象的子对象。
+
+1、对于使用 LinearLayout 来展示素材资源视图的统一原生广告，其视图层次结构可能如下所示：
+
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<com.yumi.android.sdk.ads.formats.YumiNativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="#FFFFFF"
+    android:minHeight="50dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="12dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            ...>
+            <ImageView
+                android:id="@+id/app_icon"
+                .../>
+            <LinearLayout
+                android:orientation="vertical"
+                ...>
+                <TextView
+                    android:id="@+id/headline"
+                    .../>
+                <RatingBar
+                    android:id="@+id/stars"
+                     .../>
+            </LinearLayout>
+        </LinearLayout>
+        // Other assets such as image or media view, call to action, etc follow.
+        ...
+    </LinearLayout>
+</LinearLayout>
+</com.yumi.android.sdk.ads.formats.YumiNativeAdView>
+```
+2、下面这个示例代码段创建了一个 YumiNativeAdView，然后用 NativeContent 填充该视图：
+
+```java
+private void showNativeAd() {
+        if (adContentList != null && adContentList.size() > 0) // 判断原生回调 onLayerPrepared() 接口返回的广告列表是否为空
+        {
+            NativeContent content = adContentList.get(0);// 提取广告对象
+
+            if(content.isExpired()){
+                // 判断当前广告是否过期，true : 已过期；false ：未过期。
+                // 如果判断为已过期，请不要展示当前广告，请求新的广告
+                return;
+            }
+
+            // 获取原生广告父容器，用来显示原生广告
+            FrameLayout nativeAdContinerView = (FrameLayout) findViewById(R.id.ll_ad_continer);
+            
+            // 填充一个 XML 布局，它的最外层节点为 YumiNativeAdView
+            YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
+                    .inflate(R.layout.activity_native_material, null);
+
+            // 将标题视图注册到 YumiNativeAdView 对象中
+            adView.setTitleView((TextView) adView.findViewById(R.id.headline));
+
+            ...
+            // 请按照上面的方法，将 Icon,大图, 行动号召等视图注册到 YumiNativeAdView 对象中
+            ...
+
+            // 如果想显示视频广告，请注册显示视频的容器
+            adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
+           
+            // 使用广告对象提供的字符串素材资源，给标题视图填充文字
+            if (content.getTitle() != null) {
+                ((TextView) adView.getHeadlineView()).setText(content.getTitle());
+            }
+           
+            ...
+            // 请按照上面的方法，给 Icon,大图, 行动号召等视图填充内容
+            ...
+
+            // 使用 YumiNativeAdView 对象中 setNativeAd 接口注册当前的广告对象
+            adView.setNativeAd(content);
+
+            // 确认父容器不包含 ad View
+            nativeAdContinerView.removeAllViews();
+            // 将 adView 添加到父容器中
+            nativeAdContinerView.addView(adView);
+        }
+    }
+```
+
+3、以下是各项具体任务细节：
+
+* 展示原生广告之前请先判断广告是否过期，代码示例如下：
+```java
+content.isExpired()
+```
+| 返回值 | 说明 |备注|
+| ----------------- | ----------- | ---------- |
+| true  |  已过期 | 展示已过期的广告将不会产生收益 |
+| false |  未过期 | 当前广告可以展示|
+
+* 填充布局
+
+```java
+// 填充一个 XML 布局，它的最外层节点为 YumiNativeAdView
+YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
+            .inflate(R.layout.activity_native_material, null);
+```
+
+在本示例中，我们要填充一个 XML 布局（该布局包含的视图用于展示原生广告），然后找到对 YumiNativeAdView 的引用。
+
+* 填充和注册素材资源视图
+
+下面的示例代码会找到用于显示标题的视图，使用广告对象提供的字符串素材资源设置其文字，然后向 YumiNativeAdView 对象注册该视图：
+
+```java
+// 获取标题视图
+TextView headline = (TextView) adView.findViewById(R.id.headline)
+// 调用 YumiNativeAdView 的 setTitleView 接口注册标题视图
+adView.setTitleView(title);
+if (content.getTitle() != null) {
+// 使用广告对象提供的字符串素材资源，给标题视图填充文字
+   ((TextView) adView.getHeadlineView()).setText(content.getTitle());
+}
+```
+对于应用要展示的由原生广告对象提供的每项素材资源，都应为其重复上述过程，即找到相应视图、设置其值并向广告视图类注册它。
+
+ * 注册原生广告对象
+
+这是最后一步，也就是向负责显示原生广告对象的视图注册该对象：
+
+```java
+adView.setNativeAd(content);
+```
+
+**原生视频**
+ 
+ 1、如果您想在原生广告中展示视频，仅需要在注册视图时，在视图中预留视频容器（FrameLayout）的位置，将该容器 传入 SDK。 
+ 
+ 视频容器可以在 XML 布局中定义，也可以动态构建。就像所有其他素材资源视图一样，应该将其放在 YumiNativeAdView 的视图层次结构中。对于使用视频容器的应用，不需要在其中填充素材资源，但必须向 YumiNativeAdView 注册它，如下所示：
+```java
+ FrameLayout media_content = (FrameLayout) adView.findViewById(R.id.media_content);
+ adView.setMediaLayout(media_content);
+```
+视频容器是一个专门用于展示主媒体素材资源的 View。它具有以下行为：
+
+* 如果加载的广告具有视频素材资源，则会对视频进行缓冲并将视频播放器放到该容器内播放。
+
+2、通过下面的广告对象提供的接口可以判断当前广告对象是否有视频素材：
+
+```java
+content.getHasVideoContent()
+```
+
+**YumiNativeAdVideoController**
+
+1、YumiNativeAdVideoController 类用于获取有关视频素材资源的信息。通过调用 getNativeAdVideoController() 方法，应用可以从 NativeContent 获得对该控制器的引用：
+
+```java
+YumiNativeAdVideoController nativeAdVideoController = content.getNativeAdVideoController();
+```
+即使广告中没有视频素材资源，此方法也会始终返回 YumiNativeAdVideoController 对象。
+
+YumiNativeAdVideoController 提供以下视频状态查询方法：
+ *  getAspectRatio() - 此方法返回视频的宽高比（宽度/高度），如果没有视频素材资源，则返回零。
+
+2、应用也可以使用 YumiNativeAdVideoController.YumiVideoLifecycleCallbacks() 类，以便在视频素材资源生命周期内发生事件时收到通知：
+
+```java
+nativeAdVideoController.setVideoLifecycleCallbacks(new YumiNativeAdVideoController.YumiVideoLifecycleCallbacks() {
+                @Override
+                public void onVideoEnd() {
+                    super.onVideoEnd();
+                }
+            });
+```
 **在Activity生命周期方法中实现：**
+
+如果不再使用当前原生对象，可以调用nativeAd.onDestroy()方法销毁nativeAd对象，例如可以在Activity的onDestroy()方法里面销毁。
 
 ```java
 @Override
@@ -456,11 +677,11 @@ protected void onDestroy()
 
 1、调用方法打开调试页面：
 
-YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID); 
+YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID); 
 
 如果设置了版本、渠道，根据您在平台的配置需要设置渠道、版本调用方法打开调试页面：
 
-YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, channelID, versionName);
+YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, NativeSloatID,channelID, versionName);
 
 2、玉米SDK将获取配置并展示三方平台列表，进入debug页面：
 
@@ -706,6 +927,7 @@ splashListener = new SplashADListener () {
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.yumi.android.sdk.ads.self.**{*;}
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
+-keep class com.playableads.**{*;}
 ```
 
 ## 6. 提示

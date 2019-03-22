@@ -39,23 +39,26 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-ads:10.0.1'
     compile 'com.android.support:multidex:1.0.1'
-    compile 'com.yumimobi.ads:mediation:3.3.6.+' //玉米核心SDK
-    compile 'com.yumimobi.ads.mediation:mraid:3.3.6.+' //富媒体广告适配器
-    compile 'com.yumimobi.ads.mediation:adcolony:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:applovin:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:admob:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:baidu:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:chartboost:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:coconut:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:centrixlink:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:facebook:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:gdt:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:inmobi:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:oneway:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:startapp:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:toutiao:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:unity:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:vungle:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:xiaomi:3.3.6.+'
-    compile 'com.yumimobi.ads.mediation:mobvista:3.3.6.+'
+    compile 'com.yumimobi.ads:mediation:3.6.0' //玉米核心SDK
+    compile 'com.yumimobi.ads.mediation:adcolony:3.6.0'
+    compile 'com.yumimobi.ads.mediation:applovin:3.6.0'
+    compile 'com.yumimobi.ads.mediation:admob:3.6.0'
+    compile 'com.yumimobi.ads.mediation:baidu:3.6.0'
+    compile 'com.yumimobi.ads.mediation:chartboost:3.6.0'
+    compile 'com.yumimobi.ads.mediation:facebook:3.6.0'
+    compile 'com.yumimobi.ads.mediation:gdt:3.6.0'
+    compile 'com.yumimobi.ads.mediation:inmobi:3.6.0'
+    compile 'com.yumimobi.ads.mediation:oneway:3.6.0'
+    compile 'com.yumimobi.ads.mediation:unity:3.6.0'
+//    If you publish an app in China,you can use unity-china sdk
+//    compile 'com.yumimobi.ads.mediation:unity-china:3.6.0'
+    compile 'com.yumimobi.ads.mediation:vungle:3.6.0'
+    compile 'com.yumimobi.ads.mediation:mintegral:3.6.0'
+//    If you publish an app in China,you can use mintegral-china sdk
+//    compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
+    compile 'com.yumimobi.ads.mediation:playableads:3.6.0'
+    compile ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
+        transitive = true
+        exclude module: 'moat-mobile-app-kit'
+    }
 }
