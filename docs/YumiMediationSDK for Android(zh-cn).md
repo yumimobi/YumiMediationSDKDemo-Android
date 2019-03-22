@@ -417,6 +417,7 @@ nativeAd.setNativeEventListener(new IYumiNativeListener()
     }
 });
 // 请求广告，adCount 参数为请求广告条数,成功或失败的结果会在回调接口中返回
+int adCount = 1;
 nativeAd.requestYumiNative(adCount); 
 ```
 <span style="color:red;">
@@ -439,7 +440,7 @@ nativeAd.requestYumiNative(adCount);
 YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
                 .setIsDownloadImage(true)// 设置 SDK 是否下载图片资源
                 .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)// 设置 AdChoices 组件位置
-                .setAdAttributionPositio(YumiNativeAdOptions.POSITION_TOP_LEFT)// 设置 AdAttribution 组件位置
+                .setAdAttributionPosition(YumiNativeAdOptions.POSITION_TOP_LEFT)// 设置 AdAttribution 组件位置
                 .setAdAttributionText("广告")// 设置 AdAttribution 组件文字内容
                 .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))// 设置 AdAttribution 组件字体颜色
                 .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))// 设置AdAttribution 组件字体背景颜
@@ -449,7 +450,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 ```
 * **setIsDownloadImage** 原生广告返回的 Icon 和大图资源为 Image 对象。如果 setIsDownloadImage 设置为 true，则 SDK 会自动获取图片素材资源，并为您填充 Image 对象中的 Drawable, url, scale 属性；如果 setIsDownloadImage 设置为 false, SDK 将不会自动下载 Icon 和大图的图片资源，返回的 Icon 和大图的 Image 对象只会填充 url 属性，从而允许您自行决定是否下载实际图片。默认为 true。
 * **setAdChoicesPosition** 使用该属性指定“广告选择”图标应放置的位置。该图标可以显示在广告的任一角，默认为 YumiNativeAdOptions.POSITION_TOP_RIGHT。
-* **setAdAttributionPositio** 使用该属性指定广告标识图标应放置的位置。该图标可以显示在广告的任一角，默认为 YumiNativeAdOptions.POSITION_TOP_LEFT。
+* **setAdAttributionPosition** 使用该属性指定广告标识图标应放置的位置。该图标可以显示在广告的任一角，默认为 YumiNativeAdOptions.POSITION_TOP_LEFT。
 * **setAdAttributionText** 您可以使用该属性指定广告标识的文案。根据手机语言显示为“广告”或者“Ad”。
 * **setAdAttributionTextColor** 使用该属性指定广告标识的文字颜色。默认白色。
 * **setAdAttributionBackgroundColor** 使用该属性指定广告标识的背景颜色。默认灰色。
@@ -465,7 +466,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder().build();
 
 * YumiNativeAdView 类：
 
-YumiNativeAdView 类是一个 ViewGroup，发布商应将其用作原生广告的根。一个 YumiNativeAdView 对应于一个原生广告。凡是用于展示该广告素材资源的每个视图均应是 YumiNativeAdView 对象的子对象。
+YumiNativeAdView 类是一个 ViewGroup，开发者应将其用作原生广告的根视图。一个 YumiNativeAdView 对应于一个原生广告。凡是用于展示该广告素材资源的每个视图均应是 YumiNativeAdView 对象的子对象。
 
 1、对于使用 LinearLayout 来展示素材资源视图的统一原生广告，其视图层次结构可能如下所示：
 

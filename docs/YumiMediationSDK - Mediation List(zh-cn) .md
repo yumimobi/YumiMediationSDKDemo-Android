@@ -919,7 +919,10 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:iqzone:3.6.0'
+  compile ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
+        transitive = true
+        exclude module: 'moat-mobile-app-kit'
+    }
 }
 ```
 

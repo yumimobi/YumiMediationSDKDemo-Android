@@ -980,7 +980,10 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:iqzone:3.6.0'
+   compile ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
+        transitive = true
+        exclude module: 'moat-mobile-app-kit'
+    }
 }
 ```
 

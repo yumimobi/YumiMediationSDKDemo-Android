@@ -411,6 +411,7 @@ public void onLayerClick() {
 }
 });
 // request ad, adCount is request ad number,the result of success or error will be returned in callback interface
+int adCount = 1;
 nativeAd.requestYumiNative(adCount); 
 ```
 <span style="color:red;">
@@ -431,7 +432,7 @@ Setting options:
 YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
                 .setIsDownloadImage(true)// set whether the SDK download image resources
                 .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)// set AdChoices view position
-                .setAdAttributionPositio(YumiNativeAdOptions.POSITION_TOP_LEFT)// set AdAttribution view position
+                .setAdAttributionPosition(YumiNativeAdOptions.POSITION_TOP_LEFT)// set AdAttribution view position
                 .setAdAttributionText("Ad")// set AdAttribution view text
                 .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))// set AdAttribution view text color
                 .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))// set AdAttribution view background color
@@ -441,7 +442,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 ```
 * **setIsDownloadImage** Image assets for native ads are returned via instances of NativeContent.Image, which holds a Drawable and a Url. If this option is set to true, the SDK fetches image assets automatically and populates both the Drawable and the Uri for you. If it's set to false, however, the SDK instead populates just the Url field, allowing you to download the actual images at your discretion.Default is true.
 * **setAdChoicesPosition** use this property to specify where the AdChoicesView should be placed. Default is YumiNativeAdOptions.POSITION_TOP_RIGHT.
-* **setAdAttributionPositio** use this property to specify where the Ad text view should be placed. Default is YumiNativeAdOptions.POSITION_TOP_LEFT.
+* **setAdAttributionPosition** use this property to specify where the Ad text view should be placed. Default is YumiNativeAdOptions.POSITION_TOP_LEFT.
 * **setAdAttributionText** use this property to specify the Ad text. Default is “Ad”.
 * **setAdAttributionTextColor** use this property to specify the Ad text color. Default is gray.
 * **setAdAttributionBackgroundColor** use this property to specify the Ad text background color。Default is gray.

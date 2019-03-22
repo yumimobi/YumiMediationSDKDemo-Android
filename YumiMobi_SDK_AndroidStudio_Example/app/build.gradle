@@ -50,10 +50,15 @@ dependencies {
     compile 'com.yumimobi.ads.mediation:inmobi:3.6.0'
     compile 'com.yumimobi.ads.mediation:oneway:3.6.0'
     compile 'com.yumimobi.ads.mediation:unity:3.6.0'
-    compile 'com.yumimobi.ads.mediation:unity-china:3.6.0'
+//    If you publish an app in China,you can use unity-china sdk
+//    compile 'com.yumimobi.ads.mediation:unity-china:3.6.0'
     compile 'com.yumimobi.ads.mediation:vungle:3.6.0'
     compile 'com.yumimobi.ads.mediation:mintegral:3.6.0'
-    compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
+//    If you publish an app in China,you can use mintegral-china sdk
+//    compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
     compile 'com.yumimobi.ads.mediation:playableads:3.6.0'
-    compile 'com.yumimobi.ads.mediation:iqzone:3.6.0'
+    compile ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
+        transitive = true
+        exclude module: 'moat-mobile-app-kit'
+    }
 }
