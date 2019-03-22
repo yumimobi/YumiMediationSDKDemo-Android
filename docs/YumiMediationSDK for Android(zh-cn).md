@@ -671,7 +671,7 @@ protected void onDestroy()
 
 **玉米广告SDK为开发者提供了一个检测三方平台集成状态的调试模式，如图：** 
 
-<img src="document\image03.png" alt="img3">
+<img src="document\image10.png" alt="img3">
 
 **使用步骤：** 
 
@@ -683,17 +683,25 @@ YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID
 
 YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, NativeSloatID,channelID, versionName);
 
-2、玉米SDK将获取配置并展示三方平台列表，进入debug页面：
+2、玉米SDK将检测开发者接入的平台，并将获取到的平台展示在平台列表中，进入debug页面：
 
-  1）&nbsp;页面展示为Searching for third party ADnetwork adapters：表示未进行配置，请检查应用的不同广告形式配置情况，如果问题仍未解决，请通过邮件联系我们： support@yumimobi.com
+  1）&nbsp; debug 页面：
 
-<img src="document\image04.jpg" alt="img4" width="200" height="355">
+<img src="document\image08.png" alt="img4" width="200" height="355">
+  
+  debug 页面说明：
 
-  2）&nbsp;广告配置后，正常展示配置平台，首次进入左侧所有平台均为红色，当某个平台正确接入并展示成功后，左侧状态为绿色。
+* 如果平台名称没有在平台列表中，说明开发者没有接入此平台
 
-<img src="document\image05.jpg" alt="img4" width="200" height="355">
+* 如果平台名称为绿色，说明服务端配置了当前平台。
+* 如果平台名称为灰色，说明服务端未配置当前平台。
 
-3、无论左侧状态栏颜色为何状态，均可选择一家平台点击进入：
+3、如果平台名称为灰色，点击此平台，会显示警告：
+
+<img src="document\image09.png" alt="img4" width="200" height="355">
+
+
+4、如果平台名称为绿色，你可以点击此平台进行调试：
 
   1）SDK Available 为绿色时表示三方平台适配器已添加；当为红色时表示三方平台适配器未添加，回到文档添加lib文件部分检查该平台adapter是否添加
 
@@ -703,13 +711,14 @@ YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlot
 
 <img src="document\image06.jpg" alt="img4" width="200" height="355">
 
-4、点击Fetch开始请求广告，点击Show展示广告
 
-5、广告展示成功后检查项全部变为绿色，表示该家平台接入成功
+5、点击Fetch开始请求广告，点击Show展示广告
+
+6、广告展示成功后检查项全部变为绿色，表示该家平台接入成功
 
 <img src="document\image07.jpg" alt="img4" width="200" height="355">
 
-6、应用发布前需要将调试模式注释掉。
+7、应用发布前需要将调试模式注释掉。
 
 
 ## 5. 高级功能 
