@@ -664,7 +664,7 @@ protected void onDestroy()
 
 **YUMI SDK provideds a test mode to test your 3rd-party Integrations.** 
 
-<img src="document\image03.png" alt="img3">
+<img src="document\image10.png" alt="img3">
 
 **Use Steps:** 
 
@@ -676,17 +676,25 @@ If you set the version, channel, according to your need to set the channel in th
 
 YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID, channelID, versionName);
 
-2、The maize SDK will get the configuration and display the list of the three platforms, and go to the debug page:
+2、The Yumi SDK will detect the platform accessed in the application and display the acquired platform in the platform list, and go to the debug page:
 
-  1）&nbsp;The page is displayed as Searching for third party ADnetwork adapters: indicates that no configuration has been made，Please check the configuration of different advertising forms in the application. If the problem is still unsolved, please contact us by email : support@yumimobi.com
+  1）&nbsp;debug page：
 
-<img src="document\image04.jpg" alt="img4" width="200" height="355">
+<img src="document\image08.png" alt="img4" width="200" height="355">
+ 
+ debug page explain:
 
-  2）&nbsp;After the advertisement is configured, the normal display configuration platform will be red when it enters the left side for the first time. When a certain platform is properly connected and successfully displayed, the left side will be green.
+ * If the platform name is not displayed in the platform list，explain that the developer no add  this 
+platform
 
-<img src="document\image05.jpg" alt="img4" width="200" height="355">
+ * If the platform name is green,the Yumi server have configured this platform
+ * If the platform name is gray,the Yumi server not have configured this platform
 
-3、No matter the status of the left status bar, you can choose a platform to click:
+3、If the platform name is gray，click this platform,will show warning：
+
+<img src="document\image09.png" alt="img4" width="200" height="355">
+
+4、If the platform name is green, you can click on this platform to debug:
 
   1）When SDK Available is green, it means that the three-party platform adapter has been added. When it is red, it indicates that the three-party platform adapter has not been added. Go back to Add lib file to check whether the platform adapter has been added
 
@@ -696,15 +704,15 @@ YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlot
 
 <img src="document\image06.jpg" alt="img4" width="200" height="355">
 
-4、Demand Available? Click Fetch to request ad. A fetch will generate an ad download.  You will get a text response confirming the ad download, or instead an error.
+5、Demand Available? Click Fetch to request ad. A fetch will generate an ad download.  You will get a text response confirming the ad download, or instead an error.
 
-5、Ad Displayed? Click Show to display an ad.  When ad shows properly, all test elements will turn green, which indicates this platform has been integrated successfully, at least for that ad type.
+6、Ad Displayed? Click Show to display an ad.  When ad shows properly, all test elements will turn green, which indicates this platform has been integrated successfully, at least for that ad type.
 
 Below is a sample screen of some banner ads that were fetched from Baidu ad network and displayed.  The HIDE button simple allows the developer to test the SDK’s hide feature.
 
 <img src="document\image07.jpg" alt="img4" width="200" height="355">
 
-6、The debugging mode must be completed before releasing the App.
+7、The debugging mode must be completed before releasing the App.
 
 
 
