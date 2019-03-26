@@ -45,7 +45,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:adcolony:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:adcolony:3.6.0'
 }
 ```
 
@@ -91,7 +91,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:admob:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:admob:3.6.0'
 }
 ```
 
@@ -153,7 +153,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:applovin:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:applovin:3.6.0'
 }
 ```
 
@@ -199,7 +199,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:baidu:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:baidu:3.6.0'
 }
 ```
 
@@ -244,7 +244,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:chartboost:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:chartboost:3.6.0'
 }
 ```
 
@@ -287,7 +287,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:facebook:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:facebook:3.6.0'
 }
 ```
 
@@ -332,7 +332,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:gdt:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:gdt:3.6.0'
 }
 ```
 
@@ -400,7 +400,7 @@ public protected *;
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:inmobi:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:inmobi:3.6.0'
 }
 ```
 
@@ -469,9 +469,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  compile 'com.yumimobi.ads.mediation:mintegral:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral:3.6.0'
   //China market channel release
-  compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
 }
 ```
 
@@ -535,7 +535,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:oneway:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:oneway:3.6.0'
 }
 ```
 
@@ -580,9 +580,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  compile 'com.yumimobi.ads.mediation:unity:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:unity:3.6.0'
   //China market channel release
-  compile 'com.yumimobi.ads.mediation:unity-china:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:unity-china:3.6.0'
 }
 ```
 
@@ -645,7 +645,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:vungle:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:vungle:3.6.0'
 }
 ```
 
@@ -716,7 +716,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:playableads:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:playableads:3.6.0'
 }
 ```
 
@@ -799,7 +799,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ksyun:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:ksyun:3.6.0'
 }
 ```
 
@@ -858,68 +858,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ironsource:3.6.0'
-}
-```
-
-**Using Eclipse**
-
-AndroidManifest.xml Component：
-```xml
-<activity
-	android:name="com.ironsource.sdk.controller.ControllerActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true" />
-<activity
-	android:name="com.ironsource.sdk.controller.InterstitialActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Translucent" />
-<activity
-	android:name="com.ironsource.sdk.controller.OpenUrlActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Translucent" />
-```
-
-**ProGuard：**
-```c
--keepclassmembers class com.ironsource.sdk.controller.IronSourceWebView$JSInterface {
-    public *;
-}
--keepclassmembers class * implements android.os.Parcelable {
-    public static final android.os.Parcelable$Creator *;
-}
--keep public class com.google.android.gms.ads.** {
-   public *;
-}
--keep class com.ironsource.adapters.** { *;
-}
--dontwarn com.moat.**
--keep class com.moat.** { public protected private *; }
-```
-
-### IronSource
-
-|                   |                              |
-| ----------------- | ---------------------------- |
-| Jar Name           | libs/yumi_adapter_ironsource.jar |
-| Provider Ver          | 6.7.10                        |
-| GooglePlayService | Require                         |
-| Ad Form       | Interstitial, Reward Video                   |
-| .so/lib project       | --|
-
-**Permission：**
-```xml
---
-```
-
-**Using AndroidStudio**
-
-build.gradle add：
-```c
-dependencies {
-  compile 'com.yumimobi.ads.mediation:ironsource:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:ironsource:3.6.0'
 }
 ```
 
@@ -980,7 +919,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-   compile ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
+   implementation ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
         transitive = true
         exclude module: 'moat-mobile-app-kit'
     }

@@ -46,7 +46,7 @@
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:adcolony:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:adcolony:3.6.0'
 }
 ```
 
@@ -92,7 +92,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:admob:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:admob:3.6.0'
 }
 ```
 
@@ -155,7 +155,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:applovin:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:applovin:3.6.0'
 }
 ```
 
@@ -201,7 +201,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:baidu:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:baidu:3.6.0'
 }
 ```
 
@@ -245,7 +245,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:chartboost:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:chartboost:3.6.0'
 }
 ```
 
@@ -288,7 +288,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:facebook:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:facebook:3.6.0'
 }
 ```
 
@@ -333,7 +333,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:gdt:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:gdt:3.6.0'
 }
 ```
 
@@ -401,7 +401,7 @@ public protected *;
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:inmobi:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:inmobi:3.6.0'
 }
 ```
 
@@ -471,9 +471,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  compile 'com.yumimobi.ads.mediation:mintegral:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral:3.6.0'
   //中国市场渠道发布
-  compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
 }
 ```
 
@@ -537,7 +537,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:oneway:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:oneway:3.6.0'
 }
 ```
 
@@ -581,9 +581,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  compile 'com.yumimobi.ads.mediation:unity:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:unity:3.6.0'
   //中国市场渠道发布
-  compile 'com.yumimobi.ads.mediation:unity-china:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:unity-china:3.6.0'
 }
 ```
 
@@ -646,7 +646,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:vungle:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:vungle:3.6.0'
 }
 ```
 
@@ -718,7 +718,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:playableads:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:playableads:3.6.0'
 }
 ```
 
@@ -800,7 +800,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ksyun:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:ksyun:3.6.0'
 }
 ```
 
@@ -859,7 +859,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile 'com.yumimobi.ads.mediation:ironsource:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:ironsource:3.6.0'
 }
 ```
 
@@ -919,7 +919,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  compile ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
+  implementation ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
         transitive = true
         exclude module: 'moat-mobile-app-kit'
     }
