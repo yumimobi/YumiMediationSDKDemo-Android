@@ -79,7 +79,7 @@ allprojets {
 //在 module 的 build.gradle 中添加依赖
 dependencies {
     //(*.*.*) 请替换为最新的SDK版本号，如：3.6.0
-    compile 'com.yumimobi.ads:mediation:*.*.*'
+    implementation 'com.yumimobi.ads:mediation:*.*.*'
 ｝
 ```
 

@@ -76,8 +76,8 @@ allprojets {
 //Add dependency in module build. Gradle
 dependencies {
     //(*.*.*) Please replace it with the latest SDK version number, example ：3.6.0
-    compile 'com.yumimobi.ads:mediation:*.*.*'
-    compile 'com.yumimobi.ads.mediation:mraid:*.*.*' // Optional : We hope to support mraid advertising
+    implementation 'com.yumimobi.ads:mediation:*.*.*'
+    
 ｝
 ```
 
