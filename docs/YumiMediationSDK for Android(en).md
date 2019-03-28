@@ -1,26 +1,16 @@
 # YumiMediationSDK Android
 
-1. [Overview](#1-overview)
-2. [Development Environment Configuration](#2-development-environment-configuration)
-	1. [Using Android-studio](#using-android-studio)
-	2. [Using Eclipse](#using-eclipse)
-	3. [Optional permission](#optional-permission)
-3. [Integration](#3-integration)
-	1. [Banner](#banner)
-	2. [Interstitial](#interstitial)
-	3. [Rewarded Video](#rewarded-video)
-	4. [Splash](#splash)
-	5. [Native](#native)
-4. [Test Mode](#4-test-mode)
-5. [Advanced Features](#5-advanced-features)
-	1. [Banner](#banner-1)
-	2. [Interstitial](#interstitial-1)
-	3. [Rewarded Video](#rewarded-video-1)
-	4. [Splash](#splash-1)
-	5. [Proguard](#proguard)
-6. [Reminder](#6-reminder)
-	1. [Permissions for Android 6.0 and newer versions](#permissions-for-android-60-and-newer-versions)
-	
+- [YumiMediationSDK Android](#yumimediationsdk-android)
+  - [1. Overview](#1-overview)
+  - [2. Development Environment Configuration](#2-development-environment-configuration)
+  - [3. Integration](#3-integration)
+  - [4. Test Mode](#4-test-mode)
+  - [5. Advanced Features](#5-advanced-features)
+  - [6. Reminder](#6-reminder)
+    - [Permissions for Android 6.0 and newer versions](#permissions-for-android-60-and-newer-versions)
+  - [7. TEST ID](#7-test-id)
+
+
 ## 1. Overview
 
 **1.1 Target Readers**
@@ -204,8 +194,8 @@ The channelID is labeled as the YUMI platform to generate the information and ca
 </span>
 
 | **Channel name** | **ChannelID** |
-| ------------ | ------------- |
-| SamSung      | SamSung       |
+| ---------------- | ------------- |
+| SamSung          | SamSung       |
 
 **Implement in Activity lifecycle:**
 
@@ -243,8 +233,8 @@ The channelID is labeled as the YUMI platform to generate the information and ca
 </span>
 
 | **Channel name** | **ChannelID** |
-| ------------ | ------------- |
-| SamSung      | SamSung       |
+| ------------------------ | ------------- |
+| SamSung                  | SamSung       |
 
 **Call the following code when you need to show interstitial ads:**
 
@@ -564,10 +554,10 @@ private void showNativeAd() {
 ```java
 content.isExpired()
 ```
-| return code | explain |remarks|
-| ----------------- | ----------- | ---------- |
-| true  |  expired | this native ad has expired, showing ads that have expired will not generate revenue |
-| false |  not expired | this native ads are valid|
+| return code | explain     | remarks                                                                             |
+| ----------- | ----------- | ----------------------------------------------------------------------------------- |
+| true        | expired     | this native ad has expired, showing ads that have expired will not generate revenue |
+| false       | not expired | this native ads are valid                                                           |
 
 * Inflate the layout
 
@@ -731,12 +721,12 @@ banner.setBannerEventListener(bannerListener);
 
 Regarding ad listener, you can instantiate an IYumiBannerListener, and add your own logic according to the callback. The callbacks are shown below: 
 
-| method | explain |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| onBannerPreparedFailed(LayerErrorCode errorCode) | Callback when caching fails. Reasons can be found through errorCode.getMsg()|
-| onBannerPrepared()                               | Callback when caching succeeds.                                     |
-| onBannerExposure()                               | Callback when impression succeeds.                                         |
-| onBannerClosed()                                 | Callback when Banner is closed.                                             |
+| method                                           | explain                                                                      |
+| ------------------------------------------------ | ---------------------------------------------------------------------------- |
+| onBannerPreparedFailed(LayerErrorCode errorCode) | Callback when caching fails. Reasons can be found through errorCode.getMsg() |
+| onBannerPrepared()                               | Callback when caching succeeds.                                              |
+| onBannerExposure()                               | Callback when impression succeeds.                                           |
+| onBannerClosed()                                 | Callback when Banner is closed.                                              |
 | onBannerClicked()                                | Callback when Banner is clicked.                                             |
 
 **Sample**
@@ -793,14 +783,14 @@ interstitial.setInterstitialEventListener(interstitialListener);
 
 Regarding ad listener, you can instantiate an IYumiInterstitialListener, and add your own logic according to the callback. The callbacks are shown below: 
 
-| method | explain |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| onInterstitialPreparedFailed(LayerErrorCode error) | Callback when caching fails. Reason can be found through errorCode.getMsg()|
+| method                                             | explain                                                                                             |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| onInterstitialPreparedFailed(LayerErrorCode error) | Callback when caching fails. Reason can be found through errorCode.getMsg()                         |
 | onInterstitialPrepared()                           | Callback when loading succeeds. Note: please do not call show interstitial method in this callback. |
-| onInterstitialExposure()                           | Callback when impression succeeds.                                         |
-| onInterstitialExposureFailed()                     | Callback when impression fails.                                         |
-| onInterstitialClosed()                             | Callback when interstitial is closed.                                             |
-| onInterstitialClicked()                            | Callback when interstitial is clicked.                                             |
+| onInterstitialExposure()                           | Callback when impression succeeds.                                                                  |
+| onInterstitialExposureFailed()                     | Callback when impression fails.                                                                     |
+| onInterstitialClosed()                             | Callback when interstitial is closed.                                                               |
+| onInterstitialClicked()                            | Callback when interstitial is clicked.                                                              |
 
 **Sample**
 
@@ -849,11 +839,11 @@ media.setMediaEventListner(mediaListener);
 
 Regarding ad listener, you can instantiate an IYumiMediaListener, and add your own logic according to the callback. The callbacks are shown below:
 
-| method | explain |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| onMediaExposure()   | Callback when impression succeeds                                     |
-| onMediaClosed()     | Callback when rewarded video is closed                                         |
-| onMediaClicked()    | Callback when rewarded video is clicked. Note: this does not guarantee 100% callback due to platform differences.                                         |
+| method              | explain                                                                                                                                                                                                                            |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onMediaExposure()   | Callback when impression succeeds                                                                                                                                                                                                  |
+| onMediaClosed()     | Callback when rewarded video is closed                                                                                                                                                                                             |
+| onMediaClicked()    | Callback when rewarded video is clicked. Note: this does not guarantee 100% callback due to platform differences.                                                                                                                  |
 | onMediaIncentived() | Callback for rewards after rewarded video has been played completely. Note: if the video has not been played completely, this callback won’t be used. In addition, this method is always triggered before onInterstitialClosed(). |
 
 **Sample**
@@ -888,12 +878,12 @@ mediaListener = new IYumiMediaListener() {
 
 Regarding ad listener, you can instantiate a SplashADListener, and add your own logic according to the callback. The callbacks are shown below:
 
-| method | explain |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| onSplashShow()   | Callback when splash is shown     |
-| onSplashClose()  | Callback when splash is closed     |
-| onSplashClick()  | Callback when splash is clicked     |
-| onSplashFailed() | Callback when loading fails |
+| method           | explain                         |
+| ---------------- | ------------------------------- |
+| onSplashShow()   | Callback when splash is shown   |
+| onSplashClose()  | Callback when splash is closed  |
+| onSplashClick()  | Callback when splash is clicked |
+| onSplashFailed() | Callback when loading fails     |
 
 **Sample**
 
@@ -942,8 +932,13 @@ When the targetSdkVersion of your app is 23 or above, you can choose the followi
 ```java
 YumiSettings.runInCheckPermission(true);
 ```
-## 7. Test Slot ID
 
-|  OS  | Banner   | Interstitial | Rewarded Video | Native        | Splash        |
-| -----   | -------- | ------------ | -------------- |-------------- |-------------- |
-|Android  | uz852t89 | 56ubk22h     | ew9hyvl4       | dt62rndy      | vv7snvc5      |
+## 7. TEST ID
+ 
+| Formats              | Slot(Placement) ID                                                                                                                         | Note                                                                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Banner                 | uz852t89                                                                                                                                   | YUMI,AdMob,APPlovin,Baidu,IQzon Use this test id, the above Network platform has ads                                                  |
+| Interstitial | 56ubk22h | YUMI, AdMob, APPlovin, Baidu, IronSource, Inmobi, IQzone, untiy Ads, vungle, ZPLAYAds Use this test id, the above Network platform has ads |
+| Rewarded Video         | ew9hyvl4                                                                                                                                   | YUMI,AdMob,APPlovin,GDTMob,IronSource,Inmobi,IQzone, untiy Ads，vungle, ZPLAYAds Use this test id, the above Network platform has ads |
+| Native                 | dt62rndy                                                                                                                                   | YUMI,AdMob,Baidu,GDTMob,Facebook Use this test id, the above Network platform has ads                                        |
+| Splash                 | vv7snvc5                                                                                                                                   | YUMI Use this test id, the above Network platform has ads                                                                             |

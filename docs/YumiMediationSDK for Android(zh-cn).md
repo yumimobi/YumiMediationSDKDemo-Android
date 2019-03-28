@@ -20,6 +20,8 @@
 	5. [混淆](#混淆)
 6. [提示](#6-提示)
 	1. [Android6.0以上系统权限处理](#android60以上系统权限处理)
+7. [TESTID](#7-TESTID)
+
 
 ## 1. 概述
 
@@ -571,10 +573,10 @@ private void showNativeAd() {
 ```java
 content.isExpired()
 ```
-| 返回值 | 说明 |备注|
-| ----------------- | ----------- | ---------- |
-| true  |  已过期 | 展示已过期的广告将不会产生收益 |
-| false |  未过期 | 当前广告可以展示|
+| 返回值 | 说明   | 备注                           |
+| ------ | ------ | ------------------------------ |
+| true   | 已过期 | 展示已过期的广告将不会产生收益 |
+| false  | 未过期 | 当前广告可以展示               |
 
 * 填充布局
 
@@ -736,13 +738,13 @@ banner.setBannerEventListener(bannerListener);
 
 关于广告监听，您可以直接实例化一个IYumiBannerListener，并根据回调增加您自己的逻辑。监听有以下回调方法： 
 
-| 方法 | 说明 |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| onBannerPreparedFailed(LayerErrorCode errorCode) | 当横幅加载失败时回调,可以通过errorCode.getMsg()获得失败原因。|
-| onBannerPrepared()                               | 当横幅加载成功时回调                                         |
-| onBannerExposure()                               | 当横幅展示成功时回调                                         |
-| onBannerClosed()                                 | 当横幅关闭时回调                                             |
-| onBannerClicked()                                | 当横幅点击时回调                                             |
+| 方法                                             | 说明                                                          |
+| ------------------------------------------------ | ------------------------------------------------------------- |
+| onBannerPreparedFailed(LayerErrorCode errorCode) | 当横幅加载失败时回调,可以通过errorCode.getMsg()获得失败原因。 |
+| onBannerPrepared()                               | 当横幅加载成功时回调                                          |
+| onBannerExposure()                               | 当横幅展示成功时回调                                          |
+| onBannerClosed()                                 | 当横幅关闭时回调                                              |
+| onBannerClicked()                                | 当横幅点击时回调                                              |
 
 **接入示例：**
 
@@ -800,14 +802,14 @@ interstitial.setInterstitialEventListener(interstitialListener);
 
 关于广告监听，您可以直接实例化一个IYumiInterstitialListener，并根据回调增加您自己的逻辑。监听有以下回调方法： 
 
-| 方法 | 说明 |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| onInterstitialPreparedFailed(LayerErrorCode error) | 当插屏加载失败时回调，可以通过errorCode.getMsg()获得失败原因。|
+| 方法                                               | 说明                                                                    |
+| -------------------------------------------------- | ----------------------------------------------------------------------- |
+| onInterstitialPreparedFailed(LayerErrorCode error) | 当插屏加载失败时回调，可以通过errorCode.getMsg()获得失败原因。          |
 | onInterstitialPrepared()                           | 当插屏加载成功时回调。   注意： 请不要直接在此回调中调用插屏的展示方法. |
-| onInterstitialExposure()                           | 当插屏展示成功时回调                                         |
-| onInterstitialExposureFailed()                     | 当插屏展示失败时回调                                         |
-| onInterstitialClosed()                             | 当插屏关闭时回调                                             |
-| onInterstitialClicked()                            | 当插屏点击时回调                                             |
+| onInterstitialExposure()                           | 当插屏展示成功时回调                                                    |
+| onInterstitialExposureFailed()                     | 当插屏展示失败时回调                                                    |
+| onInterstitialClosed()                             | 当插屏关闭时回调                                                        |
+| onInterstitialClicked()                            | 当插屏点击时回调                                                        |
 
 **接入示例：**
 
@@ -856,11 +858,11 @@ media.setMediaEventListner(mediaListener);
 
 关于广告监听，您可以直接实例化一个IYumiMediaListener，并根据回调增加您自己的逻辑。监听有以下回调方法：
 
-| 方法 | 说明 |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| onMediaExposure()   | 当激励视频展示成功时回调                                     |
-| onMediaClosed()     | 当激励视频关闭时回调                                         |
-| onMediaClicked()    | 当激励视频点击时回调                                         |
+| 方法                | 说明                                                                                                                        |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| onMediaExposure()   | 当激励视频展示成功时回调                                                                                                    |
+| onMediaClosed()     | 当激励视频关闭时回调                                                                                                        |
+| onMediaClicked()    | 当激励视频点击时回调                                                                                                        |
 | onMediaIncentived() | 当激励视频播放完成， 可以获取奖励时回调。注意： 如果未完成播放，   不会回调此方法. 另外， 此方法在onMediaClosed ()之前触发. |
 
 **接入示例：**
@@ -895,8 +897,8 @@ mediaListener = new IYumiMediaListener() {
 
 关于广告监听，您可以直接实例化一个SplashADListener，并根据回调增加您自己的逻辑。监听有以下回调方法： 
 
-| 方法 | 说明 |
-| ------------------------------------------------ | ------------------------------------------------------------ |
+| 方法             | 说明                 |
+| ---------------- | -------------------- |
 | onSplashShow()   | 当开屏展示时回调     |
 | onSplashClose()  | 当开屏关闭时回调     |
 | onSplashClick()  | 当开屏点击时回调     |
@@ -950,8 +952,14 @@ splashListener = new SplashADListener () {
 ```java
 YumiSettings.runInCheckPermission(true);
 ```
-## 7. 测试广告位
 
-|  平台   | Banner   | Interstitial | Rewarded Video | Native        | Splash        |
-| -----   | -------- | ------------ | -------------- |-------------- |-------------- |
-|Android  | uz852t89 | 56ubk22h     | ew9hyvl4       | dt62rndy      | vv7snvc5      |
+## 7. TEST ID
+ 
+
+| 广告类型               | Slot(Placement) ID                                                                                                                | 备注                                                                                                                               |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Banner                 | uz852t89                                                                                                                          | YUMI,AdMob,APPlovin,Baidu,IQzone 使用此test id,以上Network平台可测试到对应平台广告                                                 |
+| Interstitial |  56ubk22h | YUMI,AdMob,APPlovin,Baidu,IronSource,Inmobi,IQzone, untiy Ads，vungle, ZPLAYAds 使用此test id,以上Network平台可测试到对应平台广告 |
+| Rewarded Video         | ew9hyvl4                                                                                                                          | YUMI,AdMob,APPlovin,GDTMob,IronSource,Inmobi,IQzone, untiy Ads，vungle, ZPLAYAds 使用此test id,以上Network平台可测试到对应平台广告 |
+| Native                 | dt62rndy                                                                                                                          | YUMI,AdMob,Baidu,GDTMob,Facebook 使用此test id,以上Network平台可测试到对应平台广告                                        |
+| Splash                 | vv7snvc5                                                                                                                          | 使用此test id,只能测到YUMI平台                                                                                                     |

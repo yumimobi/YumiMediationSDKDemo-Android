@@ -1,6 +1,10 @@
 
 ###  iOS SDK  & iOS_Unity  SDK Changelog
 
+#### V 3.6.1
+
+1. Adapt to more Network Platforms
+
 #### V 3.6.0
 
 1. YUMI supports playable material types (insert & video), supports interstitial video material
