@@ -1,5 +1,29 @@
-# YumiMediationSDK Android
+* [YumiMediationSDK Android](#yumimediationsdk-android)
+    * [1. 概述](#1-概述)
+    * [2. 开发环境配置](#2-开发环境配置)
+        * [Android-studio 接入](#android-studio-接入)
+        * [Eclipse 接入](#eclipse-接入)
+        * [可选权限](#可选权限)
+    * [3. 代码集成](#3-代码集成)
+        * [横幅](#横幅)
+        * [插屏](#插屏)
+        * [激励视频](#激励视频)
+        * [开屏](#开屏)
+        * [原生广告](#原生广告)
+    * [4. 调试模式](#4-调试模式)
+    * [5. 高级功能](#5-高级功能)
+        * [横幅](#横幅-1)
+        * [插屏](#插屏-1)
+        * [激励视频](#激励视频-1)
+        * [开屏](#开屏-1)
+        * [混淆](#混淆)
+    * [6. 注意事项](#6-注意事项)
+        * [1. Android6.0以上系统权限处理](#1-android60以上系统权限处理)
+        * [2. Google play Server 17.0.0 版本以上配置](#2-google-play-server-1700-版本以上配置)
+        * [3. android 9.0 适配](#3-android-90-适配)
+    * [7. 测试广告位](#7-测试广告位)
 
+<<<<<<< HEAD
 1. [概述](#1-概述)
 2. [开发环境配置](#2-开发环境配置)
 	1. [Android-studio 接入](#android-studio-接入)
@@ -22,6 +46,9 @@
 	1. [Android6.0以上系统权限处理](#android60以上系统权限处理)
 7. [TEST ID](#7-TEST-ID)
 
+=======
+# YumiMediationSDK Android
+>>>>>>> update mediation sdk
 
 ## 1. 概述
 
@@ -37,19 +64,6 @@
    Java：&ensp;&gt;&ensp;JDK 7
 
 ## 2. 开发环境配置
-
-YumiMediationSDK会通过play-services-ads:17.1.3获取advertising_Id，需要添加如下配置，避免程序崩溃，以下内容引用自[google官方文档](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start#update_your_androidmanifestxml)：
-
-通过在 AndroidManifest.xml 中添加以下 <meta-data> 标记，声明您的应用是 Ad Manager 应用。
-
-```java
-<!-- google player service 17.0.0 版本以上必须得添加 start-->
-<meta-data
-     android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-     android:value="true" />
-<!-- google player service 17.0.0 版本以上必须得添加 end -->
-```
-重要提示：自 Google 移动广告 SDK 17.0.0 版本开始，必须执行此步骤。如果未能添加此 <meta-data> 代码，将会导致崩溃，并显示以下消息："The Google Mobile Ads SDK was initialized incorrectly."
 
 - ### Android-studio 接入
 
@@ -941,10 +955,10 @@ splashListener = new SplashADListener () {
 -keep class com.playableads.**{*;}
 ```
 
-## 6. 提示
+## 6. 注意事项
 
 
-### Android6.0以上系统权限处理
+### 1. Android6.0以上系统权限处理
 
 当您的应用targetSdkVersion为23及以上时，可选择以下方法进行权限检查并且弹窗提示用户授权。
 <p><span style="color:red;">注：该方法默认为false， 不会对用户进行权限提示并且不会导致崩溃。设为true，会进行权限检查并且弹窗提示用户授权。该方法在实例化广告之前调用，并且需要添加android-support-v4.jar。</span></p>
@@ -953,9 +967,34 @@ splashListener = new SplashADListener () {
 YumiSettings.runInCheckPermission(true);
 ```
 
-## 7. TEST ID
- 
+### 2. Google play Server 17.0.0 版本以上配置
 
+YumiMediationSDK会通过play-services-ads:17.1.3获取advertising_Id，需要添加如下配置，避免程序崩溃，以下内容引用自[google官方文档](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start#update_your_androidmanifestxml)：
+
+通过在 AndroidManifest.xml 中添加以下 <meta-data> 标记，声明您的应用是 Ad Manager 应用。
+
+```java
+<!-- google player service 17.0.0 版本以上必须得添加 start-->
+<meta-data
+     android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+     android:value="true" />
+<!-- google player service 17.0.0 版本以上必须得添加 end -->
+```
+重要提示：自 Google 移动广告 SDK 17.0.0 版本开始，必须执行此步骤。如果未能添加此 <meta-data> 代码，将会导致崩溃，并显示以下消息："The Google Mobile Ads SDK was initialized incorrectly."
+
+### 3. android 9.0 适配
+目前一些平台Android SDK暂不支持Android9.0以上操作系统，比如 Mintegral 平台，如果在Android9.0以上系统出现的崩溃，可以通过以下两个方法之一解决。
+
+1. 将targaetSDKveriosn设置为27或者27以下。 
+
+2. 在AndroidManifest.xml中的application标签中添加以下内容： 
+```xml
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
+使用方法 2 可能导致广告加载失败
+
+## 7. 测试广告位
+ 
 | 广告类型               | Slot(Placement) ID                                                                                                                | 备注                                                                                                                               |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Banner                 | uz852t89                                                                                                                          | 使用此test id，可以测试到YUMI、AdMob、AppLovin、Baidu、IQzone等平台的测试广告                                                 |

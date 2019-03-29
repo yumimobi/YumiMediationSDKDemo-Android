@@ -1,5 +1,29 @@
-# YumiMediationSDK Android
+   * [YumiMediationSDK Android](#yumimediationsdk-android)
+      * [1. Overview](#1-overview)
+      * [2. Development Environment Configuration](#2-development-environment-configuration)
+         * [Using Android-studio](#using-android-studio)
+         * [Using Eclipse](#using-eclipse)
+         * [Optional permission](#optional-permission)
+      * [3. Integration](#3-integration)
+         * [Banner](#banner)
+         * [Interstitial](#interstitial)
+         * [Rewarded Video](#rewarded-video)
+         * [Splash](#splash)
+         * [Native](#native)
+      * [4. Test Mode](#4-test-mode)
+      * [5. Advanced Features](#5-advanced-features)
+         * [Banner](#banner-1)
+         * [Interstitial](#interstitial-1)
+         * [Rewarded Video](#rewarded-video-1)
+         * [Splash](#splash-1)
+         * [Proguard](#proguard)
+      * [6. Precautions](#6-precautions)
+         * [1. Permissions for Android 6.0 and newer versions](#1-permissions-for-android-60-and-newer-versions)
+         * [2. Google Play Server 17.0.0 or higher version configuration](#2-google-play-server-1700-or-higher-version-configuration)
+         * [3. Android9.0 compatibility considerations](#3-android90-compatibility-considerations)
+      * [7. Test Slot ID](#7-test-slot-id)
 
+<<<<<<< HEAD
 - [YumiMediationSDK Android](#yumimediationsdk-android)
   - [1. Overview](#1-overview)
   - [2. Development Environment Configuration](#2-development-environment-configuration)
@@ -11,6 +35,10 @@
   - [7. TEST ID](#7-test-id)
 
 
+=======
+# YumiMediationSDK Android
+	
+>>>>>>> update mediation sdk
 ## 1. Overview
 
 **1.1 Target Readers**
@@ -26,16 +54,6 @@
 
 ## 2. Development Environment Configuration
 
-YumiMediationSDK will use the play-services-ads:17.1.3 to obtain the advertising_Id. You need to add the following configuration to avoid the program crash. The following content is quoted from [Google Developers](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start#update_your_androidmanifestxml)：
-
-Declare that your app is an Ad Manager app by adding the following <meta-data> tag in your AndroidManifest.xml.
-
-```java
-<meta-data
-     android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-     android:value="true" />
-```
-Important: This step is required as of Google Mobile Ads SDK version 17.0.0. Failure to add this <meta-data> tag results in a crash with the message: "The Google Mobile Ads SDK was initialized incorrectly."
 
 - ### Using Android-studio
 
@@ -922,9 +940,9 @@ If you are using Proguard add the following to your Proguard config file:
 -keep class com.playableads.**{*;}
 ```
 
-## 6. Reminder
+## 6. Precautions
 
-### Permissions for Android 6.0 and newer versions
+### 1. Permissions for Android 6.0 and newer versions
 
 When the targetSdkVersion of your app is 23 or above, you can choose the following method to check permission and prompt for user authorization.
 <p><span style="color:red;">Note: The default setting for this method is false, it won’t prompt for user authorisation or causing crash. If set as true, it will check permission and prompt for user authorisation with popups. This method should be called before the instantiated ads and android-support-v4.jar needs to be added.</span></p>
@@ -933,7 +951,32 @@ When the targetSdkVersion of your app is 23 or above, you can choose the followi
 YumiSettings.runInCheckPermission(true);
 ```
 
-## 7. TEST ID
+
+### 2. Google Play Server 17.0.0 or higher version configuration
+YumiMediationSDK will use the play-services-ads:17.1.3 to obtain the advertising_Id. You need to add the following configuration to avoid the program crash. The following content is quoted from [Google Developers](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start#update_your_androidmanifestxml)：
+
+Declare that your app is an Ad Manager app by adding the following <meta-data> tag in your AndroidManifest.xml.
+
+```java
+<meta-data
+     android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+     android:value="true" />
+```
+Important: This step is required as of Google Mobile Ads SDK version 17.0.0. Failure to add this <meta-data> tag results in a crash with the message: "The Google Mobile Ads SDK was initialized incorrectly."
+
+### 3. Android9.0 compatibility considerations 
+At present, Mintegral platform the Android SDK does not support Android9.0 or above. If the app crashes above Android9.0, you can choose one of the two ways below.
+
+1. Set targaetSDKveriosn to 27 or less
+2. Add the following content at the application tag in AndroidManifest.xml
+```xml
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
+The ad maybe load failed when you choose the way 2.
+
+
+
+## 7. Test Slot ID
  
 | Formats              | Slot(Placement) ID                                                                                                                         | Note                                                                                                                                 |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
