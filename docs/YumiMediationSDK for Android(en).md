@@ -23,22 +23,8 @@
          * [3. Android9.0 compatibility considerations](#3-android90-compatibility-considerations)
       * [7. Test Slot ID](#7-test-slot-id)
 
-<<<<<<< HEAD
-- [YumiMediationSDK Android](#yumimediationsdk-android)
-  - [1. Overview](#1-overview)
-  - [2. Development Environment Configuration](#2-development-environment-configuration)
-  - [3. Integration](#3-integration)
-  - [4. Test Mode](#4-test-mode)
-  - [5. Advanced Features](#5-advanced-features)
-  - [6. Reminder](#6-reminder)
-    - [Permissions for Android 6.0 and newer versions](#permissions-for-android-60-and-newer-versions)
-  - [7. TEST ID](#7-test-id)
-
-
-=======
 # YumiMediationSDK Android
 	
->>>>>>> update mediation sdk
 ## 1. Overview
 
 **1.1 Target Readers**
