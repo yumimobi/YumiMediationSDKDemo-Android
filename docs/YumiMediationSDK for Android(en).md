@@ -951,14 +951,9 @@ Declare that your app is an Ad Manager app by adding the following <meta-data> t
 Important: This step is required as of Google Mobile Ads SDK version 17.0.0. Failure to add this <meta-data> tag results in a crash with the message: "The Google Mobile Ads SDK was initialized incorrectly."
 
 ### 3. Android9.0 compatibility considerations 
-At present, Mintegral platform the Android SDK does not support Android9.0 or above. If the app crashes above Android9.0, you can choose one of the two ways below.
+At present, Mintegral platform the Android SDK does not support Android9.0 or above. If the app crashes above Android9.0, you can solve by the ways below.
 
 1. Set targaetSDKveriosn to 27 or less
-2. Add the following content at the application tag in AndroidManifest.xml
-```xml
-<uses-library android:name="org.apache.http.legacy" android:required="false"/>
-```
-The ad maybe load failed when you choose the way 2.
 
 
 

@@ -958,15 +958,10 @@ YumiMediationSDK会通过play-services-ads:17.1.3获取advertising_Id，需要�
 重要提示：自 Google 移动广告 SDK 17.0.0 版本开始，必须执行此步骤。如果未能添加此 <meta-data> 代码，将会导致崩溃，并显示以下消息："The Google Mobile Ads SDK was initialized incorrectly."
 
 ### 3. android 9.0 适配
-目前一些平台Android SDK暂不支持Android9.0以上操作系统，比如 Mintegral 平台，如果在Android9.0以上系统出现的崩溃，可以通过以下两个方法之一解决。
+目前一些平台Android SDK暂不支持Android9.0以上操作系统，比如 Mintegral 平台，如果在Android9.0以上系统出现的崩溃，可以通过以下方法解决。
 
 1. 将targaetSDKveriosn设置为27或者27以下。 
 
-2. 在AndroidManifest.xml中的application标签中添加以下内容： 
-```xml
-<uses-library android:name="org.apache.http.legacy" android:required="false"/>
-```
-使用方法 2 可能导致广告加载失败
 
 ## 7. 测试广告位
  
