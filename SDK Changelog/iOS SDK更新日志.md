@@ -1,6 +1,11 @@
 
 ###  iOS SDK  & iOS_Unity  SDK更新日志
 
+#### V 3.6.3
+
+1. YUMI，AdColony，AdMob，AppLovin ， Chartboost，Facebook，IronSource，ONEWAY，UnityAds ，Vungle，IronSource  , ZplayAds 无Location获取权限
+2.  其他平台可能会获取Location权限，请酌情考虑是否添加
+3.  更新IronSource到6810版本
 
 #### V 3.6.1
 
