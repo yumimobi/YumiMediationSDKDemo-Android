@@ -76,7 +76,6 @@ dependencies {
 
 >最新版本号，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android#latest-version)
 > 
->富媒体广告，指的是MRAID，即Mobile Rich Media Ad Interface Definitions，是由IAB编写的用于移动流量上富媒体广告展示的接口规范。详细信息请[查看](https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/)
 
 - ### Eclipse 接入
 
@@ -88,8 +87,6 @@ dependencies {
 
 - YumiMobi_Android_vX.X.X.jar
 
-- Yumi_Adapter_Mraid_vX.X.X.jar
-
 - android-support-v4.jar
 
 - android-support-v7-appcompat.jar
@@ -100,7 +97,6 @@ dependencies {
 
 <img src="document\image01.jpg" alt="img1">
 
-如希望支持富媒体广告，请将Yumi_Adapter_Mraid_vX.X.X.jar添加到创建好的libs文件中。
 可以视需求添加android-support-v4.jar、android-support-v7-appcompat.jar到libs文件中，需要用到V4或V7包时必须使用我们提供的jar。
 
 <span style="color:red;">关于google_play_service工程：
@@ -159,10 +155,6 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-<!--以下为富媒体广告需要的权限-->
-<uses-permission android:name="android.permission.CALL_PHONE"/>
-<uses-permission android:name="android.permission.SEND_SMS"/>
-<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 ```
 
 

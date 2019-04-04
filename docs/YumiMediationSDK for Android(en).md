@@ -77,7 +77,6 @@ dependencies {
 
 >[Click here](https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version) get latest version number
 > 
->MRAID, or “Mobile Rich Media Ad Interface Definitions,” is the common API (Application Programming Interface) for mobile rich media ads that will run in mobile apps. [Get Info](https://www.iab.com/guidelines/mobile-rich-media-ad-interface-definitions-mraid/)
 
 - ### Using Eclipse
 
@@ -89,8 +88,6 @@ All lib files are placed in ..\YumiMobi_SDK_AndroidEclipse_Example\lib in the SD
 
 - YumiMobi_Android_vX.X.X.jar
 
-- Yumi_Adapter_Mraid_vX.X.X.jar
-
 - android-support-v4.jar
 
 - android-support-v7-appcompat.jar
@@ -101,7 +98,7 @@ Create libs folder under the root directory of your project,add YumiMobi_Android
 
 <img src="document\image01.jpg" alt="img1">
 
-you can choose to or not to add android-support-v4.jar and/or android-support-v7-appcompat.jar and/or Yumi_Adapter_Mraid_vX.X.X.jar into libs according to your needs. You must use the jar file provided by YUMIMOBI when you need to use v4.jar or v7.jar.
+you can choose to or not to add android-support-v4.jar and/or android-support-v7-appcompat.jar into libs according to your needs. You must use the jar file provided by YUMIMOBI when you need to use v4.jar or v7.jar.
 
 <span style="color:red;">
 About google_play_service project:  
@@ -160,10 +157,6 @@ Add following in manifest.xml of your project:
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-<!--Below are the permissions required for MRAID advertising-->
-<uses-permission android:name="android.permission.CALL_PHONE"/>
-<uses-permission android:name="android.permission.SEND_SMS"/>
-<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 ```
 
 ## 3. Integration
