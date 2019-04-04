@@ -1,5 +1,8 @@
 ###  Android SDK & Android_Unity SDK更新日志
 
+#### V 3.6.1
+
+1. 优化YUMI获取权限
 
 #### V 3.6.0
 1. YUMI支持可玩物料类型（插屏 & 视频）,支持插页式视频物料
