@@ -1,5 +1,8 @@
 ###  Android SDK & Android_Unity SDK Changelog
 
+####  V 3.6.1
+
+1. Optimize YUMI permissions
 
 ####  V 3.6.0
 
