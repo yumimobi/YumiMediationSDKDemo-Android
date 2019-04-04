@@ -20,7 +20,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 
 - The minSdkVersion which the provider sdk required maybe above the YumiMobi SDK , please use the higher as your project minSdkVersion to avoid the unexpected exception. "-" means the minSdkVersion is same to YumiMobi SDK required.
 
-- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 3.6.0 "com.yumimobi.ads:mediation:3.6.0", you need to add such Adapter 3.6.0 version "com.yumimobi.ads.mediation:such:3.6.0"
+- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 3.6.1 "com.yumimobi.ads:mediation:3.6.1", you need to add such Adapter 3.6.1 version "com.yumimobi.ads.mediation:such:3.6.1"
 
 ## Support List
 
@@ -45,7 +45,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:adcolony:3.6.1'
 }
 ```
 
@@ -91,7 +91,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:admob:3.6.1'
 }
 ```
 
@@ -153,7 +153,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:applovin:3.6.1'
 }
 ```
 
@@ -199,7 +199,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:baidu:3.6.1'
 }
 ```
 
@@ -244,7 +244,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:chartboost:3.6.1'
 }
 ```
 
@@ -287,7 +287,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:facebook:3.6.1'
 }
 ```
 
@@ -332,7 +332,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:gdt:3.6.1'
 }
 ```
 
@@ -400,7 +400,7 @@ public protected *;
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:inmobi:3.6.1'
 }
 ```
 
@@ -469,9 +469,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  implementation 'com.yumimobi.ads.mediation:mintegral:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral:3.6.1'
   //China market channel release
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:3.6.1'
 }
 ```
 
@@ -535,7 +535,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:oneway:3.6.1'
 }
 ```
 
@@ -580,9 +580,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  implementation 'com.yumimobi.ads.mediation:unity:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:unity:3.6.1'
   //China market channel release
-  implementation 'com.yumimobi.ads.mediation:unity-china:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:unity-china:3.6.1'
 }
 ```
 
@@ -645,7 +645,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:vungle:3.6.1'
 }
 ```
 
@@ -716,7 +716,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:playableads:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:playableads:3.6.1'
 }
 ```
 
@@ -799,7 +799,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:ksyun:3.6.1'
 }
 ```
 
@@ -858,7 +858,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:3.6.0'
+  implementation 'com.yumimobi.ads.mediation:ironsource:3.6.1'
 }
 ```
 
@@ -919,10 +919,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-   implementation ('com.yumimobi.ads.mediation:iqzone:3.6.0'){
-        transitive = true
-        exclude module: 'moat-mobile-app-kit'
-    }
+   implementation 'com.yumimobi.ads.mediation:iqzone:3.6.1'
 }
 ```
 
