@@ -3,9 +3,9 @@
 
 #### V 3.6.4
 
-1.update baidu sdk to 4.6.4
+1.update baidu sdk to 4.6.4，无locaotion权限
 
-2.update GDT sdk to 4.8.1.0
+2.update GDT sdk to 4.8.1.0，删除GDT  corelocation.framework 库，则无locaotion相关权限
 
 3.update Mintegral sdk to 5.3.1
 
