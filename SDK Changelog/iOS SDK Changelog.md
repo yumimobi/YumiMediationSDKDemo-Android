@@ -1,6 +1,17 @@
 
 ###  iOS SDK  & iOS_Unity  SDK Changelog
 
+#### V 3.6.4
+
+1.update baidu sdk to 4.6.4
+
+2.update GDT sdk to 4.8.1.0
+
+3.update Mintegral sdk to 5.3.1
+
+4.Add BytedanceAds Banner、Interstitial、Video、Native
+
+
 #### V 3.6.3
 1. YUMI, AdColony, AdMob, AppLovin, Chartboost, Facebook, IronSource, ONEWAY, UnityAds, Vungle, IronSource, ZplayAds No Location Access; other neworke  please consider whether to add
 2. Update IronSource 6810
