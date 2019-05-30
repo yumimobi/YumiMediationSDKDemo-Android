@@ -4,8 +4,11 @@
 #### V 3.6.4
 
 1.update baidu sdk to 4.6.4
+
 2.update GDT sdk to 4.8.1.0
+
 3.update Mintegral sdk to 5.3.1
+
 4.增加 BytedanceAds （穿山甲）平台，支持广告形式：Banner、Interstitial、Video、Native
 
 
