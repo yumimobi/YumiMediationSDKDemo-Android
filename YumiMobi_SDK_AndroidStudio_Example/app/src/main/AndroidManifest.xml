@@ -19,7 +19,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <!-- AdMob 17.1.+ must set or crash: start -->
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
