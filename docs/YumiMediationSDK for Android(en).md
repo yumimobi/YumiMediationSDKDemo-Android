@@ -912,7 +912,7 @@ splashListener = new SplashADListener () {
 If you are using Proguard add the following to your Proguard config file: 
 
 ```c
--keepattributes Exceptions，InnerClasses，Signature，Deprecated，SourceFile，LineNumberTable，*Annotation*，Synthetic，EnclosingMethod
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,Synthetic,EnclosingMethod
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.yumi.android.sdk.ads.self.**{*;}
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
