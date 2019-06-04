@@ -5,7 +5,7 @@
 
 1.Update baidu sdk to 4.6.4,No Location Access
 
-2.Update GDT sdk to 4.8.1.0,Delete GDT corelocation.framework library, No Location Access
+2.Update GDT sdk to 4.10.2,Delete GDT corelocation.framework library, No Location Access
 
 3.Update Mintegral sdk to 5.3.1
 
