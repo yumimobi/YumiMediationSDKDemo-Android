@@ -69,7 +69,7 @@ allprojets {
 }
 //Add dependency in module build. Gradle
 dependencies {
-    //(*.*.*) Please replace it with the latest SDK version number, example ：3.6.2
+    //(*.*.*) Please replace it with the latest SDK version number, example ：3.6.3
     implementation 'com.yumimobi.ads:mediation:*.*.*'
     
 ｝
