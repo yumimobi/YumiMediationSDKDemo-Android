@@ -1,5 +1,12 @@
 ###  Android SDK & Android_Unity SDK更新日志
 
+
+
+#### V 3.6.3
+
+1.update Facebook sdk to 4.40.910 
+2.优化banner展示效果
+
 #### V 3.6.1
 
 1. 优化YUMI获取权限
