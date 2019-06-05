@@ -1,5 +1,12 @@
 ###  Android SDK & Android_Unity SDK Changelog
 
+
+#### V 3.6.3
+
+1.update Facebook sdk to 4.40.910 
+
+2.Optimize banner display performance
+
 ####  V 3.6.1
 
 1. Optimize YUMI permissions
