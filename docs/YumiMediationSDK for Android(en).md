@@ -69,7 +69,7 @@ allprojets {
 }
 //Add dependency in module build. Gradle
 dependencies {
-    //(*.*.*) Please replace it with the latest SDK version number, example ：3.6.1
+    //(*.*.*) Please replace it with the latest SDK version number, example ：3.6.3
     implementation 'com.yumimobi.ads:mediation:*.*.*'
     
 ｝
@@ -912,7 +912,7 @@ splashListener = new SplashADListener () {
 If you are using Proguard add the following to your Proguard config file: 
 
 ```c
--keepattributes Exceptions，InnerClasses，Signature，Deprecated，SourceFile，LineNumberTable，*Annotation*，Synthetic，EnclosingMethod
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,Synthetic,EnclosingMethod
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.yumi.android.sdk.ads.self.**{*;}
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}

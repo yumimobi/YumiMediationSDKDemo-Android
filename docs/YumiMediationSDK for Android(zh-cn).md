@@ -69,7 +69,7 @@ allprojets {
 }
 //在 module 的 build.gradle 中添加依赖
 dependencies {
-    //(*.*.*) 请替换为最新的SDK版本号，如：3.6.1
+    //(*.*.*) 请替换为最新的SDK版本号，如：3.6.3
     implementation 'com.yumimobi.ads:mediation:*.*.*'
 ｝
 ```
@@ -915,7 +915,7 @@ splashListener = new SplashADListener () {
 如果您的工程需要混淆编译， 请在混淆文件内增加以下内容。
 
 ```c
--keepattributes Exceptions，InnerClasses，Signature，Deprecated，SourceFile，LineNumberTable，*Annotation*，Synthetic，EnclosingMethod
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,Synthetic,EnclosingMethod
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.yumi.android.sdk.ads.self.**{*;}
 -keep class com.yumi.android.sdk.ads.selfmedia.**{*;}

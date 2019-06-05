@@ -7,7 +7,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -38,23 +38,23 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.google.android.gms:play-services-ads:17.1.3'
     implementation 'com.android.support:multidex:1.0.1'
-    implementation 'com.yumimobi.ads:mediation:3.6.1' //玉米核心SDK
-    implementation 'com.yumimobi.ads.mediation:adcolony:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:applovin:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:admob:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:baidu:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:chartboost:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:facebook:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:gdt:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:inmobi:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:oneway:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:unity:3.6.1'
+    implementation 'com.yumimobi.ads:mediation:3.6.3' //玉米核心SDK
+    implementation 'com.yumimobi.ads.mediation:adcolony:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:applovin:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:admob:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:baidu:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:chartboost:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:facebook:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:gdt:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:inmobi:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:oneway:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:unity:3.6.3'
 //    If you publish an app in China,you can use unity-china sdk
-//    implementation 'com.yumimobi.ads.mediation:unity-china:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:vungle:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:mintegral:3.6.1'
+//    compile 'com.yumimobi.ads.mediation:unity-china:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:vungle:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:mintegral:3.6.3'
 //    If you publish an app in China,you can use mintegral-china sdk
-//    implementation 'com.yumimobi.ads.mediation:mintegral-china:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:playableads:3.6.1'
-    implementation 'com.yumimobi.ads.mediation:iqzone:3.6.1'
+//    compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:playableads:3.6.3'
+//    implementation 'com.yumimobi.ads.mediation:iqzone:3.6.3'
 }
