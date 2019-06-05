@@ -3,7 +3,7 @@
 
 #### V 3.6.3
 
-1.update Facebook sdk to 4.40.910 
+1.update GDT sdk to 4.40.910 
 
 2.Optimize banner display performance
 
