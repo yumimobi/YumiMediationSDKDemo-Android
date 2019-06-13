@@ -210,6 +210,12 @@ AndroidManifest.xml Component：
 <activity
 	android:name="com.baidu.mobads.AppActivity"
 	android:configChanges="keyboard|keyboardHidden|orientation" />
+<activity
+  android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
+  android:configChanges="screenSize|orientation|keyboardHidden"
+  android:launchMode="singleTask"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+</activity>
 ```
 
 **ProGuard：**
