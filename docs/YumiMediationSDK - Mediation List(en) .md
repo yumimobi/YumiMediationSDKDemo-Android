@@ -199,7 +199,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:baidu:3.6.3.1'
 }
 ```
 
