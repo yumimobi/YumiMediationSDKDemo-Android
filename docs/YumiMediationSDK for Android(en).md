@@ -3,7 +3,6 @@
       * [2. Development Environment Configuration](#2-development-environment-configuration)
          * [Using Android-studio](#using-android-studio)
          * [Using Eclipse](#using-eclipse)
-         * [Optional permission](#optional-permission)
       * [3. Integration](#3-integration)
          * [Banner](#banner)
          * [Interstitial](#interstitial)
@@ -43,7 +42,7 @@
 
 - ### Using Android-studio
 
-**Add the library**
+**Step 1. Add the library**
 
 ```java
 // ensure whether jcenter is supported in build.gradle under Project root directory of android studio 
@@ -69,14 +68,61 @@ allprojets {
 }
 //Add dependency in module build. Gradle
 dependencies {
-    //(*.*.*) Please replace it with the latest SDK version number, example ：3.6.3
-    implementation 'com.yumimobi.ads:mediation:*.*.*'
+    implementation 'com.yumimobi.ads:mediation:3.6.3'
     
 ｝
 ```
 
 >[Click here](https://github.com/yumimobi/YumiMediationSDKDemo-Android#Latest&nbsp;Version) get latest version number
 > 
+
+**Step 2. Add the platform adapter library**
+
+```java
+//Add dependency in module build. Gradle
+dependencies {
+    implementation 'com.yumimobi.ads.mediation:adcolony:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:applovin:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:admob:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:baidu:3.6.3.1'
+    implementation 'com.yumimobi.ads.mediation:chartboost:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:facebook:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:gdt:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:ksyun:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:ironsource:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:inmobi:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:oneway:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:unity:3.6.3'
+//    If you publish an app in China,you can use unity-china sdk
+//    compile 'com.yumimobi.ads.mediation:unity-china:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:vungle:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:mintegral:3.6.3'
+//    If you publish an app in China,you can use mintegral-china sdk
+//    compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:playableads:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:iqzone:3.6.3'
+｝
+```
+
+>Platform adapter，[Click here](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20-%20Mediation%20List(en)%20.md)
+> 
+
+**Step 3. Add permission**
+
+- Optional permission
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+<!--The Googleplay app can be unloaded-->
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!-- If no add READ_PHONE_STATE permission will affect the advertising earnings -->
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+```
 
 - ### Using Eclipse
 
@@ -112,51 +158,79 @@ google_play_service is not mandatory, while some ad platforms need it. YUMIMOBI 
      android：value="@integer/google_play_services_version" />
 ```
 
-**Step 2. Add permission**
-
-Add the following permissions in manifest.xml of your project:
-
-
-```xml
-<uses-permission android:name="android.permission.INTERNET"/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<!--The Googleplay app can be unloaded-->
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-```
-
-**Step 3. Registered components**
+**Step 2. Registered components**
 
 Add following in manifest.xml of your project:
 
 ```xml
-<receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver" >
+    <receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver">
     <intent-filter>
         <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
     </intent-filter>
+    </receiver>
+
+    <activity
+    android:name="com.yumi.android.sdk.ads.self.activity.YumiFullScreenActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <activity
+    android:name="com.playableads.presenter.APIAdActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <activity
+    android:name="com.playableads.presenter.PlayableADActivity"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:hardwareAccelerated="true"
+    android:screenOrientation="portrait"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <activity
+    android:name="com.playableads.presenter.NativeAdLandingPageActivity"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:hardwareAccelerated="true"
+    android:screenOrientation="portrait"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <activity
+    android:name="com.playableads.presenter.WebActivity"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:hardwareAccelerated="true"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <receiver android:name="com.playableads.PlayableReceiver">
     <intent-filter>
-        <action android:name="android.intent.action.PACKAGE_ADDED" />
-        <data android:scheme="package" />
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
     </intent-filter>
-</receiver>
-<service  android:name="com.yumi.android.sdk.ads.service.YumiAdsEventService" />
-<activity android:name="com.yumi.android.sdk.ads.self.activity.YumiFullScreenActivity"
-          android:configChanges="keyboardHidden|orientation|screenSize"
-          android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-<!—Debugging Activity -->
-<activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" ></activity>
+    </receiver>
+
+    <activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" ></activity> 
 ```
 
+**Step 3. Add permission**
 
-- ### Optional permission
+- Add the following permissions in manifest.xml of your project:
+
 
 ```xml
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--The Googleplay app can be unloaded-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
+- Optional permission
+
+```xml
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <!-- If no add READ_PHONE_STATE permission will affect the advertising revenue -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
 ## 3. Integration
@@ -309,7 +383,7 @@ if (media != null) {
 }
 ```
 
-<p><span style="color:red;">Note: It is recommended to request every five seconds.</span></p>
+<p><span style="color:red;">Note: Note: It is recommended not to request frequently, the request interval is more than 5 seconds.</span></p>
 
 **When you need to show rewarded video, call the following code:**
 

@@ -3,7 +3,6 @@
     * [2. 开发环境配置](#2-开发环境配置)
         * [Android-studio 接入](#android-studio-接入)
         * [Eclipse 接入](#eclipse-接入)
-        * [可选权限](#可选权限)
     * [3. 代码集成](#3-代码集成)
         * [横幅](#横幅)
         * [插屏](#插屏)
@@ -42,7 +41,7 @@
 
 - ### Android-studio 接入
 
-**添加依赖**
+**第一步：添加聚合主包依赖**
 
 ```java
 //确认 android studio 的 Project 根目录主 build.gradle 中配置了 jcenter 支持。
@@ -69,17 +68,64 @@ allprojets {
 }
 //在 module 的 build.gradle 中添加依赖
 dependencies {
-    //(*.*.*) 请替换为最新的SDK版本号，如：3.6.3
-    implementation 'com.yumimobi.ads:mediation:*.*.*'
+    implementation 'com.yumimobi.ads:mediation:3.6.3'
 ｝
 ```
 
 >最新版本号，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android#latest-version)
 > 
 
+**第二步：添加聚合平台Adapter依赖**
+
+```java
+//在 module 的 build.gradle 中添加依赖
+dependencies {
+    implementation 'com.yumimobi.ads.mediation:adcolony:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:applovin:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:admob:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:baidu:3.6.3.1'
+    implementation 'com.yumimobi.ads.mediation:chartboost:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:facebook:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:gdt:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:ksyun:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:ironsource:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:inmobi:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:oneway:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:unity:3.6.3'
+//    If you publish an app in China,you can use unity-china sdk
+//    compile 'com.yumimobi.ads.mediation:unity-china:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:vungle:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:mintegral:3.6.3'
+//    If you publish an app in China,you can use mintegral-china sdk
+//    compile 'com.yumimobi.ads.mediation:mintegral-china:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:playableads:3.6.3'
+    implementation 'com.yumimobi.ads.mediation:iqzone:3.6.3'
+｝
+```
+
+>聚合平台Adapter详细说明，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20-%20Mediation%20List(zh-cn)%20.md)
+> 
+
+**第三步：添加权限**
+
+- 可选权限
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+<!--此权限受Android系统限制，若无此权限可能导致部分机型对下载类广告无法直接下载，国内渠道必须添加，Googleplay（一般为直接跳转型广告）可不加-->
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--此权限受Android系统限制，请添加，如果不添加将影响广告收益-->
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+```
+
 - ### Eclipse 接入
 
-**第一步：添加lib文件：**
+**第一步：下载并添加聚合SDK：**
 
 >[SDK 下载列表](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
 
@@ -110,9 +156,59 @@ google_play_service工程非必加，部分平台广告需要google_play_service
      android：value="@integer/google_play_services_version" />
 ```
 
-**第二步：添加权限**
+**第二步：注册组件**
 
-如以jar包方式接入SDK，请在工程中的manifest.xml中添加以下权限
+如以jar包方式接入SDK，请在工程中的manifest.xml文件中添加：
+
+```xml
+    <receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver">
+        <intent-filter>
+            <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+        </intent-filter>
+    </receiver>
+
+    <activity
+        android:name="com.yumi.android.sdk.ads.self.activity.YumiFullScreenActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <activity
+        android:name="com.playableads.presenter.APIAdActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <activity
+        android:name="com.playableads.presenter.PlayableADActivity"
+        android:configChanges="orientation|screenSize|keyboardHidden"
+        android:hardwareAccelerated="true"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <activity
+        android:name="com.playableads.presenter.NativeAdLandingPageActivity"
+        android:configChanges="orientation|screenSize|keyboardHidden"
+        android:hardwareAccelerated="true"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <activity
+        android:name="com.playableads.presenter.WebActivity"
+        android:configChanges="orientation|screenSize|keyboardHidden"
+        android:hardwareAccelerated="true"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <receiver android:name="com.playableads.PlayableReceiver">
+        <intent-filter>
+            <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+        </intent-filter>
+    </receiver>
+        
+    <activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" ></activity> 
+```
+
+**第三步：添加权限**
+
+- 如以jar包方式接入SDK，请在工程中的manifest.xml中添加以下权限
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -121,40 +217,19 @@ google_play_service工程非必加，部分平台广告需要google_play_service
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-**第三步：注册组件**
-
-如以jar包方式接入SDK，请在工程中的manifest.xml文件中添加：
-
-```xml
-<receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver" >
-    <intent-filter>
-        <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-    </intent-filter>
-    <intent-filter>
-        <action android:name="android.intent.action.PACKAGE_ADDED" />
-        <data android:scheme="package" />
-    </intent-filter>
-</receiver>
-<service  android:name="com.yumi.android.sdk.ads.service.YumiAdsEventService" />
-<activity android:name="com.yumi.android.sdk.ads.self.activity.YumiFullScreenActivity"
-          android:configChanges="keyboardHidden|orientation|screenSize"
-          android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-<!—Debugging Activity -->
-<activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" ></activity>
-```
-
-
-- ### 可选权限
+- 可选权限
 
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+
+<!--此权限受Android系统限制，请添加，如果不添加将影响广告收益-->
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
 
@@ -311,7 +386,7 @@ if (media != null) {
 }
 ```
 
-<p><span style="color:red;">注意：建议调用间隔5秒一次。</span></p>
+<p><span style="color:red;">注意：建议不要频繁调用，调用间隔时间5秒以上</span></p>
 
 **请在需要展现视频广告的时候，调用以下代码：**
 

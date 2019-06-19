@@ -201,7 +201,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:baidu:3.6.3.1'
 }
 ```
 
