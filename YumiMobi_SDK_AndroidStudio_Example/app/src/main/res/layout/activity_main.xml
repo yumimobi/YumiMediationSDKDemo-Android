@@ -1,212 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/banner_slotID"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_margin="5dip"
+            android:background="@drawable/edit_bg"
+            android:hint="BannerSlotID" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/banner_slotID"
-                android:layout_width="match_parent"
-                android:layout_height="35dip"
-                android:layout_margin="5dip"
-                android:background="@drawable/edit_bg"
-                android:hint="BannerSlotID" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_banner_a"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_bg"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:text="Banner"
-                    android:textSize="12sp" />
-
-                <Button
-                    android:id="@+id/btn_banner_m"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_bg"
-                    android:padding="10dip"
-                    android:text="Banner\nM"
-                    android:textSize="12sp"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/interstitial_slotID"
-                android:layout_width="match_parent"
-                android:layout_height="35dip"
-                android:layout_margin="5dip"
-                android:background="@drawable/edit_bg"
-                android:hint="InterstitialSlotID" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_interstitial_a"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_bg"
-                    android:padding="10dip"
-                    android:text="Interstitial"
-                    android:textSize="12sp" />
-
-                <Button
-                    android:id="@+id/btn_interstitial_m"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_bg"
-                    android:padding="10dip"
-                    android:text="Interstitial\nM"
-                    android:textSize="12sp"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/mdia_slotID"
-                android:layout_width="match_parent"
-                android:layout_height="35dip"
-                android:layout_margin="5dip"
-                android:background="@drawable/edit_bg"
-                android:hint="MdiaSlotID" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_media_a"
-                android:layout_width="match_parent"
+                android:id="@+id/btn_banner_a"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dip"
+                android:layout_weight="1"
                 android:background="@drawable/btn_bg"
-                android:padding="10dip"
-                android:text="Media"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Banner"
                 android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/splash_slotID"
-                android:layout_width="match_parent"
-                android:layout_height="35dip"
-                android:layout_margin="5dip"
-                android:background="@drawable/edit_bg"
-                android:hint="SplashSlotID" />
-
-            <Button
-                android:id="@+id/btn_splash"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:background="@drawable/btn_bg"
-                android:padding="10dip"
-                android:text="Splash"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/native_slotID"
-                android:layout_width="match_parent"
-                android:layout_height="35dip"
-                android:layout_margin="5dip"
-                android:background="@drawable/edit_bg"
-                android:hint="NativeSlotID" />
-
-            <Button
-                android:id="@+id/btn_native"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:background="@drawable/btn_bg"
-                android:padding="10dip"
-                android:text="Native"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/btn_startDebugging"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:background="@drawable/btn_bg"
-                android:padding="10dip"
-                android:text="StartDebugging"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/btn_anaylsis"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:background="@drawable/btn_bg"
-                android:padding="10dip"
-                android:text="Anaylsis"
-                android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/channel"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dip"
-                    android:layout_weight="1"
-                    android:background="@drawable/edit_bg"
-                    android:hint="channel" />
-
-                <EditText
-                    android:id="@+id/version"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dip"
-                    android:layout_weight="1"
-                    android:background="@drawable/edit_bg"
-                    android:hint="version" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dip"
-                android:layout_marginRight="10dip"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:id="@+id/cb_isMatchWindowWidth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/check_bg"
-                    android:button="@null" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="BannerMatch" />
-            </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/interstitial_slotID"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_margin="5dip"
+            android:background="@drawable/edit_bg"
+            android:hint="InterstitialSlotID" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_interstitial_a"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:padding="10dip"
+                android:text="Interstitial"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/mdia_slotID"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_margin="5dip"
+            android:background="@drawable/edit_bg"
+            android:hint="MdiaSlotID" />
+
+        <Button
+            android:id="@+id/btn_media_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:background="@drawable/btn_bg"
+            android:padding="10dip"
+            android:text="Media"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/splash_slotID"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_margin="5dip"
+            android:background="@drawable/edit_bg"
+            android:hint="SplashSlotID" />
+
+        <Button
+            android:id="@+id/btn_splash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:background="@drawable/btn_bg"
+            android:padding="10dip"
+            android:text="Splash"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/native_slotID"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_margin="5dip"
+            android:background="@drawable/edit_bg"
+            android:hint="NativeSlotID" />
+
+        <Button
+            android:id="@+id/btn_native"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:background="@drawable/btn_bg"
+            android:padding="10dip"
+            android:text="Native"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_startDebugging"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:background="@drawable/btn_bg"
+            android:padding="10dip"
+            android:text="StartDebugging"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/channel"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_weight="1"
+                android:background="@drawable/edit_bg"
+                android:hint="channel" />
+
+            <EditText
+                android:id="@+id/version"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_weight="1"
+                android:background="@drawable/edit_bg"
+                android:hint="version" />
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <CheckBox
+                android:id="@+id/cb_isMatchWindowWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/check_bg"
+                android:button="@null"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="BannerMatch"
+                app:layout_constraintBaseline_toBaselineOf="@id/cb_isMatchWindowWidth"
+                app:layout_constraintLeft_toRightOf="@id/cb_isMatchWindowWidth" />
+
+            <CheckBox
+                android:id="@+id/gdpr_settings_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/check_bg"
+                android:button="@null"
+                app:layout_constraintLeft_toLeftOf="@id/cb_isMatchWindowWidth"
+                app:layout_constraintTop_toBottomOf="@id/cb_isMatchWindowWidth" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="GDPR Consent Status"
+                app:layout_constraintBaseline_toBaselineOf="@id/gdpr_settings_check_box"
+                app:layout_constraintLeft_toRightOf="@id/gdpr_settings_check_box" />
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>
