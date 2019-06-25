@@ -17,11 +17,11 @@ import android.widget.Toast;
 import com.yumi.android.MActivity;
 import com.yumi.android.sdk.ads.formats.YumiNativeAdOptions;
 import com.yumi.android.sdk.ads.formats.YumiNativeAdView;
+import com.yumi.android.sdk.ads.publish.AdError;
 import com.yumi.android.sdk.ads.publish.NativeContent;
 import com.yumi.android.sdk.ads.publish.YumiNative;
-import com.yumi.android.sdk.ads.publish.enumbean.LayerErrorCode;
 import com.yumi.android.sdk.ads.publish.listener.IYumiNativeListener;
-import com.yumimobi.ads.demo.R;
+import com.yumimobi.ads.R;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -72,13 +72,11 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
                 adContentList.addAll(adList);
                 adcount = adContentList.size();
                 tvAdcount.setText(String.valueOf(adcount));
-                // 请求成功的回调，其中adCount是返回的广告条数
             }
 
             @Override
-            public void onLayerFailed(LayerErrorCode error) {
-                Log.v(TAG, "native ad onLayerFailed and Error=" + error.getMsg());
-                // 请求失败的回调，其中error是请求失败的错误提示
+            public void onLayerFailed(AdError error) {
+                Log.v(TAG, "native ad onLayerFailed and Error= " + error);
             }
 
             @Override
@@ -98,7 +96,7 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
                 .setIsDownloadImage(true)
                 .setAdChoicesPosition(YumiNativeAdOptions.POSITION_TOP_RIGHT)
                 .setAdAttributionPosition(YumiNativeAdOptions.POSITION_TOP_LEFT)
-                .setAdAttributionText("广告")
+                .setAdAttributionText("Ad")
                 .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))
                 .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))
                 .setAdAttributionTextSize(10)
@@ -117,7 +115,6 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_request:
                 if (nativeAd != null) {
-                    // 请求广告，成功或失败的结果会在回调接口中返回
                     int adCount = nativeAdCount.getText().toString().equals("") ? 0 : Integer.valueOf(nativeAdCount.getText().toString());
                     nativeAd.requestYumiNative(adCount);
                 } else {
@@ -142,10 +139,9 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
 
 
     private void showNativeAd() {
-        if (adContentList != null && adContentList.size() > 0) // 通过剩余广告条数判断是否存在下一条广告
-        {
-            content = adContentList.get(0);// 提取广告
-            adContentList.remove(0);//删除已经提取的广告
+        if (adContentList != null && adContentList.size() > 0) {
+            content = adContentList.get(0);
+            adContentList.remove(0);
             adcount = adContentList.size();
             tvAdcount.setText(String.valueOf(adcount));
 
@@ -219,7 +215,7 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         if (nativeAd != null) {
-            nativeAd.onDestroy();
+            nativeAd.destroy();
         }
     }
 

@@ -1,24 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yumimobi.ads.demo">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yumimobi.ads">
 
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- common permission: start -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- end -->
+
+    <!-- all platform recommend permissions, add there for avoid duplicate permission compile error: start -->
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--mraid需要的权限-->
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:node="replace" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!-- end -->
+
+    <!-- ZPLAYAds recommend: start -->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />-->
+    <!-- end -->
+
+    <!-- AdColony recommend: start -->
+    <!--<uses-permission android:name="android.permission.VIBRATE" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!-- end -->
+
+    <!-- Applovin recommend: start -->
+    <!-- These permissions are strongly recommended and will result in higher performance -->
+    <!--<uses-permission-->
+    <!--android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
+    <!--android:maxSdkVersion="18" />-->
+    <!-- end -->
+
+    <!-- Baidu required: start -->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!-- recommend -->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!-- end -->
+
+    <!-- Chartboost recommend: start -->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!-- end -->
+
+    <!-- Facebook recommend: start -->
+    <!-- found from https://github.com/fbsamples/audience-network/blob/master/samples/android/AdsSample/app/src/main/AndroidManifest.xml -->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <!-- end -->
+
+    <!-- gdt required: start -->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!-- recommend -->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!-- end -->
+
+    <!-- inmobi recommend: start -->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_CALENDAR" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_CALENDAR" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!-- end inmobi -->
+
+    <!-- ksyun required: start -->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />-->
+    <!-- recommend -->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
+    <!--<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
+    <!--<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>-->
+    <!--<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>-->
+    <!-- end -->
+
+    <!-- mintegral required: start -->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />-->
+    <!-- required only in China -->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!-- recommend -->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
+    <!-- end -->
+
+    <!-- mraid required: start -->
+    <!--<uses-permission android:name="android.permission.CALL_PHONE"/>-->
+    <!--<uses-permission android:name="android.permission.SEND_SMS"/>-->
+    <!--<uses-permission android:name="android.permission.WRITE_CALENDAR"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
+    <!-- end -->
+
+    <!-- OneWay required: start-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!-- end -->
+
+
+    <!-- Vungle required: start -->
+    <!--<uses-permission-->
+    <!--android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
+    <!--android:maxSdkVersion="18" />-->
+    <!-- recommend -->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!-- end -->
 
     <application
+        android:name="com.yumi.android.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
+
         <!-- AdMob 17.1.+ must set or crash: start -->
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
@@ -27,7 +156,6 @@
 
         <activity
             android:name="com.yumi.android.MainActivity"
-            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -38,30 +166,46 @@
         </activity>
         <activity
             android:name="com.yumi.android.demo.BannerActivity"
-            android:screenOrientation="sensor"></activity>
-        <activity
-            android:name="com.yumi.android.demo.BannerActivity_MT"
-            android:screenOrientation="portrait"></activity>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.yumi.android.demo.InterstitialActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name="com.yumi.android.demo.InterstitialActivity_MT"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"></activity>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.yumi.android.demo.MediaActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"></activity>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity
-            android:name="com.yumi.android.SplashTestActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"></activity>
+            android:name="com.yumi.android.demo.SplashActivity"
+            android:screenOrientation="locked"
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name="com.yumi.android.demo.NativeActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"></activity>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+
+        <!-- Baidu recommend: start-->
+        <!--<provider-->
+        <!--android:name="com.baidu.mobads.openad.FileProvider"-->
+        <!--android:authorities="${applicationId}.bd.provider"-->
+        <!--android:exported="false"-->
+        <!--android:grantUriPermissions="true">-->
+        <!--<meta-data-->
+        <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+        <!--android:resource="@xml/bd_file_paths" />-->
+        <!--</provider>-->
+        <!-- end -->
+
+        <!-- mintegral recommend: start-->
+        <!--<provider-->
+        <!--android:name="com.mintegral.msdk.base.utils.MTGFileProvider"-->
+        <!--android:authorities="${applicationId}.mtgFileProvider"-->
+        <!--android:exported="false"-->
+        <!--android:grantUriPermissions="true">-->
+        <!--<meta-data-->
+        <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+        <!--android:resource="@xml/mtg_provider_paths"/>-->
+        <!--</provider>-->
+        <!-- end -->
+
     </application>
 
 </manifest>
