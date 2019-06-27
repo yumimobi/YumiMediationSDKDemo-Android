@@ -1,6 +1,27 @@
 
 ###  iOS SDK  & iOS_Unity  SDK Changelog
 
+#### V 4.1.0
+
+1. Upgrade interstitial & video & Splash request configuration logic
+
+2. Remove banner rotation animation
+ 
+3. Support GDRR protocol interface
+
+4. Increase video download to complete active callback
+
+5. Increase video clickback
+
+6. Add platforms that support opening: AdMob Baidu, BytedanceAds, GDT
+
+7. Add InneractiveAd : Banner, Interstitial, Video
+
+8. Upgrade the tripartite SDK, details: https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md
+
+注：When the Untiy plugin is updated, please remove the old plugin and introduce the new plugin.
+
+
 #### V 3.6.4
 
 1.Update baidu sdk to 4.6.4,No Location Access
