@@ -19,8 +19,7 @@
 
 8. 升级三方 SDK ，详情: https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md
 
-注：Untiy 插件更新时，请将老插件删除干净，再引入新插件
-
+注：410版本接口进行了更新，请按照文档重新接入；Untiy 插件更新时，请将老插件删除干净，再引入新插件。
 
 
 #### V 3.6.4
