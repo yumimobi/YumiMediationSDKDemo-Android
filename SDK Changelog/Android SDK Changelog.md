@@ -1,5 +1,18 @@
 ###  Android SDK & Android_Unity SDK Changelog
 
+#### V 4.1.0
+
+1. Upgrade interstitial & video & Splash request configuration logic
+2. Remove banner rotation animation
+3. Support GDRR protocol interface
+4. Increase video download to complete active callback
+5. Increase video clickback
+6. Add platforms that support open screen: Baidu, BytedanceAds, GDT
+7. Add  InventorySDK : Banner, Interstitial, Video
+8. Upgrade the tripartite SDK, details 
+
+注：Update  interface , please follow the documentation access；When the Untiy plugin is updated, please remove the old plugin and introduce the new plugin.
+
 
 #### V 3.6.3
 
