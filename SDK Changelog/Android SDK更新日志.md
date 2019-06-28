@@ -1,6 +1,17 @@
 ###  Android SDK & Android_Unity SDK更新日志
 
+#### V 4.1.0
 
+1. 升级 interstitial & video & Splash 请求配置逻辑
+2. 移除 banner 轮播动画
+3. 支持 GDRR协议接口
+4. 增加视频下载完成主动回调
+5. 增加视频点击回调
+6. 增加支持开屏的平台: Baidu 、BytedanceAds 、GDT
+7. 增加 Inventory 平台 ，支持广告形式 ：Banner、Interstitial、Video
+8. 升级三方 SDK ，详情https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md
+
+注：410版本接口进行了更新，请按照文档重新接入；Untiy 插件更新时，请将老插件删除干净，再引入新插件。
 
 #### V 3.6.3
 
