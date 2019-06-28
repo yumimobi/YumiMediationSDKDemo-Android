@@ -48,7 +48,9 @@ dependencies {
     implementation 'com.yumimobi.ads.mediation:ironsource:4.1.0'
     implementation 'com.yumimobi.ads.mediation:ksyun:4.1.0'
     implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
+//    If you publish an app in China,you can use mintegral-china sdk
+//   implementation 'com.yumimobi.ads.mediation:mintegral-china:4.1.0'
     implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
+    implementation 'com.yumimobi.ads.mediation:unity-china:4.1.0'
     implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
 }
