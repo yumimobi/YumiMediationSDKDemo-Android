@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/title"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/showMedia"
@@ -21,21 +21,22 @@
             android:background="@drawable/btn_bg"
             android:padding="10dip"
             android:text=" show " />
-        
-            <Button
+
+        <Button
             android:id="@+id/isPrepared"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_bg"
             android:layout_marginLeft="15dp"
+            android:background="@drawable/btn_bg"
             android:padding="10dip"
             android:text="isPrepared" />
-            <Button
+
+        <Button
             android:id="@+id/remain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_bg"
             android:layout_marginLeft="15dp"
+            android:background="@drawable/btn_bg"
             android:padding="10dip"
             android:text="remain" />
     </LinearLayout>
@@ -44,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp"
-        android:layout_marginTop="50dp" >
+        android:layout_marginTop="50dp">
 
         <TextView
             android:id="@+id/mediainfo"
