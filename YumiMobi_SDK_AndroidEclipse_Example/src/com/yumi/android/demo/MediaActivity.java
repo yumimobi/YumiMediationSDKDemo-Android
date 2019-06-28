@@ -8,15 +8,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yumi.android.MActivity;
+import com.yumi.android.sdk.ads.publish.AdError;
 import com.yumi.android.sdk.ads.publish.YumiMedia;
 import com.yumi.android.sdk.ads.publish.enumbean.MediaStatus;
 import com.yumi.android.sdk.ads.publish.listener.IYumiMediaListener;
-import com.yumimobi.ads.demo.R;
+import com.yumimobi.ads.R;
 
 public class MediaActivity extends MActivity implements OnClickListener {
 
     private TextView info;
-    private Button show, isPrepared,remain;
+    private Button show, isPrepared, remain;
     private YumiMedia media;
     private IYumiMediaListener mediaListener;
 
@@ -31,6 +32,7 @@ public class MediaActivity extends MActivity implements OnClickListener {
         remain = (Button) findViewById(R.id.remain);
         remain.setOnClickListener(this);
         info = (TextView) findViewById(R.id.mediainfo);
+
     }
 
     @Override
@@ -42,9 +44,21 @@ public class MediaActivity extends MActivity implements OnClickListener {
         mediaListener = new IYumiMediaListener() {
 
             @Override
-            public void onMediaIncentived() {
-                Log.e("mikoto", "on media  incentived ");
-                setInfo("on media incentived ");
+            public void onMediaRewarded() {
+                Log.e("mikoto", "on media rewarded ");
+                setInfo("on media rewarded ");
+            }
+
+            @Override
+            public void onMediaPrepared() {
+                Log.e("mikoto", "on media  prepared ");
+                setInfo("on media prepared ");
+            }
+
+            @Override
+            public void onMediaPreparedFailed(AdError errorCode) {
+                Log.e("mikoto", "on media preparedFailed ");
+                setInfo("on media preparedFailed " + errorCode);
             }
 
             @Override
@@ -54,10 +68,15 @@ public class MediaActivity extends MActivity implements OnClickListener {
             }
 
             @Override
-            public void onMediaClosed() {
-                Log.e("mikoto", "on media closed  ");
-                setInfo("on media closed ");
+            public void onMediaExposureFailed(AdError adError) {
+                Log.e("mikoto", "on media exposure failed: " + adError);
+                setInfo("on media exposure failed");
+            }
 
+            @Override
+            public void onMediaClosed(boolean isRewarded) {
+                Log.e("mikoto", "on media closed， isRewarded ：" + isRewarded);
+                setInfo("on media closed， isRewarded ：" + isRewarded);
             }
 
             @Override
@@ -66,18 +85,23 @@ public class MediaActivity extends MActivity implements OnClickListener {
                 setInfo("on media clicked ");
             }
 
+            @Override
+            public void onMediaStartPlaying() {
+                Log.e("mikoto", "on media start playing ");
+                setInfo("on media start playing ");
+            }
         };
     }
 
     @Override
     public void onActivityCreate() {
         /*
-         * Second step : 
-         * Create YumiMedia instance by activity and your YumiID.  
+         * Second step :
+         * Create YumiMedia instance by activity and your YumiID.
          */
-        media = new YumiMedia(MediaActivity.this,getStringConfig("mdia_slotID"));
+        media = new YumiMedia(MediaActivity.this, getStringConfig("mdia_slotID"));
         //setMediaEventListener .  (Require)
-        media.setMediaEventListner(mediaListener);
+        media.setMediaEventListener(mediaListener);
         //setChannelID .  (Recommend)
         media.setChannelID(channelStr);
         //setVersionName . (Recommend)
@@ -94,14 +118,14 @@ public class MediaActivity extends MActivity implements OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.showMedia) {
             if (media != null) {
-                if (media.isMediaPrepared()) {
-                MediaStatus showMedia = media.showMedia();
-                Toast.makeText(MediaActivity.this, "media show status " + showMedia.toString(), Toast.LENGTH_SHORT).show();
+                if (media.isReady()) {
+                    MediaStatus showMedia = media.showMedia();
+                    Toast.makeText(MediaActivity.this, "media show status " + showMedia.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         } else if (v.getId() == R.id.isPrepared) {
             if (media != null) {
-                if (media.isMediaPrepared()) {
+                if (media.isReady()) {
                     Log.e("mikoto", "media prepared ");
                     setInfo("media prepared");
                 } else {
@@ -111,8 +135,8 @@ public class MediaActivity extends MActivity implements OnClickListener {
             }
         } else if (v.getId() == R.id.remain) {
             if (media != null) {
-                Log.e("mikoto","media MediaRemainRewards is "+media.getMediaRemainRewards());
-                setInfo("media MediaRemainRewards is "+media.getMediaRemainRewards());
+                Log.e("mikoto", "media MediaRemainRewards is " + media.getMediaRemainRewards());
+                setInfo("media MediaRemainRewards is " + media.getMediaRemainRewards());
             }
         }
     }
@@ -122,7 +146,7 @@ public class MediaActivity extends MActivity implements OnClickListener {
     protected void onDestroy() {
         Log.e("mikoto", "media activity destroy");
         if (media != null) {
-            media.onDestory();
+            media.destroy();
         }
         super.onDestroy();
     }

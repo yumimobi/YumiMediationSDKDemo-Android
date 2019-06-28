@@ -20,7 +20,7 @@
 
 -  请注意三方SDK最小安卓版本, 可能高于玉米聚合广告SDK所要求的最小安卓版本, 此时您的工程应选用两者中较高的版本作为工程的最小版本, 否则使用三方平台时, 可能造成未知的影响。 "-"意味着和玉米聚合所支持的安卓最小版本版本一致。
 
--  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 3.6.3 版本 "com.yumimobi.ads:mediation:3.6.3" 时，需要添加Admob Adapter的3.6.3 版本 ”com.yumimobi.ads.mediation:admob:3.6.3“ 
+-  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 4.1.0 版本 "com.yumimobi.ads:mediation:4.1.0" 时，需要添加Admob Adapter的4.1.0 版本 ”com.yumimobi.ads.mediation:admob:4.1.0“ 
 
 
 ## 支持列表
@@ -30,7 +30,7 @@
 |                   |                                                        |
 | ----------------- | ------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_adcolony.jar                         |
-| 三方版本          | 3.3.7                                                  |
+| 三方版本          | 3.3.10                                                  |
 | 最小安卓版本      | Android 2.3.3  /  API 10                               |
 | GooglePlayService | 需要                                                   |
 | 支持广告形式      | 视频                                                   |
@@ -38,6 +38,8 @@
 
 **额外权限：**
 ```xml
+<!-- 可选权限 -->
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
 <uses-permission android:name="android.permission.VIBRATE" />
 ```
 
@@ -46,7 +48,7 @@
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:adcolony:4.1.0'
 }
 ```
 
@@ -57,8 +59,6 @@ AndroidManifest.xml注册组件：
 <activity android:name="com.adcolony.sdk.AdColonyInterstitialActivity"
   android:configChanges="keyboardHidden|orientation|screenSize"
   android:hardwareAccelerated="true"/>
-<activity android:name="com.adcolony.sdk.AdColonyAdViewActivity"
-  android:configChanges="keyboardHidden|orientation|screenSize"/>
 ```
 
 **混淆：**
@@ -77,7 +77,7 @@ AndroidManifest.xml注册组件：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_admob.jar |
-| 三方版本          | 17.1.3                          |
+| 三方版本          | 17.2.0                          |
 | GooglePlayService | 需要                        |
 | 支持广告形式      | Banner, 插屏, 视频, 原生          |
 | .so/lib工程       | --                          |
@@ -92,7 +92,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:admob:4.1.0'
 }
 ```
 
@@ -155,7 +155,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:applovin:4.1.0'
 }
 ```
 
@@ -186,11 +186,12 @@ AndroidManifest.xml注册组件：
 | Jar名称           | libs/yumi_adapter_baidu.jar |
 | 三方版本          | 5.8.0                         |
 | GooglePlayService | --                          |
-| 支持广告形式      | Banner, 插屏, 视频, 原生                |
+| 支持广告形式      | Banner, 插屏, 视频, 原生, 开屏        |
 | .so/lib工程       | --                          |
 
 **额外权限：**
 ```xml
+<!-- 必选权限 -->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -201,7 +202,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:3.6.3.1'
+  implementation 'com.yumimobi.ads.mediation:baidu:4.1.0'
 }
 ```
 
@@ -251,7 +252,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:chartboost:4.1.0'
 }
 ```
 
@@ -278,7 +279,7 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_facebook.jar                               |
-| 三方版本          | 5.1.O                                                       |
+| 三方版本          | 5.3.1                                                       |
 | 最小安卓版本      | Android 3.0  /  API 11                                       |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏), 原生 |
@@ -294,7 +295,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:facebook:4.1.0'
 }
 ```
 
@@ -302,9 +303,25 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-<activity
+  <activity
     android:name="com.facebook.ads.AudienceNetworkActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize" />
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:exported="false"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+  <activity
+    android:name="com.facebook.ads.internal.ipc.RemoteANActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:exported="false"
+    android:process=":adnw"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+  <service
+      android:name="com.facebook.ads.internal.ipc.AdsProcessPriorityService"
+      android:exported="false" />
+  <service
+      android:name="com.facebook.ads.internal.ipc.AdsMessengerService"
+      android:exported="false"
+      android:process=":adnw" />
 ```
 
 **混淆：**
@@ -323,15 +340,17 @@ AndroidManifest.xml注册组件：
 | Jar名称           | libs/yumi_adapter_gdt.jar |
 | 三方版本          | 4.40.910                   |
 | GooglePlayService | --                        |
-| 支持广告形式      | Banner, 插屏, 视频, 原生              |
+| 支持广告形式      | Banner, 插屏, 视频, 原生, 开屏  |
 | .so/lib工程       | --                        |
 
 **额外权限：**
 ```xml
+<!-- 必选权限 -->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
-<uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 ```
 
 **AndroidStudio开发**
@@ -339,7 +358,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:gdt:4.1.0'
 }
 ```
 <p><span style="color:red;">注意:
@@ -369,12 +388,17 @@ AndroidManifest.xml注册组件：
 
 **混淆：**
 ```c
--keep class com.qq.e.** {
-public protected *;
+-keep class com.qq.e.** { 
+    public protected *; 
 }
--keep class com.tencent.gdt.**{
-public protected *;
+-keep class MTT.ThirdAppInfoNew { 
+    *; 
 }
+-keep class com.tencent.** { 
+    *;
+} 
+-dontwarn dalvik.**
+-dontwarn com.tencent.smtt.**  
 ```
 
 
@@ -386,7 +410,7 @@ public protected *;
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar名称           | libs/yumi_adapter_inmobi.jar |
-| 三方版本          | 7.2.7                       |
+| 三方版本          | 8.0.9                       |
 | 最小安卓版本      | Android 2.3 / API 9;  Android 4.0 / API 14 (视频广告) |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | Banner, 插屏, 视频           |
@@ -394,6 +418,7 @@ public protected *;
 
 **额外权限：**
 ```xml
+<!-- 可选权限 -->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -410,7 +435,7 @@ public protected *;
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:inmobi:4.1.0'
 }
 ```
 
@@ -419,39 +444,33 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-	android:name="com.inmobi.rendering.InMobiAdActivity"
-	android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-<receiver
-	android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
-	android:enabled="true"
-	android:exported="true" >
-	<intent-filter>
-	  <action android:name="com.inmobi.share.id" />
-	</intent-filter>
-</receiver>
-<service
-	android:name="com.inmobi.commons.internal.ActivityRecognitionManager"
-	android:enabled="true" />
+    android:name="com.inmobi.ads.rendering.InMobiAdActivity"
+    android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout|locale|fontScale"
+    android:hardwareAccelerated="true"
+    android:resizeableActivity="false"
+    android:theme="@android:style/Theme.NoTitleBar"
+    tools:ignore="UnusedAttribute" />
 ```
 
 **混淆：**
 ```c
--keep class com.google.android.gms.common.api.GoogleApiClient { public *; }
--keep class com.google.android.gms.common.api.GoogleApiClient$* {public *;}
--keep class com.google.android.gms.location.LocationServices {public *;}
--keep class com.google.android.gms.location.FusedLocationProviderApi {public *;}
--keep class com.google.android.gms.location.ActivityRecognition {public *;}
--keep class com.google.android.gms.location.ActivityRecognitionApi {public *;}
--keep class com.google.android.gms.location.ActivityRecognitionResult {public *;}
--keep class com.google.android.gms.location.DetectedActivity {public *;}
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{public *;}
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{public *;}
--keepattributes SourceFile,LineNumberTable,InnerClasses
+-keepattributes SourceFile,LineNumberTable
 -keep class com.inmobi.** { *; }
 -dontwarn com.inmobi.**
--dontwarn com.google.android.gms**
+-keep public class com.google.android.gms.**
+-dontwarn com.google.android.gms.**
+-dontwarn com.squareup.picasso.**
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{public *;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{public *;}
+#skip the Picasso library classes
+-keep class com.squareup.picasso.** {*;}
+-dontwarn com.squareup.picasso.**
+-dontwarn com.squareup.okhttp.**
+#skip Moat classes
+-keep class com.moat.** {*;}
+-dontwarn com.moat.**
+#skip AVID classes
+-keep class com.integralads.avid.library.** {*;}
 ```
 
 
@@ -464,14 +483,18 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_mintegral.jar                               |
-| 三方版本          | 8.13.0                                                        |
+| 三方版本          | 9.11.0                                                        |
 | GooglePlayService | --                                                           |
 | 支持广告形式      | 视频                                                         |
 | .so/lib工程       | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values |
 
 **额外权限：**
 ```xml
+<!-- 可选权限 -->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+<!-- 如果是国内版本SDK ，则此条权限必须加上 -->
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
 **AndroidStudio开发**
@@ -480,9 +503,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:mintegral:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
   //中国市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.1.0'
 }
 ```
 
@@ -490,22 +513,25 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-<activity
-	android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
-	android:configChanges="orientation|keyboardHidden|screenSize"
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-<activity
-	android:name="com.mintegral.msdk.activity.MTGCommonActivity"
-	android:configChanges="keyboard|orientation"
-	android:screenOrientation="portrait"
-	android:exported="true"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar">
-</activity>
-<service android:name="com.mintegral.msdk.shell.MTGService" >
-	<intent-filter>
-		<action android:name="com.mintegral.msdk.download.action" />
-	</intent-filter>
-</service>
+  <activity
+      android:name="com.mintegral.msdk.activity.MTGCommonActivity"
+      android:configChanges="keyboard|orientation"
+      android:screenOrientation="portrait"
+      android:exported="true"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar">
+  </activity>
+
+  <receiver android:name="com.mintegral.msdk.click.AppReceiver" >
+      <intent-filter>
+          <action android:name="android.intent.action.PACKAGE_ADDED" />
+          <data android:scheme="package" />
+      </intent-filter>
+  </receiver>
+  <service android:name="com.mintegral.msdk.shell.MTGService" >
+      <intent-filter>
+          <action android:name="com.mintegral.msdk.download.action" />
+      </intent-filter>
+  </service>
 ```
 
 **混淆：**
@@ -537,6 +563,7 @@ AndroidManifest.xml注册组件：
 
 **额外权限：**
 ```xml
+<!-- 可选权限 -->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
@@ -546,7 +573,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
 }
 ```
 
@@ -574,7 +601,7 @@ AndroidManifest.xml注册组件：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_unity.jar |
-| 三方版本          | 2.3.0                       |
+| 三方版本          | 3.1.0                       |
 | GooglePlayService | 需要                        |
 | 支持广告形式      | 插屏,视频                   |
 | .so/lib工程       | --                          |
@@ -589,10 +616,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  //GooglePlay发布或中国以外市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:unity:3.6.3'
-  //中国市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:unity-china:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
 }
 ```
 
@@ -600,13 +624,26 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-<activity android:name="com.unity3d.ads.adunit.AdUnitActivity"
-	android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"    
-	android:hardwareAccelerated="true" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-<activity android:name="com.unity3d.ads.adunit.AdUnitSoftwareActivity"    
-	android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-	android:hardwareAccelerated="false"   
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+  <activity
+      android:name="com.unity3d.services.ads.adunit.AdUnitActivity"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="true" />
+  <activity
+      android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="true" />
+  <activity
+      android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="false" />
+  <activity
+      android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="false" />
 ```
 
 **混淆：**
@@ -623,6 +660,11 @@ AndroidManifest.xml注册组件：
 -keep class com.unity3d.ads.** {
    *;
 }
+# Keep all classes in Unity Services package
+-keep class com.unity3d.services.** {
+   *;
+}
+-dontwarn com.google.ar.core.**
 ```
 
 
@@ -634,18 +676,16 @@ AndroidManifest.xml注册组件：
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar名称           | libs/yumi_adapter_vungle.jar |
-| 三方版本          | 6.3.17                       |
+| 三方版本          | 6.4.10                       |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | 插屏, 视频                   |
 | .so/lib工程       | converter-gson-2.2.0.jar  <br />  fetch-1.1.5.jar  <br />  gson-2.7.jar  <br />  logging-interceptor-3.7.0.jar  <br />  okhttp-3.7.0.jar  <br />  okio-1.12.0.jar  <br />  retrofit-2.2.0.jar  <br />  VNG-moat-mobile-app-kit-2.2.0.jar |
 
 **额外权限：**
 ```xml
-<!--Required Permissions-->
-<uses-permission android:name="android.permission.INTERNET" />
+<!--必选权限-->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<!--Optional Permissions-->
+<!--可选权限-->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
@@ -655,7 +695,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
 }
 ```
 
@@ -664,42 +704,74 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-	android:name="com.vungle.warren.ui.VungleActivity"
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-	android:launchMode="singleTop"
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    android:name="com.vungle.warren.ui.VungleActivity"      
+    android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+    android:launchMode="singleTop"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 <activity
-	android:name="com.vungle.warren.ui.VungleFlexViewActivity"
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-	android:hardwareAccelerated="true"
-	android:launchMode="singleTop"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    android:name="com.vungle.warren.ui.VungleFlexViewActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+    android:hardwareAccelerated="true"
+    android:launchMode="singleTop"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+<receiver
+    android:name="com.vungle.warren.NetworkProviderReceiver"
+    android:enabled="false" >
+    <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+</receiver>
 ```
 
 **混淆：**
 ```c
-# Vungle
 -keep class com.vungle.warren.** { *; }
 -dontwarn com.vungle.warren.error.VungleError$ErrorCode
+-keep class com.vungle.warren.downloader.DownloadRequest
+-dontwarn com.vungle.warren.downloader.DownloadRequest$Status
+# Google
+-keep class com.google.android.gms.internal.** { *; }
+-dontwarn com.google.android.gms.ads.identifier.**
 # Moat SDK
 -keep class com.moat.** { *; }
 -dontwarn com.moat.**
-# Okio
--dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 # Retrofit
 -dontwarn okio.**
 -dontwarn retrofit2.Platform$Java8
-# Gson
--keepattributes Signature
--keepattributes *Annotation*
--dontwarn sun.misc.**
--keep class com.google.gson.examples.android.model.** { *; }
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-# Google Android Advertising ID
--keep class com.google.android.gms.internal.** { *; }
--dontwarn com.google.android.gms.ads.identifier.**
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+# JSR 305 annotations are for embedding nullability information.
+-dontwarn javax.annotation.**
+# A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
+-dontwarn org.codehaus.mojo.animal_sniffer.*
+# OkHttp platform used only on JVM and when Conscrypt dependency is available.
+-dontwarn okhttp3.internal.platform.ConscryptPlatform
+## Retrofit2
+# Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
+# EnclosingMethod is required to use InnerClasses.
+-keepattributes Signature, InnerClasses, EnclosingMethod
+# Retrofit does reflection on method and parameter annotations.
+-keepattributes RuntimeVisibleAnnotations, RuntimeVisibleParameterAnnotations
+# Retain service method parameters when optimizing.
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+# Ignore annotation used for build tooling.
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+# Ignore JSR 305 annotations for embedding nullability information.
+-dontwarn javax.annotation.**
+-dontwarn kotlin.reflect.jvm.internal.**
+-keep class kotlin.reflect.jvm.internal.** { *; }
+# Guarded by a NoClassDefFoundError try/catch and only used when on the classpath.
+-dontwarn kotlin.Unit
+# Top-level functions that can only be used by Kotlin.
+-dontwarn retrofit2.KotlinExtensions
+# With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
+# and replaces all potential values with null. Explicitly keeping the interfaces prevents this.
+-if interface * { @retrofit2.http.* <methods>; }
+-keep,allowobfuscation interface <1>
 ```
 
 
@@ -727,7 +799,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:playableads:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:playableads:4.1.0'
 }
 ```
 
@@ -800,6 +872,7 @@ AndroidManifest.xml注册组件：
 
 **额外权限：**
 ```xml
+<!-- 可选权限 -->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 ```
@@ -809,7 +882,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:ksyun:4.1.0'
 }
 ```
 
@@ -853,7 +926,7 @@ AndroidManifest.xml注册组件：
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar名称           | libs/yumi_adapter_ironsource.jar |
-| 三方版本          | 6.7.10                        |
+| 三方版本          | 6.8.4                       |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | 插屏,视频                   |
 | .so/lib工程       | --|
@@ -868,7 +941,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:ironsource:4.1.0'
 }
 ```
 
@@ -877,19 +950,19 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-	android:name="com.ironsource.sdk.controller.ControllerActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true" />
+  android:name="com.ironsource.sdk.controller.ControllerActivity"
+  android:configChanges="orientation|screenSize"
+  android:hardwareAccelerated="true" />
 <activity
-	android:name="com.ironsource.sdk.controller.InterstitialActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Translucent" />
+  android:name="com.ironsource.sdk.controller.InterstitialActivity"
+  android:configChanges="orientation|screenSize"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.Translucent" />
 <activity
-	android:name="com.ironsource.sdk.controller.OpenUrlActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Translucent" />
+  android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+  android:configChanges="orientation|screenSize"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.Translucent" />
 ```
 
 **混淆：**
@@ -905,6 +978,8 @@ AndroidManifest.xml注册组件：
 }
 -keep class com.ironsource.adapters.** { *;
 }
+-dontwarn com.ironsource.mediationsdk.**
+-dontwarn com.ironsource.adapters.**
 -dontwarn com.moat.**
 -keep class com.moat.** { public protected private *; }
 ```
@@ -912,7 +987,7 @@ AndroidManifest.xml注册组件：
 
 |                   |                              |
 | ----------------- | ---------------------------- |
-| Jar名称           | libs/yumi_adapter_iqzone.jar |
+| Jar名称           | --                           |
 | 三方版本          | 2.3.2111                        |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | Banner,插屏,视频                   |
@@ -928,7 +1003,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:iqzone:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:iqzone:4.1.0'
 }
 ```
 
@@ -1091,4 +1166,82 @@ dependencies {
 -dontwarn com.smaato.soma.SomaUnityPlugin* -dontwarn com.millennialmedia**
 -dontwarn com.facebook.**
 -dontwarn org.codehause.**
+```
+
+### Bytedance
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar名称           | -- |
+| 三方版本          | 1.9.9.5                      |
+| GooglePlayService | --                         |
+| 支持广告形式      | Banner,插屏,视频,原生,开屏    |
+| .so/lib工程       | --|
+
+**额外权限：**
+```xml
+<!-- 必选权限 -->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+<uses-permission android:name="android.permission.GET_TASKS"/>
+<!-- 可选权限 -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+```
+
+**AndroidStudio开发**
+
+build.gradle添加：
+```c
+dependencies {
+  implementation 'com.yumimobi.ads.mediation:bytedance:4.1.0'
+}
+```
+
+**混淆：**
+```c
+-keep class com.bytedance.sdk.openadsdk.** { *; }
+-keep class com.androidquery.callback.** {*;}
+-keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
+-keep class com.ss.sys.ces.* {*;}
+```
+
+
+### Inneractive
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar名称           | -- |
+| 三方版本          | 7.3.0                      |
+| GooglePlayService | -- |
+| 支持广告形式      | Banner,插屏,视频    |
+| .so/lib工程       | --|
+
+**额外权限：**
+```xml
+<!-- 可选权限 -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+```
+
+**AndroidStudio开发**
+
+build.gradle添加：
+```c
+dependencies {
+  implementation 'com.yumimobi.ads.mediation:inneractive:4.1.0'
+}
+```
+
+**混淆：**
+```c
+-keep class com.fyber.inneractive.sdk.* {*;}
+-keep class org.a.* {*;}
+-keep class com.google.gson.* {*;}
 ```
