@@ -15,7 +15,7 @@
 
 6. Add platforms that support opening: AdMob Baidu, BytedanceAds, GDT
 
-7. Add Inventory : Banner, Interstitial, Video
+7. Add Inneractive : Banner, Interstitial, Video
 
 8. Upgrade the tripartite SDK, details: https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md
 
