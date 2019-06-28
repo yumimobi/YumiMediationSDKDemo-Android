@@ -8,7 +8,7 @@
 4. Increase video download to complete active callback
 5. Increase video clickback
 6. Add platforms that support open screen: Baidu, BytedanceAds, GDT
-7. Add  InventorySDK : Banner, Interstitial, Video
+7. Add  Inneractive SDK : Banner, Interstitial, Video
 8. Upgrade the tripartite SDK, details 
 
 注：Update  interface , please follow the documentation access；When the Untiy plugin is updated, please remove the old plugin and introduce the new plugin.
