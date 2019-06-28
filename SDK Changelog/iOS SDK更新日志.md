@@ -15,7 +15,7 @@
 
 6. 增加支持开屏的平台：AdMob  Baidu 、BytedanceAds 、GDT
 
-7. 增加 InneractiveAdSDK 平台 ，支持广告形式 ：Banner、Interstitial、Video
+7. 增加 Inventory SDK 平台 ，支持广告形式 ：Banner、Interstitial、Video
 
 8. 升级三方 SDK ，详情: https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md
 
