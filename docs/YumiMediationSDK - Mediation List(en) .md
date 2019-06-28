@@ -20,7 +20,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 
 - The minSdkVersion which the provider sdk required maybe above the YumiMobi SDK , please use the higher as your project minSdkVersion to avoid the unexpected exception. "-" means the minSdkVersion is same to YumiMobi SDK required.
 
-- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 3.6.3 "com.yumimobi.ads:mediation:3.6.3", you need to add such Adapter 3.6.3 version "com.yumimobi.ads.mediation:such:3.6.3"
+- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 4.1.0 "com.yumimobi.ads:mediation:4.1.0", you need to add such Adapter 4.1.0 version "com.yumimobi.ads.mediation:such:4.1.0"
 
 ## Support List
 
@@ -29,7 +29,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 |                   |                                                        |
 | ----------------- | ------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_adcolony.jar                         |
-| Provider Ver      | 3.3.7                                                  |
+| Provider Ver      | 3.3.10                                                  |
 | minSdkVersion     | Android 2.3.3 / API 10                                 |
 | GooglePlayService | Require                                                |
 | Ad Form           | Reward Video                                           |
@@ -37,6 +37,8 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 
 **Permission：**
 ```xml
+<!--Optional Permissions-->
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
 <uses-permission android:name="android.permission.VIBRATE" />
 ```
 
@@ -45,7 +47,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:adcolony:4.1.0'
 }
 ```
 
@@ -56,8 +58,6 @@ AndroidManifest.xml Component：
 <activity android:name="com.adcolony.sdk.AdColonyInterstitialActivity"
   android:configChanges="keyboardHidden|orientation|screenSize"
   android:hardwareAccelerated="true"/>
-<activity android:name="com.adcolony.sdk.AdColonyAdViewActivity"
-  android:configChanges="keyboardHidden|orientation|screenSize"/>
 ```
 
 **ProGuard：**
@@ -76,7 +76,7 @@ AndroidManifest.xml Component：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_admob.jar |
-| Provider Ver      | 17.1.3                         |
+| Provider Ver      | 17.2.0                         |
 | GooglePlayService | Require                     |
 | Ad Form           | Banner, Interstitial, Reward Video, Native|
 | .so/lib project   | --                          |
@@ -91,7 +91,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:admob:4.1.0'
 }
 ```
 
@@ -153,7 +153,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:applovin:4.1.0'
 }
 ```
 
@@ -184,11 +184,12 @@ AndroidManifest.xml Component：
 | Jar Name          | libs/yumi_adapter_baidu.jar |
 | Provider Ver      | 5.8.0                         |
 | GooglePlayService | --                          |
-| Ad Form           | Banner, Interstitial, Reward Video, Native        |
+| Ad Form           | Banner, Interstitial, Reward Video, Native, Splash        |
 | .so/lib project   | --                          |
 
 **Permission：**
 ```xml
+<!--Required Permissions-->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -199,7 +200,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:3.6.3.1'
+  implementation 'com.yumimobi.ads.mediation:baidu:4.1.0'
 }
 ```
 
@@ -250,7 +251,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:chartboost:4.1.0'
 }
 ```
 
@@ -277,7 +278,7 @@ AndroidManifest.xml Component：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_facebook.jar                               |
-| Provider Ver      | 5.1.0                                                       |
+| Provider Ver      | 5.3.1                                                       |
 | minSdkVersion     | Android 3.0 / API 11                                         |
 | GooglePlayService | Require                                                      |
 | Ad Form           | Banner, Interstitial , Reward Video (Videos ads in Audience Network requires the hardware accelerated rendering to be enabled, otherwise you might experience a black screen in the video views), Native |
@@ -293,7 +294,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:facebook:4.1.0'
 }
 ```
 
@@ -301,9 +302,25 @@ dependencies {
 
 AndroidManifest.xml Component：
 ```xml
-<activity
+  <activity
     android:name="com.facebook.ads.AudienceNetworkActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize" />
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:exported="false"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+  <activity
+    android:name="com.facebook.ads.internal.ipc.RemoteANActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:exported="false"
+    android:process=":adnw"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+  <service
+      android:name="com.facebook.ads.internal.ipc.AdsProcessPriorityService"
+      android:exported="false" />
+  <service
+      android:name="com.facebook.ads.internal.ipc.AdsMessengerService"
+      android:exported="false"
+      android:process=":adnw" />
 ```
 
 **ProGuard：**
@@ -322,15 +339,17 @@ AndroidManifest.xml Component：
 | Jar Name          | libs/yumi_adapter_gdt.jar |
 | Provider Ver      | 4.40.910                   |
 | GooglePlayService | --                        |
-| Ad Form           | Banner, Interstitial, Reward Video, Native      |
+| Ad Form           | Banner, Interstitial, Reward Video, Native, Splash      |
 | .so/lib project   | --                        |
 
 **Permission：**
 ```xml
+<!--Required Permissions-->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
-<uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 ```
 
 **Using AndroidStudio**
@@ -338,7 +357,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:gdt:4.1.0'
 }
 ```
 <p><span style="color:red;">Precautions:
@@ -367,12 +386,17 @@ AndroidManifest.xml Component：
 
 **ProGuard：**
 ```c
--keep class com.qq.e.** {
-public protected *;
+-keep class com.qq.e.** { 
+    public protected *; 
 }
--keep class com.tencent.gdt.**{
-public protected *;
+-keep class MTT.ThirdAppInfoNew { 
+    *; 
 }
+-keep class com.tencent.** { 
+    *;
+} 
+-dontwarn dalvik.**
+-dontwarn com.tencent.smtt.**  
 ```
 
 
@@ -384,7 +408,7 @@ public protected *;
 |                   |                                    |
 | ----------------- | ---------------------------------- |
 | Jar Name          | libs/yumi_adapter_inmobi.jar       |
-| Provider Ver      | 7.2.7                              |
+| Provider Ver      | 8.0.9                              |
 | minSdkVersion     | Android 2.3 / API 9;  Android 4.0 / API 14 (For Reward Video)|
 | GooglePlayService | Require                            |
 | Ad Form           | Banner, Interstitial, Reward Video |
@@ -392,6 +416,7 @@ public protected *;
 
 **Permission：**
 ```xml
+<!--Optional Permissions-->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -408,7 +433,7 @@ public protected *;
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:inmobi:4.1.0'
 }
 ```
 
@@ -417,39 +442,33 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-	android:name="com.inmobi.rendering.InMobiAdActivity"
-	android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-<receiver
-	android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
-	android:enabled="true"
-	android:exported="true" >
-	<intent-filter>
-	  <action android:name="com.inmobi.share.id" />
-	</intent-filter>
-</receiver>
-<service
-	android:name="com.inmobi.commons.internal.ActivityRecognitionManager"
-	android:enabled="true" />
+    android:name="com.inmobi.ads.rendering.InMobiAdActivity"
+    android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout|locale|fontScale"
+    android:hardwareAccelerated="true"
+    android:resizeableActivity="false"
+    android:theme="@android:style/Theme.NoTitleBar"
+    tools:ignore="UnusedAttribute" />
 ```
 
 **ProGuard：**
 ```c
--keep class com.google.android.gms.common.api.GoogleApiClient { public *; }
--keep class com.google.android.gms.common.api.GoogleApiClient$* {public *;}
--keep class com.google.android.gms.location.LocationServices {public *;}
--keep class com.google.android.gms.location.FusedLocationProviderApi {public *;}
--keep class com.google.android.gms.location.ActivityRecognition {public *;}
--keep class com.google.android.gms.location.ActivityRecognitionApi {public *;}
--keep class com.google.android.gms.location.ActivityRecognitionResult {public *;}
--keep class com.google.android.gms.location.DetectedActivity {public *;}
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{public *;}
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{public *;}
--keepattributes SourceFile,LineNumberTable,InnerClasses
+-keepattributes SourceFile,LineNumberTable
 -keep class com.inmobi.** { *; }
 -dontwarn com.inmobi.**
--dontwarn com.google.android.gms**
+-keep public class com.google.android.gms.**
+-dontwarn com.google.android.gms.**
+-dontwarn com.squareup.picasso.**
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{public *;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{public *;}
+#skip the Picasso library classes
+-keep class com.squareup.picasso.** {*;}
+-dontwarn com.squareup.picasso.**
+-dontwarn com.squareup.okhttp.**
+#skip Moat classes
+-keep class com.moat.** {*;}
+-dontwarn com.moat.**
+#skip AVID classes
+-keep class com.integralads.avid.library.** {*;}
 ```
 
 
@@ -461,14 +480,18 @@ AndroidManifest.xml Component：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_mintegral.jar                               |
-| Provider Ver      | 8.13.0                                                        |
+| Provider Ver      | 9.11.0                                                        |
 | GooglePlayService | --                                                           |
 | Ad Form           | Reward Video                                                 |
 | .so/lib project   | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values  |
 
 **Permission：**
 ```xml
+<!--Optional Permissions-->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+<!-- mintegral-china SDK Required Permissions-->
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
 **Using AndroidStudio**
@@ -477,9 +500,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  implementation 'com.yumimobi.ads.mediation:mintegral:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
   //China market channel release
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.1.0'
 }
 ```
 
@@ -487,22 +510,25 @@ dependencies {
 
 AndroidManifest.xml Component：
 ```xml
-<activity
-	android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
-	android:configChanges="orientation|keyboardHidden|screenSize"
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-<activity
-	android:name="com.mintegral.msdk.activity.MTGCommonActivity"
-	android:configChanges="keyboard|orientation"
-	android:screenOrientation="portrait"
-	android:exported="true"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar">
-</activity>
-<service android:name="com.mintegral.msdk.shell.MTGService" >
-	<intent-filter>
-		<action android:name="com.mintegral.msdk.download.action" />
-	</intent-filter>
-</service>
+  <activity
+      android:name="com.mintegral.msdk.activity.MTGCommonActivity"
+      android:configChanges="keyboard|orientation"
+      android:screenOrientation="portrait"
+      android:exported="true"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar">
+  </activity>
+
+  <receiver android:name="com.mintegral.msdk.click.AppReceiver" >
+      <intent-filter>
+          <action android:name="android.intent.action.PACKAGE_ADDED" />
+          <data android:scheme="package" />
+      </intent-filter>
+  </receiver>
+  <service android:name="com.mintegral.msdk.shell.MTGService" >
+      <intent-filter>
+          <action android:name="com.mintegral.msdk.download.action" />
+      </intent-filter>
+  </service>
 ```
 
 **ProGuard：**
@@ -534,6 +560,7 @@ AndroidManifest.xml Component：
 
 **Permission：**
 ```xml
+<!--Optional Permissions-->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
@@ -543,7 +570,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
 }
 ```
 
@@ -572,7 +599,7 @@ AndroidManifest.xml Component：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_unity.jar |
-| Provider Ver      | 2.3.0                       |
+| Provider Ver      | 3.1.0                       |
 | GooglePlayService | Require                     |
 | Ad Form           | Interstitial,Reward Video   |
 | .so/lib project   | --                          |
@@ -587,10 +614,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  //GooglePlay release or release outside China market channel
-  implementation 'com.yumimobi.ads.mediation:unity:3.6.3'
-  //China market channel release
-  implementation 'com.yumimobi.ads.mediation:unity-china:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
 }
 ```
 
@@ -598,13 +622,26 @@ dependencies {
 
 AndroidManifest.xml Component：
 ```xml
-<activity android:name="com.unity3d.ads.adunit.AdUnitActivity"
-	android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"    
-	android:hardwareAccelerated="true" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-<activity android:name="com.unity3d.ads.adunit.AdUnitSoftwareActivity"    
-	android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-	android:hardwareAccelerated="false"   
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+  <activity
+      android:name="com.unity3d.services.ads.adunit.AdUnitActivity"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="true" />
+  <activity
+      android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="true" />
+  <activity
+      android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="false" />
+  <activity
+      android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="false" />
 ```
 
 **ProGuard：**
@@ -621,6 +658,11 @@ AndroidManifest.xml Component：
 -keep class com.unity3d.ads.** {
    *;
 }
+# Keep all classes in Unity Services package
+-keep class com.unity3d.services.** {
+   *;
+}
+-dontwarn com.google.ar.core.**
 ```
 
 
@@ -632,7 +674,7 @@ AndroidManifest.xml Component：
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar Name          | libs/yumi_adapter_vungle.jar |
-| Provider Ver      | 6.3.17                       |
+| Provider Ver      | 6.4.10                       |
 | GooglePlayService | Require                      |
 | Ad Form           | Interstitial, Reward Video   |
 | .so/lib project   | converter-gson-2.2.0.jar  <br />  fetch-1.1.5.jar  <br />  gson-2.7.jar  <br />  logging-interceptor-3.7.0.jar  <br />  okhttp-3.7.0.jar  <br />  okio-1.12.0.jar  <br />  retrofit-2.2.0.jar  <br />  VNG-moat-mobile-app-kit-2.2.0.jar |
@@ -640,9 +682,7 @@ AndroidManifest.xml Component：
 **Permission：**
 ```xml
 <!--Required Permissions-->
-<uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <!--Optional Permissions-->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -653,7 +693,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
 }
 ```
 
@@ -662,42 +702,74 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-	android:name="com.vungle.warren.ui.VungleActivity"
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-	android:launchMode="singleTop"
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    android:name="com.vungle.warren.ui.VungleActivity"      
+    android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+    android:launchMode="singleTop"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 <activity
-	android:name="com.vungle.warren.ui.VungleFlexViewActivity"
-	android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-	android:hardwareAccelerated="true"
-	android:launchMode="singleTop"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    android:name="com.vungle.warren.ui.VungleFlexViewActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+    android:hardwareAccelerated="true"
+    android:launchMode="singleTop"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+<receiver
+    android:name="com.vungle.warren.NetworkProviderReceiver"
+    android:enabled="false" >
+    <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+</receiver>
 ```
 
 **ProGuard：**
 ```c
-# Vungle
 -keep class com.vungle.warren.** { *; }
 -dontwarn com.vungle.warren.error.VungleError$ErrorCode
+-keep class com.vungle.warren.downloader.DownloadRequest
+-dontwarn com.vungle.warren.downloader.DownloadRequest$Status
+# Google
+-keep class com.google.android.gms.internal.** { *; }
+-dontwarn com.google.android.gms.ads.identifier.**
 # Moat SDK
 -keep class com.moat.** { *; }
 -dontwarn com.moat.**
-# Okio
--dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 # Retrofit
 -dontwarn okio.**
 -dontwarn retrofit2.Platform$Java8
-# Gson
--keepattributes Signature
--keepattributes *Annotation*
--dontwarn sun.misc.**
--keep class com.google.gson.examples.android.model.** { *; }
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-# Google Android Advertising ID
--keep class com.google.android.gms.internal.** { *; }
--dontwarn com.google.android.gms.ads.identifier.**
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+# JSR 305 annotations are for embedding nullability information.
+-dontwarn javax.annotation.**
+# A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
+-dontwarn org.codehaus.mojo.animal_sniffer.*
+# OkHttp platform used only on JVM and when Conscrypt dependency is available.
+-dontwarn okhttp3.internal.platform.ConscryptPlatform
+## Retrofit2
+# Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
+# EnclosingMethod is required to use InnerClasses.
+-keepattributes Signature, InnerClasses, EnclosingMethod
+# Retrofit does reflection on method and parameter annotations.
+-keepattributes RuntimeVisibleAnnotations, RuntimeVisibleParameterAnnotations
+# Retain service method parameters when optimizing.
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+# Ignore annotation used for build tooling.
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+# Ignore JSR 305 annotations for embedding nullability information.
+-dontwarn javax.annotation.**
+-dontwarn kotlin.reflect.jvm.internal.**
+-keep class kotlin.reflect.jvm.internal.** { *; }
+# Guarded by a NoClassDefFoundError try/catch and only used when on the classpath.
+-dontwarn kotlin.Unit
+# Top-level functions that can only be used by Kotlin.
+-dontwarn retrofit2.KotlinExtensions
+# With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
+# and replaces all potential values with null. Explicitly keeping the interfaces prevents this.
+-if interface * { @retrofit2.http.* <methods>; }
+-keep,allowobfuscation interface <1>
 ```
 
 
@@ -724,7 +796,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:playableads:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:playableads:4.1.0'
 }
 ```
 
@@ -798,6 +870,7 @@ AndroidManifest.xml Component：
 
 **Permission：**
 ```xml
+<!--Optional Permissions-->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 ```
@@ -807,7 +880,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:ksyun:4.1.0'
 }
 ```
 
@@ -866,7 +939,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:3.6.3'
+  implementation 'com.yumimobi.ads.mediation:ironsource:4.1.0'
 }
 ```
 
@@ -875,19 +948,19 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-	android:name="com.ironsource.sdk.controller.ControllerActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true" />
+  android:name="com.ironsource.sdk.controller.ControllerActivity"
+  android:configChanges="orientation|screenSize"
+  android:hardwareAccelerated="true" />
 <activity
-	android:name="com.ironsource.sdk.controller.InterstitialActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Translucent" />
+  android:name="com.ironsource.sdk.controller.InterstitialActivity"
+  android:configChanges="orientation|screenSize"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.Translucent" />
 <activity
-	android:name="com.ironsource.sdk.controller.OpenUrlActivity"
-	android:configChanges="orientation|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Translucent" />
+  android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+  android:configChanges="orientation|screenSize"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.Translucent" />
 ```
 
 **ProGuard：**
@@ -903,6 +976,8 @@ AndroidManifest.xml Component：
 }
 -keep class com.ironsource.adapters.** { *;
 }
+-dontwarn com.ironsource.mediationsdk.**
+-dontwarn com.ironsource.adapters.**
 -dontwarn com.moat.**
 -keep class com.moat.** { public protected private *; }
 ```
@@ -927,7 +1002,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-   implementation 'com.yumimobi.ads.mediation:iqzone:3.6.3'
+   implementation 'com.yumimobi.ads.mediation:iqzone:4.1.0'
 }
 ```
 
@@ -1091,4 +1166,82 @@ dependencies {
 -dontwarn com.smaato.soma.SomaUnityPlugin* -dontwarn com.millennialmedia**
 -dontwarn com.facebook.**
 -dontwarn org.codehause.**
+```
+
+### Bytedance
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar Name           | -- |
+| Provider Ver          | 1.9.9.5  |
+| GooglePlayService | --        |
+| Ad Form       | Banner, Interstitial, Reward Video, Splash     |
+| .so/lib project       | --|
+
+**Permission：**
+```xml
+<!--Required Permissions-->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+<uses-permission android:name="android.permission.GET_TASKS"/>
+<!--Optional Permissions-->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+```
+
+**Using AndroidStudio**
+
+build.gradle add：
+```c
+dependencies {
+  implementation 'com.yumimobi.ads.mediation:bytedance:4.1.0'
+}
+```
+
+**ProGuard：**
+```c
+-keep class com.bytedance.sdk.openadsdk.** { *; }
+-keep class com.androidquery.callback.** {*;}
+-keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
+-keep class com.ss.sys.ces.* {*;}
+```
+
+
+### Inneractive
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar Name           | -- |
+| Provider Ver          | 7.3.0  |
+| GooglePlayService | --        |
+| Ad Form       | Banner, Interstitial, Reward Video     |
+| .so/lib project       | --|
+
+**Permission：**
+```xml
+<!--Optional Permissions-->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+```
+
+**Using AndroidStudio**
+
+build.gradle add：
+```c
+dependencies {
+  implementation 'com.yumimobi.ads.mediation:inneractive:4.1.0'
+}
+```
+
+**ProGuard：**
+```c
+-keep class com.fyber.inneractive.sdk.* {*;}
+-keep class org.a.* {*;}
+-keep class com.google.gson.* {*;}
 ```

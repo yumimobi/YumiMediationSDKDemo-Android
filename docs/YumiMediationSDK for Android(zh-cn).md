@@ -888,11 +888,11 @@ YumiMediationSDK 会将 5.3.1 中设置的 GDPR 状态根据支持 GDPR 的三�
 
 1、调用方法打开调试页面：
 
-YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID); 
+YumiSettings.startDebugging(Activity, BannerSlotID, InterstitialSlotID, MediaSlotID, NativeSloatID, SplashSlotID); 
 
 如果设置了版本、渠道，根据您在平台的配置需要设置渠道、版本调用方法打开调试页面：
 
-YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID, NativeSloatID,channelID, versionName);
+YumiSettings.startDebugging (Activity, BannerSlotID, InterstitialSlotID, MediaSlotID, NativeSloatID, SplashSlotID, channelID, versionName);
 
 2、玉米SDK将检测开发者接入的平台，并将获取到的平台展示在平台列表中，进入debug页面：
 
@@ -938,6 +938,6 @@ debug 页面说明：
 | Interstitial | 56ubk22h | 使用此test id，可以测试到YUMI、AdMob、AppLovin、Baidu、IronSource、InMobi、IQzone、Unity Ads、Vungle、ZPLAYAds等平台的测试广告 |
 | Rewarded Video | ew9hyvl4 | YUMI、AdMob、AppLovin、GDTMob、IronSource、InMobi、IQzone、Unity Ads、Vungle、ZPLAYAds等平台的测试广告可以使用此test id进行测试 |
 | Native | dt62rndy | YUMI、AdMob、Baidu、GDTMob、Facebook等平台可以使用此test id进行测试 |
-| Splash | vv7snvc5 | 使用此test id，只能测试到YUMI平台的测试广告 |
+| Splash | vv7snvc5 | YUMI,Baidu,GDTMob,AdMob,穿山甲 使用此test id，以上Network平台可测试到对应平台广告 |
 
 接入过程中常见的[问题与解决方案](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/YumiMediationSDK_QA/YumiMediationSDK_QA.md#android)

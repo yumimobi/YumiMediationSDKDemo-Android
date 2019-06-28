@@ -111,8 +111,6 @@ dependencies {
     implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
     implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
     implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
-    // If you publish an app in China, you can use unity-china sdk
-    // compile 'com.yumimobi.ads.mediation:unity-china:4.1.0'
     implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
 ｝
 ```
@@ -878,11 +876,11 @@ YumiMediationSDK will pass the GDPR status set in 5.3.1 to the three-party platf
 
 1、Call method to open test page :
 
-YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID); 
+YumiSettings.startDebugging(Activity,BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID, SplashSlotID); 
 
 If you set the version, channel, according to your need to set the channel in the platform configuration, version call method to open the debug page:
 
-YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID, channelID, versionName);
+YumiSettings.startDebugging (Activity, BannerSlotID,InterstitialSlotID,MediaSlotID,NativeSloatID, SplashSlotID, channelID, versionName);
 
 2、The Yumi SDK will detect the platform accessed in the application and display the acquired platform in the platform list, and go to the debug page:
 
@@ -930,6 +928,6 @@ Below is a sample screen of some banner ads that were fetched from Baidu ad netw
 | Interstitial | 56ubk22h | Using this test ID, you are able to get test ads which are form YUMI, AdMob, AppLovin, Baidu, IronSource, InMobi, IQzone, Unity Ads, Vungle, ZPLAYAds |
 | Rewarded Video | ew9hyvl4 | Using this test ID, you can get test ads which are from YUMI, AdMob, AppLovin, GDTMob, IronSource, InMobi, IQzone, Unity Ads, Vungle, ZPLAYAds |
 | Native | dt62rndy | You can get test ads which are from YUMI, AdMob, Baidu, GDTMob, Facebook by using this test ID |
-| Splash | vv7snvc5 | For now, Only YUMI platform returns test ads by use this test ID |
+| Splash | vv7snvc5 | You can get test ads which are from YUMI,Baidu,GDTMob,AdMob,BytedanceAds by using this test ID |
 
 [Common problems and solutions](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/YumiMediationSDK_QA/YumiMediationSDK_QA.md#android) in the integration.
