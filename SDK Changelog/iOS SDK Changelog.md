@@ -19,7 +19,7 @@
 
 8. Upgrade the tripartite SDK, details: https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md
 
-注：When the Untiy plugin is updated, please remove the old plugin and introduce the new plugin.
+注：Update  interface , please follow the documentation access；When the Untiy plugin is updated, please remove the old plugin and introduce the new plugin.
 
 
 #### V 3.6.4
