@@ -855,6 +855,7 @@ YumiSettings.setGDPRConsent(YumiGDPRStatus.PERSONALIZED);
 ```
 #### 4.3.2 支持 GDPR 的平台
 YumiMediationSDK 会将 5.3.1 中设置的 GDPR 状态根据支持 GDPR 的三方平台的官方文档设置到各三方平台，开发者无需额外设置。以下是各三方平台对 GDPR 的支持状态。
+
 |序号|平台|是否支持 GDPR|备注|
 |---|---|---|---|
 |1|adcolony|是|[官方文档](https://github.com/AdColony/AdColony-Android-SDK-3/wiki/GDPR#code-example)|
