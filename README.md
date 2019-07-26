@@ -27,4 +27,6 @@
 [**YumiMediationSDK Unity for Android(en)**](https://github.com/yumimobi/YumiMediationSDK-Unity/blob/master/source/document/YumiMediationSDK%20for%20Unity(en).md)
 
 ### Q&A
-[YumiMediationSDK Q&A](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/YumiMediationSDK_QA/YumiMediationSDK_QA.md)
+[YumiMediationSDK Q&A (zh-cn)](https://github.com/yumimobi/Developer-doc/blob/master/FAQ_latest_cn.md)
+
+[YumiMediationSDK Q&A (en)](https://github.com/yumimobi/Developer-doc/blob/master/FAQ_latest_en.md)
