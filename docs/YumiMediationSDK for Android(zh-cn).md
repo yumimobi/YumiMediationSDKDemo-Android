@@ -39,6 +39,7 @@
       * [5. 调试模式](#5-调试模式)
          * [5.1 调用调试模式](#51-调用调试模式)
          * [5.2 测试广告位](#52-测试广告位)
+      * [6. 接入常见问题](#6-接入常见问题)
 
 # YumiMediationSDK Android
 
@@ -941,4 +942,6 @@ debug 页面说明：
 | Native | dt62rndy | YUMI、AdMob、Baidu、GDTMob、Facebook等平台可以使用此test id进行测试 |
 | Splash | vv7snvc5 | YUMI,Baidu,GDTMob,AdMob,穿山甲 使用此test id，以上Network平台可测试到对应平台广告 |
 
-接入过程中常见的[问题与解决方案](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/YumiMediationSDK_QA/YumiMediationSDK_QA.md#android)
+## 6. 接入常见问题
+若您在接入过程中遇到任何问题，可点击查看[常见问题解答](https://github.com/yumimobi/Developer-doc/blob/master/FAQ_latest_cn.md)。
+

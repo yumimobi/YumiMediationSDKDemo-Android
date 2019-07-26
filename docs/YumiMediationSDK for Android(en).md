@@ -39,6 +39,8 @@
       * [5 Test Mode](#5-test-mode)
          * [5.1 Debug mode](#51-debug-mode)
          * [5.2 Test ad slot](#52-test-ad-slot)
+      * [6 YumiMediationSDK Q&A](#6-yumimediationsdk-qa)
+
 
 
 # YumiMediationSDK Android
@@ -930,4 +932,7 @@ Below is a sample screen of some banner ads that were fetched from Baidu ad netw
 | Native | dt62rndy | You can get test ads which are from YUMI, AdMob, Baidu, GDTMob, Facebook by using this test ID |
 | Splash | vv7snvc5 | You can get test ads which are from YUMI,Baidu,GDTMob,AdMob,BytedanceAds by using this test ID |
 
-[Common problems and solutions](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/YumiMediationSDK_QA/YumiMediationSDK_QA.md#android) in the integration.
+[Frequently asked questions](https://github.com/yumimobi/Developer-doc/blob/master/FAQ_latest_en.md) in the integration.
+
+## 6 YumiMediationSDK Q&A
+If you meet any issue when integrating, click to see [YumiMediationSDK Q&A](https://github.com/yumimobi/Developer-doc/blob/master/FAQ_latest_en.md).
