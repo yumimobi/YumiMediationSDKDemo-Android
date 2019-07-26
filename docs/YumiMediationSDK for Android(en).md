@@ -930,4 +930,4 @@ Below is a sample screen of some banner ads that were fetched from Baidu ad netw
 | Native | dt62rndy | You can get test ads which are from YUMI, AdMob, Baidu, GDTMob, Facebook by using this test ID |
 | Splash | vv7snvc5 | You can get test ads which are from YUMI,Baidu,GDTMob,AdMob,BytedanceAds by using this test ID |
 
-[Common problems and solutions](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/YumiMediationSDK_QA/YumiMediationSDK_QA.md#android) in the integration.
+[Frequently asked questions](https://github.com/yumimobi/Developer-doc/blob/master/FAQ_latest_en.md) in the integration.

@@ -941,4 +941,4 @@ debug 页面说明：
 | Native | dt62rndy | YUMI、AdMob、Baidu、GDTMob、Facebook等平台可以使用此test id进行测试 |
 | Splash | vv7snvc5 | YUMI,Baidu,GDTMob,AdMob,穿山甲 使用此test id，以上Network平台可测试到对应平台广告 |
 
-接入过程中常见的[问题与解决方案](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/YumiMediationSDK_QA/YumiMediationSDK_QA.md#android)
+接入过程中常见的[问题与解决方案](https://github.com/yumimobi/Developer-doc/blob/master/FAQ_latest_cn.md)
