@@ -15,6 +15,7 @@ import com.yumi.android.sdk.ads.publish.listener.IYumiMediaListener;
 import com.yumimobi.ads.R;
 
 public class MediaActivity extends MActivity implements OnClickListener {
+    private static final String TAG = "MediaActivity";
 
     private TextView info;
     private Button show, isPrepared, remain;
@@ -45,49 +46,49 @@ public class MediaActivity extends MActivity implements OnClickListener {
 
             @Override
             public void onMediaRewarded() {
-                Log.e("mikoto", "on media rewarded ");
+                Log.e(TAG, "on media rewarded ");
                 setInfo("on media rewarded ");
             }
 
             @Override
             public void onMediaPrepared() {
-                Log.e("mikoto", "on media  prepared ");
+                Log.e(TAG, "on media  prepared ");
                 setInfo("on media prepared ");
             }
 
             @Override
             public void onMediaPreparedFailed(AdError errorCode) {
-                Log.e("mikoto", "on media preparedFailed ");
+                Log.e(TAG, "on media preparedFailed ");
                 setInfo("on media preparedFailed " + errorCode);
             }
 
             @Override
             public void onMediaExposure() {
-                Log.e("mikoto", "on media exposure ");
+                Log.e(TAG, "on media exposure ");
                 setInfo("on media exposure ");
             }
 
             @Override
             public void onMediaExposureFailed(AdError adError) {
-                Log.e("mikoto", "on media exposure failed: " + adError);
+                Log.e(TAG, "on media exposure failed: " + adError);
                 setInfo("on media exposure failed");
             }
 
             @Override
             public void onMediaClosed(boolean isRewarded) {
-                Log.e("mikoto", "on media closed， isRewarded ：" + isRewarded);
+                Log.e(TAG, "on media closed， isRewarded ：" + isRewarded);
                 setInfo("on media closed， isRewarded ：" + isRewarded);
             }
 
             @Override
             public void onMediaClicked() {
-                Log.e("mikoto", "on media clicked ");
+                Log.e(TAG, "on media clicked ");
                 setInfo("on media clicked ");
             }
 
             @Override
             public void onMediaStartPlaying() {
-                Log.e("mikoto", "on media start playing ");
+                Log.e(TAG, "on media start playing ");
                 setInfo("on media start playing ");
             }
         };
@@ -126,16 +127,16 @@ public class MediaActivity extends MActivity implements OnClickListener {
         } else if (v.getId() == R.id.isPrepared) {
             if (media != null) {
                 if (media.isReady()) {
-                    Log.e("mikoto", "media prepared ");
+                    Log.e(TAG, "media prepared ");
                     setInfo("media prepared");
                 } else {
-                    Log.e("mikoto", "media prepared failed");
+                    Log.e(TAG, "media prepared failed");
                     setInfo("media prepared failed");
                 }
             }
         } else if (v.getId() == R.id.remain) {
             if (media != null) {
-                Log.e("mikoto", "media MediaRemainRewards is " + media.getMediaRemainRewards());
+                Log.e(TAG, "media MediaRemainRewards is " + media.getMediaRemainRewards());
                 setInfo("media MediaRemainRewards is " + media.getMediaRemainRewards());
             }
         }
@@ -144,7 +145,7 @@ public class MediaActivity extends MActivity implements OnClickListener {
 
     @Override
     protected void onDestroy() {
-        Log.e("mikoto", "media activity destroy");
+        Log.e(TAG, "media activity destroy");
         if (media != null) {
             media.destroy();
         }

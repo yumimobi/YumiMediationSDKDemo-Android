@@ -20,14 +20,9 @@ allprojects {
     repositories {
         jcenter()
         google()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
 
         maven { url "https://dl.bintray.com/yumimobi/thirdparty/" }
         maven { url "https://dl.bintray.com/yumimobi/ads/" }
-        maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
     }
 }
 
