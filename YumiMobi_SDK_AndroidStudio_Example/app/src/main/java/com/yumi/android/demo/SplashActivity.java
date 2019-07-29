@@ -29,7 +29,7 @@ public class SplashActivity extends MActivity {
     private View mHackerView;
     private EditText mFetchTime;
     private TextView mLogView;
-    private FrameLayout mSplashContainer;
+    private boolean canBack = true;
 
     @Override
     public void onActivityCreate() {
@@ -37,17 +37,17 @@ public class SplashActivity extends MActivity {
         mLogView = findViewById(R.id.splash_log_text_view);
         mFetchTime = findViewById(R.id.fetch_time_edit_text);
         mFetchTime.setText(String.valueOf(DEFAULT_FETCH_SECONDS));
-        mSplashContainer = findViewById(R.id.splash_container);
+        FrameLayout splashContainer = findViewById(R.id.splash_container);
 
         SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
         String key = sp.getString("splash_slotID", "");
         if (TextUtils.isEmpty(key)) {
-            Toast.makeText(this, "cannot found slot id", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "not input appID", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
 
-        mYumiSplash = new YumiSplash(this, mSplashContainer, key);
+        mYumiSplash = new YumiSplash(this, splashContainer, key);
         mYumiSplash.setChannelID(channelStr);
         mYumiSplash.setVersionName(versionStr);
         mYumiSplash.setLaunchImage(getResources().getDrawable(R.drawable.splash_drawable));
@@ -61,6 +61,7 @@ public class SplashActivity extends MActivity {
             public void onSplashAdFailToShow(AdError error) {
                 addLog("onSplashAdFailToShow: " + error);
                 launchMainActivity();
+                canBack = true;
             }
 
             @Override
@@ -71,6 +72,7 @@ public class SplashActivity extends MActivity {
             @Override
             public void onSplashAdClosed() {
                 addLog("onSplashAdClosed");
+                canBack = true;
                 launchMainActivity();
             }
         });
@@ -98,6 +100,7 @@ public class SplashActivity extends MActivity {
     }
 
     public void loadAd(View view) {
+        canBack = false;
         mYumiSplash.setFetchTime(getFetchSeconds());
         mYumiSplash.loadAdAndShowInWindow();
     }
@@ -112,5 +115,12 @@ public class SplashActivity extends MActivity {
     private void addLog(String msg) {
         Log.d(TAG, "addLog: " + msg);
         mLogView.setText(String.format("%s\n%s", mLogView.getText(), msg));
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (canBack) {
+            super.onBackPressed();
+        }
     }
 }

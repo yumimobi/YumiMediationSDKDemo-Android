@@ -29,9 +29,7 @@ public class MainActivity extends MActivity implements OnClickListener, OnChecke
     private EditText channel;
     private EditText version;
     private EditText bannerSlotID, interstitialSlotID, mdiaSlotID, splashSlotID, nativeSlotID;
-    private CheckBox cbIsMatchWindowWidth;
     private CheckBox mGdprConsentStatusCheckBox;
-    private boolean isMatchWindowWidth;
 
     @Override
     public void initView() {
@@ -59,23 +57,19 @@ public class MainActivity extends MActivity implements OnClickListener, OnChecke
         version = (EditText) findViewById(R.id.version);
         version.clearFocus();
 
-        cbIsMatchWindowWidth = (CheckBox) findViewById(R.id.cb_isMatchWindowWidth);
 
         mGdprConsentStatusCheckBox = findViewById(R.id.gdpr_settings_check_box);
 
         channel.setText(getStringConfig("channel"));
         version.setText(getStringConfig("version"));
-        boolean isdebug = getBooleanConfig("debug");
-        isMatchWindowWidth = getBooleanConfig("isMatchWindowWidth");
-        cbIsMatchWindowWidth.setChecked(isMatchWindowWidth);
         YumiSettings.runInCheckPermission(true);
 
 
         bannerSlotID.setText(getStringConfig("banner_slotID", "uz852t89"));
         interstitialSlotID.setText(getStringConfig("interstitial_slotID", "56ubk22h"));
         mdiaSlotID.setText(getStringConfig("mdia_slotID", "ew9hyvl4"));
-        splashSlotID.setText(getStringConfig("splash_slotID", "dt62rndy"));
-        nativeSlotID.setText(getStringConfig("native_slotID", "vv7snvc5"));
+        splashSlotID.setText(getStringConfig("splash_slotID", "vv7snvc5"));
+        nativeSlotID.setText(getStringConfig("native_slotID", "dt62rndy"));
     }
 
     @Override
@@ -86,16 +80,12 @@ public class MainActivity extends MActivity implements OnClickListener, OnChecke
         btnSplash.setOnClickListener(this);
         btnNative.setOnClickListener(this);
         btnStartDebugging.setOnClickListener(this);
-        cbIsMatchWindowWidth.setOnCheckedChangeListener(this);
         mGdprConsentStatusCheckBox.setOnCheckedChangeListener(this);
     }
 
     @Override
     public void onCheckedChanged(CompoundButton b, boolean flag) {
-        if (b == cbIsMatchWindowWidth) {
-            sp.edit().putBoolean("isMatchWindowWidth", flag).apply();
-            isMatchWindowWidth = flag;
-        } else if (b == mGdprConsentStatusCheckBox) {
+        if (b == mGdprConsentStatusCheckBox) {
             if (flag) {
                 YumiSettings.setGDPRConsent(YumiGDPRStatus.PERSONALIZED);
             } else {
@@ -130,7 +120,6 @@ public class MainActivity extends MActivity implements OnClickListener, OnChecke
         switch (v.getId()) {
             case R.id.btn_banner_a:
                 intent.setClass(MainActivity.this, BannerActivity.class);
-                intent.putExtra("isMatchWindowWidth", isMatchWindowWidth);
                 break;
             case R.id.btn_interstitial_a:
                 intent.setClass(MainActivity.this, InterstitialActivity.class);
