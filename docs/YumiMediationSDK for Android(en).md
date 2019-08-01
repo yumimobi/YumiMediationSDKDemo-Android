@@ -119,7 +119,7 @@ dependencies {
 
 > [Click here](https://github.com/yumimobi/YumiMediationSDKDemo-Android#latest-version) get latest version number. 
 
-> Platform adapter, [Click here](./YumiMediationSDK%20-%20Mediation%20List(zh-cn)%20.md) 
+> Platform adapter, [Click here](./YumiMediationSDK%20-%20Mediation%20List(en)%20.md) 
 
 Optional permission.
 
