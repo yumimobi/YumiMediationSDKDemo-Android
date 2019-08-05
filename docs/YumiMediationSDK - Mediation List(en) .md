@@ -217,6 +217,15 @@ AndroidManifest.xml Component：
   android:launchMode="singleTask"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 </activity>
+<provider
+  android:name="com.baidu.mobads.openad.FileProvider"
+  android:authorities="${applicationId}.bd.provider"
+  android:exported="false"
+  android:grantUriPermissions="true">
+  <meta-data
+      android:name="android.support.FILE_PROVIDER_PATHS"
+      android:resource="@xml/bd_file_paths" />
+</provider>
 ```
 
 **ProGuard：**
@@ -226,6 +235,39 @@ AndroidManifest.xml Component：
 }
 ```
 
+**Note:**
+
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```java
+     <provider
+            android:name="com.baidu.mobads.openad.FileProvider"
+            android:authorities="${applicationId}.bd.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/bd_file_paths" />
+    </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the bd_file_paths.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [bd_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/bd_file_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Baidu platform advertising revenue.
+</span>
+</div>
 
 <br />
 
@@ -382,6 +424,16 @@ AndroidManifest.xml Component：
     android:name="com.qq.e.ads.LandscapeADActivity"
     android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
     android:screenOrientation="landscape" />
+<provider
+    android:name="android.support.v4.content.FileProvider"
+    android:authorities="${applicationId}.fileprovider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/gdt_file_path" />
+</provider>
+
 ```
 
 **ProGuard：**
@@ -398,7 +450,39 @@ AndroidManifest.xml Component：
 -dontwarn dalvik.**
 -dontwarn com.tencent.smtt.**  
 ```
+**Note:**
 
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```java
+     <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/gdt_file_path" />
+      </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the gdt_file_path.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [gdt_file_path.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/gdt_file_path.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Gdt platform advertising revenue.
+</span>
+</div>
 
 <br />
 
@@ -529,6 +613,15 @@ AndroidManifest.xml Component：
           <action android:name="com.mintegral.msdk.download.action" />
       </intent-filter>
   </service>
+  <provider
+      android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+      android:authorities="${applicationId}.mtgFileProvider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/mtg_provider_paths"/>
+  </provider>
 ```
 
 **ProGuard：**
@@ -544,6 +637,39 @@ AndroidManifest.xml Component：
 -keep interface com.alphab.** {*; }
 ```
 
+**Note:**
+
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```java
+  <provider
+        android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+        android:authorities="${applicationId}.mtgFileProvider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/mtg_provider_paths"/>
+    </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the mtg_provider_paths.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [mtg_provider_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/mtg_provider_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Mintegral platform advertising revenue.
+</span>
+</div>
 
 <br />
 
@@ -915,6 +1041,39 @@ AndroidManifest.xml Component：
 -dontwarn com.ksc.ad.sdk.**
 ```
 
+**Note:**
+
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```java
+  <provider
+        android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
+        android:authorities="${applicationId}.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths"/>
+    </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the file_paths.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/file_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Ksyun platform advertising revenue.
+</span>
+</div>
 
 <br />
 

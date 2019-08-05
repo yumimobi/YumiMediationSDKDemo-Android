@@ -219,6 +219,15 @@ AndroidManifest.xml注册组件：
   android:launchMode="singleTask"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" >
   </activity>
+  <provider
+    android:name="com.baidu.mobads.openad.FileProvider"
+    android:authorities="${applicationId}.bd.provider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/bd_file_paths" />
+  </provider>
 ```
 
 **混淆：**
@@ -228,6 +237,40 @@ AndroidManifest.xml注册组件：
 }
 ```
 
+
+**注意事项 :**
+
+1.targetSdkVersion >= 24 适配(必选)
+ 
+ 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
+ 
+ **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
+  ```java
+  <provider
+    android:name="com.baidu.mobads.openad.FileProvider"
+    android:authorities="${applicationId}.bd.provider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/bd_file_paths" />
+  </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
+</span>
+</div>
+
+**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载bd_file_paths.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
+
+Download [bd_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/bd_file_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>注意：</b> 如果不进行上面的配置，会影响百度平台广告收入
+</span>
+</div>
 
 <br />
 
@@ -369,21 +412,30 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-<service
-    android:name="com.qq.e.comm.DownloadService"
-    android:exported="false"></service>
-<activity
-    android:name="com.qq.e.ads.ADActivity"
-    android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
-</activity>
-<activity
-    android:name="com.qq.e.ads.PortraitADActivity"
-    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-    android:screenOrientation="portrait" />
-<activity
-    android:name="com.qq.e.ads.LandscapeADActivity"
-    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-    android:screenOrientation="landscape" />
+  <service
+      android:name="com.qq.e.comm.DownloadService"
+      android:exported="false"></service>
+  <activity
+      android:name="com.qq.e.ads.ADActivity"
+      android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+  </activity>
+  <activity
+      android:name="com.qq.e.ads.PortraitADActivity"
+      android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+      android:screenOrientation="portrait" />
+  <activity
+      android:name="com.qq.e.ads.LandscapeADActivity"
+      android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+      android:screenOrientation="landscape" />
+  <provider
+      android:name="android.support.v4.content.FileProvider"
+      android:authorities="${applicationId}.fileprovider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/gdt_file_path" />
+  </provider>
 ```
 
 **混淆：**
@@ -401,6 +453,39 @@ AndroidManifest.xml注册组件：
 -dontwarn com.tencent.smtt.**  
 ```
 
+**注意事项 :**
+
+1.targetSdkVersion >= 24 适配(必选)
+ 
+ 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
+ 
+ **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
+  ```java
+  <provider
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="${applicationId}.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/gdt_file_path" />
+  </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
+</span>
+</div>
+
+**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载gdt_file_path.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
+
+Download [gdt_file_path.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/gdt_file_path.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>注意：</b> 如果不进行上面的配置，会影响广点通平台广告收入
+</span>
+</div>
 
 <br />
 
@@ -532,6 +617,15 @@ AndroidManifest.xml注册组件：
           <action android:name="com.mintegral.msdk.download.action" />
       </intent-filter>
   </service>
+  <provider
+      android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+      android:authorities="${applicationId}.mtgFileProvider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/mtg_provider_paths"/>
+  </provider>
 ```
 
 **混淆：**
@@ -547,6 +641,40 @@ AndroidManifest.xml注册组件：
 -keep interface com.alphab.** {*; }
 ```
 
+**注意事项 :**
+
+1.targetSdkVersion >= 24 适配(必选)
+ 
+ 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
+ 
+ **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
+  ```java
+  <provider
+      android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+      android:authorities="${applicationId}.mtgFileProvider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/mtg_provider_paths"/>
+  </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
+</span>
+</div>
+
+**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载mtg_provider_paths.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
+
+Download [mtg_provider_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/mtg_provider_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>注意：</b> 如果不进行上面的配置，会影响Mintegral平台广告收入
+</span>
+</div>
+<br />
 
 <br />
 
@@ -917,7 +1045,39 @@ AndroidManifest.xml注册组件：
 -dontwarn com.ksc.ad.sdk.**
 ```
 
+**注意事项 :**
 
+1.targetSdkVersion >= 24 适配(必选)
+ 
+ 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
+ 
+ **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
+  ```java
+  <provider
+      android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
+      android:authorities="${applicationId}.fileprovider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/file_paths"/>
+  </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
+</span>
+</div>
+
+**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载file_paths.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
+
+Download [file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/file_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>注意：</b> 如果不进行上面的配置，会影响金山云平台广告收入
+</span>
+</div>
 <br />
 
 
