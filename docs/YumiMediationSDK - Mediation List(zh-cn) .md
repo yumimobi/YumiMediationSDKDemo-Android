@@ -20,7 +20,7 @@
 
 -  请注意三方SDK最小安卓版本, 可能高于玉米聚合广告SDK所要求的最小安卓版本, 此时您的工程应选用两者中较高的版本作为工程的最小版本, 否则使用三方平台时, 可能造成未知的影响。 "-"意味着和玉米聚合所支持的安卓最小版本版本一致。
 
--  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 4.1.0 版本 "com.yumimobi.ads:mediation:4.1.0" 时，需要添加Admob Adapter的4.1.0 版本 ”com.yumimobi.ads.mediation:admob:4.1.0“ 
+-  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 4.2.0 版本 "com.yumimobi.ads:mediation:4.2.0" 时，需要添加Admob Adapter的4.2.0 版本 ”com.yumimobi.ads.mediation:admob:4.2.0“ 
 
 
 ## 支持列表
@@ -48,7 +48,7 @@
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:adcolony:4.2.0'
 }
 ```
 
@@ -92,7 +92,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:admob:4.2.0'
 }
 ```
 
@@ -140,7 +140,7 @@ AndroidManifest.xml注册组件：
 |                   |                                |
 | ----------------- | ------------------------------ |
 | Jar名称           | libs/yumi_adapter_applovin.jar |
-| 三方版本          | 8.0.2                          |
+| 三方版本          | 9.7.2                          |
 | GooglePlayService | 需要                           |
 | 支持广告形式      | Banner, 插屏, 视频                     |
 | .so/lib工程       | --                             |
@@ -155,7 +155,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:applovin:4.2.0'
 }
 ```
 
@@ -202,7 +202,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:baidu:4.2.0'
 }
 ```
 
@@ -295,7 +295,7 @@ Download [bd_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-An
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:chartboost:4.2.0'
 }
 ```
 
@@ -338,7 +338,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:facebook:4.2.0'
 }
 ```
 
@@ -401,7 +401,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:gdt:4.2.0'
 }
 ```
 <p><span style="color:red;">注意:
@@ -520,7 +520,7 @@ Download [gdt_file_path.xml](https://github.com/yumimobi/YumiMediationSDKDemo-An
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:inmobi:4.2.0'
 }
 ```
 
@@ -588,9 +588,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral:4.2.0'
   //中国市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.2.0'
 }
 ```
 
@@ -701,7 +701,7 @@ Download [mtg_provider_paths.xml](https://github.com/yumimobi/YumiMediationSDKDe
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:oneway:4.2.0'
 }
 ```
 
@@ -744,7 +744,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:unity:4.2.0'
 }
 ```
 
@@ -823,7 +823,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:vungle:4.2.0'
 }
 ```
 
@@ -927,7 +927,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:playableads:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:playableads:4.2.0'
 }
 ```
 
@@ -1010,7 +1010,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:ksyun:4.2.0'
 }
 ```
 
@@ -1101,7 +1101,7 @@ Download [file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Andro
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:ironsource:4.2.0'
 }
 ```
 
@@ -1163,7 +1163,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:iqzone:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:iqzone:4.2.0'
 }
 ```
 
@@ -1359,7 +1359,7 @@ dependencies {
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:bytedance:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:bytedance:4.2.0'
 }
 ```
 
@@ -1395,7 +1395,7 @@ dependencies {
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inneractive:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:inneractive:4.2.0'
 }
 ```
 
@@ -1404,4 +1404,50 @@ dependencies {
 -keep class com.fyber.inneractive.sdk.* {*;}
 -keep class org.a.* {*;}
 -keep class com.google.gson.* {*;}
+```
+
+### Tapjoy
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar名称           | -- |
+| 三方版本          | 12.3.1                     |
+| GooglePlayService | -- |
+| 支持广告形式      | 插屏,视频    |
+| .so/lib工程       | --|
+
+**额外权限：**
+```xml
+```
+
+**AndroidStudio开发**
+
+build.gradle添加：
+```c
+dependencies {
+  implementation 'com.yumimobi.ads.mediation:tapjoy:4.2.0'
+}
+```
+
+**混淆：**
+```c
+-keep class com.tapjoy.** { *; }
+-keep class com.moat.** { *; }
+-keepattributes JavascriptInterface
+-keepattributes *Annotation*
+-keep class * extends java.util.ListResourceBundle {
+protected Object[][] getContents();
+}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+public static final *** NULL;
+}
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+@com.google.android.gms.common.annotation.KeepName *;
+}
+-keepnames class * implements android.os.Parcelable {
+public static final ** CREATOR;
+}
+-keep class com.google.android.gms.ads.identifier.** { *; }
+-dontwarn com.tapjoy.**
 ```
