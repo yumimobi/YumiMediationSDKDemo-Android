@@ -75,18 +75,15 @@ allprojets {
     repositories {
     	jcenter()
 
-        // 可选，如果需要导入 Google Server 相关的 SDK 时需要添加
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+        // 可选，如果需要导入 Google Server 相关的 SDK 时需要添加以下 repo
+        google()
         
-        // 可选，如果需要导入 Ksyun，Iqzone 相关的 SDK 时需要添加
+        // 可选，如果需要导入 Innerative，bytedance 相关的 SDK 时需要添加以下 repo
         maven { url "https://dl.bintray.com/yumimobi/thirdparty/" }
         maven { url "https://dl.bintray.com/yumimobi/ads/" }
 
-        // 可选，导入 Iqzone 平台需要另加此仓库地址
-        maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+        // 可选，如果需要导入 Tapjoy 相关 SDK 时需要添加以下 repo
+        maven { url "https://tapjoy.bintray.com/maven" }
     }
 }
 ```
@@ -95,32 +92,30 @@ allprojets {
 
 ```groovy
 dependencies {
-    // YumiMediationSDK 主包
-    implementation 'com.yumimobi.ads:mediation:4.1.0'
+    // YumiMediationSDK main package
+    implementation 'com.yumimobi.ads:mediation:4.2.0'
 
-    // YumiMediationSDK 适配器包，每个适配器相当于一家广告平台
-    implementation 'com.yumimobi.ads.mediation:playableads:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:adcolony:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:admob:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:applovin:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:baidu:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:bytedance:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:chartboost:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:facebook:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:gdt:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:inmobi:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:inneractive:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:iqzone:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:ironsource:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:ksyun:4.1.0'
+    // YumiMediationSDK adapters, each adapter is one third party sdk.
+    implementation 'com.yumimobi.ads.mediation:playableads:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:adcolony:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:admob:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:applovin:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:baidu:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:bytedance:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:chartboost:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:facebook:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:gdt:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:inmobi:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:inneractive:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:ironsource:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:ksyun:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:mintegral:4.2.0'
     // If you publish an app in China, you can use mintegral-china sdk
-    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
-    // If you publish an app in China, you can use unity-china sdk
-    // compile 'com.yumimobi.ads.mediation:unity-china:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
+    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:oneway:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:tapjoy:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:unity:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:vungle:4.2.0'
 ｝
 ```
 
@@ -364,11 +359,7 @@ public void onBackPressed() {
 
 ```java
 // 展示广告
-//
-// delayToShowEnable: 是否延迟展示插屏广告
-//  - false: 表示立即展示，如果有可用插屏广告则立即展示，如果没有就不再展示
-//  - true: 表示延迟展示，调用此方法后，如果有可用插屏广告则立即展示；如果没有可用广告，则会等到有可用广告时，自动弹出插屏广告（等待时间不可控），可以通过 cancelInterstitialDelayShown() 取消该延迟事务
-interstitial.showInterstitial(delayToShowEnable);
+interstitial.showInterstitial();
 ```
 
 ```java
@@ -409,8 +400,6 @@ interface IYumiInterstitialListener {
 ```java
 // 判断是否有可用广告
 interstitial.isReady();
-// 取消延迟展示中的插屏广告
-interstitial.cancelInterstitialDelayShown();
 ```
 
 ### 3.3 激励视频
@@ -568,6 +557,12 @@ interface IYumiNativeListener {
     void onLayerFailed(AdError adError);
     // 点击原生广告时触发此方法
     void onLayerClick();
+    // 原生广告渲染失败时触发此方法（目前只有广点通模板广告会触发此方法）
+    void onExpressAdRenderFail(NativeContent content, String errorMsg);
+    // 原生广告渲染成功时触发此方法（目前只有广点通模板广告会触发此方法）
+    void onExpressAdRenderSuccess(NativeContent content);
+    // 关闭原生广告时触发此方法（目前只有广点通模板广告会触发此方法）
+    void onExpressAdClosed(NativeContent content);
 }
 ```
 
@@ -637,36 +632,50 @@ private void showNativeAd() {
 
         // 获取原生广告父容器，用来显示原生广告
         FrameLayout nativeAdContinerView = (FrameLayout) findViewById(R.id.ll_ad_continer);
+        // 判断当前 content 是否为模板 view
+        if (content.isExpressAdView()) {
+            // 如果当前 content 为模板 View，则通过 content.getExpressAdView() 获取该 View 然后添加到广告容器中
+            YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater().inflate(R.layout.activity_native_material, null);
+            adView.removeAllViews();
 
-        // 填充一个 XML 布局，它的最外层节点为 YumiNativeAdView
-        YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater().inflate(R.layout.activity_native_material, null);
+            FrameLayout.LayoutParams videoViewLayout = new FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
+            videoViewLayout.gravity = Gravity.CENTER;
 
-        // 将标题视图注册到 YumiNativeAdView 对象中
-        adView.setTitleView((TextView) adView.findViewById(R.id.headline));
+            adView.addView(content.getExpressAdView(), videoViewLayout);
+            adView.setNativeAd(content);
+            nativeAdContinerView.setClickable(true);
+            nativeAdContinerView.addView(adView);
+        } else {
+            // 填充一个 XML 布局，它的最外层节点为 YumiNativeAdView
+            YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater().inflate(R.layout.activity_native_material, null);
 
-        ...
-        // 请按照上面的方法，将 Icon,大图, 行动号召等视图注册到 YumiNativeAdView 对象中
-        ...
+            // 将标题视图注册到 YumiNativeAdView 对象中
+            adView.setTitleView((TextView) adView.findViewById(R.id.headline));
 
-        // 如果想显示视频广告，请注册显示视频的容器
-        adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
+            ...
+            // 请按照上面的方法，将 Icon,大图, 行动号召等视图注册到 YumiNativeAdView 对象中
+            ...
 
-        // 使用广告对象提供的字符串素材资源，给标题视图填充文字
-        if (content.getTitle() != null) {
+            // 如果想显示视频广告，请注册显示视频的容器
+            adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
+
+            // 使用广告对象提供的字符串素材资源，给标题视图填充文字
+            if (content.getTitle() != null) {
             ((TextView) adView.getHeadlineView()).setText(content.getTitle());
+            }
+
+            ...
+            // 请按照上面的方法，给 Icon,大图, 行动号召等视图填充内容
+            ...
+
+            // 使用 YumiNativeAdView 对象中 setNativeAd 接口注册当前的广告对象
+            adView.setNativeAd(content);
+
+            // 确认父容器不包含 ad View
+            nativeAdContinerView.removeAllViews();
+            // 将 adView 添加到父容器中
+            nativeAdContinerView.addView(adView);
         }
-
-        ...
-        // 请按照上面的方法，给 Icon,大图, 行动号召等视图填充内容
-        ...
-
-        // 使用 YumiNativeAdView 对象中 setNativeAd 接口注册当前的广告对象
-        adView.setNativeAd(content);
-
-        // 确认父容器不包含 ad View
-        nativeAdContinerView.removeAllViews();
-        // 将 adView 添加到父容器中
-        nativeAdContinerView.addView(adView);
     }
 }
 ```
@@ -681,6 +690,11 @@ content.isExpired()
 | ------ | ------ | ------------------------------ |
 | true   | 已过期 | 展示已过期的广告将不会产生收益 |
 | false  | 未过期 | 当前广告可以展示               |
+
+* 通过 destroy 方法销毁当前 content
+```java
+content.destroy() // 注意，此处为 content 对象的 destroy()，非 nativeAd 对象中的 destroy()
+```
 
 * 填充布局
 
@@ -788,6 +802,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
                 .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))
                 .setAdAttributionTextSize(10)
                 .setHideAdAttribution(false)
+                .setHideAdAttribution(new ExpressAdSize(400, 300)) // 宽：400dp; 高：300dp
                 .build();
 ```
 * **setIsDownloadImage** 原生广告返回的 Icon 和大图资源为 Image 对象。如果 setIsDownloadImage 设置为 true，则 SDK 会自动获取图片素材资源，并为您填充 Image 对象中的 Drawable, url, scale 属性；如果 setIsDownloadImage 设置为 false, SDK 将不会自动下载 Icon 和大图的图片资源，返回的 Icon 和大图的 Image 对象只会填充 url 属性，从而允许您自行决定是否下载实际图片，默认为 true
@@ -798,6 +813,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 * **setAdAttributionBackgroundColor** 使用该属性指定广告标识的背景颜色，默认灰色
 * **setAdAttributionTextSize** 使用该属性指定广告标识的字体大小，默认10
 * **setHideAdAttribution** 使用该属性指定广告标识是否隐藏，默认显示
+* **setHideAdAttribution(new ExpressAdSize(width, height))** 传入原生广告容器的 ExpressAdSize(width, height)，广点通平台原生模板 View 需要设置此属性
 
 ## 4. 其它设置 
 
@@ -805,11 +821,9 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 
 如果您的工程需要混淆编译， 请在混淆文件内增加以下内容。
 
-```c
+```
 -keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,Synthetic,EnclosingMethod
 -keep class com.yumi.android.sdk.ads.** { *;}
--keep class com.yumi.android.sdk.ads.self.**{*;}
--keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
 -keep class com.playableads.**{*;}
 ```
 

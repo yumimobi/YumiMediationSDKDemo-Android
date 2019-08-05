@@ -20,7 +20,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 
 - The minSdkVersion which the provider sdk required maybe above the YumiMobi SDK , please use the higher as your project minSdkVersion to avoid the unexpected exception. "-" means the minSdkVersion is same to YumiMobi SDK required.
 
-- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 4.1.0 "com.yumimobi.ads:mediation:4.1.0", you need to add such Adapter 4.1.0 version "com.yumimobi.ads.mediation:such:4.1.0"
+- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 4.2.0 "com.yumimobi.ads:mediation:4.2.0", you need to add such Adapter 4.2.0 version "com.yumimobi.ads.mediation:such:4.2.0"
 
 ## Support List
 
@@ -47,7 +47,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:adcolony:4.2.0'
 }
 ```
 
@@ -91,7 +91,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:admob:4.2.0'
 }
 ```
 
@@ -138,7 +138,7 @@ AndroidManifest.xml Component：
 |                   |                                |
 | ----------------- | ------------------------------ |
 | Jar Name          | libs/yumi_adapter_applovin.jar |
-| Provider Ver      | 8.0.2                         |
+| Provider Ver      | 9.7.2                         |
 | GooglePlayService | Require                        |
 | Ad Form           | Banner, Interstitial, Reward Video     |
 | .so/lib project   | --                             |
@@ -153,7 +153,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:applovin:4.2.0'
 }
 ```
 
@@ -200,7 +200,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:baidu:4.2.0'
 }
 ```
 
@@ -217,6 +217,15 @@ AndroidManifest.xml Component：
   android:launchMode="singleTask"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 </activity>
+<provider
+  android:name="com.baidu.mobads.openad.FileProvider"
+  android:authorities="${applicationId}.bd.provider"
+  android:exported="false"
+  android:grantUriPermissions="true">
+  <meta-data
+      android:name="android.support.FILE_PROVIDER_PATHS"
+      android:resource="@xml/bd_file_paths" />
+</provider>
 ```
 
 **ProGuard：**
@@ -226,6 +235,39 @@ AndroidManifest.xml Component：
 }
 ```
 
+**Note:**
+
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```java
+     <provider
+            android:name="com.baidu.mobads.openad.FileProvider"
+            android:authorities="${applicationId}.bd.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/bd_file_paths" />
+    </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the bd_file_paths.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [bd_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/bd_file_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Baidu platform advertising revenue.
+</span>
+</div>
 
 <br />
 
@@ -251,7 +293,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:chartboost:4.2.0'
 }
 ```
 
@@ -294,7 +336,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:facebook:4.2.0'
 }
 ```
 
@@ -357,7 +399,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:gdt:4.2.0'
 }
 ```
 <p><span style="color:red;">Precautions:
@@ -382,6 +424,16 @@ AndroidManifest.xml Component：
     android:name="com.qq.e.ads.LandscapeADActivity"
     android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
     android:screenOrientation="landscape" />
+<provider
+    android:name="android.support.v4.content.FileProvider"
+    android:authorities="${applicationId}.fileprovider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/gdt_file_path" />
+</provider>
+
 ```
 
 **ProGuard：**
@@ -398,7 +450,39 @@ AndroidManifest.xml Component：
 -dontwarn dalvik.**
 -dontwarn com.tencent.smtt.**  
 ```
+**Note:**
 
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```java
+     <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/gdt_file_path" />
+      </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the gdt_file_path.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [gdt_file_path.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/gdt_file_path.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Gdt platform advertising revenue.
+</span>
+</div>
 
 <br />
 
@@ -433,7 +517,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:inmobi:4.2.0'
 }
 ```
 
@@ -500,9 +584,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral:4.2.0'
   //China market channel release
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.2.0'
 }
 ```
 
@@ -529,6 +613,15 @@ AndroidManifest.xml Component：
           <action android:name="com.mintegral.msdk.download.action" />
       </intent-filter>
   </service>
+  <provider
+      android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+      android:authorities="${applicationId}.mtgFileProvider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/mtg_provider_paths"/>
+  </provider>
 ```
 
 **ProGuard：**
@@ -544,6 +637,39 @@ AndroidManifest.xml Component：
 -keep interface com.alphab.** {*; }
 ```
 
+**Note:**
+
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```java
+  <provider
+        android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+        android:authorities="${applicationId}.mtgFileProvider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/mtg_provider_paths"/>
+    </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the mtg_provider_paths.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [mtg_provider_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/mtg_provider_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Mintegral platform advertising revenue.
+</span>
+</div>
 
 <br />
 
@@ -570,7 +696,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:oneway:4.2.0'
 }
 ```
 
@@ -614,7 +740,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:unity:4.2.0'
 }
 ```
 
@@ -693,7 +819,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:vungle:4.2.0'
 }
 ```
 
@@ -796,7 +922,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:playableads:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:playableads:4.2.0'
 }
 ```
 
@@ -880,7 +1006,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:ksyun:4.2.0'
 }
 ```
 
@@ -915,6 +1041,39 @@ AndroidManifest.xml Component：
 -dontwarn com.ksc.ad.sdk.**
 ```
 
+**Note:**
+
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```java
+  <provider
+        android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
+        android:authorities="${applicationId}.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths"/>
+    </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the file_paths.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/file_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Ksyun platform advertising revenue.
+</span>
+</div>
 
 <br />
 
@@ -939,7 +1098,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:ironsource:4.2.0'
 }
 ```
 
@@ -1002,7 +1161,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-   implementation 'com.yumimobi.ads.mediation:iqzone:4.1.0'
+   implementation 'com.yumimobi.ads.mediation:iqzone:4.2.0'
 }
 ```
 
@@ -1199,7 +1358,7 @@ dependencies {
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:bytedance:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:bytedance:4.2.0'
 }
 ```
 
@@ -1212,22 +1371,18 @@ dependencies {
 ```
 
 
-### Inneractive
+### Tapjoy
 
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar Name           | -- |
-| Provider Ver          | 7.3.0  |
+| Provider Ver          | 12.3.1  |
 | GooglePlayService | --        |
 | Ad Form       | Banner, Interstitial, Reward Video     |
 | .so/lib project       | --|
 
 **Permission：**
 ```xml
-<!--Optional Permissions-->
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 ```
 
 **Using AndroidStudio**
@@ -1235,13 +1390,29 @@ dependencies {
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inneractive:4.1.0'
+  implementation 'com.yumimobi.ads.mediation:tapjoy:4.2.0'
 }
 ```
 
 **ProGuard：**
 ```c
--keep class com.fyber.inneractive.sdk.* {*;}
--keep class org.a.* {*;}
--keep class com.google.gson.* {*;}
+-keep class com.tapjoy.** { *; }
+-keep class com.moat.** { *; }
+-keepattributes JavascriptInterface
+-keepattributes *Annotation*
+-keep class * extends java.util.ListResourceBundle {
+protected Object[][] getContents();
+}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+public static final *** NULL;
+}
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+@com.google.android.gms.common.annotation.KeepName *;
+}
+-keepnames class * implements android.os.Parcelable {
+public static final ** CREATOR;
+}
+-keep class com.google.android.gms.ads.identifier.** { *; }
+-dontwarn com.tapjoy.**
 ```
