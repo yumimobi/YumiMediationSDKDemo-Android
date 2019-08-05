@@ -1,9 +1,9 @@
 package com.yumi.android.demo;
 
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,31 +13,62 @@ import com.yumi.android.sdk.ads.publish.AdError;
 import com.yumi.android.sdk.ads.publish.YumiBanner;
 import com.yumi.android.sdk.ads.publish.enumbean.AdSize;
 import com.yumi.android.sdk.ads.publish.listener.IYumiBannerListener;
+import com.yumi.android.sdk.ads.utils.views.AdContainer;
 import com.yumimobi.ads.R;
 
 public class BannerActivity extends MActivity {
+    private static final String TAG = "BannerActivity";
 
     private FrameLayout bannerContainer;
     private YumiBanner banner;
     private IYumiBannerListener bannerListener;
     private TextView text;
     private AdSize mAdSize = AdSize.BANNER_SIZE_AUTO;
+    private boolean isMatchWindowWidth;
+    private boolean isAutoLoad = true;
+    private boolean isContainerFirst = true;
+
+    private CheckBox mMatchParentCheckBox;
+    private CheckBox mAutoloadCheckBox;
+    private CheckBox mContainerFirstCheckBox;
 
     @Override
     public void initView() {
         setContentView(R.layout.activity_banner);
         setAcTitle("Banner_Code");
-        text = (TextView) findViewById(R.id.textView2);
+        text = findViewById(R.id.textView2);
+        bannerContainer = findViewById(R.id.banner_container);
+        text.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                text.setText("");
+                return true;
+            }
+        });
 
-        /*
-         * First step:
-         *  create banner container , this container is a viewgroup, and add the container into your activity content view.
-         */
-        bannerContainer = new FrameLayout(this);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        params.gravity = Gravity.BOTTOM | Gravity.CENTER;
-        addContentView(bannerContainer, params);
+        mMatchParentCheckBox = findViewById(R.id.match_parent_check_box);
+        mMatchParentCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isMatchWindowWidth = isChecked;
+            }
+        });
+
+        mAutoloadCheckBox = findViewById(R.id.auto_load_next_banner_checkbox);
+        mAutoloadCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isAutoLoad = isChecked;
+            }
+        });
+
+        mContainerFirstCheckBox = findViewById(R.id.container_first_checkbox);
+        mContainerFirstCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isContainerFirst = isChecked;
+            }
+        });
     }
 
     @Override
@@ -50,33 +81,38 @@ public class BannerActivity extends MActivity {
 
             @Override
             public void onBannerPreparedFailed(AdError errorCode) {
-                Log.e("mikoto", "on banner prepared failed " + errorCode);
-                setInfo("on banner prepared failed " + errorCode);
+                Log.e(TAG, "on banner prepared failed " + errorCode);
+                addLog("on banner prepared failed " + errorCode);
             }
 
             @Override
             public void onBannerPrepared() {
-                Log.e("mikoto", "on banner prepared");
-                setInfo("on banner prepared");
+                Log.e(TAG, "on banner prepared");
+                addLog("on banner prepared");
+                if (!isContainerFirst) {
+                    bannerContainer.removeAllViews();
+                    AdContainer adContainer = banner.getBannerView();
+                    bannerContainer.addView(adContainer);
+                }
             }
 
             @Override
             public void onBannerExposure() {
-                Log.e("mikoto", "on banner exposure");
-                setInfo("on banner exposure");
+                Log.e(TAG, "on banner exposure");
+                addLog("on banner exposure");
             }
 
             @Override
             public void onBannerClosed() {
-                Log.e("mikoto", "on banner close ");
+                Log.e(TAG, "on banner close ");
 
-                setInfo("on banner close");
+                addLog("on banner close");
             }
 
             @Override
             public void onBannerClicked() {
-                Log.e("mikoto", "on banner clicked ");
-                setInfo("on banner clicked");
+                Log.e(TAG, "on banner clicked ");
+                addLog("on banner clicked");
             }
         };
 
@@ -91,9 +127,13 @@ public class BannerActivity extends MActivity {
          * Thrid step :
          * create YumiBanner instance by activity and your YumiID.
          */
-        banner = new YumiBanner(BannerActivity.this, getStringConfig("banner_slotID"), true);
+        banner = new YumiBanner(BannerActivity.this, getStringConfig("banner_slotID"), isAutoLoad);
         //setBannerContainer
-        banner.setBannerContainer(bannerContainer, mAdSize, isMatchWindowWidth);
+        if (isContainerFirst) {
+            banner.setBannerContainer(bannerContainer, mAdSize, isMatchWindowWidth);
+        } else {
+            banner.setBannerContainer(null, mAdSize, isMatchWindowWidth);
+        }
         //setChannelID . (Recommend)
         banner.setChannelID(channelStr);
         // set channel and version (optional)
@@ -102,6 +142,10 @@ public class BannerActivity extends MActivity {
         banner.setVersionName(versionStr);
         //setBannerEventListener. (Recommend)
         banner.setBannerEventListener(bannerListener);
+
+        mAutoloadCheckBox.setEnabled(false);
+        mMatchParentCheckBox.setEnabled(false);
+        mContainerFirstCheckBox.setEnabled(false);
     }
 
 
@@ -114,7 +158,7 @@ public class BannerActivity extends MActivity {
         super.onDestroy();
     }
 
-    private void setInfo(final String msg) {
+    private void addLog(final String msg) {
         runOnUiThread(new Runnable() {
 
             @Override
@@ -132,6 +176,7 @@ public class BannerActivity extends MActivity {
             createBanner();
         }
         banner.requestYumiBanner();
+        addLog("load banner");
     }
 
     public void onAutoModelClicked(View view) {
@@ -157,5 +202,21 @@ public class BannerActivity extends MActivity {
         }
         banner.destroy();
         banner = null;
+
+        mContainerFirstCheckBox.setEnabled(true);
+        mMatchParentCheckBox.setEnabled(true);
+        mAutoloadCheckBox.setEnabled(true);
+    }
+
+    public void dismissBanner(View view) {
+        if (banner != null) {
+            banner.dismissBanner();
+        }
+    }
+
+    public void resumeBanner(View view) {
+        if (banner != null) {
+            banner.resumeBanner();
+        }
     }
 }

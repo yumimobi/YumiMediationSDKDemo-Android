@@ -26,6 +26,8 @@ import com.yumimobi.ads.R;
 import java.util.LinkedList;
 import java.util.List;
 
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+
 /**
  * Created by Administrator on 2017/6/22.
  */
@@ -83,6 +85,21 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
             public void onLayerClick() {
                 Log.v(TAG, "native ad onLayerClick");
             }
+
+            @Override
+            public void onExpressAdRenderFail(NativeContent content, String errorMsg) {
+                Log.v(TAG, "native ad onExpressAdRenderFail" + errorMsg);
+            }
+
+            @Override
+            public void onExpressAdRenderSuccess(NativeContent content) {
+                Log.v(TAG, "native ad onExpressAdRenderSuccess");
+            }
+
+            @Override
+            public void onExpressAdClosed(NativeContent content) {
+                Log.v(TAG, "native ad onExpressAdClosed");
+            }
         };
     }
 
@@ -110,38 +127,16 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
         nativeAd.setVersionName("1.0");
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_request:
-                if (nativeAd != null) {
-                    int adCount = nativeAdCount.getText().toString().equals("") ? 0 : Integer.valueOf(nativeAdCount.getText().toString());
-                    nativeAd.requestYumiNative(adCount);
-                } else {
-                    Toast.makeText(NativeActivity.this, "nativeAd is null", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case R.id.btn_show:
-                showNativeAd();
-                break;
-            case R.id.btn_isExpired:
-                if (content == null) {
-                    Toast.makeText(this, "please request NativeAd first", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Toast.makeText(this, "Native content.isExpired : " + content.isExpired(), Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
-
-    }
-
 
     private void showNativeAd() {
-        if (adContentList != null && adContentList.size() > 0) {
-            content = adContentList.get(0);
-            adContentList.remove(0);
+        if (adContentList != null && adContentList.size() > 0) // 通过剩余广告条数判断是否存在下一条广告
+        {
+            if(content != null){
+                content.destroy();//释放不需要的原生广告资源
+            }
+
+            content = adContentList.get(0);// 提取广告
+            adContentList.remove(0);//删除已经提取的广告
             adcount = adContentList.size();
             tvAdcount.setText(String.valueOf(adcount));
 
@@ -150,7 +145,19 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
                 return;
             }
             nativeAdContinerView.removeAllViews();
+            if(content.isExpressAdView()) {
+                YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
+                        .inflate(R.layout.activity_native_material, null);
+                adView.removeAllViews();
 
+                FrameLayout.LayoutParams videoViewLayout = new FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
+                videoViewLayout.gravity = Gravity.CENTER;
+
+                adView.addView(content.getExpressAdView(), videoViewLayout);
+                adView.setNativeAd(content);
+                nativeAdContinerView.setClickable(true);
+                nativeAdContinerView.addView(adView);
+            }else {
             YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
                     .inflate(R.layout.activity_native_material, null);
 
@@ -198,6 +205,7 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
             adView.setNativeAd(content);
             nativeAdContinerView.setClickable(true);
             nativeAdContinerView.addView(adView);
+            }
         }
     }
 
