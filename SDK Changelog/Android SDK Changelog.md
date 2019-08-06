@@ -10,11 +10,11 @@
 
 4. Supportunity multi-layer configuration
 
-5. Support Baidu, gdt, Mintegral, ksy Cloud For targetSdkVersion >= 24 special processing logic, [Android]（https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md) & Unity（https://github.com/yumimobi/YumiMediationSDK-Unity/blob/master/source/document/YumiMediationSDK%20for%20Unity(en).md#751-gdt%E5%B9%BF%E7%82%B9%E9%80%9A-platform-native-ad-cont-show-media-native-ad-probleam）
+5. Support Baidu, gdt, Mintegral, ksy Cloud For targetSdkVersion >= 24 special processing logic, [Android](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md) & [Unity](https://github.com/yumimobi/YumiMediationSDK-Unity/blob/master/source/document/YumiMediationSDK%20for%20Unity(en).md#751-gdt%E5%B9%BF%E7%82%B9%E9%80%9A-platform-native-ad-cont-show-media-native-ad-probleam)
 
 6. Support Baidu preferred advertising
 
-7. Update the [three-party SDK]（https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md）
+7. Update the [three-party SDK](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
 
 #### V 4.1.0
 
