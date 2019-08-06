@@ -3,11 +3,16 @@
 #### V 4.2.0
 
 1.增加原生模版渲染方式
+
 2.新增tapjoy平台
+
 3.支持 admob视频多层配置
+
 4.支持 unity 多层配置
+
 5.增加百度，广点通，Mintegral，金山云 针对targetSdkVersion >= 24特殊处理逻辑，[Android](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
  [Unity](https://github.com/yumimobi/YumiMediationSDK-Unity/blob/master/source/document/YumiMediationSDK%20for%20Unity(zh-cn).md#752-gdt%E5%B9%BF%E7%82%B9%E9%80%9A-%E5%B9%B3%E5%8F%B0%E8%AF%B7%E6%B1%82%E4%B8%8D%E5%88%B0%E5%B9%BF%E5%91%8A%E9%97%AE%E9%A2%98)
+ 
 6.升级[三方SDK](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
 
 
