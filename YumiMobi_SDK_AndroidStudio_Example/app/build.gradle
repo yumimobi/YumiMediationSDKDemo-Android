@@ -25,32 +25,27 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-
-    implementation 'com.yumimobi.ads:mediation:4.1.0'  // YumiMediationSDK
-    implementation 'com.yumimobi.ads.mediation:playableads:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:adcolony:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:admob:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:applovin:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:baidu:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:bytedance:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:chartboost:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:facebook:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:gdt:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:inmobi:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:inneractive:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:iqzone:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:ironsource:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:ksyun:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
-//    If you publish an app in China,you can use mintegral-china sdk
-//   implementation 'com.yumimobi.ads.mediation:mintegral-china:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
+    // YumiMediationSDK
+    implementation 'com.yumimobi.ads:mediation:4.2.0'
+    // YumiMediationSDK adapters
+    implementation 'com.yumimobi.ads.mediation:playableads:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:adcolony:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:admob:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:applovin:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:baidu:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:bytedance:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:chartboost:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:facebook:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:gdt:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:inmobi:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:inneractive:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:ironsource:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:ksyun:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:mintegral:4.2.0'
+    // If you publish an app in China,you can use mintegral-china sdk
+    // implementation 'com.yumimobi.ads.mediation:mintegral-china:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:oneway:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:tapjoy:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:unity:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:vungle:4.2.0'
 }

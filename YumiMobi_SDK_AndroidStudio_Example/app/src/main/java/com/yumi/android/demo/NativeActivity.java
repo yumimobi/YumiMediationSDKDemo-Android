@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,11 +21,14 @@ import com.yumi.android.sdk.ads.formats.YumiNativeAdView;
 import com.yumi.android.sdk.ads.publish.AdError;
 import com.yumi.android.sdk.ads.publish.NativeContent;
 import com.yumi.android.sdk.ads.publish.YumiNative;
+import com.yumi.android.sdk.ads.publish.enumbean.ExpressAdSize;
 import com.yumi.android.sdk.ads.publish.listener.IYumiNativeListener;
 import com.yumimobi.ads.R;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 /**
  * Created by Administrator on 2017/6/22.
@@ -83,6 +87,21 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
             public void onLayerClick() {
                 Log.v(TAG, "native ad onLayerClick");
             }
+
+            @Override
+            public void onExpressAdRenderFail(NativeContent content, String errorMsg) {
+                Log.v(TAG, "native ad onExpressAdRenderFail" + errorMsg);
+            }
+
+            @Override
+            public void onExpressAdRenderSuccess(NativeContent content) {
+                Log.v(TAG, "native ad onExpressAdRenderSuccess");
+            }
+
+            @Override
+            public void onExpressAdClosed(NativeContent content) {
+                Log.v(TAG, "native ad onExpressAdClosed");
+            }
         };
     }
 
@@ -100,7 +119,9 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
                 .setAdAttributionTextColor(Color.argb(255, 255, 255, 255))
                 .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))
                 .setAdAttributionTextSize(10)
-                .setHideAdAttribution(false).build();
+                .setHideAdAttribution(false)
+                .setExpressAdSize(new ExpressAdSize(400, 300))
+                .build();
         nativeAd = new YumiNative(NativeActivity.this, getStringConfig("native_slotID"), nativeAdOptions);
         //setMediaEventListener .  (Require)
         nativeAd.setNativeEventListener(nativeListener);
@@ -139,7 +160,12 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
 
 
     private void showNativeAd() {
-        if (adContentList != null && adContentList.size() > 0) {
+        if (adContentList != null && adContentList.size() > 0)
+        {
+            if (content != null) {
+                content.destroy();
+            }
+
             content = adContentList.get(0);
             adContentList.remove(0);
             adcount = adContentList.size();
@@ -150,54 +176,67 @@ public class NativeActivity extends MActivity implements View.OnClickListener {
                 return;
             }
             nativeAdContinerView.removeAllViews();
+            if (content.isExpressAdView()) {
+                YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
+                        .inflate(R.layout.activity_native_material, null);
+                adView.removeAllViews();
 
-            YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
-                    .inflate(R.layout.activity_native_material, null);
+                FrameLayout.LayoutParams videoViewLayout = new FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
+                videoViewLayout.gravity = Gravity.CENTER;
 
-            adView.setTitleView((TextView) adView.findViewById(R.id.headline));
-            adView.setIconView((ImageView) adView.findViewById(R.id.app_icon));
-            adView.setDescView((TextView) adView.findViewById(R.id.body));
-            adView.setCoverImageView((ImageView) adView.findViewById(R.id.image));
-            adView.setCallToActionView((Button) adView.findViewById(R.id.call_to_action));
-            adView.setPriceView((TextView) adView.findViewById(R.id.price));
-            adView.setStarRatingView((RatingBar) adView.findViewById(R.id.stars));
-            adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
-
-            if (content.getCoverImage() != null) {
-                Log.v(TAG, "content.getCoverImage().getDrawable()" + content.getCoverImage().getDrawable());
-                ((ImageView) adView.getCoverImageView()).setImageDrawable(content.getCoverImage().getDrawable());
-            }
-            if (content.getIcon() != null) {
-                Log.v(TAG, "content.getIcon().getDrawable()" + content.getIcon().getDrawable());
-                ((ImageView) adView.getIconView()).setImageDrawable(content.getIcon().getDrawable());
-            }
-            if (content.getTitle() != null) {
-                ((TextView) adView.getTitleView()).setText(content.getTitle());
-            }
-            if (content.getCallToAction() != null) {
-                ((Button) adView.getCallToActionView()).setText(content.getCallToAction());
+                adView.addView(content.getExpressAdView(), videoViewLayout);
+                adView.setNativeAd(content);
+                nativeAdContinerView.setClickable(true);
+                nativeAdContinerView.addView(adView);
             } else {
-                ((Button) adView.getCallToActionView()).setVisibility(View.INVISIBLE);
-            }
-            if (content.getPrice() != null) {
-                ((TextView) adView.getPriceView()).setText(content.getPrice());
-            }
+                YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater()
+                        .inflate(R.layout.activity_native_material, null);
 
-            if (content.getDesc() != null) {
-                ((TextView) adView.getDescView()).setText(content.getDesc());
-            }
+                adView.setTitleView((TextView) adView.findViewById(R.id.headline));
+                adView.setIconView((ImageView) adView.findViewById(R.id.app_icon));
+                adView.setDescView((TextView) adView.findViewById(R.id.body));
+                adView.setCoverImageView((ImageView) adView.findViewById(R.id.image));
+                adView.setCallToActionView((Button) adView.findViewById(R.id.call_to_action));
+                adView.setPriceView((TextView) adView.findViewById(R.id.price));
+                adView.setStarRatingView((RatingBar) adView.findViewById(R.id.stars));
+                adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
 
-            if (content.getStarRating() == null) {
-                adView.getStarRatingView().setVisibility(View.INVISIBLE);
-            } else {
-                ((RatingBar) adView.getStarRatingView())
-                        .setRating(content.getStarRating().floatValue());
-                adView.getStarRatingView().setVisibility(View.VISIBLE);
-            }
+                if (content.getCoverImage() != null) {
+                    Log.v(TAG, "content.getCoverImage().getDrawable()" + content.getCoverImage().getDrawable());
+                    ((ImageView) adView.getCoverImageView()).setImageDrawable(content.getCoverImage().getDrawable());
+                }
+                if (content.getIcon() != null) {
+                    Log.v(TAG, "content.getIcon().getDrawable()" + content.getIcon().getDrawable());
+                    ((ImageView) adView.getIconView()).setImageDrawable(content.getIcon().getDrawable());
+                }
+                if (content.getTitle() != null) {
+                    ((TextView) adView.getTitleView()).setText(content.getTitle());
+                }
+                if (content.getCallToAction() != null) {
+                    ((Button) adView.getCallToActionView()).setText(content.getCallToAction());
+                } else {
+                    ((Button) adView.getCallToActionView()).setVisibility(View.INVISIBLE);
+                }
+                if (content.getPrice() != null) {
+                    ((TextView) adView.getPriceView()).setText(content.getPrice());
+                }
 
-            adView.setNativeAd(content);
-            nativeAdContinerView.setClickable(true);
-            nativeAdContinerView.addView(adView);
+                if (content.getDesc() != null) {
+                    ((TextView) adView.getDescView()).setText(content.getDesc());
+                }
+
+                if (content.getStarRating() == null) {
+                    adView.getStarRatingView().setVisibility(View.INVISIBLE);
+                } else {
+                    ((RatingBar) adView.getStarRatingView())
+                            .setRating(content.getStarRating().floatValue());
+                    adView.getStarRatingView().setVisibility(View.VISIBLE);
+                }
+
+                adView.setNativeAd(content);
+                nativeAdContinerView.setClickable(true);
+                nativeAdContinerView.addView(adView);
+            }
         }
     }
 

@@ -19,7 +19,6 @@ public abstract class MActivity extends Activity {
     protected String channelStr;
     protected String versionStr;
     protected SharedPreferences sp;
-    protected boolean isMatchWindowWidth;
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,6 @@ public abstract class MActivity extends Activity {
         this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         channelStr = getIntent().getStringExtra("channel");
         versionStr = getIntent().getStringExtra("version");
-        isMatchWindowWidth = getIntent().getBooleanExtra("isMatchWindowWidth", false);
         Log.i("MaActivity", channelStr + " " + versionStr);
         sp = getSharedPreferences("config", MODE_PRIVATE);
         initView();

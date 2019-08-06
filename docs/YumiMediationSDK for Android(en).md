@@ -70,18 +70,17 @@ allprojets {
     repositories {
     	jcenter()
 
-        // Optional,It is required when you import SDKs related to Google Server.
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+        // Optional. It is required when you import SDKs related to Google Server.
+        google()
         
-        // Optional,If you do not need the ksyun SDK, you can remove the maven url.
+        // Optional.
+        // If you do not need the Innerative and bytedance SDK, you can remove the repo.
         maven { url "https://dl.bintray.com/yumimobi/thirdparty/" }
         maven { url "https://dl.bintray.com/yumimobi/ads/" }
 
-        // Optional,If you do not need the Iqzone SDK, you can remove the maven url.
-        maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+        // Optional.
+        // If you do not need the tapjoy SDK, you can remove the repo.
+        maven { url "https://tapjoy.bintray.com/maven" }
     }
 }
 ```
@@ -91,29 +90,29 @@ add YumiMediationSDK and other adapters dependencies.
 ```groovy
 dependencies {
     // YumiMediationSDK main package
-    implementation 'com.yumimobi.ads:mediation:4.1.0'
+    implementation 'com.yumimobi.ads:mediation:4.2.0'
 
     // YumiMediationSDK adapters, each adapter is one third party sdk.
-    implementation 'com.yumimobi.ads.mediation:playableads:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:adcolony:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:admob:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:applovin:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:baidu:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:bytedance:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:chartboost:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:facebook:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:gdt:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:inmobi:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:inneractive:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:iqzone:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:ironsource:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:ksyun:4.1.0'
+    implementation 'com.yumimobi.ads.mediation:playableads:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:adcolony:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:admob:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:applovin:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:baidu:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:bytedance:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:chartboost:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:facebook:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:gdt:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:inmobi:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:inneractive:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:ironsource:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:ksyun:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:mintegral:4.2.0'
     // If you publish an app in China, you can use mintegral-china sdk
-    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:mintegral:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:oneway:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.1.0'
-    implementation 'com.yumimobi.ads.mediation:vungle:4.1.0'
+    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:oneway:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:tapjoy:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:unity:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:vungle:4.2.0'
 ｝
 ```
 
@@ -355,17 +354,14 @@ public void onBackPressed() {
 
 ```java
 // Display ad
-//
-// delayToShowEnable: Whether to delay the display of the ad
-//  - false: Indicates immediate display, if there is an ad available, it will be displayed immediately, if not, it will not be displayed.
-//  - true: Indicates delayed display. If this method is called, it will be displayed immediately if there is any available ad; if there is no available advertisement, it will automatically pop up the ad when the available advertisement is available (waiting time is uncontrollable), which can be canceled by cancelInterstitialDelayShown() 
-interstitial.showInterstitial(delayToShowEnable);
+interstitial.showInterstitial();
 ```
 
 ```java
 // Destroy the ad instance
 interstitial.destroy();
 ```
+
 Calling the `destroy()` method only when you don't need to display the ad, it is recommended to call this method in the Activity `onDestroy()` life callback.
 
 #### 3.2.3 Add Listener
@@ -467,8 +463,6 @@ interface IYumiMediaListener {
 ```java
 // Determine if there is a ready advertisement
 media.isReady();
-// Returns the remaining number of reward ads. If it is 0, it means that Rewarded Video will not be requested again today.
-media.getMediaRemainRewards()
 ```
 
 <div style="background-color:rgb(228,244,253);padding:10px;">
@@ -559,6 +553,12 @@ interface IYumiNativeListener {
     void onLayerFailed(AdError adError);
     // This method is fired when a native ad is clicked
     void onLayerClick();
+    // This method is fired when a ExpressAdView render failed(only gdt ExpressAdView could callback it).
+    void onExpressAdRenderFail(NativeContent content, String errorMsg);
+    // This method is fired when ExpressAdView render success(only gdt ExpressAdView could callback it).
+    void onExpressAdRenderSuccess(NativeContent content);
+    // This method is fired when ExpressAdView closed(only gdt ExpressAdView could callback it).
+    void onExpressAdClosed(NativeContent content);
 }
 ```
 
@@ -627,39 +627,54 @@ private void showNativeAd() {
 
         // creater native ad Continer view，use to show Native ad
         FrameLayout nativeAdContinerView = (FrameLayout) findViewById(R.id.ll_ad_continer);
+        // To detect current content is or not an ExpressAdView
+        if (content.isExpressAdView()) {
+            // If current content is an ExpressAdView, you should get the View by content.getExpressAdView() and then add the 
+            // view into ad container
+            YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater().inflate(R.layout.activity_native_material, null);
+            adView.removeAllViews();
 
-        // // Assumes that your ad layout is in a file call activity_native_material.xml
-        // in the res/layout folder
-        YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater().inflate(R.layout.activity_native_material, null);
+            FrameLayout.LayoutParams videoViewLayout = new FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
+            videoViewLayout.gravity = Gravity.CENTER;
 
-        // Locate the view that will hold the title, set its text, and call the YumiNativeAdView's setTitleViewmethod to register it.
-        adView.setTitleView((TextView) adView.findViewById(R.id.headline));
+            adView.addView(content.getExpressAdView(), videoViewLayout);
+            adView.setNativeAd(content);
+            nativeAdContinerView.setClickable(true);
+            nativeAdContinerView.addView(adView);
+        } else {
+            // Assumes that your ad layout is in a file call activity_native_material.xml
+            // in the res/layout folder
+            YumiNativeAdView adView = (YumiNativeAdView) getLayoutInflater().inflate(R.layout.activity_native_material, null);
 
-        ...
-        // Repeat the above process for the other assets in the YumiNativeAdView using additional view objects (Buttons, ImageViews, etc).
-        ...
+            // Locate the view that will hold the title, set its text, and call the YumiNativeAdView's setTitleViewmethod to register it.
+            adView.setTitleView((TextView) adView.findViewById(R.id.headline));
 
-        // If you want to display a video ad, please register the container（FrameLayout）that displays the video  
-        adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
+            ...
+            // Repeat the above process for the other assets in the YumiNativeAdView using additional view objects (Buttons, ImageViews, etc).
+            ...
+
+            // If you want to display a video ad, please register the container（FrameLayout）that displays the video  
+            adView.setMediaLayout((FrameLayout) adView.findViewById(R.id.media_content));
 
 
-        // fill the title view using the string asset provided by NativeContent
-        if (content.getTitle() != null) {
-            ((TextView) adView.getHeadlineView()).setText(content.getTitle());
+            // fill the title view using the string asset provided by NativeContent
+            if (content.getTitle() != null) {
+                ((TextView) adView.getHeadlineView()).setText(content.getTitle());
+            }
+
+            ...
+            // Please follow the above method to fill the content of Icon, Large Picture, Call to Action, etc.
+            ...
+
+            // Call the YumiNativeAdView's setNativeAd method to register the NativeContent.
+
+            adView.setNativeAd(content);
+
+            // clean nativeAdContinerView
+            nativeAdContinerView.removeAllViews();
+            // add adView to nativeAdContinerView
+            nativeAdContinerView.addView(adView);
         }
-
-        ...
-        // Please follow the above method to fill the content of Icon, Large Picture, Call to Action, etc.
-        ...
-
-        // Call the YumiNativeAdView's setNativeAd method to register the NativeContent.
-
-        adView.setNativeAd(content);
-
-        // clean nativeAdContinerView
-        nativeAdContinerView.removeAllViews();
-        // add adView to nativeAdContinerView
-        nativeAdContinerView.addView(adView);
     }
 }
 ```
@@ -673,6 +688,11 @@ content.isExpired()
 | ----------- | ----------- | ----------------------------------------------------------------------------------- |
 | true        | expired     | this native ad has expired, showing ads that have expired will not generate revenue |
 | false       | not expired | this native ads are valid                                                           |
+
+* calls destroy() to destroy current content
+```java
+content.destroy() // note, this method is belong to NativeContent not to YumiNative
+```
 
 * Inflate the layout
 
@@ -778,6 +798,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
                     .setAdAttributionBackgroundColor(Color.argb(90, 0, 0, 0))
                     .setAdAttributionTextSize(10)
                     .setHideAdAttribution(false)
+                    .setHideAdAttribution(new ExpressAdSize(400, 300)) // width: 400dp; height: 300dp
                     .build();
 ```
 * **setIsDownloadImage** Image assets for native ads are returned via instances of NativeContent.Image, which holds a Drawable and a Url. If this option is set to true, the SDK fetches image assets automatically and populates both the Drawable and the Uri for you. If it's set to false, however, the SDK instead populates just the Url field, allowing you to download the actual images at your discretion.Default is true.
@@ -788,6 +809,7 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 * **setAdAttributionBackgroundColor** use this property to specify the Ad text background color。Default is gray.
 * **setAdAttributionTextSize** use this property to specify the Ad text font size. Default is 10.
 * **setHideAdAttribution** use this property to hide the Ad text. Default is display.
+* **setHideAdAttribution(new ExpressAdSize(width, height))** pass the native ad container's size, the GDT network native ExpressAdView needs to set this property
 
 ## 4. Other settings
 ### 4.1 Proguard
@@ -796,8 +818,6 @@ If your project turn on minifyEnabled, add the following to the proguard file.
 ```c
 -keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,Synthetic,EnclosingMethod
 -keep class com.yumi.android.sdk.ads.** { *;}
--keep class com.yumi.android.sdk.ads.self.**{*;}
--keep class com.yumi.android.sdk.ads.selfmedia.**{*;}
 -keep class com.playableads.**{*;}
 ```
 
