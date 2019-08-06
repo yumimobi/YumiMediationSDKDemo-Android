@@ -25,7 +25,7 @@
 5. 增加视频点击回调
 6. 增加支持开屏的平台: Baidu 、BytedanceAds 、GDT
 7. 增加 Inneractive 平台 ，支持广告形式 ：Banner、Interstitial、Video
-8. 升级三方 SDK ，详情https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md
+8. 升级[三方SDK](https://github.com/yumimobi/YumiMediationSDKDemo-Android/blob/master/docs/YumiMediationSDK%20for%20Android%20Download%20Page.md)
 
 注：410版本接口进行了更新，请按照文档重新接入；Untiy 插件更新时，请将老插件删除干净，再引入新插件。
 
