@@ -396,8 +396,6 @@ interface IYumiInterstitialListener {
 ```java
 // Determine if an ad is available
 interstitial.isReady();
-// Cancel an ad in a delayed task
-interstitial.cancelInterstitialDelayShown();
 ```
 
 ### 3.3 Rewarded Video
@@ -463,6 +461,8 @@ interface IYumiMediaListener {
 ```java
 // Determine if there is a ready advertisement
 media.isReady();
+// Returns the remaining number of reward ads. If it is 0, it means that Rewarded Video will not be requested again today.
+media.getMediaRemainRewards()
 ```
 
 <div style="background-color:rgb(228,244,253);padding:10px;">
