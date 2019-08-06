@@ -1,6 +1,22 @@
 
 ###  iOS SDK  & iOS_Unity  SDK更新日志
 
+
+#### V 4.2.0
+
+1.增加原生模版渲染方式
+
+2.新增tapjoy平台
+
+3.支持 admob视频多层配置
+
+4.支持 unity 多层配置
+
+5.支持百度优选广告
+
+6.升级[三方SDK](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md)
+
+
 #### V 4.1.0
 
 1. 升级 interstitial & video & Splash 请求配置逻辑
@@ -17,7 +33,8 @@
 
 7. 增加 Inneractive SDK 平台 ，支持广告形式 ：Banner、Interstitial、Video
 
-8. 升级三方 SDK ，详情: https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md
+8. 升级[三方SDK](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md)
+
 
 注：410版本接口进行了更新，请按照文档重新接入；Untiy 插件更新时，请将老插件删除干净，再引入新插件。
 
