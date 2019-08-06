@@ -7,7 +7,7 @@
 
 1. Increase the native template rendering method
 
-2. Add tapjoy platform
+2. Add tapjoy platform，interstitial & video
 
 3. Support admob video multi-layer configuration
 
