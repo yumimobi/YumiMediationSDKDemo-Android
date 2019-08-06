@@ -1,6 +1,23 @@
 
 ###  iOS SDK  & iOS_Unity  SDK Changelog
 
+
+#### V 4.2.0
+
+
+1. Increase the native template rendering method
+
+2. Add tapjoy platform
+
+3. Support admob video multi-layer configuration
+
+4. Supportunity multi-layer configuration
+
+5. Support Baidu preferred advertising
+
+6. Update the [three-party SDK](https://github.com/yumimobi/YumiMediationSDKDemo-iOS/blob/master/normalDocuments/iOSDownloadPage.md)
+
+
 #### V 4.1.0
 
 1. Upgrade interstitial & video & Splash request configuration logic
