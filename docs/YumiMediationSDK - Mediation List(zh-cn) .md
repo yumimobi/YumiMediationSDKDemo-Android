@@ -1371,6 +1371,40 @@ dependencies {
 -keep class com.ss.sys.ces.* {*;}
 ```
 
+**注意事项 :**
+
+1.targetSdkVersion >= 24 适配(必选)
+ 
+ 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
+ 
+ **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
+  ```xml
+  <provider
+      android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
+      android:authorities="${applicationId}.TTFileProvider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/bytedance_file_paths" />
+  </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
+</span>
+</div>
+
+**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载bytedance_file_paths.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
+
+Download [bytedance_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/bytedance_file_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>注意：</b> 如果不进行上面的配置，会影响Bytedance平台广告收入
+</span>
+</div>
+<br />
 
 ### Inneractive
 
