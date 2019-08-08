@@ -242,16 +242,16 @@ targetSdkVersion >= 24 compatibility considerations (Required)
    when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
  
  **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
-  ```java
-     <provider
-            android:name="com.baidu.mobads.openad.FileProvider"
-            android:authorities="${applicationId}.bd.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/bd_file_paths" />
-    </provider>
+  ```xml
+  <provider
+      android:name="com.baidu.mobads.openad.FileProvider"
+      android:authorities="${applicationId}.bd.provider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/bd_file_paths" />
+  </provider>
   ```
 <div style="background-color:rgb(228,244,253);padding:10px;">
 <span style="color:rgb(62,113,167);">
@@ -457,16 +457,16 @@ targetSdkVersion >= 24 compatibility considerations (Required)
    when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
  
  **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
-  ```java
-     <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/gdt_file_path" />
-      </provider>
+  ```xml
+  <provider
+      android:name="android.support.v4.content.FileProvider"
+      android:authorities="${applicationId}.fileprovider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/gdt_file_path" />
+  </provider>
   ```
 <div style="background-color:rgb(228,244,253);padding:10px;">
 <span style="color:rgb(62,113,167);">
@@ -644,16 +644,16 @@ targetSdkVersion >= 24 compatibility considerations (Required)
    when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
  
  **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
-  ```java
+  ```xml
   <provider
-        android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
-        android:authorities="${applicationId}.mtgFileProvider"
-        android:exported="false"
-        android:grantUriPermissions="true">
-        <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/mtg_provider_paths"/>
-    </provider>
+      android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+      android:authorities="${applicationId}.mtgFileProvider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/mtg_provider_paths"/>
+  </provider>
   ```
 <div style="background-color:rgb(228,244,253);padding:10px;">
 <span style="color:rgb(62,113,167);">
@@ -1048,16 +1048,16 @@ targetSdkVersion >= 24 compatibility considerations (Required)
    when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
  
  **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
-  ```java
+  ```xml
   <provider
-        android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
-        android:authorities="${applicationId}.fileprovider"
-        android:exported="false"
-        android:grantUriPermissions="true">
-        <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/file_paths"/>
-    </provider>
+      android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
+      android:authorities="${applicationId}.fileprovider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/file_paths"/>
+  </provider>
   ```
 <div style="background-color:rgb(228,244,253);padding:10px;">
 <span style="color:rgb(62,113,167);">
@@ -1369,6 +1369,40 @@ dependencies {
 -keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
 -keep class com.ss.sys.ces.* {*;}
 ```
+
+**Note:**
+
+targetSdkVersion >= 24 compatibility considerations (Required)
+ 
+   when you package the app setting targetSdkVersion >= 24 , in order for the SDK to download and install the App class ads can be support normally, you must follow the steps below for compatibility.
+ 
+ **Step 1: Add this provider tag in the Application tag at AndroidManifest.xml**
+  ```xml
+  <provider
+      android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
+      android:authorities="${applicationId}.TTFileProvider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/bytedance_file_paths" />
+  </provider>
+  ```
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(62,113,167);">
+<b>Note：</b>If your project does not support the ${applicationId} configuration, you can replace ${applicationId} with your app package name.
+</span>
+</div>
+
+**Step 2: Add an xml folder under the res directory under the project structure, download the bytedance_file_paths.xml files, and add the downloaded xml file to the created xml folder:：**
+
+Download [bytedance_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/bytedance_file_paths.xml)
+
+<div style="background-color:rgb(228,244,253);padding:10px;">
+<span style="color:rgb(250,0,0);">
+<b>Note：</b> If you do not configure the above, it will affect the Bytedance platform advertising revenue.
+</span>
+</div>
 
 
 ### Tapjoy
