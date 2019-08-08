@@ -240,7 +240,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/bytedance_file_paths" />
         </provider>
-        <!-- bytedance recommend: start-->
+        <!-- bytedance end-->
 
     </application>
 
