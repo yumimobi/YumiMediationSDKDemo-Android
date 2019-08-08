@@ -245,7 +245,7 @@ AndroidManifest.xml注册组件：
  如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
  
  **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```java
+  ```xml
   <provider
     android:name="com.baidu.mobads.openad.FileProvider"
     android:authorities="${applicationId}.bd.provider"
@@ -460,15 +460,15 @@ AndroidManifest.xml注册组件：
  如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
  
  **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```java
+  ```xml
   <provider
-        android:name="android.support.v4.content.FileProvider"
-        android:authorities="${applicationId}.fileprovider"
-        android:exported="false"
-        android:grantUriPermissions="true">
-        <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/gdt_file_path" />
+      android:name="android.support.v4.content.FileProvider"
+      android:authorities="${applicationId}.fileprovider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/gdt_file_path" />
   </provider>
   ```
 <div style="background-color:rgb(228,244,253);padding:10px;">
@@ -648,7 +648,7 @@ AndroidManifest.xml注册组件：
  如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
  
  **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```java
+  ```xml
   <provider
       android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
       android:authorities="${applicationId}.mtgFileProvider"
@@ -1052,7 +1052,7 @@ AndroidManifest.xml注册组件：
  如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
  
  **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```java
+  ```xml
   <provider
       android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
       android:authorities="${applicationId}.fileprovider"
