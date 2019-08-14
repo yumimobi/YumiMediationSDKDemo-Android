@@ -954,7 +954,7 @@ debug 页面说明：
 | Interstitial | 56ubk22h | 使用此test id，可以测试到YUMI、AdMob、AppLovin、Baidu、IronSource、InMobi、IQzone、Unity Ads、Vungle、ZPLAYAds等平台的测试广告 |
 | Rewarded Video | ew9hyvl4 | YUMI、AdMob、AppLovin、GDTMob、IronSource、InMobi、IQzone、Unity Ads、Vungle、ZPLAYAds等平台的测试广告可以使用此test id进行测试 |
 | Native | dt62rndy | YUMI、AdMob、Baidu、GDTMob、Facebook等平台可以使用此test id进行测试 |
-| Splash | vv7snvc5 | YUMI,Baidu,GDTMob,AdMob,穿山甲 使用此test id，以上Network平台可测试到对应平台广告 |
+| Splash | vv7snvc5 | YUMI,Baidu,GDTMob,穿山甲 使用此test id，以上Network平台可测试到对应平台广告 |
 
 ## 6. 接入常见问题
 若您在接入过程中遇到任何问题，可点击查看[常见问题解答](https://github.com/yumimobi/Developer-doc/blob/master/FAQ_latest_cn.md)。
