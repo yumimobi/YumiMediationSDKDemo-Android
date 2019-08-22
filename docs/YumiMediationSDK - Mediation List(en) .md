@@ -595,13 +595,19 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
   <activity
+      android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
+      android:configChanges="orientation|keyboardHidden|screenSize"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+  <activity
+      android:name="com.mintegral.msdk.mtgjscommon.authority.activity.MTGAuthorityActivity"
+      android:configChanges="keyboardHidden|orientation|screenSize" />
+  <activity
       android:name="com.mintegral.msdk.activity.MTGCommonActivity"
       android:configChanges="keyboard|orientation"
       android:screenOrientation="portrait"
       android:exported="true"
       android:theme="@android:style/Theme.Translucent.NoTitleBar">
   </activity>
-
   <receiver android:name="com.mintegral.msdk.click.AppReceiver" >
       <intent-filter>
           <action android:name="android.intent.action.PACKAGE_ADDED" />
