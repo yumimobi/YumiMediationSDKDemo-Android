@@ -820,6 +820,7 @@ If your project turn on minifyEnabled, add the following to the proguard file.
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.playableads.**{*;}
 ```
+<b>Important：</b>If you integrated three-party advertising platforms, please set up a three-party platform Proguard configuration according to the three-party platform documentation we provide.[Click here](./YumiMediationSDK%20-%20Mediation%20List(en)%20.md) 
 
 ### 4.2 channelID and versionName
 Each ad type supports setting channelID and versionName, taking the YumiBanner object as an example.

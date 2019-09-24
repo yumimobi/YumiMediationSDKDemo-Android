@@ -827,6 +827,8 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 -keep class com.playableads.**{*;}
 ```
 
+<b>重要提示：</b>如果你有接入其他广告平台，请根据我们提供的三方平台文档设置三方平台混淆配置，请[查看](./YumiMediationSDK%20-%20Mediation%20List(zh-cn)%20.md)。
+
 ### 4.2 设置 channelID 与 versionName
 每种广告形式都支持设置 channelID 与 versionName，以 YumiBanner 对象为例
 ```java
