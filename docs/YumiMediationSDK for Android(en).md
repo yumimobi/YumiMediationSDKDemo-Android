@@ -81,6 +81,11 @@ allprojets {
         // Optional.
         // If you do not need the tapjoy SDK, you can remove the repo.
         maven { url "https://tapjoy.bintray.com/maven" }
+
+        // Optional.
+        // If you do not need the pubnative SDK, you can remove the repo.
+        maven { url "https://dl.bintray.com/pubnative/maven" }
+        
     }
 }
 ```
@@ -90,29 +95,30 @@ add YumiMediationSDK and other adapters dependencies.
 ```groovy
 dependencies {
     // YumiMediationSDK main package
-    implementation 'com.yumimobi.ads:mediation:4.2.0'
+    implementation 'com.yumimobi.ads:mediation:4.3.0'
 
     // YumiMediationSDK adapters, each adapter is one third party sdk.
-    implementation 'com.yumimobi.ads.mediation:playableads:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:adcolony:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:admob:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:applovin:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:baidu:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:bytedance:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:chartboost:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:facebook:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:gdt:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:inmobi:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:inneractive:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:ironsource:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:ksyun:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:mintegral:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:playableads:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:adcolony:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:admob:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:applovin:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:baidu:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:bytedance:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:chartboost:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:facebook:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:gdt:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:inmobi:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:inneractive:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:ironsource:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:ksyun:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:mintegral:4.3.0'
     // If you publish an app in China, you can use mintegral-china sdk
-    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:oneway:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:tapjoy:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:vungle:4.2.0'
+    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:oneway:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:tapjoy:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:unity:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:vungle:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:pubnative:4.3.0'
 ｝
 ```
 
@@ -820,6 +826,7 @@ If your project turn on minifyEnabled, add the following to the proguard file.
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.playableads.**{*;}
 ```
+<b>Important：</b>If you integrated three-party advertising platforms, please set up a three-party platform Proguard configuration according to the three-party platform documentation we provide.[Click here](./YumiMediationSDK%20-%20Mediation%20List(en)%20.md) 
 
 ### 4.2 channelID and versionName
 Each ad type supports setting channelID and versionName, taking the YumiBanner object as an example.

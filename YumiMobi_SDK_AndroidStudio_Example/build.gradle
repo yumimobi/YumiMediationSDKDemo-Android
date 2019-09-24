@@ -29,6 +29,12 @@ allprojects {
         // Optional.
         // If you do not need the tapjoy SDK, you can remove the repo.
         maven { url "https://tapjoy.bintray.com/maven" }
+        // Optional.
+        // If you do not need the pubnative SDK, you can remove the repo.
+        maven {
+            name "Pubnative's maven repo"
+            url "https://dl.bintray.com/pubnative/maven"
+        }
     }
 }
 

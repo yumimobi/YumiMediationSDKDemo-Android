@@ -20,7 +20,7 @@
 
 -  请注意三方SDK最小安卓版本, 可能高于玉米聚合广告SDK所要求的最小安卓版本, 此时您的工程应选用两者中较高的版本作为工程的最小版本, 否则使用三方平台时, 可能造成未知的影响。 "-"意味着和玉米聚合所支持的安卓最小版本版本一致。
 
--  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 4.2.0 版本 "com.yumimobi.ads:mediation:4.2.0" 时，需要添加Admob Adapter的4.2.0 版本 ”com.yumimobi.ads.mediation:admob:4.2.0“ 
+-  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 4.3.0 版本 "com.yumimobi.ads:mediation:4.3.0" 时，需要添加Admob Adapter的4.3.0 版本 ”com.yumimobi.ads.mediation:admob:4.3.0“ 
 
 
 ## 支持列表
@@ -48,7 +48,7 @@
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:adcolony:4.3.0'
 }
 ```
 
@@ -92,7 +92,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:admob:4.3.0'
 }
 ```
 
@@ -155,7 +155,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:applovin:4.3.0'
 }
 ```
 
@@ -163,9 +163,22 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-<activity android:name="com.applovin.adview.AppLovinInterstitialActivity" 
-          android:configChanges="orientation|screenSize"/>
-<activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
+<activity
+  android:name="com.applovin.adview.AppLovinInterstitialActivity"
+  android:configChanges="orientation|screenSize"
+  android:hardwareAccelerated="true" />
+<activity
+  android:name="com.applovin.impl.adview.AppLovinOrientationAwareInterstitialActivity"
+  android:configChanges="orientation|screenSize"
+  android:hardwareAccelerated="true"
+  android:screenOrientation="behind" />
+<activity
+  android:name="com.applovin.sdk.AppLovinWebViewActivity"
+  android:configChanges="keyboardHidden|orientation|screenSize" />
+<activity
+  android:name="com.applovin.mediation.MaxDebuggerActivity"
+  android:configChanges="keyboardHidden|orientation|screenSize"
+  android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
 ```
 
 
@@ -202,7 +215,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:baidu:4.3.0'
 }
 ```
 
@@ -238,43 +251,6 @@ AndroidManifest.xml注册组件：
 ```
 
 
-**注意事项 :**
-
-1.targetSdkVersion >= 24 适配(必选)
- 
- 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
- 
- **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```xml
-  <provider
-    android:name="com.baidu.mobads.openad.FileProvider"
-    android:authorities="${applicationId}.bd.provider"
-    android:exported="false"
-    android:grantUriPermissions="true">
-    <meta-data
-        android:name="android.support.FILE_PROVIDER_PATHS"
-        android:resource="@xml/bd_file_paths" />
-  </provider>
-  ```
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(62,113,167);">
-<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
-</span>
-</div>
-
-**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载bd_file_paths.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
-
-Download [bd_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/bd_file_paths.xml)
-
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(250,0,0);">
-<b>注意：</b> 如果不进行上面的配置，会影响百度平台广告收入
-</span>
-</div>
-
-<br />
-
-
 ### Chartboost
 
 |                   |                                  |
@@ -295,7 +271,7 @@ Download [bd_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-An
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:chartboost:4.3.0'
 }
 ```
 
@@ -322,7 +298,7 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_facebook.jar                               |
-| 三方版本          | 5.3.1                                                       |
+| 三方版本          | 5.4.1                                                       |
 | 最小安卓版本      | Android 3.0  /  API 11                                       |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏), 原生 |
@@ -338,7 +314,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:facebook:4.3.0'
 }
 ```
 
@@ -372,7 +348,6 @@ AndroidManifest.xml注册组件：
 -keep class com.facebook.** { *; }
 ```
 
-
 <br />
 
 
@@ -401,7 +376,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:gdt:4.3.0'
 }
 ```
 <p><span style="color:red;">注意:
@@ -411,31 +386,32 @@ dependencies {
 **Eclipse开发**
 
 AndroidManifest.xml注册组件：
+
 ```xml
-  <service
-      android:name="com.qq.e.comm.DownloadService"
-      android:exported="false"></service>
-  <activity
-      android:name="com.qq.e.ads.ADActivity"
-      android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
-  </activity>
-  <activity
-      android:name="com.qq.e.ads.PortraitADActivity"
-      android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-      android:screenOrientation="portrait" />
-  <activity
-      android:name="com.qq.e.ads.LandscapeADActivity"
-      android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-      android:screenOrientation="landscape" />
-  <provider
-      android:name="android.support.v4.content.FileProvider"
-      android:authorities="${applicationId}.fileprovider"
-      android:exported="false"
-      android:grantUriPermissions="true">
-      <meta-data
-          android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/gdt_file_path" />
-  </provider>
+//请在AndroidManifest.xml的application上添加 android:usesCleartextTraffic="true"
+<application android:usesCleartextTraffic="true" >
+
+//请在application添加下面的配置
+<meta-data
+  android:name="com.tencent.rdm.uuid"
+  android:value="3f34c50c-1bd6-44cf-9f47-c5d6adf9bee7" />
+<uses-library
+  android:name="org.apache.http.legacy"
+  android:required="false" />
+<service
+  android:name="com.qq.e.comm.DownloadService"
+  android:exported="false" />
+<activity
+  android:name="com.qq.e.ads.ADActivity"
+  android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+<activity
+  android:name="com.qq.e.ads.PortraitADActivity"
+  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+  android:screenOrientation="portrait" />
+<activity
+  android:name="com.qq.e.ads.LandscapeADActivity"
+  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+  android:screenOrientation="landscape" />
 ```
 
 **混淆：**
@@ -452,40 +428,6 @@ AndroidManifest.xml注册组件：
 -dontwarn dalvik.**
 -dontwarn com.tencent.smtt.**  
 ```
-
-**注意事项 :**
-
-1.targetSdkVersion >= 24 适配(必选)
- 
- 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
- 
- **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```xml
-  <provider
-      android:name="android.support.v4.content.FileProvider"
-      android:authorities="${applicationId}.fileprovider"
-      android:exported="false"
-      android:grantUriPermissions="true">
-      <meta-data
-          android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/gdt_file_path" />
-  </provider>
-  ```
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(62,113,167);">
-<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
-</span>
-</div>
-
-**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载gdt_file_path.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
-
-Download [gdt_file_path.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/gdt_file_path.xml)
-
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(250,0,0);">
-<b>注意：</b> 如果不进行上面的配置，会影响广点通平台广告收入
-</span>
-</div>
 
 <br />
 
@@ -520,7 +462,7 @@ Download [gdt_file_path.xml](https://github.com/yumimobi/YumiMediationSDKDemo-An
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:inmobi:4.3.0'
 }
 ```
 
@@ -568,9 +510,9 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_mintegral.jar                               |
-| 三方版本          | 9.11.0                                                        |
+| 三方版本          | 9.13.3                                                        |
 | GooglePlayService | --                                                           |
-| 支持广告形式      | 视频                                                         |
+| 支持广告形式      | 插屏，视频                                                         |
 | .so/lib工程       | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values |
 
 **额外权限：**
@@ -588,9 +530,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:mintegral:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral:4.3.0'
   //中国市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.3.0'
 }
 ```
 
@@ -598,40 +540,44 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-  <activity
-      android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
-      android:configChanges="orientation|keyboardHidden|screenSize"
-      android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-  <activity
-      android:name="com.mintegral.msdk.mtgjscommon.authority.activity.MTGAuthorityActivity"
-      android:configChanges="keyboardHidden|orientation|screenSize" />
-  <activity
-      android:name="com.mintegral.msdk.activity.MTGCommonActivity"
-      android:configChanges="keyboard|orientation"
-      android:screenOrientation="portrait"
-      android:exported="true"
-      android:theme="@android:style/Theme.Translucent.NoTitleBar">
-  </activity>
-  <receiver android:name="com.mintegral.msdk.click.AppReceiver" >
-      <intent-filter>
-          <action android:name="android.intent.action.PACKAGE_ADDED" />
-          <data android:scheme="package" />
-      </intent-filter>
-  </receiver>
-  <service android:name="com.mintegral.msdk.shell.MTGService" >
-      <intent-filter>
-          <action android:name="com.mintegral.msdk.download.action" />
-      </intent-filter>
-  </service>
-  <provider
-      android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
-      android:authorities="${applicationId}.mtgFileProvider"
-      android:exported="false"
-      android:grantUriPermissions="true">
-      <meta-data
-          android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/mtg_provider_paths"/>
-  </provider>
+<activity
+  android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
+  android:configChanges="orientation|keyboardHidden|screenSize"
+  android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<activity
+  android:name="com.mintegral.msdk.activity.MTGCommonActivity"
+  android:configChanges="keyboard|orientation"
+  android:exported="true"
+  android:screenOrientation="portrait"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+<activity
+  android:name="com.mintegral.msdk.mtgjscommon.authority.activity.MTGAuthorityActivity"
+  android:configChanges="keyboardHidden|orientation|screenSize" />
+<service android:name="com.mintegral.msdk.shell.MTGService" >
+  <intent-filter>
+      <action android:name="com.mintegral.msdk.download.action" />
+  </intent-filter>
+</service>
+<receiver android:name="com.mintegral.msdk.click.AppReceiver" >
+  <intent-filter>
+      <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+      <data android:scheme="package" />
+  </intent-filter>
+</receiver>
+<provider
+  android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+  android:authorities="${applicationId}.mtgFileProvider"
+  android:exported="false"
+  android:grantUriPermissions="true" >
+  <meta-data
+      android:name="android.support.FILE_PROVIDER_PATHS"
+      android:resource="@xml/mtg_provider_paths" />
+</provider>
+<activity
+  android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity"
+  android:configChanges="orientation|screenSize"
+  android:screenOrientation="portrait" />
 ```
 
 **混淆：**
@@ -647,41 +593,6 @@ AndroidManifest.xml注册组件：
 -keep interface com.alphab.** {*; }
 ```
 
-**注意事项 :**
-
-1.targetSdkVersion >= 24 适配(必选)
- 
- 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
- 
- **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```xml
-  <provider
-      android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
-      android:authorities="${applicationId}.mtgFileProvider"
-      android:exported="false"
-      android:grantUriPermissions="true">
-      <meta-data
-          android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/mtg_provider_paths"/>
-  </provider>
-  ```
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(62,113,167);">
-<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
-</span>
-</div>
-
-**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载mtg_provider_paths.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
-
-Download [mtg_provider_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/mtg_provider_paths.xml)
-
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(250,0,0);">
-<b>注意：</b> 如果不进行上面的配置，会影响Mintegral平台广告收入
-</span>
-</div>
-<br />
-
 <br />
 
 
@@ -690,7 +601,7 @@ Download [mtg_provider_paths.xml](https://github.com/yumimobi/YumiMediationSDKDe
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar名称           | libs/yumi_adapter_oneway.jar |
-| 三方版本          | 1.3.5                        |
+| 三方版本          | 2.3.4                        |
 | GooglePlayService | --                           |
 | 支持广告形式      | 视频                         |
 | .so/lib工程       | --                           |
@@ -707,7 +618,7 @@ Download [mtg_provider_paths.xml](https://github.com/yumimobi/YumiMediationSDKDe
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:oneway:4.3.0'
 }
 ```
 
@@ -715,20 +626,99 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-<activity  android:name="mobi.oneway.sdk.AdShowActivity"  
-	android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" 
-	android:hardwareAccelerated="true" 
-	android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<activity
+  android:name="mobi.oneway.export.AdShowActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="true"
+  android:launchMode="singleTask"
+  android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<provider
+  android:name="mobi.oneway.export.OWProvider"
+  android:authorities="${applicationId}.provider"
+  android:exported="false"
+  android:grantUriPermissions="true" >
+  <meta-data
+      android:name="android.support.FILE_PROVIDER_PATHS"
+      android:resource="@xml/ow_file_paths" />
+</provider>
+<provider
+  android:name="mobi.oneway.common.OwGFileProvider"
+  android:authorities="${applicationId}.fileprovider"
+  android:exported="false"
+  android:grantUriPermissions="true" >
+  <meta-data
+      android:name="android.support.FILE_PROVIDER_PATHS"
+      android:resource="@xml/ow_g_file_path" />
+</provider>
+<provider
+  android:name="mobi.oneway.common.OwBFileProvider"
+  android:authorities="${applicationId}.bd.provider"
+  android:exported="false"
+  android:grantUriPermissions="true" >
+  <meta-data
+      android:name="android.support.FILE_PROVIDER_PATHS"
+      android:resource="@xml/ow_b_file_paths" />
+</provider>
 ```
 
 **混淆：**
 ```c
---
+-keep class android.support.v4.app.NotificationCompat$*{*;}
+-keep class android.support.v4.content.FileProvider{*;}
+-keep class android.support.v4.app.Fragment{*;}
+-keepattributes *Annotation*
+-keep enum mobi.oneway.export.* {*;}
+-keep class mobi.oneway.export.** {*;}
+-dontwarn com.liulishuo.okdownload.**
+# com.liulishuo.okdownload 
+-keep class com.liulishuo.okdownload.**{*;}
+# okhttp https://github.com/square/okhttp/#proguard
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+# A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+-keep class com.didi.virtualapk.** { *; }
+-dontwarn com.didi.virtualapk.**
+-dontwarn android.**
+-keep class android.** { *; }
 ```
 
 
 <br />
 
+
+### Pubnative
+
+|                   |                              |
+| ----------------- | ---------------------------- |
+| Jar名称           | -- |
+| 三方版本          | 0.6.1                    |
+| GooglePlayService | -- |
+| 支持广告形式      | banner, 插屏, 原生    |
+| .so/lib工程       | --|
+
+**额外权限：**
+```xml
+```
+
+**AndroidStudio开发**
+
+build.gradle添加：
+```c
+dependencies {
+  implementation 'com.yumimobi.ads.mediation:pubnative:4.3.0'
+}
+```
+
+**混淆：**
+```c
+-keepattributes Signature
+-keep class net.pubnative.** { *; }
+```
+
+<br />
 
 ### Unity
 
@@ -750,7 +740,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:unity:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:unity:4.3.0'
 }
 ```
 
@@ -829,7 +819,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:vungle:4.3.0'
 }
 ```
 
@@ -933,7 +923,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:playableads:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:playableads:4.3.0'
 }
 ```
 
@@ -1016,7 +1006,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:ksyun:4.3.0'
 }
 ```
 
@@ -1025,23 +1015,25 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-	android:name="com.ksc.ad.sdk.ui.AdProxyActivity"
-	android:configChanges="keyboardHidden|orientation|screenSize"
-	android:hardwareAccelerated="true"
-	android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+  android:name="com.ksc.ad.sdk.ui.AdProxyActivity"
+  android:configChanges="keyboardHidden|orientation|screenSize"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 <activity
-	android:name="com.ksc.ad.sdk.ui.AdPermissionProxyActivity"
-	android:configChanges="keyboardHidden|orientation|screenSize"
-	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+  android:name="com.ksc.ad.sdk.ui.AdPermissionProxyActivity"
+  android:configChanges="keyboardHidden|orientation|screenSize"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
 <service android:name="com.ksc.ad.sdk.service.AdProxyService" />
+
 <provider
-	android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
-	android:authorities="${applicationId}.fileprovider"
-	android:exported="false"
-	android:grantUriPermissions="true">
-	<meta-data
-		android:name="android.support.FILE_PROVIDER_PATHS"
-		android:resource="@xml/file_paths" />
+  android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
+  android:authorities="${applicationId}.fileprovider"
+  android:exported="false"
+  android:grantUriPermissions="true" >
+  <meta-data
+      android:name="android.support.FILE_PROVIDER_PATHS"
+      android:resource="@xml/ksyun_file_paths" />
 </provider>
 ```
 
@@ -1050,40 +1042,6 @@ AndroidManifest.xml注册组件：
 -keep class com.ksc.ad.sdk.**{ *;}
 -dontwarn com.ksc.ad.sdk.**
 ```
-
-**注意事项 :**
-
-1.targetSdkVersion >= 24 适配(必选)
- 
- 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
- 
- **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```xml
-  <provider
-      android:name="com.ksc.ad.sdk.util.KsyunFileProvider"
-      android:authorities="${applicationId}.fileprovider"
-      android:exported="false"
-      android:grantUriPermissions="true">
-      <meta-data
-          android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/file_paths"/>
-  </provider>
-  ```
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(62,113,167);">
-<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
-</span>
-</div>
-
-**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载file_paths.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
-
-Download [file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/file_paths.xml)
-
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(250,0,0);">
-<b>注意：</b> 如果不进行上面的配置，会影响金山云平台广告收入
-</span>
-</div>
 <br />
 
 
@@ -1107,7 +1065,7 @@ Download [file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Andro
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:ironsource:4.3.0'
 }
 ```
 
@@ -1169,7 +1127,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:iqzone:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:iqzone:4.3.0'
 }
 ```
 
@@ -1334,6 +1292,8 @@ dependencies {
 -dontwarn org.codehause.**
 ```
 
+<br />
+
 ### Bytedance
 
 |                   |                              |
@@ -1365,7 +1325,7 @@ dependencies {
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:bytedance:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:bytedance:4.3.0'
 }
 ```
 
@@ -1377,39 +1337,6 @@ dependencies {
 -keep class com.ss.sys.ces.* {*;}
 ```
 
-**注意事项 :**
-
-1.targetSdkVersion >= 24 适配(必选)
- 
- 如果您打包 App 时的 targetSdkVersion >= 24，为了让 SDK 能够正常下载、安装 App 类广告，必须按照下面的步骤做兼容性处理
- 
- **步骤一：在 AndroidManifest.xml 中的 Application 标签中添加 provider 标签**
-  ```xml
-  <provider
-      android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
-      android:authorities="${applicationId}.TTFileProvider"
-      android:exported="false"
-      android:grantUriPermissions="true">
-      <meta-data
-          android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/bytedance_file_paths" />
-  </provider>
-  ```
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(62,113,167);">
-<b>提示：</b>如果你的工程不支持 ${applicationId} 配置，可以将 ${applicationId} 替换为你的App包名
-</span>
-</div>
-
-**步骤二：在项目结构下的 res 目录下添加一个 xml 文件夹，下载bytedance_file_paths.xml文件，将下载下来的xml文件添加到创建的 xml 文件夹中：**
-
-Download [bytedance_file_paths.xml](https://github.com/yumimobi/YumiMediationSDKDemo-Android/tree/master/YumiMobi_SDK_AndroidStudio_Example/app/src/main/res/xml/bytedance_file_paths.xml)
-
-<div style="background-color:rgb(228,244,253);padding:10px;">
-<span style="color:rgb(250,0,0);">
-<b>注意：</b> 如果不进行上面的配置，会影响Bytedance平台广告收入
-</span>
-</div>
 <br />
 
 ### Inneractive
@@ -1435,7 +1362,7 @@ Download [bytedance_file_paths.xml](https://github.com/yumimobi/YumiMediationSDK
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inneractive:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:inneractive:4.3.0'
 }
 ```
 
@@ -1445,6 +1372,8 @@ dependencies {
 -keep class org.a.* {*;}
 -keep class com.google.gson.* {*;}
 ```
+
+<br />
 
 ### Tapjoy
 
@@ -1465,7 +1394,7 @@ dependencies {
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:tapjoy:4.2.0'
+  implementation 'com.yumimobi.ads.mediation:tapjoy:4.3.0'
 }
 ```
 
@@ -1491,3 +1420,6 @@ public static final ** CREATOR;
 -keep class com.google.android.gms.ads.identifier.** { *; }
 -dontwarn com.tapjoy.**
 ```
+
+<br />
+

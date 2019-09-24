@@ -84,6 +84,9 @@ allprojets {
 
         // 可选，如果需要导入 Tapjoy 相关 SDK 时需要添加以下 repo
         maven { url "https://tapjoy.bintray.com/maven" }
+
+        // 可选，如果需要导入 Pubnative 相关 SDK 时需要添加以下 repo
+        maven { url "https://dl.bintray.com/pubnative/maven" }
     }
 }
 ```
@@ -93,29 +96,30 @@ allprojets {
 ```groovy
 dependencies {
     // YumiMediationSDK main package
-    implementation 'com.yumimobi.ads:mediation:4.2.0'
+    implementation 'com.yumimobi.ads:mediation:4.3.0'
 
     // YumiMediationSDK adapters, each adapter is one third party sdk.
-    implementation 'com.yumimobi.ads.mediation:playableads:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:adcolony:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:admob:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:applovin:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:baidu:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:bytedance:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:chartboost:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:facebook:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:gdt:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:inmobi:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:inneractive:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:ironsource:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:ksyun:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:mintegral:4.2.0'
+    implementation 'com.yumimobi.ads.mediation:playableads:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:adcolony:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:admob:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:applovin:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:baidu:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:bytedance:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:chartboost:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:facebook:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:gdt:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:inmobi:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:inneractive:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:ironsource:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:ksyun:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:mintegral:4.3.0'
     // If you publish an app in China, you can use mintegral-china sdk
-    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:oneway:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:tapjoy:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.2.0'
-    implementation 'com.yumimobi.ads.mediation:vungle:4.2.0'
+    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:oneway:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:tapjoy:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:unity:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:vungle:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:pubnative:4.3.0'
 ｝
 ```
 
@@ -826,6 +830,8 @@ YumiNativeAdOptions nativeAdOptions = new YumiNativeAdOptions.Builder()
 -keep class com.yumi.android.sdk.ads.** { *;}
 -keep class com.playableads.**{*;}
 ```
+
+<b>重要提示：</b>如果你有接入其他广告平台，请根据我们提供的三方平台文档设置三方平台混淆配置，请[查看](./YumiMediationSDK%20-%20Mediation%20List(zh-cn)%20.md)。
 
 ### 4.2 设置 channelID 与 versionName
 每种广告形式都支持设置 channelID 与 versionName，以 YumiBanner 对象为例
