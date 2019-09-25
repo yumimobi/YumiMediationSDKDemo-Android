@@ -1,9 +1,5 @@
 # YumiMediationSDKDemo-Android
 
-## Latest Version
-
-**v4.2.0**
-
 ## SDK Changelog
 [**SDK Changelog for Android(zh-cn)**](./SDK%20Changelog/Android%20SDK%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md)
 
