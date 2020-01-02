@@ -95,30 +95,30 @@ add YumiMediationSDK and other adapters dependencies.
 ```groovy
 dependencies {
     // YumiMediationSDK main package
-    implementation 'com.yumimobi.ads:mediation:4.3.0'
+    implementation 'com.yumimobi.ads:mediation:4.5.0'
 
     // YumiMediationSDK adapters, each adapter is one third party sdk.
-    implementation 'com.yumimobi.ads.mediation:playableads:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:adcolony:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:admob:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:applovin:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:baidu:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:bytedance:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:chartboost:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:facebook:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:gdt:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:inmobi:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:inneractive:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:ironsource:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:ksyun:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:mintegral:4.3.0'
+    implementation 'com.yumimobi.ads.mediation:playableads:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:adcolony:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:admob:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:applovin:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:baidu:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:bytedance:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:chartboost:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:facebook:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:gdt:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:inmobi:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:inneractive:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:ironsource:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:ksyun:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:mintegral:4.5.0'
     // If you publish an app in China, you can use mintegral-china sdk
-    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:oneway:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:tapjoy:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:vungle:4.3.0'
-    implementation 'com.yumimobi.ads.mediation:pubnative:4.3.0'
+    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:oneway:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:tapjoy:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:unity:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:vungle:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:pubnative:4.5.0'
 ｝
 ```
 
@@ -179,49 +179,23 @@ Registered components
 Add following in manifest.xml of your project:
 
 ```xml
-    <receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver">
-        <intent-filter>
-            <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-        </intent-filter>
-    </receiver>
+<receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver">
+    <intent-filter>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+    </intent-filter>
+</receiver>
 
-    <activity
-        android:name="com.yumi.android.sdk.ads.self.activity.YumiFullScreenActivity"
-        android:configChanges="keyboardHidden|orientation|screenSize"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<activity
+    android:name="com.yumi.android.sdk.ads.self.activity.YumiFullScreenActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
-    <activity
-        android:name="com.playableads.presenter.APIAdActivity"
-        android:configChanges="keyboardHidden|orientation|screenSize"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" />
 
-    <activity
-        android:name="com.playableads.presenter.PlayableADActivity"
-        android:configChanges="orientation|screenSize|keyboardHidden"
-        android:hardwareAccelerated="true"
-        android:screenOrientation="portrait"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-    <activity
-        android:name="com.playableads.presenter.NativeAdLandingPageActivity"
-        android:configChanges="orientation|screenSize|keyboardHidden"
-        android:hardwareAccelerated="true"
-        android:screenOrientation="portrait"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-    <activity
-        android:name="com.playableads.presenter.WebActivity"
-        android:configChanges="orientation|screenSize|keyboardHidden"
-        android:hardwareAccelerated="true"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-    <receiver android:name="com.playableads.PlayableReceiver">
-        <intent-filter>
-            <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-        </intent-filter>
-    </receiver>
-        
-    <activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity" />
+<activity
+    android:name="com.yumi.android.sdk.ads.self.playableads.presenter.APIAdActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 ```
 
 Add permissions 
@@ -824,7 +798,6 @@ If your project turn on minifyEnabled, add the following to the proguard file.
 ```c
 -keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,Synthetic,EnclosingMethod
 -keep class com.yumi.android.sdk.ads.** { *;}
--keep class com.playableads.**{*;}
 ```
 <b>Important：</b>If you integrated three-party advertising platforms, please set up a three-party platform Proguard configuration according to the three-party platform documentation we provide.[Click here](./YumiMediationSDK%20-%20Mediation%20List(en)%20.md) 
 
