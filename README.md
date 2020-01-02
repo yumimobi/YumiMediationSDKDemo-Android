@@ -124,7 +124,7 @@ dependencies {
 ｝
 ```
 
-> 最新版本号，请[查看](https://github.com/yumimobi/YumiMediationSDKDemo-Android#latest-version)
+> 聚合平台Adapter详细说明，请[查看](./YumiMediationSDK%20-%20Mediation%20List(zh-cn)%20.md)
 
 
 添加可选权限，可选权限可以提升广告填充率及广告转化效果。
