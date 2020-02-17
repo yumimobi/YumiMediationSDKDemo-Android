@@ -97,30 +97,30 @@ allprojets {
 ```groovy
 dependencies {
     // YumiMediationSDK main package
-    implementation 'com.yumimobi.ads:mediation:4.5.0'
+    implementation 'com.yumimobi.ads:mediation:4.5.1'
 
     // YumiMediationSDK adapters, each adapter is one third party sdk.
-    implementation 'com.yumimobi.ads.mediation:playableads:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:adcolony:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:admob:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:applovin:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:baidu:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:bytedance:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:chartboost:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:facebook:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:gdt:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:inmobi:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:inneractive:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:ironsource:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:ksyun:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:mintegral:4.5.0'
+    implementation 'com.yumimobi.ads.mediation:atmosplay:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:adcolony:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:admob:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:applovin:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:baidu:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:bytedance:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:chartboost:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:facebook:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:gdt:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:inmobi:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:inneractive:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:ironsource:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:ksyun:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:mintegral:4.5.1'
     // If you publish an app in China, you can use mintegral-china sdk
-    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:oneway:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:tapjoy:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:vungle:4.5.0'
-    implementation 'com.yumimobi.ads.mediation:pubnative:4.5.0'
+    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:oneway:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:tapjoy:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:unity:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:vungle:4.5.1'
+    implementation 'com.yumimobi.ads.mediation:pubnative:4.5.1'
 ｝
 ```
 

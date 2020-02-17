@@ -20,7 +20,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 
 - The minSdkVersion which the provider sdk required maybe above the YumiMobi SDK , please use the higher as your project minSdkVersion to avoid the unexpected exception. "-" means the minSdkVersion is same to YumiMobi SDK required.
 
-- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 4.5.0 "com.yumimobi.ads:mediation:4.5.0", you need to add such Adapter 4.5.0 version "com.yumimobi.ads.mediation:such:4.5.0"
+- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 4.5.1 "com.yumimobi.ads:mediation:4.5.1", you need to add such Adapter 4.5.1 version "com.yumimobi.ads.mediation:such:4.5.1"
 
 ## Support List
 
@@ -47,7 +47,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:adcolony:4.5.1'
 }
 ```
 
@@ -92,7 +92,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:admob:4.5.1'
 }
 ```
 
@@ -154,7 +154,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:applovin:4.5.1'
 }
 ```
 
@@ -214,7 +214,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:baidu:4.5.1'
 }
 ```
 
@@ -272,7 +272,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:chartboost:4.5.1'
 }
 ```
 
@@ -317,7 +317,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:facebook:4.5.1'
 }
 ```
 
@@ -360,7 +360,7 @@ AndroidManifest.xml Component：
 |                   |                           |
 | ----------------- | ------------------------- |
 | Jar Name          | libs/yumi_adapter_gdt.jar |
-| Provider Ver      | 4.100.970                   |
+| Provider Ver      | 4.150.1020                   |
 | GooglePlayService | --                        |
 | Ad Form           | Banner, Interstitial, Reward Video, Native, Splash      |
 | .so/lib project   | --                        |
@@ -380,7 +380,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:gdt:4.5.1'
 }
 ```
 <p><span style="color:red;">Precautions:
@@ -400,18 +400,32 @@ AndroidManifest.xml Component：
   android:required="false" />
 <service
   android:name="com.qq.e.comm.DownloadService"
-  android:exported="false" />
+  android:exported="false"
+  android:multiprocess="true" />
 <activity
   android:name="com.qq.e.ads.ADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+  android:multiprocess="true" />
 <activity
   android:name="com.qq.e.ads.PortraitADActivity"
   android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+  android:multiprocess="true"
   android:screenOrientation="portrait" />
 <activity
   android:name="com.qq.e.ads.LandscapeADActivity"
   android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+  android:multiprocess="true"
   android:screenOrientation="landscape" />
+<activity
+  android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
+  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+  android:multiprocess="true"
+  android:theme="@android:style/Theme.Translucent" />
+<activity
+  android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
+  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+  android:multiprocess="true"
+  android:theme="@android:style/Theme.Translucent" />
 <provider
   android:name="android.support.v4.content.FileProvider"
   android:authorities="${applicationId}.fileprovider"
@@ -470,7 +484,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:inmobi:4.5.1'
 }
 ```
 
@@ -517,7 +531,7 @@ AndroidManifest.xml Component：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_mintegral.jar                               |
-| Provider Ver      | 10.1.71                                                        |
+| Provider Ver      | 10.2.11                                                        |
 | GooglePlayService | --                                                           |
 | Ad Form           | Interstitial, Reward Video                                                 |
 | .so/lib project   | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values  |
@@ -537,9 +551,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  implementation 'com.yumimobi.ads.mediation:mintegral:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral:4.5.1'
   //China market channel release
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.5.1'
 }
 ```
 
@@ -624,7 +638,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:oneway:4.5.1'
 }
 ```
 
@@ -714,7 +728,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:pubnative:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:pubnative:4.5.1'
 }
 ```
 
@@ -746,7 +760,7 @@ dependencies {
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:unity:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:unity:4.5.1'
 }
 ```
 
@@ -825,7 +839,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:vungle:4.5.1'
 }
 ```
 
@@ -908,12 +922,12 @@ AndroidManifest.xml Component：
 <br />
 
 
-### ZPLAYAds
+### Atmosplay
 
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar Name          | libs/yumi_adapter_playableads.jar |
-| Provider Ver      | 2.6.0                             |
+| Provider Ver      | 3.0.0                             |
 | GooglePlayService | --                                |
 | Ad Form           | Interstitial, Reward Video        |
 | .so/lib project   | --                                |
@@ -928,7 +942,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:playableads:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:atmosplay:4.5.1'
 }
 ```
 
@@ -937,23 +951,23 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-  android:name="com.playableads.presenter.PlayableADActivity"
+  android:name="com.atmosplayads.presenter.AtmosplayAdActivity"
   android:configChanges="orientation|screenSize|keyboardHidden"
   android:hardwareAccelerated="true"
   android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 <activity
-  android:name="com.playableads.presenter.NativeAdLandingPageActivity"
+  android:name="com.atmosplayads.presenter.NativeAdLandingPageActivity"
   android:configChanges="orientation|screenSize|keyboardHidden"
   android:hardwareAccelerated="true"
   android:screenOrientation="portrait"
   android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 <activity
-  android:name="com.playableads.presenter.WebActivity"
+  android:name="com.atmosplayads.presenter.WebActivity"
   android:configChanges="orientation|screenSize|keyboardHidden"
   android:hardwareAccelerated="true"
   android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
-<receiver android:name="com.playableads.PlayableReceiver" >
+<receiver android:name="com.atmosplayads.AtmosplayAdsReceiver" >
   <intent-filter>
       <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
   </intent-filter>
@@ -962,30 +976,7 @@ AndroidManifest.xml Component：
 
 **ProGuard：**
 ```c
--keep class com.playableads.PlayPreloadingListener {*;}
--keep class com.playableads.PlayLoadingListener {*;}
--keep class * implements com.playableads.PlayPreloadingListener {*;}
--keep class * implements com.playableads.PlayLoadingListener {*;}
--keep class com.playableads.PlayableReceiver {*;}
--keep class com.playableads.constants.StatusCode {*;}
--keep class com.playableads.MultiPlayLoadingListener {*;}
--keep class com.playableads.MultiPlayPreloadingListener {*;}
--keep class * implements com.playableads.MultiPlayLoadingListener {*;}
--keep class * implements com.playableads.MultiPlayPreloadingListener {*;}
--keep class com.playableads.PlayableAds {
-    public void onDestroy();
-    public static com.playableads.PlayableAds getInstance();
-    public void requestPlayableAds(com.playableads.PlayPreloadingListener, java.lang.String);
-    public void requestPlayableAds(java.lang.String, com.playableads.PlayPreloadingListener);
-    public synchronized static com.playableads.PlayableAds init(android.content.Context, java.lang.String);
-    public void presentPlayableAD(java.lang.String, com.playableads.PlayLoadingListener);
-    public void presentPlayableAd(com.playableads.PlayLoadingListener);
-    public boolean canPresentAd(java.lang.String);
-    public void setMultiLoadingListener(com.playableads.MultiPlayLoadingListener);
-    public void setMultiPreloadingListener(com.playableads.MultiPlayPreloadingListener);
-    public void setCacheCountPerUnitId(int);
-    public void setAutoLoadAd(boolean);
-}
+-keep class com.atmosplayads.**{*;}
 ```
 
 
@@ -1015,7 +1006,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:ksyun:4.5.1'
 }
 ```
 
@@ -1074,7 +1065,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:ironsource:4.5.1'
 }
 ```
 
@@ -1137,7 +1128,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-   implementation 'com.yumimobi.ads.mediation:iqzone:4.5.0'
+   implementation 'com.yumimobi.ads.mediation:iqzone:4.5.1'
 }
 ```
 
@@ -1310,7 +1301,7 @@ dependencies {
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar Name           | -- |
-| Provider Ver          | 1.9.9.5  |
+| Provider Ver          | 2.7.5.2  |
 | GooglePlayService | --        |
 | Ad Form       | Banner, Interstitial, Reward Video, Splash     |
 | .so/lib project       | --|
@@ -1336,7 +1327,7 @@ dependencies {
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:bytedance:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:bytedance:4.5.1'
 }
 ```
 
@@ -1369,7 +1360,7 @@ dependencies {
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:tapjoy:4.5.0'
+  implementation 'com.yumimobi.ads.mediation:tapjoy:4.5.1'
 }
 ```
 
