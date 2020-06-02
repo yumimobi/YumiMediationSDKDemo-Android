@@ -77,7 +77,7 @@ AndroidManifest.xml Component：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_admob.jar |
-| Provider Ver      | 17.2.0                         |
+| Provider Ver      | 19.1.0                         |
 | GooglePlayService | Require                     |
 | Ad Form           | Banner, Interstitial, Reward Video, Native|
 | .so/lib project   | --                          |
@@ -130,6 +130,16 @@ AndroidManifest.xml Component：
   }
 ```
 
+**Migrate project to AndroidX：**
+
+The latest Google Mobile Ads SDK uses Jetpack libraries.
+
+To ensure the Google Mobile Ads SDK are compatible, create a gradle.properties file in the top-level of your project, and add the following code:
+```c
+android.useAndroidX=true
+android.enableJetifier=true
+```
+This will rewrite the project SDK binary to use use Jetpack libraries. See [AndroidX migration guide](https://developer.android.com/jetpack/androidx/migrate) for more information about these settings.
 
 <br />
 
@@ -139,7 +149,7 @@ AndroidManifest.xml Component：
 |                   |                                |
 | ----------------- | ------------------------------ |
 | Jar Name          | libs/yumi_adapter_applovin.jar |
-| Provider Ver      | 9.9.2                         |
+| Provider Ver      | 9.12.6                         |
 | GooglePlayService | Require                        |
 | Ad Form           | Banner, Interstitial, Reward Video     |
 | .so/lib project   | --                             |
@@ -164,8 +174,15 @@ AndroidManifest.xml Component：
 ```xml
 <activity
   android:name="com.applovin.adview.AppLovinInterstitialActivity"
-  android:configChanges="orientation|screenSize"
+  android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"
   android:hardwareAccelerated="true"
+  android:screenOrientation="behind" />
+<activity
+  android:name="com.applovin.adview.AppLovinFullscreenActivity"
+  android:configChanges="keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+  android:exported="false"
+  android:hardwareAccelerated="true"
+  android:launchMode="singleTop"
   android:screenOrientation="behind" />
 <activity
   android:name="com.applovin.sdk.AppLovinWebViewActivity"
@@ -178,6 +195,11 @@ AndroidManifest.xml Component：
   android:name="com.applovin.mediation.MaxDebuggerDetailActivity"
   android:configChanges="keyboardHidden|orientation|screenSize"
   android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
+
+<service
+  android:name="com.applovin.impl.sdk.utils.AppKilledService"
+  android:exported="false"
+  android:stopWithTask="false" />
 ```
 
 
@@ -196,7 +218,7 @@ AndroidManifest.xml Component：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_baidu.jar |
-| Provider Ver      | 5.8.0                         |
+| Provider Ver      | 5.85                       |
 | GooglePlayService | --                          |
 | Ad Form           | Banner, Interstitial, Reward Video, Native, Splash        |
 | .so/lib project   | --                          |
@@ -223,22 +245,23 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-	android:name="com.baidu.mobads.AppActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation" />
+  android:name="com.baidu.mobads.AppActivity"
+  android:configChanges="screenSize|keyboard|keyboardHidden|orientation"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 <activity
   android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
   android:configChanges="screenSize|orientation|keyboardHidden"
   android:launchMode="singleTask"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 </activity>
-<provider
-  android:name="com.baidu.mobads.openad.FileProvider"
-  android:authorities="${applicationId}.bd.provider"
+
+<provider android:name="com.baidu.mobads.openad.BdFileProvider"
+  android:authorities="${packageName}.bd.provider"
   android:exported="false"
   android:grantUriPermissions="true">
   <meta-data
       android:name="android.support.FILE_PROVIDER_PATHS"
-      android:resource="@xml/bd_file_paths" />
+      android:resource="@xml/bd_file_path" /> 
 </provider>
 ```
 
@@ -301,7 +324,7 @@ AndroidManifest.xml Component：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_facebook.jar                               |
-| Provider Ver      | 5.4.1                                                       |
+| Provider Ver      | 5.9.0                                                       |
 | minSdkVersion     | Android 3.0 / API 11                                         |
 | GooglePlayService | Require                                                      |
 | Ad Form           | Banner, Interstitial , Reward Video (Videos ads in Audience Network requires the hardware accelerated rendering to be enabled, otherwise you might experience a black screen in the video views), Native |
@@ -326,24 +349,15 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-  android:name="com.facebook.ads.AudienceNetworkActivity"
-  android:configChanges="keyboardHidden|orientation|screenSize"
-  android:exported="false"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-<activity
-  android:name="com.facebook.ads.internal.ipc.RemoteANActivity"
-  android:configChanges="keyboardHidden|orientation|screenSize"
-  android:exported="false"
-  android:process=":adnw"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    android:name="com.facebook.ads.AudienceNetworkActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:exported="false"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-<service
-  android:name="com.facebook.ads.internal.ipc.AdsProcessPriorityService"
-  android:exported="false" />
-<service
-  android:name="com.facebook.ads.internal.ipc.AdsMessengerService"
-  android:exported="false"
-  android:process=":adnw" />
+<provider
+    android:name="com.facebook.ads.AudienceNetworkContentProvider"
+    android:authorities="${applicationId}.AudienceNetworkContentProvider"
+    android:exported="false" />
 ```
 
 **ProGuard：**
@@ -360,7 +374,7 @@ AndroidManifest.xml Component：
 |                   |                           |
 | ----------------- | ------------------------- |
 | Jar Name          | libs/yumi_adapter_gdt.jar |
-| Provider Ver      | 4.150.1020                   |
+| Provider Ver      | 4.210.1080                   |
 | GooglePlayService | --                        |
 | Ad Form           | Banner, Interstitial, Reward Video, Native, Splash      |
 | .so/lib project   | --                        |
@@ -398,36 +412,44 @@ AndroidManifest.xml Component：
 <uses-library
   android:name="org.apache.http.legacy"
   android:required="false" />
-<service
-  android:name="com.qq.e.comm.DownloadService"
-  android:exported="false"
-  android:multiprocess="true" />
+ <service
+    android:name="com.qq.e.comm.DownloadService"
+    android:exported="false"
+    android:multiprocess="true" />
 <activity
-  android:name="com.qq.e.ads.ADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true" />
+    android:name="com.qq.e.ads.ADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true" />
 <activity
-  android:name="com.qq.e.ads.PortraitADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true"
-  android:screenOrientation="portrait" />
+    android:name="com.qq.e.ads.PortraitADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true"
+    android:screenOrientation="portrait" />
 <activity
-  android:name="com.qq.e.ads.LandscapeADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true"
-  android:screenOrientation="landscape" />
+    android:name="com.qq.e.ads.LandscapeADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true"
+    android:screenOrientation="landscape" />
 <activity
-  android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true"
-  android:theme="@android:style/Theme.Translucent" />
+    android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true"
+    android:theme="@android:style/Theme.Translucent" >
+    <meta-data
+        android:name="android.notch_support"
+        android:value="true" />
+</activity> 
 <activity
-  android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true"
-  android:theme="@android:style/Theme.Translucent" />
+    android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true"
+    android:theme="@android:style/Theme.Translucent" >
+    <meta-data
+        android:name="android.notch_support"
+        android:value="true" />
+</activity>
 <provider
-  android:name="android.support.v4.content.FileProvider"
+  android:name="com.yumi.android.sdk.ads.adapter.GdtFileProvider"
   android:authorities="${applicationId}.fileprovider"
   android:exported="false"
   android:grantUriPermissions="true" >
@@ -522,6 +544,16 @@ AndroidManifest.xml Component：
 -keep class com.integralads.avid.library.** {*;}
 ```
 
+**Migrate project to AndroidX：**
+
+The latest Inmobi Mobile Ads SDK uses Jetpack libraries.
+
+To ensure the Inmobi Mobile Ads SDK are compatible, create a gradle.properties file in the top-level of your project, and add the following code:
+```c
+android.useAndroidX=true
+android.enableJetifier=true
+```
+This will rewrite the project SDK binary to use use Jetpack libraries. See [AndroidX migration guide](https://developer.android.com/jetpack/androidx/migrate) for more information about these settings.
 
 <br />
 
@@ -531,7 +563,7 @@ AndroidManifest.xml Component：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar Name          | libs/yumi_adapter_mintegral.jar                               |
-| Provider Ver      | 10.2.11                                                        |
+| Provider Ver      | 13.1.11                                                        |
 | GooglePlayService | --                                                           |
 | Ad Form           | Interstitial, Reward Video                                                 |
 | .so/lib project   | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values  |
@@ -562,43 +594,44 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-  android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
-  android:configChanges="orientation|keyboardHidden|screenSize"
-  android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    android:name="com.mintegral.msdk.activity.MTGCommonActivity"
+    android:configChanges="keyboard|orientation"
+    android:screenOrientation="portrait"
+    android:exported="false"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar">
+</activity>
 <activity
-  android:name="com.mintegral.msdk.activity.MTGCommonActivity"
-  android:configChanges="keyboard|orientation"
-  android:exported="true"
-  android:screenOrientation="portrait"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
+    android:configChanges="orientation|keyboardHidden|screenSize"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 <activity
-  android:name="com.mintegral.msdk.mtgjscommon.authority.activity.MTGAuthorityActivity"
-  android:configChanges="keyboardHidden|orientation|screenSize" />
-<service android:name="com.mintegral.msdk.shell.MTGService" >
-  <intent-filter>
-      <action android:name="com.mintegral.msdk.download.action" />
-  </intent-filter>
-</service>
-<receiver android:name="com.mintegral.msdk.click.AppReceiver" >
-  <intent-filter>
-      <action android:name="android.intent.action.PACKAGE_ADDED" />
+    android:name="com.mintegral.msdk.mtgjscommon.authority.activity.MTGAuthorityActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize" />
 
-      <data android:scheme="package" />
-  </intent-filter>
+<service android:name="com.mintegral.msdk.shell.MTGService">
+    <intent-filter>
+        <action android:name="com.mintegral.msdk.download.action" />
+    </intent-filter>
+</service>
+<receiver android:name="com.mintegral.msdk.click.AppReceiver">
+    <intent-filter>
+        <action android:name="android.intent.action.PACKAGE_ADDED" />
+        <data android:scheme="package" />
+    </intent-filter>
 </receiver>
 <provider
-  android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
-  android:authorities="${applicationId}.mtgFileProvider"
-  android:exported="false"
-  android:grantUriPermissions="true" >
-  <meta-data
-      android:name="android.support.FILE_PROVIDER_PATHS"
-      android:resource="@xml/mtg_provider_paths" />
+    android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+    android:authorities="${applicationId}.mtgFileProvider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/mtg_provider_paths"/>
 </provider>
 <activity
-  android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity"
-  android:configChanges="orientation|screenSize"
-  android:screenOrientation="portrait" />
+    android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity"
+    android:configChanges="orientation|screenSize"
+    android:screenOrientation="portrait" />
 ```
 
 **ProGuard：**
@@ -613,6 +646,17 @@ AndroidManifest.xml Component：
 -keep class com.alphab.** {*; }
 -keep interface com.alphab.** {*; }
 ```
+
+**Migrate project to AndroidX：**
+
+The latest Mintegral Mobile Ads SDK uses Jetpack libraries.
+
+To ensure the Mintegral Mobile Ads SDK are compatible, create a gradle.properties file in the top-level of your project, and add the following code:
+```c
+android.useAndroidX=true
+android.enableJetifier=true
+```
+This will rewrite the project SDK binary to use use Jetpack libraries. See [AndroidX migration guide](https://developer.android.com/jetpack/androidx/migrate) for more information about these settings.
 <br />
 
 
@@ -745,7 +789,7 @@ dependencies {
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar Name          | libs/yumi_adapter_unity.jar |
-| Provider Ver      | 3.1.0                       |
+| Provider Ver      | 3.4.2                       |
 | GooglePlayService | Require                     |
 | Ad Form           | Interstitial,Reward Video   |
 | .so/lib project   | --                          |
@@ -768,26 +812,26 @@ dependencies {
 
 AndroidManifest.xml Component：
 ```xml
-  <activity
-      android:name="com.unity3d.services.ads.adunit.AdUnitActivity"
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-      android:hardwareAccelerated="true" />
-  <activity
-      android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity"
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-      android:hardwareAccelerated="true" />
-  <activity
-      android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity"
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-      android:hardwareAccelerated="false" />
-  <activity
-      android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity"
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-      android:hardwareAccelerated="false" />
+<activity
+  android:name="com.unity3d.services.ads.adunit.AdUnitActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<activity
+  android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+<activity
+  android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="false"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+<activity
+  android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="false"
+  android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 ```
 
 **ProGuard：**
@@ -820,7 +864,7 @@ AndroidManifest.xml Component：
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar Name          | libs/yumi_adapter_vungle.jar |
-| Provider Ver      | 6.4.10                       |
+| Provider Ver      | 6.5.3                      |
 | GooglePlayService | Require                      |
 | Ad Form           | Interstitial, Reward Video   |
 | .so/lib project   | converter-gson-2.2.0.jar  <br />  fetch-1.1.5.jar  <br />  gson-2.7.jar  <br />  logging-interceptor-3.7.0.jar  <br />  okhttp-3.7.0.jar  <br />  okio-1.12.0.jar  <br />  retrofit-2.2.0.jar  <br />  VNG-moat-mobile-app-kit-2.2.0.jar |
@@ -848,7 +892,7 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-    android:name="com.vungle.warren.ui.VungleActivity"      
+    android:name="com.vungle.warren.ui.VungleActivity"
     android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
@@ -858,11 +902,13 @@ AndroidManifest.xml Component：
     android:hardwareAccelerated="true"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
 <receiver
     android:name="com.vungle.warren.NetworkProviderReceiver"
     android:enabled="false" >
     <intent-filter>
         <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
         <category android:name="android.intent.category.DEFAULT" />
     </intent-filter>
 </receiver>
@@ -918,6 +964,16 @@ AndroidManifest.xml Component：
 -keep,allowobfuscation interface <1>
 ```
 
+**Migrate project to AndroidX：**
+
+The latest Vungle Mobile Ads SDK uses Jetpack libraries.
+
+To ensure the Vungle Mobile Ads SDK are compatible, create a gradle.properties file in the top-level of your project, and add the following code:
+```c
+android.useAndroidX=true
+android.enableJetifier=true
+```
+This will rewrite the project SDK binary to use use Jetpack libraries. See [AndroidX migration guide](https://developer.android.com/jetpack/androidx/migrate) for more information about these settings.
 
 <br />
 
@@ -927,7 +983,7 @@ AndroidManifest.xml Component：
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar Name          | libs/yumi_adapter_playableads.jar |
-| Provider Ver      | 3.0.0                             |
+| Provider Ver      |  3.1.0                            |
 | GooglePlayService | --                                |
 | Ad Form           | Interstitial, Reward Video        |
 | .so/lib project   | --                                |
@@ -1050,7 +1106,7 @@ AndroidManifest.xml Component：
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar Name           | libs/yumi_adapter_ironsource.jar |
-| Provider Ver          | 6.7.10                        |
+| Provider Ver          | 6.15.1                       |
 | GooglePlayService | Require                         |
 | Ad Form       | Interstitial, Reward Video                   |
 | .so/lib project       | --|
@@ -1074,19 +1130,19 @@ dependencies {
 AndroidManifest.xml Component：
 ```xml
 <activity
-  android:name="com.ironsource.sdk.controller.ControllerActivity"
-  android:configChanges="orientation|screenSize"
-  android:hardwareAccelerated="true" />
+    android:name="com.ironsource.sdk.controller.ControllerActivity"
+    android:configChanges="orientation|screenSize"
+    android:hardwareAccelerated="true" />
 <activity
-  android:name="com.ironsource.sdk.controller.InterstitialActivity"
-  android:configChanges="orientation|screenSize"
-  android:hardwareAccelerated="true"
-  android:theme="@android:style/Theme.Translucent" />
+    android:name="com.ironsource.sdk.controller.InterstitialActivity"
+    android:configChanges="orientation|screenSize"
+    android:hardwareAccelerated="true"
+    android:theme="@android:style/Theme.Translucent" />
 <activity
-  android:name="com.ironsource.sdk.controller.OpenUrlActivity"
-  android:configChanges="orientation|screenSize"
-  android:hardwareAccelerated="true"
-  android:theme="@android:style/Theme.Translucent" />
+    android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+    android:configChanges="orientation|screenSize"
+    android:hardwareAccelerated="true"
+    android:theme="@android:style/Theme.Translucent" />
 ```
 
 **ProGuard：**

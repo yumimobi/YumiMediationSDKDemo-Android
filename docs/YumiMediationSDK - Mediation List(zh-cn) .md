@@ -78,7 +78,7 @@ AndroidManifest.xml注册组件：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_admob.jar |
-| 三方版本          | 17.2.0                          |
+| 三方版本          | 19.1.0                          |
 | GooglePlayService | 需要                        |
 | 支持广告形式      | Banner, 插屏, 视频, 原生          |
 | .so/lib工程       | --                          |
@@ -135,13 +135,25 @@ AndroidManifest.xml注册组件：
 
 <br />
 
+**将项目迁移到AndroidX：**
+
+由于最新的Google Mobile Ads SDK使用Jetpack库。
+
+为确保Google Mobile Ads SDK兼容，请在项目的顶层创建gradle.properties文件，然后添加以下代码：
+```c
+android.useAndroidX=true
+android.enableJetifier=true
+```
+
+这将重写项目中所有SDK二进制文件以使用Jetpack库。 有关这些设置的更多信息，请参见[AndroidX迁移指南](https://developer.android.com/jetpack/androidx/migrate)。
+
 
 ### AppLovin
 
 |                   |                                |
 | ----------------- | ------------------------------ |
 | Jar名称           | libs/yumi_adapter_applovin.jar |
-| 三方版本          | 9.9.2                          |
+| 三方版本          | 9.12.6                          |
 | GooglePlayService | 需要                           |
 | 支持广告形式      | Banner, 插屏, 视频                     |
 | .so/lib工程       | --                             |
@@ -166,8 +178,15 @@ AndroidManifest.xml注册组件：
 ```xml
 <activity
   android:name="com.applovin.adview.AppLovinInterstitialActivity"
-  android:configChanges="orientation|screenSize"
+  android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"
   android:hardwareAccelerated="true"
+  android:screenOrientation="behind" />
+<activity
+  android:name="com.applovin.adview.AppLovinFullscreenActivity"
+  android:configChanges="keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+  android:exported="false"
+  android:hardwareAccelerated="true"
+  android:launchMode="singleTop"
   android:screenOrientation="behind" />
 <activity
   android:name="com.applovin.sdk.AppLovinWebViewActivity"
@@ -180,6 +199,10 @@ AndroidManifest.xml注册组件：
   android:name="com.applovin.mediation.MaxDebuggerDetailActivity"
   android:configChanges="keyboardHidden|orientation|screenSize"
   android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
+<service
+  android:name="com.applovin.impl.sdk.utils.AppKilledService"
+  android:exported="false"
+  android:stopWithTask="false" />
 ```
 
 
@@ -198,7 +221,7 @@ AndroidManifest.xml注册组件：
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_baidu.jar |
-| 三方版本          | 5.8.0                         |
+| 三方版本          | 5.85                         |
 | GooglePlayService | --                          |
 | 支持广告形式      | Banner, 插屏, 视频, 原生, 开屏        |
 | .so/lib工程       | --                          |
@@ -225,22 +248,23 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-	android:name="com.baidu.mobads.AppActivity"
-	android:configChanges="keyboard|keyboardHidden|orientation" />
+  android:name="com.baidu.mobads.AppActivity"
+  android:configChanges="screenSize|keyboard|keyboardHidden|orientation"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 <activity
   android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
   android:configChanges="screenSize|orientation|keyboardHidden"
   android:launchMode="singleTask"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-  </activity>
-<provider
-  android:name="com.baidu.mobads.openad.FileProvider"
-  android:authorities="${applicationId}.bd.provider"
+</activity>
+
+<provider android:name="com.baidu.mobads.openad.BdFileProvider"
+  android:authorities="${packageName}.bd.provider"
   android:exported="false"
   android:grantUriPermissions="true">
   <meta-data
       android:name="android.support.FILE_PROVIDER_PATHS"
-      android:resource="@xml/bd_file_paths" />
+      android:resource="@xml/bd_file_path" /> 
 </provider>
 ```
 
@@ -301,7 +325,7 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_facebook.jar                               |
-| 三方版本          | 5.4.1                                                       |
+| 三方版本          | 5.9.0                                                      |
 | 最小安卓版本      | Android 3.0  /  API 11                                       |
 | GooglePlayService | 需要                                                         |
 | 支持广告形式      | Banner, 插屏 , 视频 (视频广告需要启用硬件加速功能，否则会导致黑屏), 原生 |
@@ -326,24 +350,16 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-  android:name="com.facebook.ads.AudienceNetworkActivity"
-  android:configChanges="keyboardHidden|orientation|screenSize"
-  android:exported="false"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-<activity
-  android:name="com.facebook.ads.internal.ipc.RemoteANActivity"
-  android:configChanges="keyboardHidden|orientation|screenSize"
-  android:exported="false"
-  android:process=":adnw"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    android:name="com.facebook.ads.AudienceNetworkActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:exported="false"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-<service
-  android:name="com.facebook.ads.internal.ipc.AdsProcessPriorityService"
-  android:exported="false" />
-<service
-  android:name="com.facebook.ads.internal.ipc.AdsMessengerService"
-  android:exported="false"
-  android:process=":adnw" />
+<provider
+    android:name="com.facebook.ads.AudienceNetworkContentProvider"
+    android:authorities="${applicationId}.AudienceNetworkContentProvider"
+    android:exported="false" />
+
 ```
 
 **混淆：**
@@ -359,7 +375,7 @@ AndroidManifest.xml注册组件：
 |                   |                           |
 | ----------------- | ------------------------- |
 | Jar名称           | libs/yumi_adapter_gdt.jar |
-| 三方版本          | 4.150.1020                   |
+| 三方版本          | 4.210.1080                    |
 | GooglePlayService | --                        |
 | 支持广告形式      | Banner, 插屏, 视频, 原生, 开屏  |
 | .so/lib工程       | --                        |
@@ -398,36 +414,44 @@ AndroidManifest.xml注册组件：
 <uses-library
   android:name="org.apache.http.legacy"
   android:required="false" />
-<service
-  android:name="com.qq.e.comm.DownloadService"
-  android:exported="false"
-  android:multiprocess="true" />
+ <service
+    android:name="com.qq.e.comm.DownloadService"
+    android:exported="false"
+    android:multiprocess="true" />
 <activity
-  android:name="com.qq.e.ads.ADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true" />
+    android:name="com.qq.e.ads.ADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true" />
 <activity
-  android:name="com.qq.e.ads.PortraitADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true"
-  android:screenOrientation="portrait" />
+    android:name="com.qq.e.ads.PortraitADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true"
+    android:screenOrientation="portrait" />
 <activity
-  android:name="com.qq.e.ads.LandscapeADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true"
-  android:screenOrientation="landscape" />
+    android:name="com.qq.e.ads.LandscapeADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true"
+    android:screenOrientation="landscape" />
 <activity
-  android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true"
-  android:theme="@android:style/Theme.Translucent" />
+    android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true"
+    android:theme="@android:style/Theme.Translucent" >
+    <meta-data
+        android:name="android.notch_support"
+        android:value="true" />
+</activity> 
 <activity
-  android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
-  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-  android:multiprocess="true"
-  android:theme="@android:style/Theme.Translucent" />
+    android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:multiprocess="true"
+    android:theme="@android:style/Theme.Translucent" >
+    <meta-data
+        android:name="android.notch_support"
+        android:value="true" />
+</activity>
 <provider
-  android:name="android.support.v4.content.FileProvider"
+  android:name="com.yumi.android.sdk.ads.adapter.GdtFileProvider"
   android:authorities="${applicationId}.fileprovider"
   android:exported="false"
   android:grantUriPermissions="true" >
@@ -517,9 +541,21 @@ AndroidManifest.xml注册组件：
 -keep class com.integralads.avid.library.** {*;}
 ```
 
+**将项目迁移到AndroidX：**
 
+由于最新的Inmobi Mobile Ads SDK使用Jetpack库。
+
+为确保Inmobi Mobile Ads SDK兼容，请在项目的顶层创建gradle.properties文件，然后添加以下代码：
+```c
+android.useAndroidX=true
+android.enableJetifier=true
+```
+
+这将重写项目中所有SDK二进制文件以使用Jetpack库。 有关这些设置的更多信息，请参见[AndroidX迁移指南](https://developer.android.com/jetpack/androidx/migrate)。
 
 <br />
+
+
 
 
 ### Mintegral
@@ -527,7 +563,7 @@ AndroidManifest.xml注册组件：
 |                   |                                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Jar名称           | libs/yumi_adapter_mintegral.jar                               |
-| 三方版本          | 10.2.11                                                       |
+| 三方版本          | 13.1.11                                                       |
 | GooglePlayService | --                                                           |
 | 支持广告形式      | 插屏，视频                                                         |
 | .so/lib工程       | \res\ anim <br /> \res\drawable <br /> \res\drawable-hdpi <br /> \res\layout <br /> \res\values |
@@ -558,43 +594,44 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-  android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
-  android:configChanges="orientation|keyboardHidden|screenSize"
-  android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    android:name="com.mintegral.msdk.activity.MTGCommonActivity"
+    android:configChanges="keyboard|orientation"
+    android:screenOrientation="portrait"
+    android:exported="false"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar">
+</activity>
 <activity
-  android:name="com.mintegral.msdk.activity.MTGCommonActivity"
-  android:configChanges="keyboard|orientation"
-  android:exported="true"
-  android:screenOrientation="portrait"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
+    android:configChanges="orientation|keyboardHidden|screenSize"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 <activity
-  android:name="com.mintegral.msdk.mtgjscommon.authority.activity.MTGAuthorityActivity"
-  android:configChanges="keyboardHidden|orientation|screenSize" />
-<service android:name="com.mintegral.msdk.shell.MTGService" >
-  <intent-filter>
-      <action android:name="com.mintegral.msdk.download.action" />
-  </intent-filter>
-</service>
-<receiver android:name="com.mintegral.msdk.click.AppReceiver" >
-  <intent-filter>
-      <action android:name="android.intent.action.PACKAGE_ADDED" />
+    android:name="com.mintegral.msdk.mtgjscommon.authority.activity.MTGAuthorityActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize" />
 
-      <data android:scheme="package" />
-  </intent-filter>
+<service android:name="com.mintegral.msdk.shell.MTGService">
+    <intent-filter>
+        <action android:name="com.mintegral.msdk.download.action" />
+    </intent-filter>
+</service>
+<receiver android:name="com.mintegral.msdk.click.AppReceiver">
+    <intent-filter>
+        <action android:name="android.intent.action.PACKAGE_ADDED" />
+        <data android:scheme="package" />
+    </intent-filter>
 </receiver>
 <provider
-  android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
-  android:authorities="${applicationId}.mtgFileProvider"
-  android:exported="false"
-  android:grantUriPermissions="true" >
-  <meta-data
-      android:name="android.support.FILE_PROVIDER_PATHS"
-      android:resource="@xml/mtg_provider_paths" />
+    android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+    android:authorities="${applicationId}.mtgFileProvider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/mtg_provider_paths"/>
 </provider>
 <activity
-  android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity"
-  android:configChanges="orientation|screenSize"
-  android:screenOrientation="portrait" />
+    android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity"
+    android:configChanges="orientation|screenSize"
+    android:screenOrientation="portrait" />
 ```
 
 **混淆：**
@@ -609,6 +646,18 @@ AndroidManifest.xml注册组件：
 -keep class com.alphab.** {*; }
 -keep interface com.alphab.** {*; }
 ```
+
+**将项目迁移到AndroidX：**
+
+由于最新的Mintegral Mobile Ads SDK使用Jetpack库。
+
+为确保Mintegral Mobile Ads SDK兼容，请在项目的顶层创建gradle.properties文件，然后添加以下代码：
+```c
+android.useAndroidX=true
+android.enableJetifier=true
+```
+
+这将重写项目中所有SDK二进制文件以使用Jetpack库。 有关这些设置的更多信息，请参见[AndroidX迁移指南](https://developer.android.com/jetpack/androidx/migrate)。
 
 <br />
 
@@ -742,7 +791,7 @@ dependencies {
 |                   |                             |
 | ----------------- | --------------------------- |
 | Jar名称           | libs/yumi_adapter_unity.jar |
-| 三方版本          | 3.1.0                       |
+| 三方版本          | 3.4.2                      |
 | GooglePlayService | 需要                        |
 | 支持广告形式      | 插屏,视频                   |
 | .so/lib工程       | --                          |
@@ -765,26 +814,26 @@ dependencies {
 
 AndroidManifest.xml注册组件：
 ```xml
-  <activity
-      android:name="com.unity3d.services.ads.adunit.AdUnitActivity"
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-      android:hardwareAccelerated="true" />
-  <activity
-      android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity"
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-      android:hardwareAccelerated="true" />
-  <activity
-      android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity"
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-      android:hardwareAccelerated="false" />
-  <activity
-      android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity"
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
-      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-      android:hardwareAccelerated="false" />
+<activity
+  android:name="com.unity3d.services.ads.adunit.AdUnitActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+<activity
+  android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+<activity
+  android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="false"
+  android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+<activity
+  android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity"
+  android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+  android:hardwareAccelerated="false"
+  android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 ```
 
 **混淆：**
@@ -817,7 +866,7 @@ AndroidManifest.xml注册组件：
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar名称           | libs/yumi_adapter_vungle.jar |
-| 三方版本          | 6.4.10                       |
+| 三方版本          | 6.5.3                      |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | 插屏, 视频                   |
 | .so/lib工程       | converter-gson-2.2.0.jar  <br />  fetch-1.1.5.jar  <br />  gson-2.7.jar  <br />  logging-interceptor-3.7.0.jar  <br />  okhttp-3.7.0.jar  <br />  okio-1.12.0.jar  <br />  retrofit-2.2.0.jar  <br />  VNG-moat-mobile-app-kit-2.2.0.jar |
@@ -845,7 +894,7 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-    android:name="com.vungle.warren.ui.VungleActivity"      
+    android:name="com.vungle.warren.ui.VungleActivity"
     android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
@@ -855,11 +904,13 @@ AndroidManifest.xml注册组件：
     android:hardwareAccelerated="true"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
 <receiver
     android:name="com.vungle.warren.NetworkProviderReceiver"
     android:enabled="false" >
     <intent-filter>
         <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
         <category android:name="android.intent.category.DEFAULT" />
     </intent-filter>
 </receiver>
@@ -915,6 +966,18 @@ AndroidManifest.xml注册组件：
 -keep,allowobfuscation interface <1>
 ```
 
+**将项目迁移到AndroidX：**
+
+由于最新的Vungle Mobile Ads SDK使用Jetpack库。
+
+为确保Vungle Mobile Ads SDK兼容，请在项目的顶层创建gradle.properties文件，然后添加以下代码：
+```c
+android.useAndroidX=true
+android.enableJetifier=true
+```
+
+这将重写项目中所有SDK二进制文件以使用Jetpack库。 有关这些设置的更多信息，请参见[AndroidX迁移指南](https://developer.android.com/jetpack/androidx/migrate)。
+
 
 <br />
 
@@ -925,7 +988,7 @@ AndroidManifest.xml注册组件：
 |                   |                                   |
 | ----------------- | --------------------------------- |
 | Jar名称           | libs/yumi_adapter_playableads.jar |
-| 三方版本          | 3.0.0                             |
+| 三方版本          | 3.1.0                             |
 | GooglePlayService | --                                |
 | 支持广告形式      | 插屏, 视频                        |
 | .so/lib工程       | --                                |
@@ -1047,7 +1110,7 @@ AndroidManifest.xml注册组件：
 |                   |                              |
 | ----------------- | ---------------------------- |
 | Jar名称           | libs/yumi_adapter_ironsource.jar |
-| 三方版本          | 6.8.4                       |
+| 三方版本          | 6.16.1                      |
 | GooglePlayService | 需要                         |
 | 支持广告形式      | 插屏,视频                   |
 | .so/lib工程       | --|
@@ -1071,19 +1134,19 @@ dependencies {
 AndroidManifest.xml注册组件：
 ```xml
 <activity
-  android:name="com.ironsource.sdk.controller.ControllerActivity"
-  android:configChanges="orientation|screenSize"
-  android:hardwareAccelerated="true" />
+    android:name="com.ironsource.sdk.controller.ControllerActivity"
+    android:configChanges="orientation|screenSize"
+    android:hardwareAccelerated="true" />
 <activity
-  android:name="com.ironsource.sdk.controller.InterstitialActivity"
-  android:configChanges="orientation|screenSize"
-  android:hardwareAccelerated="true"
-  android:theme="@android:style/Theme.Translucent" />
+    android:name="com.ironsource.sdk.controller.InterstitialActivity"
+    android:configChanges="orientation|screenSize"
+    android:hardwareAccelerated="true"
+    android:theme="@android:style/Theme.Translucent" />
 <activity
-  android:name="com.ironsource.sdk.controller.OpenUrlActivity"
-  android:configChanges="orientation|screenSize"
-  android:hardwareAccelerated="true"
-  android:theme="@android:style/Theme.Translucent" />
+    android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+    android:configChanges="orientation|screenSize"
+    android:hardwareAccelerated="true"
+    android:theme="@android:style/Theme.Translucent" />
 ```
 
 **混淆：**
