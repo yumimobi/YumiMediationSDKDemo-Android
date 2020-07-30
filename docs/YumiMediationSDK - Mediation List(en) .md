@@ -20,7 +20,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 
 - The minSdkVersion which the provider sdk required maybe above the YumiMobi SDK , please use the higher as your project minSdkVersion to avoid the unexpected exception. "-" means the minSdkVersion is same to YumiMobi SDK required.
 
-- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 4.6.1 "com.yumimobi.ads:mediation:4.6.1", you need to add such Adapter 4.6.1 version "com.yumimobi.ads.mediation:such:4.6.1"
+- When developing with AndroidStudio, the adapter version number should be consistent with the main package version number of the corn SDK. To add such, Adapter, for example, you use the corn SDK for version 4.7.0 "com.yumimobi.ads:mediation:4.7.0", you need to add such Adapter 4.7.0 version "com.yumimobi.ads.mediation:such:4.7.0"
 
 ## Support List
 
@@ -47,7 +47,7 @@ Before you use mediation , make sure you has integrated YumiMobiSDK by 《YumiMo
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:adcolony:4.7.0'
 }
 ```
 
@@ -92,7 +92,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:admob:4.7.0'
 }
 ```
 
@@ -164,7 +164,7 @@ This will rewrite the project SDK binary to use use Jetpack libraries. See [Andr
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:applovin:4.7.0'
 }
 ```
 
@@ -236,7 +236,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:baidu:4.7.0'
 }
 ```
 
@@ -295,7 +295,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:chartboost:4.7.0'
 }
 ```
 
@@ -340,7 +340,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:facebook:4.7.0'
 }
 ```
 
@@ -394,7 +394,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:gdt:4.7.0'
 }
 ```
 <p><span style="color:red;">Precautions:
@@ -506,7 +506,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:inmobi:4.7.0'
 }
 ```
 
@@ -583,9 +583,9 @@ build.gradle add：
 ```c
 dependencies {
   //GooglePlay release or release outside China market channel
-  implementation 'com.yumimobi.ads.mediation:mintegral:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:mintegral:4.7.0'
   //China market channel release
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.7.0'
 }
 ```
 
@@ -682,7 +682,7 @@ This will rewrite the project SDK binary to use use Jetpack libraries. See [Andr
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:oneway:4.7.0'
 }
 ```
 
@@ -772,7 +772,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:pubnative:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:pubnative:4.7.0'
 }
 ```
 
@@ -804,7 +804,7 @@ dependencies {
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:unity:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:unity:4.7.0'
 }
 ```
 
@@ -883,7 +883,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:vungle:4.7.0'
 }
 ```
 
@@ -998,7 +998,7 @@ This will rewrite the project SDK binary to use use Jetpack libraries. See [Andr
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:atmosplay:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:atmosplay:4.7.0'
 }
 ```
 
@@ -1062,7 +1062,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:ksyun:4.7.0'
 }
 ```
 
@@ -1121,7 +1121,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:ironsource:4.7.0'
 }
 ```
 
@@ -1184,7 +1184,7 @@ AndroidManifest.xml Component：
 build.gradle add：
 ```c
 dependencies {
-   implementation 'com.yumimobi.ads.mediation:iqzone:4.6.1'
+   implementation 'com.yumimobi.ads.mediation:iqzone:4.7.0'
 }
 ```
 
@@ -1383,7 +1383,7 @@ dependencies {
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:bytedance:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:bytedance:4.7.0'
 }
 ```
 
@@ -1416,7 +1416,7 @@ dependencies {
 build.gradle add：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:tapjoy:4.6.1'
+  implementation 'com.yumimobi.ads.mediation:tapjoy:4.7.0'
 }
 ```
 
