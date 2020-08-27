@@ -97,32 +97,32 @@ allprojets {
 ```groovy
 dependencies {
     // YumiMediationSDK main package
-    implementation 'com.yumimobi.ads:mediation:4.7.0'
+    implementation 'com.yumimobi.ads:mediation:5.0.0'
 
     // YumiMediationSDK adapters, each adapter is one third party sdk.
-    implementation 'com.yumimobi.ads.mediation:atmosplay:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:adcolony:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:applovin:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:baidu:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:bytedance:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:chartboost:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:facebook:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:gdt:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:inneractive:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:ironsource:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:ksyun:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:oneway:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:tapjoy:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:unity:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:pubnative:4.7.0'
+    implementation 'com.yumimobi.ads.mediation:atmosplay:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:adcolony:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:applovin:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:baidu:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:bytedance:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:chartboost:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:facebook:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:gdt:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:inneractive:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:ironsource:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:ksyun:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:oneway:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:tapjoy:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:unity:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:pubnative:5.0.0'
 
     //由于最新的inmobi，admob，vungle，mintegral SDK需要使用Jetpack libraries，请将项目迁移到AndroidX，具体迁移步骤请看下面的聚合平台adapter详细说明
-    implementation 'com.yumimobi.ads.mediation:inmobi:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:admob:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:vungle:4.7.0'
-    implementation 'com.yumimobi.ads.mediation:mintegral:4.7.0'
+    implementation 'com.yumimobi.ads.mediation:inmobi:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:admob:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:vungle:5.0.0'
+    implementation 'com.yumimobi.ads.mediation:mintegral:5.0.0'
     // If you publish an app in China, you can use mintegral-china sdk
-    // compile 'com.yumimobi.ads.mediation:mintegral-china:4.7.0'
+    // compile 'com.yumimobi.ads.mediation:mintegral-china:5.0.0'
 ｝
 ```
 
