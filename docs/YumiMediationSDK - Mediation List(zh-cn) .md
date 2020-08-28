@@ -20,7 +20,7 @@
 
 -  请注意三方SDK最小安卓版本, 可能高于玉米聚合广告SDK所要求的最小安卓版本, 此时您的工程应选用两者中较高的版本作为工程的最小版本, 否则使用三方平台时, 可能造成未知的影响。 "-"意味着和玉米聚合所支持的安卓最小版本版本一致。
 
--  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 4.7.0 版本 "com.yumimobi.ads:mediation:4.7.0" 时，需要添加Admob Adapter的4.7.0 版本 ”com.yumimobi.ads.mediation:admob:4.7.0“ 
+-  使用AndroidStudio开发时，适配器版本号需跟玉米SDK主包版本号保持一致。以添加Admob Adapter为例：您使用玉米 SDK 为 5.0.0 版本 "com.yumimobi.ads:mediation:5.0.0" 时，需要添加Admob Adapter的5.0.0 版本 ”com.yumimobi.ads.mediation:admob:5.0.0“ 
 
 
 ## 支持列表
@@ -48,7 +48,7 @@
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:adcolony:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:adcolony:5.0.0'
 }
 ```
 
@@ -93,7 +93,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:admob:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:admob:5.0.0'
 }
 ```
 
@@ -168,7 +168,7 @@ android.enableJetifier=true
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:applovin:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:applovin:5.0.0'
 }
 ```
 
@@ -239,7 +239,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:baidu:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:baidu:5.0.0'
 }
 ```
 
@@ -296,7 +296,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:chartboost:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:chartboost:5.0.0'
 }
 ```
 
@@ -341,7 +341,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:facebook:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:facebook:5.0.0'
 }
 ```
 
@@ -395,7 +395,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:gdt:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:gdt:5.0.0'
 }
 ```
 <p><span style="color:red;">注意:
@@ -509,7 +509,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inmobi:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:inmobi:5.0.0'
 }
 ```
 
@@ -583,9 +583,9 @@ build.gradle添加：
 ```c
 dependencies {
   //GooglePlay发布或中国以外市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:mintegral:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral:5.0.0'
   //中国市场渠道发布
-  implementation 'com.yumimobi.ads.mediation:mintegral-china:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:mintegral-china:5.0.0'
 }
 ```
 
@@ -684,7 +684,7 @@ android.enableJetifier=true
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:oneway:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:oneway:5.0.0'
 }
 ```
 
@@ -774,7 +774,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:pubnative:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:pubnative:5.0.0'
 }
 ```
 
@@ -806,7 +806,7 @@ dependencies {
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:unity:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:unity:5.0.0'
 }
 ```
 
@@ -885,7 +885,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:vungle:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:vungle:5.0.0'
 }
 ```
 
@@ -1003,7 +1003,7 @@ android.enableJetifier=true
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:atmosplay:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:atmosplay:5.0.0'
 }
 ```
 
@@ -1066,7 +1066,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ksyun:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:ksyun:5.0.0'
 }
 ```
 
@@ -1125,7 +1125,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:ironsource:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:ironsource:5.0.0'
 }
 ```
 
@@ -1187,7 +1187,7 @@ AndroidManifest.xml注册组件：
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:iqzone:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:iqzone:5.0.0'
 }
 ```
 
@@ -1385,7 +1385,7 @@ dependencies {
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:bytedance:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:bytedance:5.0.0'
 }
 ```
 
@@ -1422,7 +1422,7 @@ dependencies {
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:inneractive:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:inneractive:5.0.0'
 }
 ```
 
@@ -1454,7 +1454,7 @@ dependencies {
 build.gradle添加：
 ```c
 dependencies {
-  implementation 'com.yumimobi.ads.mediation:tapjoy:4.7.0'
+  implementation 'com.yumimobi.ads.mediation:tapjoy:5.0.0'
 }
 ```
 
